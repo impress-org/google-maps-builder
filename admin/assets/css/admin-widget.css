@@ -1,0 +1,459 @@
+/*
+ * Styles specifically for the Yelp Widget Pro widget in the WP admin interface
+ * Is only loaded on widgets.php
+ */
+.wpgp-toggler {
+	padding: 10px;
+	margin: 0 0 10px;
+	cursor: pointer;
+	background-color: #EBEBEB;
+	border: 1px solid #E5E5E5;
+	display: block;
+}
+
+.wpgp-toggler span {
+	background: url('../img/arrows.png') no-repeat 60% -107px;
+	float: right;
+	height: 12px;
+	display: inline-block;
+	width: 12px;
+}
+
+.wpgp-toggler.toggled span {
+	background-position: 60% 1px;
+}
+
+.toggle-item, .reviews-toggle-container {
+	display: none;
+}
+
+.toggle-item p {
+	padding: 0;
+	margin: 0 0 10px;
+}
+
+.toggle-item.toggled, .reviews-toggle-container.toggled {
+	display: block;
+}
+
+.widget-api-option {
+	line-height: 22px;
+}
+
+.widget-api-option input {
+}
+
+.toggle-item select {
+	background: #FFF;
+}
+
+.wpgp-method-span:hover, .search-api-option:hover, .business-api-option:hover {
+	cursor: pointer;
+}
+
+.wpgp-method-label {
+	padding-left: 4px;
+}
+
+.new-window {
+	background: url('../img/new-window-icon.png') no-repeat right 3px transparent;
+	padding-right: 16px;
+}
+
+.wpgp-radio-label {
+	margin: 0 0 5px;
+	display: block;
+}
+
+.wpgp-widget-footer-links {
+	font-style: italic;
+}
+
+.wpgp-widget-footer-links a {
+	margin-right: 10px;
+}
+
+.powered-by-google {
+	background: url('../img/powered-by-google-on-white.png') no-repeat 0 0 transparent;
+	width: 104px;
+	height: 16px;
+}
+
+/*------------------------------------------------
+Google Maps
+---------------------------------------------------*/
+.map-canvas {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	min-height: 400px;
+}
+
+.google-autocomplete-map-wrap {
+	display: none;
+}
+
+.google-autocomplete-map-wrap .controls {
+	margin-top: 16px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 32px;
+	outline: none;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.marker-label,
+.marker-icon {
+	z-index: 99;
+	position: absolute;
+	display: block;
+	margin-top: -50px;
+	margin-left: -25px;
+	width: 50px;
+	height: 50px;
+	font-size: 30px !important;
+	text-align: center;
+	color: #FFFFFF;
+	white-space: nowrap;
+}
+
+/* PAC input */
+
+.pac-input {
+	background-color: #fff;
+	padding: 0 11px 0 13px;
+	width: 100%;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	text-overflow: ellipsis;
+	display: none;
+}
+
+.pac-input:focus {
+	border-color: #4d90fe;
+	width: 100%;
+}
+
+.map-canvas .pac-input {
+	left:10px !important;
+	top: 42px !important;
+	display: block !important;
+	width: 92%;
+	line-height: 26px;
+	margin:0;
+}
+
+
+
+
+.pac-container {
+	font-family: Roboto;
+}
+
+/* Type Selector */
+
+.type-selector {
+	color: #fff;
+	background-color: #4d90fe;
+	padding: 5px 11px 0px 11px;
+	display: none;
+}
+
+.type-selector label {
+	font-family: Roboto;
+	font-size: 13px;
+	font-weight: 300;
+}
+
+.map-canvas .type-selector {
+	left:0 !important;
+	top: 0 !important;
+	display: block !important;
+	margin: 0;
+	width: 100%;
+}
+
+
+ul.map-control-list {
+	margin: 0;
+	padding: 0;
+}
+
+.map-control-list li {
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+.map-control-list li:last-child {
+	margin-right: 0;
+}
+
+.map-control-list li input[type="radio"] {
+	margin: 0 2px 0 0;
+}
+
+/*-------------------------------------------
+Helper Classes
+---------------------------------------------*/
+.clearfix {
+	*zoom: 1;
+}
+
+.clearfix:before, .clearfix:after {
+	display: table;
+	content: "";
+	line-height: 0;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.hide-text {
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	background-color: transparent;
+	border: 0;
+}
+
+.input-block-level {
+	display: block;
+	width: 100%;
+	min-height: 30px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.clickable + .toggle-item {
+	padding: 0 5px;
+}
+
+/*----------------------------------------
+Toggle Tips
+-------------------------------------------*/
+
+.tooltip {
+	position: absolute;
+	z-index: 1030;
+	display: block;
+	visibility: visible;
+	padding: 5px;
+	font-size: 11px;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+.tooltip.in {
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+
+.tooltip.top {
+	margin-top: -3px;
+}
+
+.tooltip.right {
+	margin-left: 3px;
+}
+
+.tooltip.bottom {
+	margin-top: 3px;
+}
+
+.tooltip.left {
+	margin-left: -3px;
+}
+
+.tooltip-inner {
+	max-width: 200px;
+	padding: 3px 8px;
+	color: #ffffff;
+	text-align: center;
+	text-decoration: none;
+	background-color: #000000;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.tooltip-arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+}
+
+.tooltip.top .tooltip-arrow {
+	bottom: 0;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px 5px 0;
+	border-top-color: #000000;
+}
+
+.tooltip.right .tooltip-arrow {
+	top: 50%;
+	left: 0;
+	margin-top: -5px;
+	border-width: 5px 5px 5px 0;
+	border-right-color: #000000;
+}
+
+.tooltip.left .tooltip-arrow {
+	top: 50%;
+	right: 0;
+	margin-top: -5px;
+	border-width: 5px 0 5px 5px;
+	border-left-color: #000000;
+}
+
+.tooltip.bottom .tooltip-arrow {
+	top: 0;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 0 5px 5px;
+	border-bottom-color: #000000;
+}
+
+/*----------------------------------------
+Tipsy
+-------------------------------------------*/
+
+.tooltip-info {
+	cursor: help;
+	margin: -3px 0 0 5px;
+	position: relative;
+	top: 3px;
+}
+
+.tipsy {
+	font-size: 10px;
+	position: absolute;
+	padding: 5px;
+	z-index: 100000;
+}
+
+.tipsy-inner {
+	background-color: #000;
+	color: #FFF;
+	max-width: 200px;
+	padding: 5px 8px 4px 8px;
+	text-align: center;
+}
+
+/* Rounded corners */
+.tipsy-inner {
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+/* Uncomment for shadow */
+/*.tipsy-inner { box-shadow: 0 0 5px #000000; -webkit-box-shadow: 0 0 5px #000000; -moz-box-shadow: 0 0 5px #000000; }*/
+
+.tipsy-arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	line-height: 0;
+	border: 5px dashed #000;
+}
+
+/* Rules to colour arrows */
+.tipsy-arrow-n {
+	border-bottom-color: #000;
+}
+
+.tipsy-arrow-s {
+	border-top-color: #000;
+}
+
+.tipsy-arrow-e {
+	border-left-color: #000;
+}
+
+.tipsy-arrow-w {
+	border-right-color: #000;
+}
+
+.tipsy-n .tipsy-arrow {
+	top: 0px;
+	left: 50%;
+	margin-left: -5px;
+	border-bottom-style: solid;
+	border-top: none;
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+
+.tipsy-nw .tipsy-arrow {
+	top: 0;
+	left: 10px;
+	border-bottom-style: solid;
+	border-top: none;
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+
+.tipsy-ne .tipsy-arrow {
+	top: 0;
+	right: 10px;
+	border-bottom-style: solid;
+	border-top: none;
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+
+.tipsy-s .tipsy-arrow {
+	bottom: 0;
+	left: 50%;
+	margin-left: -5px;
+	border-top-style: solid;
+	border-bottom: none;
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+
+.tipsy-sw .tipsy-arrow {
+	bottom: 0;
+	left: 10px;
+	border-top-style: solid;
+	border-bottom: none;
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+
+.tipsy-se .tipsy-arrow {
+	bottom: 0;
+	right: 10px;
+	border-top-style: solid;
+	border-bottom: none;
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+
+.tipsy-e .tipsy-arrow {
+	right: 0;
+	top: 50%;
+	margin-top: -5px;
+	border-left-style: solid;
+	border-right: none;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+}
+
+.tipsy-w .tipsy-arrow {
+	left: 0;
+	top: 50%;
+	margin-top: -5px;
+	border-right-style: solid;
+	border-left: none;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+}

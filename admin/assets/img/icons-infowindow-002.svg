@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY st0 "fill:#4D90FE;">
+	<!ENTITY st1 "fill:#4387FD;fill-opacity:0;">
+	<!ENTITY st2 "enable-background:new    ;">
+	<!ENTITY st3 "opacity:0.5;fill:none;stroke:#000000;stroke-miterlimit:10;">
+	<!ENTITY st4 "opacity:0.55;enable-background:new    ;">
+	<!ENTITY st5 "stroke:#FFFFFF;stroke-width:0.35;stroke-miterlimit:10;">
+	<!ENTITY st6 "fill:#FFFFFF;stroke:#000000;stroke-width:0.8;stroke-miterlimit:10;">
+	<!ENTITY st7 "opacity:0.45;enable-background:new    ;">
+	<!ENTITY st8 "fill:none;stroke:#000000;stroke-width:1.4;stroke-miterlimit:10;">
+	<!ENTITY st9 "opacity:0.5;">
+	<!ENTITY st10 "fill:none;stroke:#000000;stroke-miterlimit:10;">
+	<!ENTITY st11 "fill:#FFD040;">
+	<!ENTITY st12 "fill:#FFFFFF;">
+	<!ENTITY st13 "fill:none;">
+	<!ENTITY st14 "opacity:0.5;fill:#FFFFFF;enable-background:new;">
+	<!ENTITY st15 "fill:#DD4B39;">
+]>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="84px"
+	 height="63px" viewBox="0 0 84 63" style="enable-background:new 0 0 84 63;" xml:space="preserve">
+<g id="Infowindow">
+	<g id="Length">
+		<polygon points="58,31 55,28 55,30 49,30 49,28 46,31 49,34 49,32 55,32 55,34 		"/>
+		<rect x="42" y="21" style="&st13;" width="21" height="21"/>
+	</g>
+	<g id="Perimeter">
+		<path d="M35,27v8h-8v-8H35 M37,25H25v12h12V25L37,25z"/>
+		<rect x="21" y="21" style="&st13;" width="21" height="21"/>
+	</g>
+	<g id="Area">
+		<rect y="21" style="&st13;" width="21" height="21"/>
+		<g>
+			<polygon points="6.646,25 4,27.646 4,28.354 7.354,25 			"/>
+		</g>
+		<g>
+			<polygon points="9.646,25 4,30.646 4,31.354 10.354,25 			"/>
+		</g>
+		<g>
+			<polygon points="12.646,25 4,33.646 4,34.354 13.354,25 			"/>
+		</g>
+		<g>
+			<polygon points="15.646,25 4,36.646 4,37 4.354,37 16,25.354 16,25 			"/>
+		</g>
+		<g>
+			<polygon points="6.646,37 7.354,37 16,28.354 16,27.646 			"/>
+		</g>
+		<g>
+			<polygon points="9.646,37 10.354,37 16,31.354 16,30.646 			"/>
+		</g>
+		<g>
+			<polygon points="12.646,37 13.354,37 16,34.354 16,33.646 			"/>
+		</g>
+	</g>
+	<g id="Delete">
+		<rect x="42" style="&st13;" width="21" height="21"/>
+		<polygon points="53.997,4 53.997,3 50.003,3 50.003,4 46,4 46,6 58,6 58,4 		"/>
+		<rect x="47" y="7" width="10" height="11"/>
+	</g>
+	<g id="Direections">
+		<rect x="21" style="&st13;" width="21" height="21"/>
+		<path style="&st7;" d="M27,4l3.805,3.853C32.227,9.275,32.801,11,32.801,13v4H30.1v-4c-0.016-1.158-0.365-2.311-1.248-3.195L25,6
+			L27,4z"/>
+		<path d="M32.197,7.853l1.816-1.84L32,4h6v6l-2.012-2.012L34.15,9.805C33.266,10.69,32.916,11.842,32.9,13v4H30v-4
+			C30,11,30.773,9.275,32.197,7.853z"/>
+	</g>
+	<g id="Settings">
+		<rect style="&st13;" width="21" height="21"/>
+		<path d="M16.895,11.641C16.96,11.27,17,10.89,17,10.5s-0.04-0.77-0.105-1.14l1.535-1.129l0.182-0.683l-1.5-2.598l-0.684-0.184
+			l-1.738,0.762c-0.58-0.49-1.25-0.875-1.979-1.138L12.5,2.5L12,2H9L8.5,2.499L8.29,4.395C7.562,4.658,6.896,5.043,6.314,5.531
+			L4.57,4.768L3.889,4.951l-1.5,2.598l0.184,0.684l1.535,1.129C4.04,9.731,4,10.111,4,10.5s0.04,0.77,0.105,1.139L2.57,12.768
+			l-0.182,0.685l1.5,2.598l0.682,0.185l1.744-0.764c0.58,0.487,1.248,0.872,1.975,1.137l0.21,1.896L9,19h3l0.5-0.5l0.21-1.893
+			c0.729-0.262,1.397-0.647,1.979-1.137l1.737,0.762l0.685-0.185l1.498-2.598l-0.18-0.683L16.895,11.641z M14.15,10.5
+			c0,2.016-1.635,3.65-3.65,3.65s-3.65-1.635-3.65-3.65c0-2.015,1.635-3.65,3.65-3.65S14.15,8.484,14.15,10.5z"/>
+	</g>
+</g>
+<g id="Table">
+</g>
+<g id="Toolbar">
+</g>
+<g id="Legend_panel">
+</g>
+<g id="App">
+	<g id="Add_image">
+		<rect x="63" y="21" style="&st13;" width="21" height="21"/>
+		<polygon style="&st12;" points="72,27 74,27 74,30 77,30 77,32 74,32 74,35 72,35 72,32 69,32 69,30 72,30 		"/>
+	</g>
+	<g id="Delete_small_white">
+		<rect x="63" style="&st13;" width="21" height="21"/>
+		<polygon style="&st12;" points="74.997,5 74.997,4 71.003,4 71.003,5 68,5 68,7 78,7 78,5 		"/>
+		<rect x="69" y="8" style="&st12;" width="8" height="8"/>
+	</g>
+	<g id="Next_arrow_1_">
+		<rect x="21" y="42" style="&st13;" width="21" height="21"/>
+		<polygon style="&st12;" points="30.277,57 35,53.048 30.287,49 29,50.408 32.053,53.029 29.01,55.576 		"/>
+	</g>
+	<g id="Previous_arrow_1_">
+		<rect y="42" style="&st13;" width="21" height="21"/>
+		<polygon style="&st12;" points="12.99,55.576 9.947,53.029 13,50.408 11.713,49 7,53.048 11.723,57 		"/>
+	</g>
+	<g>
+		<rect x="42" y="42" style="&st13;" width="21" height="21"/>
+		<g>
+			<path d="M46.5,60c-1,0-1.5-0.5-1.5-1.5v-9c0-1,0.5-1.5,1.5-1.5H48c0,0,2-2,3-2h4c1,0,3,2,3,2h1.5c1,0,1.5,0.5,1.5,1.5v9
+				c0,1-0.5,1.5-1.5,1.5H46.5z"/>
+			<path style="&st12;" d="M53,50c-2.209,0-4,1.791-4,4s1.791,4,4,4s4-1.791,4-4S55.209,50,53,50z M53,56.375
+				c-1.312,0-2.375-1.063-2.375-2.375s1.063-2.375,2.375-2.375s2.375,1.063,2.375,2.375S54.312,56.375,53,56.375z"/>
+		</g>
+	</g>
+</g>
+</svg>
