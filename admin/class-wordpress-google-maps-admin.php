@@ -554,6 +554,13 @@ class Google_Maps_Builder_Admin {
 
 					)
 				),
+			    array(
+					'name'  => 'Custom Map Marker Icon',
+					'desc'  => 'Use a custom map marker for the map.',
+					'id'    => $prefix . 'map_marker',
+					'type'  => 'file',
+					'allow' => array( 'url', 'attachment' ),
+			    ),
 			),
 		);
 
