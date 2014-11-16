@@ -81,6 +81,9 @@ class Google_Maps_Builder_Admin {
 	 */
 	public function gmb_add_shortcode_to_publish_metabox() {
 
+		if ('google_maps' !== get_post_type())
+			return false;
+
 		global $post;
 		//Shortcode column with select all input
 		$shortcode = htmlentities( '[google_maps id="' . $post->ID . '"]' );
