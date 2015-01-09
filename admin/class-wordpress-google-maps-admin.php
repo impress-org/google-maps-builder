@@ -81,6 +81,9 @@ class Google_Maps_Builder_Admin {
 	 */
 	public function gmb_add_shortcode_to_publish_metabox() {
 
+		if ('google_maps' !== get_post_type())
+			return false;
+
 		global $post;
 		//Shortcode column with select all input
 		$shortcode = htmlentities( '[google_maps id="' . $post->ID . '"]' );
@@ -551,6 +554,13 @@ class Google_Maps_Builder_Admin {
 
 					)
 				),
+			    array(
+					'name'  => 'Custom Map Marker Icon',
+					'desc'  => 'Use a custom map marker for the map.',
+					'id'    => $prefix . 'map_marker',
+					'type'  => 'file',
+					'allow' => array( 'url', 'attachment' ),
+			    ),
 			),
 		);
 

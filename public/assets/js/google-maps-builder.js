@@ -195,10 +195,15 @@
 		//Loop through repeatable field of markers
 		$( map_markers ).each( function ( index, marker_data ) {
 
-			//check for custom marker and label data
-			var marker_icon = map_data.map_params.default_marker; //Default marker icon here
-			if ( typeof marker_data.marker !== 'undefined' && marker_data.marker.length > 0 ) {
-				marker_icon = eval( "(" + marker_data.marker + ")" );
+
+			var marker_icon = map_data.map_markers_icon;
+
+			//check if no custom marker icon is set, use the default
+			if ( marker_icon === 'none' ) {
+				var marker_icon = map_data.map_params.default_marker;//Default marker icon here
+				if ( typeof marker_data.marker !== 'undefined' && marker_data.marker.length > 0 ) {
+					marker_icon = eval( "(" + marker_data.marker + ")" );
+				}
 			}
 
 			//marker label
