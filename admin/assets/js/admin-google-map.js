@@ -52,16 +52,16 @@
 		var current_radius;
 
 		//Search Radius Circle
-		$( '#gmb_search_radius' ).on( 'focus',function () {
+		$( '#gmb_search_radius' ).on( 'focus', function () {
 			current_radius = $( this ).val();
 			calc_radius( map, parseInt( $( this ).val() ) );
 		} ).focusout( function () {
-				if ( current_radius !== $( this ).val() ) {
-					perform_places_search();
-				}
-				radius_circle.setMap( null ); //removes circle on focus out
-				radius_marker.setMap( null ); //removes circle on focus out
-			} );
+			if ( current_radius !== $( this ).val() ) {
+				perform_places_search();
+			}
+			radius_circle.setMap( null ); //removes circle on focus out
+			radius_marker.setMap( null ); //removes circle on focus out
+		} );
 
 		//Places Type Field
 		$( '[name^="gmb_places_search_multicheckbox"]' ).on( 'change', function () {
@@ -200,7 +200,6 @@
 	var search_markers = [];
 	var hover_circle;
 	var initial_location;
-	var snazzy_json = $.parseJSON( eval( gmb_data.snazzy ) );
 	var delay = (function () {
 		var timer = 0;
 		return function ( callback, ms ) {
@@ -274,12 +273,16 @@
 			zoom             : zoom,
 			streetViewControl: false,
 			styles           : [
-				{stylers: [
-					{ visibility: 'simplified' }
-				]},
-				{elementType: 'labels', stylers: [
-					{ visibility: 'off' }
-				]}
+				{
+					stylers: [
+						{visibility: 'simplified'}
+					]
+				},
+				{
+					elementType: 'labels', stylers: [
+					{visibility: 'off'}
+				]
+				}
 			]
 		};
 
@@ -525,11 +528,11 @@
 		//rating
 		if ( place.rating ) {
 			info_window_content += '<div class="rating-wrap clear">' +
-				'<p class="numeric-rating">' + place.rating + '</p>' +
-				'<div class="star-rating-wrap">' +
-				'<div class="star-rating-size" style="width:' + (65 * place.rating / 5) + 'px;"></div>' +
-				'</div>' +
-				'</div>'
+			'<p class="numeric-rating">' + place.rating + '</p>' +
+			'<div class="star-rating-wrap">' +
+			'<div class="star-rating-size" style="width:' + (65 * place.rating / 5) + 'px;"></div>' +
+			'</div>' +
+			'</div>'
 		}
 
 
@@ -573,11 +576,11 @@
 
 		//toolbar
 		info_window_content += '<div class="infowindow-toolbar clear"><ul id="save-toolbar">' +
-			'<li class="info-window-save"><div class="google-btn-blue google-btn google-save-btn" data-tooltip="Save changes" data-index="' + index + '">Save</div></li>' +
-			'<li class="info-window-cancel"><div class="google-btn-default google-btn google-cancel-btn" data-tooltip="Cancel edit" data-index="' + index + '">Cancel</div></li>' +
-			'</ul>' +
-			'<span class="marker-edit-link-wrap" data-index="' + index + '"><a href="#TB_inline?width=600&height=550&inlineId=marker-icon-modal" data-tooltip="Change icon" class="marker-edit-link thickbox"></a></span>' +
-			'</div>';
+		'<li class="info-window-save"><div class="google-btn-blue google-btn google-save-btn" data-tooltip="Save changes" data-index="' + index + '">Save</div></li>' +
+		'<li class="info-window-cancel"><div class="google-btn-default google-btn google-cancel-btn" data-tooltip="Cancel edit" data-index="' + index + '">Cancel</div></li>' +
+		'</ul>' +
+		'<span class="marker-edit-link-wrap" data-index="' + index + '"><a href="#TB_inline?width=600&height=550&inlineId=marker-icon-modal" data-tooltip="Change icon" class="marker-edit-link thickbox"></a></span>' +
+		'</div>';
 
 		info_window_content = set_info_window_wrapper( info_window_content );
 		info_bubble.setContent( info_window_content );
@@ -847,10 +850,10 @@
 					info_window_content += add_place_content_to_info_window( place );
 					//toolbar
 					info_window_content += '<div class="infowindow-toolbar"><ul id="edit-toolbar">' +
-						'<li class="edit-info" data-index="' + index + '" data-tooltip="Edit Marker"></li>' +
-						'<li class="trash-marker" data-index="' + index + '" data-tooltip="Delete Marker"></li>' +
-						'</ul>' +
-						'</div>';
+					'<li class="edit-info" data-index="' + index + '" data-tooltip="Edit Marker"></li>' +
+					'<li class="trash-marker" data-index="' + index + '" data-tooltip="Delete Marker"></li>' +
+					'</ul>' +
+					'</div>';
 
 					add_edit_events( info_window_content, marker );
 
@@ -867,10 +870,10 @@
 			info_window_content += '<div class="place-description">' + info_window_data.desc + '</div>';
 			//toolbar
 			info_window_content += '<div class="infowindow-toolbar"><ul id="edit-toolbar">' +
-				'<li class="edit-info" data-index="' + index + '" data-tooltip="Edit Marker"></li>' +
-				'<li class="trash-marker" data-index="' + index + '" data-tooltip="Delete Marker"></li>' +
-				'</ul>' +
-				'</div>';
+			'<li class="edit-info" data-index="' + index + '" data-tooltip="Edit Marker"></li>' +
+			'<li class="trash-marker" data-index="' + index + '" data-tooltip="Delete Marker"></li>' +
+			'</ul>' +
+			'</div>';
 
 			add_edit_events( info_window_content, marker );
 
@@ -951,6 +954,7 @@
 	function get_place_info_window_content( place, marker ) {
 
 		info_bubble.setContent( '<div id="infobubble-content" class="loading"></div>' );
+
 		info_bubble.open( map, marker );
 
 		var request = {
@@ -1245,6 +1249,7 @@
 				}
 
 				info_bubble.setContent( info_bubble_content );
+
 				info_bubble.open( map, location_marker );
 
 
@@ -1528,30 +1533,33 @@
 	 *
 	 */
 	function set_map_theme( reset ) {
-
 		if ( reset === true ) {
 			$( '#gmb_type' ).val( 'RoadMap' );
 			$( '#gmb_theme_json' ).val( 'none' );
 		}
+		//AJAX to get JSON data for Snazzy
+		$.getJSON( gmb_data.snazzy, function ( data ) {
 
-		var map_theme_input_val = parseInt( $( '#gmb_theme' ).val() );
+			var map_theme_input_val = parseInt( $( '#gmb_theme' ).val() );
 
-		if ( map_theme_input_val === 'none' ) {
-			set_map_type();
-		}
-		$.each( snazzy_json, function ( index ) {
-
-			if ( snazzy_json[index].id === map_theme_input_val ) {
-				map_theme_input_val = eval( snazzy_json[index].json );
-				$( '#gmb_theme_json' ).val( snazzy_json[index].json );
+			if ( map_theme_input_val === 'none' ) {
+				set_map_type();
 			}
+			$.each( data, function ( index ) {
 
+				if ( data[index].id === map_theme_input_val ) {
+					map_theme_input_val = eval( data[index].json );
+					$( '#gmb_theme_json' ).val( data[index].json );
+				}
+
+			} );
+
+			map.setOptions( {
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				styles   : map_theme_input_val
+			} );
 		} );
 
-		map.setOptions( {
-			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			styles   : map_theme_input_val
-		} );
 	}
 
 

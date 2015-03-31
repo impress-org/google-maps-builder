@@ -17,7 +17,7 @@
 		<div class="col-md-10">
 
 			<h3><?php _e('Default Map Settings', $this->plugin_slug); ?></h3>
-			<p><?php _e('The following settings change the default map options that display when created a new map. <strong>Many more options coming soon!</strong>', $this->plugin_slug); ?></p>
+			<p><?php _e('The following settings change the default map options that display when created a new map.', $this->plugin_slug); ?></p>
 			<?php cmb_metabox_form( $this->map_option_fields(), self::$key ); ?>
 		</div>
 

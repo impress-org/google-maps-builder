@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Google Maps.
  *
@@ -10,7 +11,6 @@
  * @link      http://wordimpress.com
  * @copyright 2014 WordImpress, Devin Walker
  */
-
 class Google_Maps_Builder {
 
 	/**
@@ -20,7 +20,7 @@ class Google_Maps_Builder {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.0.0';
+	const VERSION = '1.0.3';
 
 	/**
 	 *
@@ -81,6 +81,10 @@ class Google_Maps_Builder {
 
 		add_action( 'admin_head', array( $this, 'icon_style' ) );
 
+		//Admin Notices
+		add_action( 'admin_notices', array( $this, 'gmb_multiple_maps_enqueued_warning' ) );
+		add_action( 'admin_init', array( $this, 'gmb_multiple_maps_enqueued_warning_ignore' ) );
+
 	}
 
 	/**
@@ -133,9 +137,9 @@ class Google_Maps_Builder {
 	 */
 	function setup_post_type() {
 
-		$post_slug     = gmb_get_option( 'gmb_custom_slug' );
+		$post_slug   = gmb_get_option( 'gmb_custom_slug' );
 		$menu_position = gmb_get_option( 'gmb_menu_position' );
-		$has_archive = filter_var(gmb_get_option( 'gmb_has_archive' ), FILTER_VALIDATE_BOOLEAN);
+		$has_archive = filter_var( gmb_get_option( 'gmb_has_archive' ), FILTER_VALIDATE_BOOLEAN );
 
 		$labels = array(
 			'name'               => _x( 'Google Maps', 'post type general name', $this->plugin_slug ),
@@ -165,9 +169,9 @@ class Google_Maps_Builder {
 				'slug' => isset( $post_slug ) ? sanitize_title( $post_slug ) : 'google-maps'
 			),
 			'capability_type'    => 'post',
-			'has_archive'        => isset($has_archive) ? $has_archive : true,
+			'has_archive'        => isset( $has_archive ) ? $has_archive : true,
 			'hierarchical'       => false,
-			'menu_position'      => ! empty( $menu_position ) ? intval($menu_position) : 25,
+			'menu_position'      => ! empty( $menu_position ) ? intval($menu_position) : '23.1',
 			'supports'           => array( 'title' )
 		);
 
@@ -501,12 +505,103 @@ class Google_Maps_Builder {
 
 		$suffix = defined( 'GMB_DEBUG' ) && GMB_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( $this->plugin_slug . '-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
+		$multiple_google_maps_api = $this->check_for_multiple_google_maps_api_calls();
+
+		//Only load Google Maps if multiple are not enequeued
+		if ( $multiple_google_maps_api === false ) {
+			wp_enqueue_script( $this->plugin_slug . '-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
+		}
+
 		wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/google-maps-builder' . $suffix . '.js', __FILE__ ), array( 'jquery' ), self::VERSION, true );
 		wp_enqueue_script( $this->plugin_slug . '-maps-icons', plugins_url( 'includes/map-icons/js/map-icons.js', dirname( __FILE__ ) ), array( 'jquery' ), self::VERSION, true );
 
 		wp_localize_script( $this->plugin_slug . '-plugin-script', 'gmb_data', array() );
 
+	}
+
+
+	/**
+	 * Load Google Maps API
+	 *
+	 * @description: Determine if Google Maps API script has already been loaded
+	 * @since      : 1.0.3
+	 * @return bool $multiple_google_maps_api
+	 */
+	public function check_for_multiple_google_maps_api_calls() {
+
+		global $wp_scripts;
+
+		$multiple_google_maps_api = false;
+
+		//loop through registered scripts
+		foreach ( $wp_scripts->registered as $registered_script ) {
+
+			//find any that have the google script as the source, ensure it's not enqueud by this plugin
+			if ( strpos( $registered_script->src, 'maps.googleapis.com/maps/api/js' ) !== false && strpos( $registered_script->handle, 'google-maps-builder' ) === false ) {
+
+				$multiple_google_maps_api = true;
+				//ensure we can detect scripts on the frontend from backend; we'll use an option to do this
+				if ( ! is_admin() ) {
+					update_option( 'gmb_google_maps_conflict', true );
+				}
+
+			}
+
+		}
+
+		//Ensure that if user resolved conflict on frontend we remove the option flag
+		if ( $multiple_google_maps_api === false && ! is_admin() ) {
+			update_option( 'gmb_google_maps_conflict', false );
+		}
+
+		//returns boolean
+		return $multiple_google_maps_api;
+	}
+
+
+	/**
+	 * Admin Notices For Multiple Maps Displayed
+	 *
+	 * @description: Warns the user that a theme or plugin may be inserting Google Maps API js multiple times
+	 * @since      : 1.0.3
+	 */
+	function gmb_multiple_maps_enqueued_warning() {
+
+		global $current_user;
+		$user_id                  = $current_user->ID;
+		$multiple_google_maps_api = $this->check_for_multiple_google_maps_api_calls();
+		$gmb_google_maps_conflict = get_option( 'gmb_google_maps_conflict' );
+
+		// Check that the user hasn't already clicked to ignore the message and that they have appropriate permissions
+		// And, most importantly, that Google Maps are actually being enqueued twice
+		if ( ! get_user_meta( $user_id, 'gmb_ignore_maps_notice' ) && current_user_can( 'install_plugins' ) && $multiple_google_maps_api === true || ! get_user_meta( $user_id, 'gmb_ignore_maps_notice' ) && current_user_can( 'install_plugins' ) && $gmb_google_maps_conflict === '1' ) {
+
+			echo '<div class="updated error clearfix"><p>';
+			parse_str( $_SERVER['QUERY_STRING'], $params );
+			printf( __( '<strong>Google Maps Conflict Detected:</strong> It appears that a plugin or theme that you are using is including also Google Maps API JavaScript on your website. This means there will be a conflict with the Google Maps Builder plugin. Please <a href="%1$s" target="_blank">dequeue</a> the additional Google Maps JavaScript call to return the plugin to a working state. ' ), 'http://codex.wordpress.org/Function_Reference/wp_dequeue_script' );
+			echo '</p>';
+
+			printf( __( '<a href="%1$s" rel="nofollow" class="button" style="display:inline-block; margin: 0 0 10px;">Hide Warning</a>' ), '?' . http_build_query( array_merge( $params, array( 'gmb_ignore_maps_notice' => '0' ) ) ) );
+
+			echo '</div>';
+
+		}
+	}
+
+
+	/**
+	 * Set Usermeta to ignore the Warning
+	 *
+	 * @description: The user wants to forget the warning
+	 * @since      : 1.0.3
+	 */
+	function gmb_multiple_maps_enqueued_warning_ignore() {
+		global $current_user;
+		$user_id = $current_user->ID;
+		/* If user clicks to ignore the notice, add that to their user meta */
+		if ( isset( $_GET['gmb_ignore_maps_notice'] ) && $_GET['gmb_ignore_maps_notice'] == '0' ) {
+			add_user_meta( $user_id, 'gmb_ignore_maps_notice', 'true', true );
+		}
 	}
 
 

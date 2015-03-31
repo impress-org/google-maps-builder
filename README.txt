@@ -1,10 +1,10 @@
 === Google Maps Builder ===
-Contributors: dlocc, wordimpress
+Contributors: wordimpress, dlocc, webdevmattcrom
 Donate link: http://wordimpress.com/
 Tags: google maps, google map, google map widget, google map shortcode, maps, map, wp map, wp google maps, google maps directions, google maps builder, google maps plugin, google places, google places api, google maps api, google places reviews
 Requires at least: 3.6
-Tested up to: 3.9.1
-Stable tag: 1.0.1
+Tested up to: 4.1
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,11 +34,11 @@ Want to add some pazazz to your maps? [Snazzy Maps](http://snazzymaps.com/) them
 
 = Granular Map Control =
 
-Fine tune your Google Maps with full control over settings for street view, zooming, panning, dragging, and more. Set defaults for each controls so each new map you create is just the way you like it.
+Fine tune your Google Maps with full control over settings for street view, zooming, panning, dragging, and more. Set defaults for each control so each new map you create is just the way you like it.
 
 = Actively Developed and Supported =
 
-This plugin is currently being actively developed, which means consistent improvements and enhancements. As well, we won't shy away from bug fixes and further code refractoring and optimization.
+This plugin is actively developed and supported. This means you can expect an answer in the forums and consistent improvements and enhancements to the plugin itself. As well, we won't shy away from bug fixes or code refactoring and optimization.
 
 == Installation ==
 
@@ -100,15 +100,21 @@ We always welcome your feedback for improvements or if you have uncovered a bug.
 
 = Who is behind this plugin? =
 
-The main developer of this plugin is Devin Walker. He lives in San Diego, California and loves all things WordPress. To find out more information about him please visit [his website.](http://imdev.in)
+The main developer of this plugin is WordImpress. To find out more information about the company and the people behind it please visit [the WordImpress website.](http://wordimpress.com)
 
 == Roadmap ==
 
 Here is what we are working on for future releases:
 
+= Enhancements =
+
+* Directions - Add the ability to add a directions link to each marker location
+* Marker Visibility - Add the ability to set a marker's info window open by default
+* Marker Clustering - Add the option to use marker clusters for when you have multiple markers in close proximity
 * Maps Widget - Build in a widget to output Google Maps
 * Custom Map Marker Images - Ability to upload your own map marker images
 * Map Icons: Fix maps icon overlap issue when they are bunched in an area (zIndex issue)
+* Draggable Markers - Add the ability to drag dropped markers in the build UI
 * Admin JS i18n - Please contact us at info@wordimpress.com to volunteer for translating!
 * Public JS i18n - Please contact us at info@wordimpress.com to volunteer for translating!
 * Google Places - Add the ability to remove place information
@@ -116,12 +122,14 @@ Here is what we are working on for future releases:
 * Google Places - Customize the individual place markers
 * Markers - Add the ability to drag markers to new positions (lat, lng) in builder.
 * Info Window - Add a WYSIWYG editor? Possible complications with this.
+* Custom Map Themes - Add the ability for users to add their own map styles
 
-Bug Fixes
+= Known Issues =
 
 * Info Window - FOUC: Investigate why sometimes pointer tip of info window flashes before it opens (mainly Chrome)
 * Chrome - Look into while map tiles have strange lines in between
 * Firefox - Clicking on a marker to open the same info window creates content overflow
+* Bug: Fix issue where selecting "None" for map controls doesn't actually work on frontend
 
 == Screenshots ==
 
@@ -136,6 +144,20 @@ Bug Fixes
 5. **Settings Panel** - Adjust the various plugin settings using a UI that is built using WordPress' own styles.
 
 == Changelog ==
+
+= 1.0.3 =
+* New: New check for multiple Google Maps API calls to ensure more compatibility with themes and plugins which include the same maps API JS. If the check detects multiple enqueues a warning appears in the admin panel.
+* Additional Testing: Reviewed WooCommerce and Contact Forms 7 compatibility within WP admin panel
+* Fix: Updated a number of field descriptions to be more clear
+* Fix: Updated readme to be more accurately reflect past development on plugin
+* Removed snazzy.php file since we are using the json file exclusively now
+
+= 1.0.2 =
+* Remove Maps Shortcode field from non-Google Maps post types. ie Posts and Pages (thanks [@kalenjohnson](https://github.com/WordImpress/google-maps-builder/pull/1) )
+* Fix: Default Menu position conflict with other plugins like WooCommerce and Contact Forms 7
+* Readme.txt - New FAQs, Roadmap content and several formatting and typo fixes
+* Fixed: Bug with Map shortcode field displaying on all single post types Publish metabox rather than just on the maps post type
+* Improved: Moved snazzy JSON data from php file to .json file for more reliable usage across environments; some servers seem to deny any access to php files using wp_remote_fopen()
 
 = 1.0.1 =
 * New: Added a custom meta field to the Google Map single post screen that outputs the post's shortcode so it's more easily accessible. Before you could only access the shortcode via the Google Maps post listing page.

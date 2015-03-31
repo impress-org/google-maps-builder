@@ -42,10 +42,10 @@
 
 	<?php } ?>
 
-	<div class="logo-svg logo-svg-small pull-left" <?php echo (!get_user_meta( $user_id, 'gmb_hide_welcome') ?
-	'style="display:none;"' : ''); ?>>
+	<div class="logo-svg logo-svg-small pull-left" <?php echo( ! get_user_meta( $user_id, 'gmb_hide_welcome' ) ?
+		'style="display:none;"' : '' ); ?>>
 		<div class="gmb-plugin-heading">Google Maps Builder <?php echo $this->meta['Version']; ?></div>
-		<?php include ('logo-svg-small.php'); ?>
+		<?php include( 'logo-svg-small.php' ); ?>
 	</div>
 
 
@@ -57,11 +57,11 @@
 	 *
 	 * @see: http://code.tutsplus.com/tutorials/the-complete-guide-to-the-wordpress-settings-api-part-5-tabbed-navigation-for-your-settings-page--wp-24971
 	 */
-	$active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'map_options';
+	$active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'map_options';
 	?>
 	<h2 class="nav-tab-wrapper">
-		<a href="?post_type=google_maps&page=<?php echo self::$key; ?>" class="nav-tab <?php echo $active_tab == 'map_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Map Options', $this->plugin_slug); ?></a>
-		<a href="?post_type=google_maps&page=<?php echo self::$key; ?>&tab=general_settings" class="nav-tab <?php echo $active_tab == 'general_settings' ? 'nav-tab-active' : ''; ?>"><?php _e('General Options', $this->plugin_slug); ?></a>
+		<a href="?post_type=google_maps&page=<?php echo self::$key; ?>" class="nav-tab <?php echo $active_tab == 'map_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Map Options', $this->plugin_slug ); ?></a>
+		<a href="?post_type=google_maps&page=<?php echo self::$key; ?>&tab=general_settings" class="nav-tab <?php echo $active_tab == 'general_settings' ? 'nav-tab-active' : ''; ?>"><?php _e( 'General Options', $this->plugin_slug ); ?></a>
 	</h2>
 
 
@@ -69,16 +69,16 @@
 	/**
 	 * Get the appropriate tab
 	 */
-	switch ($active_tab) {
-	case 'map_options':
-	include ('tab-map-options.php');
-	break;
-	case 'general_settings':
-	include ('tab-general-settings.php');
-	break;
-	default :
-	include ('tab-map-options.php');
-	break;
+	switch ( $active_tab ) {
+		case 'map_options':
+			include( 'tab-map-options.php' );
+			break;
+		case 'general_settings':
+			include( 'tab-general-settings.php' );
+			break;
+		default :
+			include( 'tab-map-options.php' );
+			break;
 	}
 	?>
 

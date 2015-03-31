@@ -110,6 +110,7 @@ class Google_Maps_Builder_Engine {
 		//gather data for this shortcode
 		$post        = get_post( $id );
 		$all_meta    = get_post_custom( $id );
+
 		$visual_info = maybe_unserialize( $all_meta['gmb_width_height'][0] );
 		$lat_lng = maybe_unserialize( $all_meta['gmb_lat_lng'][0] );
 

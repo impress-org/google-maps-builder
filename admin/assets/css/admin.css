@@ -258,10 +258,17 @@
  Place Markers
 --------------------------------------------*/
 
-#google-map-wrap div#infobubble-content {
-	line-height: 1.35;
-	/*overflow: hidden;*/
-	/*white-space: nowrap;*/
+/* Hacky fix to prevent scrollbars */
+#google_maps_preview_metabox .gm-style-iw, #google_maps_preview_metabox .gm-style-iw > div {
+	overflow: visible !important;
+}
+
+#google_maps_preview_metabox .gm-style-iw > div > div {
+	overflow: visible !important;
+}
+
+#infobubble-content {
+	overflow: hidden !important;
 }
 
 #infobubble-content.loading {
@@ -270,10 +277,6 @@
 
 #google-map-wrap div#infobubble-content > div {
 	white-space: normal;
-}
-
-.gm-style-iw, .gm-style-iw > div {
-	overflow: visible !important;
 }
 
 #infobubble-content p {
@@ -483,6 +486,7 @@ a.marker-edit-link {
 
 #infobubble-content .edit-place-title {
 	width: 290px;
+	margin: 0 0 10px;
 }
 
 #infobubble-content .edit-place-description {
@@ -701,7 +705,7 @@ Temporary Info Window
 .infowindow-toolbar {
 	display: block;
 	margin: 0;
-	padding: 8px 0 5px;
+	padding: 8px 0 10px;
 }
 
 .add-marker {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Google Maps Admin
  *
@@ -10,7 +11,6 @@
  * @link      http://wordimpress.com
  * @copyright 2014 WordImpress, Devin Walker
  */
-
 class Google_Maps_Builder_Admin {
 
 	/**
@@ -85,9 +85,14 @@ class Google_Maps_Builder_Admin {
 			return false;
 
 		global $post;
-		//Shortcode column with select all input
-		$shortcode = htmlentities( '[google_maps id="' . $post->ID . '"]' );
-		echo '<div class="shortcode-wrap box-sizing"><label>' . __('Map Shortcode:', $this->plugin_slug) . '</label><input onClick="this.setSelectionRange(0, this.value.length)" type="text" class="shortcode-input" readonly value="' . $shortcode . '"></div>';
+
+		//Only enqueue scripts for CPT on post type screen
+		if ( 'google_maps' === $post->post_type ) {
+			//Shortcode column with select all input
+			$shortcode = htmlentities( '[google_maps id="' . $post->ID . '"]' );
+			echo '<div class="shortcode-wrap box-sizing"><label>' . __( 'Map Shortcode:', $this->plugin_slug ) . '</label><input onClick="this.setSelectionRange(0, this.value.length)" type="text" class="shortcode-input" readonly value="' . $shortcode . '"></div>';
+
+		}
 
 	}
 
@@ -100,14 +105,11 @@ class Google_Maps_Builder_Admin {
 	public function get_default_map_options() {
 
 		$width_height = gmb_get_option( 'gmb_width_height' );
-		//		$lat_lng = gmb_get_option( 'gmb_lat_lng' );
 
 		$defaults = array(
 			'width'      => ( isset( $width_height['width'] ) ) ? $width_height['width'] : '100',
 			'width_unit' => ( isset( $width_height['map_width_unit'] ) ) ? $width_height['map_width_unit'] : '%',
-			'height'     => ( isset( $width_height['height'] ) ) ? $width_height['height'] : '600',
-			//			'latitude'     => ( isset( $lat_lng['latitude'] ) ) ? $lat_lng['latitude'] : '600',
-			//			'longitude'     => ( isset( $lat_lng['longitude'] ) ) ? $lat_lng['longitude'] : '600',
+			'height'     => ( isset( $width_height['height'] ) ) ? $width_height['height'] : '600'
 		);
 
 		return $defaults;
@@ -175,8 +177,6 @@ class Google_Maps_Builder_Admin {
 			wp_enqueue_script( $this->plugin_slug . '-admin-map-builder', plugins_url( 'assets/js/admin-google-map' . $suffix . '.js', __FILE__ ), array( 'jquery' ), Google_Maps_Builder::VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-admin-qtip', plugins_url( 'includes/tooltips/jquery.qtip' . $suffix . '.js', __FILE__ ), array( 'jquery' ), Google_Maps_Builder::VERSION, true );
 
-
-			$snazzy    = wp_remote_fopen( GMB_PLUGIN_URL . '/includes/snazzy.php' );
 			$api_key   = gmb_get_option( 'gmb_api_key' );
 			$geolocate = gmb_get_option( 'gmb_lat_lng' );
 
@@ -186,7 +186,7 @@ class Google_Maps_Builder_Admin {
 				'default_lat'       => isset( $geolocate['latitude'] ) ? $geolocate['latitude'] : '32.715738',
 				'default_lng'       => isset( $geolocate['longitude'] ) ? $geolocate['longitude'] : '-117.16108380000003',
 				'plugin_url'        => GMB_PLUGIN_URL,
-				'snazzy'            => json_encode( $snazzy )
+				'snazzy'            => GMB_PLUGIN_URL . '/admin/assets/js/snazzy.json'
 			);
 			wp_localize_script( $this->plugin_slug . '-admin-map-builder', 'gmb_data', $maps_data );
 
@@ -264,7 +264,7 @@ class Google_Maps_Builder_Admin {
 				array(
 					'id'          => $prefix . 'markers_group',
 					'type'        => 'group',
-					'description' => __( 'Generatemap m marke. You may update marker data here in bulk ps', $this->plugin_slug ),
+					'description' => __( 'Map marker data is contained within the repeatable fields below. You may add or update marker data here in bulk.', $this->plugin_slug ),
 					'options'     => array(
 						'add_button'    => __( 'Add Another Marker', $this->plugin_slug ),
 						'remove_button' => __( 'Remove Marker', $this->plugin_slug ),
@@ -352,23 +352,23 @@ class Google_Maps_Builder_Admin {
 					'options' => array(
 						'accounting'              => __( 'Accounting', $this->plugin_slug ),
 						'airport'                 => __( 'Airport', $this->plugin_slug ),
-						//						'amusement_park'          => __('Amusement Park', $this->plugin_slug ),
-						//						'aquarium'                => __('Aquarium', $this->plugin_slug ),
-						//						'art_gallery'             => __('Art Gallery',
+						'amusement_park'          => __( 'Amusement Park', $this->plugin_slug ),
+						'aquarium'                => __( 'Aquarium', $this->plugin_slug ),
+						'art_gallery'             => __( 'Art Gallery', $this->plugin_slug ),
 						'atm'                     => __( 'ATM', $this->plugin_slug ),
 						'bakery'                  => __( 'Bakery', $this->plugin_slug ),
 						'bank'                    => __( 'Bank', $this->plugin_slug ),
 						'bar'                     => __( 'Bar', $this->plugin_slug ),
-						//						'beauty_salon'            => __('Beauty Salon', $this->plugin_slug ),
-						//						'bicycle_store'           => __('Bicycle Store', $this->plugin_slug ),
-						//						'book_store'              => __('Book Store', $this->plugin_slug ),
+						'beauty_salon'            => __( 'Beauty Salon', $this->plugin_slug ),
+						'bicycle_store'           => __( 'Bicycle Store', $this->plugin_slug ),
+						'book_store'              => __( 'Book Store', $this->plugin_slug ),
 						'bowling_alley'           => __( 'Bowling Alley', $this->plugin_slug ),
 						'bus_station'             => __( 'Bus Station', $this->plugin_slug ),
 						'cafe'                    => __( 'Cafe', $this->plugin_slug ),
 						'campground'              => __( 'Campground', $this->plugin_slug ),
-						//						'car_dealer'              => __('Car Dealer', $this->plugin_slug ),
-						//						'car_rental'              => __('Car Rental', $this->plugin_slug ),
-						//						'car_repair'              => __('Car Repair', $this->plugin_slug ),
+						'car_dealer'              => __( 'Car Dealer', $this->plugin_slug ),
+						'car_rental'              => __( 'Car Rental', $this->plugin_slug ),
+						'car_repair'              => __( 'Car Repair', $this->plugin_slug ),
 						'car_wash'                => __( 'Car Wash', $this->plugin_slug ),
 						'casino'                  => __( 'Casino', $this->plugin_slug ),
 						'cemetery'                => __( 'Cemetery', $this->plugin_slug ),
@@ -379,9 +379,9 @@ class Google_Maps_Builder_Admin {
 						'courthouse'              => __( 'Courthouse', $this->plugin_slug ),
 						'dentist'                 => __( 'Dentist', $this->plugin_slug ),
 						'department_store'        => __( 'Department Store', $this->plugin_slug ),
-						//						'doctor'                  => __('Doctor', $this->plugin_slug ),
-						//						'electrician'             => __('Electrician', $this->plugin_slug ),
-						//						'electronics_store'       => __('Electronics Store', $this->plugin_slug ),
+						'doctor'                  => __( 'Doctor', $this->plugin_slug ),
+						'electrician'             => __( 'Electrician', $this->plugin_slug ),
+						'electronics_store'       => __( 'Electronics Store', $this->plugin_slug ),
 						'embassy'                 => __( 'Embassy', $this->plugin_slug ),
 						'establishment'           => __( 'Establishment', $this->plugin_slug ),
 						'finance'                 => __( 'Finance', $this->plugin_slug ),
@@ -390,17 +390,17 @@ class Google_Maps_Builder_Admin {
 						'food'                    => __( 'Food', $this->plugin_slug ),
 						'funeral_home'            => __( 'Funeral Home', $this->plugin_slug ),
 						'furniture_store'         => __( 'Furniture_store', $this->plugin_slug ),
-						//						'gas_station'             => __('Gas Station', $this->plugin_slug ),
-						//						'general_contractor'      => __('General Contractor', $this->plugin_slug ),
-						//						'grocery_or_supermarket'  => __('Grocery or Supermarket', $this->plugin_slug ),
+						'gas_station'             => __( 'Gas Station', $this->plugin_slug ),
+						'general_contractor'      => __( 'General Contractor', $this->plugin_slug ),
+						'grocery_or_supermarket'  => __( 'Grocery or Supermarket', $this->plugin_slug ),
 						'gym'                     => __( 'Gym', $this->plugin_slug ),
 						'hair_care'               => __( 'Hair Care', $this->plugin_slug ),
 						'hardware_store'          => __( 'Hardware Store', $this->plugin_slug ),
 						'health'                  => __( 'Health', $this->plugin_slug ),
 						'hindu_temple'            => __( 'Hindu Temple', $this->plugin_slug ),
-						//						'home_goods_store'        => __('Home Goods Store', $this->plugin_slug ),
-						//						'hospital'                => __('Hospital', $this->plugin_slug ),
-						//						'insurance_agency'        => __('Insurance Agency', $this->plugin_slug ),
+						'home_goods_store'        => __( 'Home Goods Store', $this->plugin_slug ),
+						'hospital'                => __( 'Hospital', $this->plugin_slug ),
+						'insurance_agency'        => __( 'Insurance Agency', $this->plugin_slug ),
 						'jewelry_store'           => __( 'Jewelry Store', $this->plugin_slug ),
 						'laundry'                 => __( 'Laundry', $this->plugin_slug ),
 						'lawyer'                  => __( 'Lawyer', $this->plugin_slug ),
@@ -411,10 +411,10 @@ class Google_Maps_Builder_Admin {
 						'lodging'                 => __( 'Lodging', $this->plugin_slug ),
 						'meal_delivery'           => __( 'Meal Delivery', $this->plugin_slug ),
 						'meal_takeaway'           => __( 'Meal Takeaway', $this->plugin_slug ),
-						//						'mosque'                  => __('Mosque', $this->plugin_slug ),
-						//						'movie_rental'            => __('Movie Rental', $this->plugin_slug ),
-						//						'movie_theater'           => __('Movie Theater', $this->plugin_slug ),
-						//						'moving_company'          => __('Moving Company', $this->plugin_slug ),
+						'mosque'                  => __( 'Mosque', $this->plugin_slug ),
+						'movie_rental'            => __( 'Movie Rental', $this->plugin_slug ),
+						'movie_theater'           => __( 'Movie Theater', $this->plugin_slug ),
+						'moving_company'          => __( 'Moving Company', $this->plugin_slug ),
 						'museum'                  => __( 'Museum', $this->plugin_slug ),
 						'night_club'              => __( 'Night Club', $this->plugin_slug ),
 						'painter'                 => __( 'Painter', $this->plugin_slug ),
@@ -427,9 +427,9 @@ class Google_Maps_Builder_Admin {
 						'plumber'                 => __( 'Plumber', $this->plugin_slug ),
 						'police'                  => __( 'Police', $this->plugin_slug ),
 						'post_office'             => __( 'Post Office', $this->plugin_slug ),
-						//						'real_estate_agency'      => __('Real Estate Agency', $this->plugin_slug ),
-						//						'restaurant'              => __('Restaurant', $this->plugin_slug ),
-						//						'roofing_contractor'      => __('Roofing Contractor', $this->plugin_slug ),
+						'real_estate_agency'      => __( 'Real Estate Agency', $this->plugin_slug ),
+						'restaurant'              => __( 'Restaurant', $this->plugin_slug ),
+						'roofing_contractor'      => __( 'Roofing Contractor', $this->plugin_slug ),
 						'rv_park'                 => __( 'RV Park', $this->plugin_slug ),
 						'school'                  => __( 'School', $this->plugin_slug ),
 						'shoe_store'              => __( 'Shoe Store', $this->plugin_slug ),
@@ -441,8 +441,8 @@ class Google_Maps_Builder_Admin {
 						'subway_station'          => __( 'Subway Station', $this->plugin_slug ),
 						'synagogue'               => __( 'Synagogue', $this->plugin_slug ),
 						'taxi_stand'              => __( 'Taxi Stand', $this->plugin_slug ),
-						//						'train_station'           => __('Train Station', $this->plugin_slug ),
-						//						'travel_agency'           => __('Travel Agency', $this->plugin_slug ),
+						'train_station'           => __( 'Train Station', $this->plugin_slug ),
+						'travel_agency'           => __( 'Travel Agency', $this->plugin_slug ),
 						'university'              => __( 'University', $this->plugin_slug ),
 						'veterinary_care'         => __( 'Veterinary Care', $this->plugin_slug ),
 						'zoo'                     => __( 'Zoo', $this->plugin_slug )
