@@ -62,8 +62,7 @@ class Google_Maps_Builder {
 
 		// Load plugin text domain
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
-		//Initialize metaboxes
-		add_action( 'init', array( $this, 'initialize_cmb_meta_boxes' ), 1 );
+		
 		//Init CPT
 		add_action( 'init', array( $this, 'setup_post_type' ), 1 );
 
@@ -96,9 +95,6 @@ class Google_Maps_Builder {
 	 * @see: https://github.com/WebDevStudios/Custom-Metaboxes-and-Fields-for-WordPress/wiki/Basic-Usage
 	 * @see: https://github.com/WebDevStudios/Custom-Metaboxes-and-Fields-for-WordPress/wiki
 	 */
-	function initialize_cmb_meta_boxes() {
-		require_once( plugin_dir_path( dirname( __FILE__ ) ) . 'includes/metabox/init.php' );
-	}
 
 	/**
 	 * Return the plugin slug.

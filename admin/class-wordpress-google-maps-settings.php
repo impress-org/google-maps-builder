@@ -419,5 +419,5 @@ $Google_Maps_Builder_Settings = new Google_Maps_Builder_Settings();
  * @return mixed        Option value
  */
 function gmb_get_option( $key = '' ) {
-	return cmb_get_option( Google_Maps_Builder_Settings::key(), $key );
+	//return cmb2_get_option( Google_Maps_Builder_Settings::key(), $key );
 }
