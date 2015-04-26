@@ -932,7 +932,9 @@
 		//Create a new marker repeatable meta group
 		var index = parseInt( $( '#gmb_markers_group_repeat tr.repeatable-grouping' ).last().attr( 'data-iterator' ) );
 		var existing_vals = $( 'tr[data-iterator="0"] ' ).find( 'input,textarea' ).val();
-
+		
+		console.log( 'test', index, $( '#gmb_markers_group_repeat tr.repeatable-grouping' ).last().attr( 'data-iterator' ) );
+		
 		//Ensure appropriate index is used for marker
 		if ( existing_vals && index === 0 ) {
 			$( '.add-group-row.button' ).trigger( 'click' );

@@ -528,6 +528,8 @@ class Google_Maps_Builder {
 		global $wp_scripts;
 
 		$multiple_google_maps_api = false;
+		
+		if( !$wp_scripts ) { return false; }
 
 		//loop through registered scripts
 		foreach ( $wp_scripts->registered as $registered_script ) {
