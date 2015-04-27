@@ -112,16 +112,17 @@
 
 			//get current number of repeatable rows ie markers
 			var index = get_marker_index();
-
+			
 			var reference = $( this ).data( 'reference' );
 
 			//add data to fields
-			$( '#gmb_markers_group_' + index + '_title' ).val( $( this ).data( 'title' ) );
-			$( '#gmb_markers_group_' + index + '_lat' ).val( $( this ).data( 'lat' ) );
-			$( '#gmb_markers_group_' + index + '_lng' ).val( $( this ).data( 'lng' ) );
-			$( '#gmb_markers_group_' + index + '_reference' ).val( reference );
-
 			get_editable_info_window( index, location_marker );
+			
+			$( 'input[data-field="#gmb_markers_group_' + index + '_title"]' ).val( $( this ).data( 'title' ) );
+			$( 'input#gmb_markers_group_' + index + '_lat' ).val( $( this ).data( 'lat' ) );
+			$( 'input#gmb_markers_group_' + index + '_lng' ).val( $( this ).data( 'lng' ) );
+			$( 'input#gmb_markers_group_' + index + '_reference' ).val( reference );
+
 
 			//location clicked
 			google.maps.event.addListener( location_marker, 'click', function () {
@@ -568,9 +569,15 @@
 		}
 
 		//place name
-		info_window_content = '<input class="edit-place-title" data-field="#gmb_markers_group_' + index + '_title" type="text" value="' + info_window_data.title + '">';
-
-		info_window_content += '<textarea class="edit-place-description" data-field="#gmb_markers_group_' + index + '_description">' + info_window_data.desc + '</textarea>';
+		if( info_window_data.title ) {
+			info_window_content = '<input class="edit-place-title" data-field="#gmb_markers_group_' + index + '_title" type="text" value="' + info_window_data.title + '">';
+		}
+		
+		if( info_window_data.desc ) {
+			info_window_content += '<textarea class="edit-place-description" data-field="#gmb_markers_group_' + index + '_description">' + info_window_data.desc + '</textarea>';	
+		} else {
+			info_window_content += '<textarea class="edit-place-description" data-field="#gmb_markers_group_' + index + '_description" placeholder="Point Description"></textarea>';
+		}
 
 		//info_window_content += add_place_content_to_info_window( place );
 
@@ -909,11 +916,11 @@
 
 			//if first item clear out all input values
 			if ( index === 0 ) {
-				$( 'tr[data-iterator="' + index + '"] ' ).find( 'input,textarea' ).val( '' );
+				$( 'div[data-iterator="' + index + '"] ' ).find( 'input,textarea' ).val( '' );
 			}
 
 			//trigger remove row button click for this specific markers row
-			$( 'tr[data-iterator="' + index + '"] .remove-group-row' ).trigger( 'click' );
+			$( 'div[data-iterator="' + index + '"] .remove-group-row' ).trigger( 'click' );
 			//close info window and remove marker
 			info_bubble.close();
 			marker.setVisible( false );
@@ -930,19 +937,17 @@
 	 */
 	function get_marker_index() {
 		//Create a new marker repeatable meta group
-		var index = parseInt( $( '#gmb_markers_group_repeat tr.repeatable-grouping' ).last().attr( 'data-iterator' ) );
-		var existing_vals = $( 'tr[data-iterator="0"] ' ).find( 'input,textarea' ).val();
-		
-		console.log( 'test', index, $( '#gmb_markers_group_repeat tr.repeatable-grouping' ).last().attr( 'data-iterator' ) );
+		var index = parseInt( $( '#gmb_markers_group_repeat div.cmb-repeatable-grouping' ).last().attr( 'data-iterator' ) );
+		var existing_vals = $( 'div[data-iterator="0"] ' ).find( 'input,textarea' ).val();
 		
 		//Ensure appropriate index is used for marker
 		if ( existing_vals && index === 0 ) {
-			$( '.add-group-row.button' ).trigger( 'click' );
+			$( '.cmb-add-group-row.button' ).trigger( 'click' );
 			index = 1;
 		} else if ( index !== 0 ) {
-			$( '.add-group-row.button' ).trigger( 'click' );
+			$( '.cmb-add-group-row.button' ).trigger( 'click' );
 			//recount rows
-			index = parseInt( $( '#gmb_markers_group_repeat tr.repeatable-grouping' ).last().attr( 'data-iterator' ) );
+			index = parseInt( $( '#gmb_markers_group_repeat div.cmb-repeatable-grouping' ).last().attr( 'data-iterator' ) );
 		}
 		return index;
 	}
