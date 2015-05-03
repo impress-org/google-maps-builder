@@ -256,10 +256,10 @@ class Google_Maps_Builder_Admin {
 		));
 		
 		$preview_box->add_field( array(
-			'name' => 'Map Preview',
-			'id'   => $prefix . 'preview',
-			'type' => 'google_maps_preview',
-			'std'  => '',
+			'name' 		=> 'Map Preview',
+			'id'   		=> $prefix . 'preview',
+			'type' 		=> 'google_maps_preview',
+			'default'  	=> '',
 		));
 		
 		// MARKERS
@@ -350,11 +350,11 @@ class Google_Maps_Builder_Admin {
 		
 		$search_options->add_field(	
 			array(
-				'name' => __( 'Search Radius', $this->plugin_slug ),
-				'desc' => __( 'Defines the distance (in meters) within which to return Place results. The maximum allowed radius is 50,000 meters.', $this->plugin_slug ),
-				'std'  => '1000',
-				'id'   => $prefix . 'search_radius',
-				'type' => 'text_small'
+				'name' 		=> __( 'Search Radius', $this->plugin_slug ),
+				'desc' 		=> __( 'Defines the distance (in meters) within which to return Place results. The maximum allowed radius is 50,000 meters.', $this->plugin_slug ),
+				'default' 	=> '1000',
+				'id'   		=> $prefix . 'search_radius',
+				'type' 		=> 'text_small'
 			)
 		);
 		
@@ -494,10 +494,10 @@ class Google_Maps_Builder_Admin {
 			'desc'    => '',
 		));
 		$display_options->add_field( array(
-			'name'    => 'Map Type',
-			'id'      => $prefix . 'type',
-			'type'    => 'select',
-			'std'     => 'default',
+			'name'    		=> 'Map Type',
+			'id'      		=> $prefix . 'type',
+			'type'    		=> 'select',
+			'default'     	=> 'default',
 			'options' => array(
 				'RoadMap' 	=> __( 'Road Map', $this->plugin_slug ),
 				'Satellite' => __( 'Satellite', $this->plugin_slug ),
@@ -509,9 +509,9 @@ class Google_Maps_Builder_Admin {
 		$display_options->add_field( array(
 			'name'    => 'Map Theme',
 			'desc'    => sprintf( __( 'Set optional preconfigured styles. <a href="%s" class="snazzy-link new-window"  target="_blank">Snazzy Maps</a>', $this->plugin_slug ), esc_url( 'http://snazzymaps.com' ) ),
-			'id'      => $prefix . 'theme',
-			'type'    => 'select',
-			'std'     => 'none',
+			'id'      		=> $prefix . 'theme',
+			'type'    		=> 'select',
+			'default'     	=> 'none',
 			'options' => array(
 				'none' 	=> __( 'None', $this->plugin_slug ),
 				'68' 	=> __( 'Aqua', $this->plugin_slug ),
@@ -546,7 +546,7 @@ class Google_Maps_Builder_Admin {
 			'desc'    => __( 'Adjust the map zoom (0-21)', $this->plugin_slug ),
 			'id'      => $prefix . 'zoom',
 			'type'    => 'select',
-			'std'     => '15',
+			'default'     => '15',
 			'options' => array(
 				'21' => '21',
 				'20' => '20',
@@ -597,7 +597,7 @@ class Google_Maps_Builder_Admin {
 			'name'    => 'Zoom Control',
 			'id'      => $prefix . 'zoom_control',
 			'type'    => 'select',
-			'std'     => 'default',
+			'default' => 'default',
 			'options' => array(
 				'none' => __( 'None', $this->plugin_slug ),
 				'small' => __( 'Small', $this->plugin_slug ),
@@ -610,7 +610,7 @@ class Google_Maps_Builder_Admin {
 			'name'    => 'Street View',
 			'id'      => $prefix . 'street_view',
 			'type'    => 'select',
-			'std'     => 'true',
+			'default' => 'true',
 			'options' => array(
 				'none' => __( 'None', $this->plugin_slug ),
 				'true' => __( 'Standard', $this->plugin_slug ),
@@ -621,7 +621,7 @@ class Google_Maps_Builder_Admin {
 			'name'    => 'Pan Control',
 			'id'      => $prefix . 'pan',
 			'type'    => 'select',
-			'std'     => 'true',
+			'default' => 'true',
 			'options' => array(
 				'none' => __( 'None', $this->plugin_slug ),
 				'true' => __( 'Standard', $this->plugin_slug ),
@@ -632,7 +632,7 @@ class Google_Maps_Builder_Admin {
 			'name'    => 'Map Type Control',
 			'id'      => $prefix . 'map_type_control',
 			'type'    => 'select',
-			'std'     => 'horizontal_bar',
+			'default' => 'horizontal_bar',
 			'options' => array(
 				'none' => __( 'None', $this->plugin_slug ),
 				'dropdown_menu' => __( 'Dropdown Menu', $this->plugin_slug ),
@@ -644,7 +644,7 @@ class Google_Maps_Builder_Admin {
 			'name'    => 'Draggable Map',
 			'id'      => $prefix . 'draggable',
 			'type'    => 'select',
-			'std'     => 'true',
+			'default' => 'true',
 			'options' => array(
 				'none' => __( 'None', $this->plugin_slug ),
 				'true' => __( 'Standard', $this->plugin_slug ),
@@ -655,7 +655,7 @@ class Google_Maps_Builder_Admin {
 			'name'    => 'Double Click to Zoom',
 			'id'      => $prefix . 'double_click',
 			'type'    => 'select',
-			'std'     => 'true',
+			'default' => 'true',
 			'options' => array(
 				'none' => __( 'None', $this->plugin_slug ),
 				'true' => __( 'Standard', $this->plugin_slug ),
@@ -666,7 +666,7 @@ class Google_Maps_Builder_Admin {
 			'name'    => 'Mouse Wheel to Zoom',
 			'id'      => $prefix . 'wheel_zoom',
 			'type'    => 'select',
-			'std'     => 'none',
+			'default' => 'true',
 			'options' => array(
 				'none' => __( 'None', $this->plugin_slug ),
 				'true' => __( 'Standard', $this->plugin_slug ),
@@ -689,11 +689,11 @@ class Google_Maps_Builder_Admin {
 			'show_names' => true, // Show field names on the left
 			'fields'     => array(
 				array(
-					'name' => __( 'Create Marker', $this->plugin_slug ),
-					'id'   => $prefix . 'geocoder',
-					'type' => 'google_geocoder',
-					'std'  => 'San Diego, CA, United States',
-					'desc' => '',
+					'name' 		=> __( 'Create Marker', $this->plugin_slug ),
+					'id'   		=> $prefix . 'geocoder',
+					'type' 		=> 'google_geocoder',
+					'default'  	=> 'San Diego, CA, United States',
+					'desc' 		=> '',
 				),
 			),
 		);
@@ -706,10 +706,10 @@ class Google_Maps_Builder_Admin {
 			'show_names' => false, // Show field names on the left
 			'fields'     => array(
 				array(
-					'name' => 'Map Preview',
-					'id'   => $prefix . 'preview',
-					'type' => 'google_maps_preview',
-					'std'  => '',
+					'name' 		=> 'Map Preview',
+					'id'   		=> $prefix . 'preview',
+					'type' 		=> 'google_maps_preview',
+					'default'  	=> '',
 				),
 
 			),
@@ -799,11 +799,11 @@ class Google_Maps_Builder_Admin {
 					),
 				),
 				array(
-					'name' => __( 'Search Radius', $this->plugin_slug ),
-					'desc' => __( 'Defines the distance (in meters) within which to return Place results. The maximum allowed radius is 50,000 meters.', $this->plugin_slug ),
-					'std'  => '1000',
-					'id'   => $prefix . 'search_radius',
-					'type' => 'text_small'
+					'name' 		=> __( 'Search Radius', $this->plugin_slug ),
+					'desc' 		=> __( 'Defines the distance (in meters) within which to return Place results. The maximum allowed radius is 50,000 meters.', $this->plugin_slug ),
+					'default'  	=> '1000',
+					'id'   		=> $prefix . 'search_radius',
+					'type' 		=> 'text_small'
 				),
 				array(
 					'name'    => __( 'Place Types', $this->plugin_slug ),
@@ -942,7 +942,7 @@ class Google_Maps_Builder_Admin {
 					'name'    => 'Map Type',
 					'id'      => $prefix . 'type',
 					'type'    => 'select',
-					'std'     => 'default',
+					'default' => 'default',
 					'options' => array(
 						array( 'name' => __( 'Road Map', $this->plugin_slug ), 'value' => 'RoadMap' ),
 						array( 'name' => __( 'Satellite', $this->plugin_slug ), 'value' => 'Satellite' ),
@@ -955,7 +955,7 @@ class Google_Maps_Builder_Admin {
 					'desc'    => sprintf( __( 'Set optional preconfigured styles. <a href="%s" class="snazzy-link new-window"  target="_blank">Snazzy Maps</a>', $this->plugin_slug ), esc_url( 'http://snazzymaps.com' ) ),
 					'id'      => $prefix . 'theme',
 					'type'    => 'select',
-					'std'     => 'none',
+					'default' => 'none',
 					'options' => array(
 						array( 'name' => __( 'None', $this->plugin_slug ), 'value' => 'none' ),
 						array( 'name' => __( 'Aqua', $this->plugin_slug ), 'value' => '68' ),
@@ -988,7 +988,7 @@ class Google_Maps_Builder_Admin {
 					'desc'    => __( 'Adjust the map zoom (0-21)', $this->plugin_slug ),
 					'id'      => $prefix . 'zoom',
 					'type'    => 'select',
-					'std'     => '15',
+					'default' => '15',
 					'options' => array(
 						array( 'name' => '21', 'value' => '21' ),
 						array( 'name' => '20', 'value' => '20' ),
@@ -1037,7 +1037,7 @@ class Google_Maps_Builder_Admin {
 					'name'    => 'Zoom Control',
 					'id'      => $prefix . 'zoom_control',
 					'type'    => 'select',
-					'std'     => 'default',
+					'default' => 'default',
 					'options' => array(
 						array( 'name' => __( 'None', $this->plugin_slug ), 'value' => 'none' ),
 						array( 'name' => __( 'Small', $this->plugin_slug ), 'value' => 'small' ),
@@ -1049,7 +1049,7 @@ class Google_Maps_Builder_Admin {
 					'name'    => 'Street View',
 					'id'      => $prefix . 'street_view',
 					'type'    => 'select',
-					'std'     => 'true',
+					'default' => 'true',
 					'options' => array(
 						array( 'name' => __( 'None', $this->plugin_slug ), 'value' => 'none' ),
 						array( 'name' => __( 'Standard', $this->plugin_slug ), 'value' => 'true' ),
@@ -1059,7 +1059,7 @@ class Google_Maps_Builder_Admin {
 					'name'    => 'Pan Control',
 					'id'      => $prefix . 'pan',
 					'type'    => 'select',
-					'std'     => 'true',
+					'default' => 'true',
 					'options' => array(
 						array( 'name' => __( 'None', $this->plugin_slug ), 'value' => 'none' ),
 						array( 'name' => __( 'Standard', $this->plugin_slug ), 'value' => 'true' ),
@@ -1069,7 +1069,7 @@ class Google_Maps_Builder_Admin {
 					'name'    => 'Map Type Control',
 					'id'      => $prefix . 'map_type_control',
 					'type'    => 'select',
-					'std'     => 'horizontal_bar',
+					'default' => 'horizontal_bar',
 					'options' => array(
 						array( 'name' => __( 'None', $this->plugin_slug ), 'value' => 'none' ),
 						array( 'name' => __( 'Dropdown Menu', $this->plugin_slug ), 'value' => 'dropdown_menu' ),
@@ -1081,7 +1081,7 @@ class Google_Maps_Builder_Admin {
 					'name'    => 'Draggable Map',
 					'id'      => $prefix . 'draggable',
 					'type'    => 'select',
-					'std'     => 'true',
+					'default' => 'true',
 					'options' => array(
 						array( 'name' => __( 'None', $this->plugin_slug ), 'value' => 'none' ),
 						array( 'name' => __( 'Standard', $this->plugin_slug ), 'value' => 'true' ),
@@ -1091,7 +1091,7 @@ class Google_Maps_Builder_Admin {
 					'name'    => 'Double Click to Zoom',
 					'id'      => $prefix . 'double_click',
 					'type'    => 'select',
-					'std'     => 'true',
+					'defualt' => 'true',
 					'options' => array(
 						array( 'name' => __( 'None', $this->plugin_slug ), 'value' => 'none' ),
 						array( 'name' => __( 'Standard', $this->plugin_slug ), 'value' => 'true' ),
@@ -1101,7 +1101,7 @@ class Google_Maps_Builder_Admin {
 					'name'    => 'Mouse Wheel to Zoom',
 					'id'      => $prefix . 'wheel_zoom',
 					'type'    => 'select',
-					'std'     => 'none',
+					'default' => 'none',
 					'options' => array(
 						array( 'name' => __( 'None', $this->plugin_slug ), 'value' => 'none' ),
 						array( 'name' => __( 'Standard', $this->plugin_slug ), 'value' => 'true' ),

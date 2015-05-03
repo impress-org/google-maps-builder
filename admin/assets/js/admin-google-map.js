@@ -768,7 +768,7 @@
 		clear_main_markers();
 
 		//Loop through repeatable field of markers
-		$( "#gmb_markers_group_repeat .repeatable-grouping" ).each( function ( index ) {
+		$( "#gmb_markers_group_repeat .cmb-repeatable-grouping" ).each( function ( index ) {
 
 			var marker_icon = gmb_data.plugin_url + '/public/assets/img/default-marker.png';
 			var marker_label = '';
