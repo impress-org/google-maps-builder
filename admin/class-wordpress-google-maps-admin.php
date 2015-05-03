@@ -155,7 +155,7 @@ class Google_Maps_Builder_Admin {
 		//Only enqueue scripts for CPT on post type screen
 		if ( $hook == 'post-new.php' || $hook == 'post.php' && 'google_maps' === $post->post_type ) {
 
-			wp_enqueue_style( $this->plugin_slug . '-admin-styles', plugins_url( 'assets/css/admin' . $suffix . '.css', __FILE__ ), array(), Google_Maps_Builder::VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-admin-styles', plugins_url( 'assets/css/min/admin' . $suffix . '.css', __FILE__ ), array(), Google_Maps_Builder::VERSION );
 			wp_enqueue_style( $this->plugin_slug . '-map-icons', plugins_url( 'includes/map-icons/css/map-icons.css', dirname( __FILE__ ) ), array(), Google_Maps_Builder::VERSION );
 			wp_enqueue_style( $this->plugin_slug . '-map-tooltips', plugins_url( 'includes/tooltips/jquery.qtip' . $suffix . '.css', __FILE__ ), array(), Google_Maps_Builder::VERSION );
 

@@ -65,13 +65,21 @@
 
 		//Places Type Field
 		$( '[name^="gmb_places_search_multicheckbox"]' ).on( 'change', function () {
+			
 			//Show message if not already displayed
 			if ( $( '.places-change-message' ).length === 0 ) {
-				$( '.cmb_id_gmb_places_search_multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>Place selections have changed.</p><a href="#" class="button update-places-map">Update Map</a></div>' );
+				$( '.cmb2-id-gmb-places-search-multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>Place selections have changed.</p><a href="#" class="button update-places-map">Update Map</a></div>' );
 				$( '.places-change-message' ).slideDown();
 			}
 
 		} );
+		
+		$( '.cmb-multicheck-toggle' ).on('click', function(){
+			if ( $( '.places-change-message' ).length === 0 ) {
+				$( '.cmb2-id-gmb-places-search-multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>Place selections have changed.</p><a href="#" class="button update-places-map">Update Map</a></div>' );
+				$( '.places-change-message' ).slideDown();
+			}
+		})
 
 		//Places Update Map Button
 		$( document ).on( 'click', '.update-places-map', function ( e ) {
@@ -386,7 +394,7 @@
 			add_markers( map );
 
 			//toggle places
-			if ( typeof $( '.cmb_id_gmb_show_places input:radio' ).prop( 'checked' ) !== 'undefined' && $( '.cmb_id_gmb_show_places input:radio:checked' ).val() === 'yes' ) {
+			if ( typeof $( '.cmb2-id-gmb-show-places input:radio' ).prop( 'checked' ) !== 'undefined' && $( '.cmb2-id-gmb-show-places input:radio:checked' ).val() === 'yes' ) {
 				perform_places_search();
 			}
 
@@ -999,7 +1007,7 @@
 
 		var types_array = [];
 
-		$( '.cmb_id_gmb_places_search_multicheckbox input[type="checkbox"]' ).each( function () {
+		$( '.cmb2-id-gmb-places-search-multicheckbox input[type="checkbox"]' ).each( function () {
 			if ( $( this ).is( ':checked' ) ) {
 				types_array.push( $( this ).val() );
 			}
@@ -1021,6 +1029,7 @@
 		$( '.warning-message' ).hide().empty();
 
 		var types_array = get_places_type_array();
+		console.log( types_array );
 
 		clear_search_markers();
 
@@ -1350,23 +1359,23 @@
 	 */
 	function toggle_metabox_fields() {
 
-		var show_places = $( '.cmb_id_gmb_show_places input:radio' );
-
+		var show_places = $( '.cmb2-id-gmb-show-places input:radio' );
+		
 		//Places Metabox
-		if ( show_places.prop( 'checked' ) === true ) {
-			$( '.cmb_id_gmb_search_radius' ).show();
-			$( '.cmb_id_gmb_places_search_multicheckbox' ).show();
+		if ( show_places.prop( 'checked' ) ) {
+			$( '.cmb2-id-gmb-search-radius' ).toggle();
+			$( '.cmb2-id-gmb-places-search-multicheckbox' ).toggle();
 		}
 
 		//Nothing checked yet so select 'No' by default
-		if ( show_places.prop( 'checked' ) === false ) {
+		if ( !show_places.prop( 'checked' ) ) {
 			$( '#gmb_show_places2' ).prop( 'checked', true );
 		}
 
 		show_places.on( 'change', function () {
 
-			$( '.cmb_id_gmb_search_radius' ).toggle();
-			$( '.cmb_id_gmb_places_search_multicheckbox' ).toggle();
+			$( '.cmb2-id-gmb-search-radius' ).toggle();
+			$( '.cmb2-id-gmb-places-search-multicheckbox' ).toggle();
 
 			if ( $( this ).val() === 'no' ) {
 				clear_search_markers();

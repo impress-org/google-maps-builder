@@ -53,7 +53,7 @@ Header
 }
 
 .new-window {
-	background: url('../img/new-window-icon.png') no-repeat right 5px transparent;
+	background: url('../../img/new-window-icon.png') no-repeat right 5px transparent;
 	padding-right: 13px;
 	margin-right: 4px;
 }
@@ -80,7 +80,7 @@ Header
 }
 
 .logo-link {
-	background: url('../img/wordimpress-logo-small.png') no-repeat 0 0 transparent;
+	background: url('../../img/wordimpress-logo-small.png') no-repeat 0 0 transparent;
 	width: 100px;
 	height: 40px;
 	display: block;
@@ -91,7 +91,7 @@ Header
 }
 
 .hide-welcome span {
-	background: url('../img/arrows.png') no-repeat 0 -33px rgba(0, 0, 0, 0);
+	background: url('../../img/arrows.png') no-repeat 0 -33px rgba(0, 0, 0, 0);
 	width: 15px;
 	height: 14px;
 	display: inline-block;
@@ -249,7 +249,7 @@ Header
 }
 
 .new-window {
-	background: url('../img/new-window-icon.png') no-repeat right 5px transparent;
+	background: url('../../img/new-window-icon.png') no-repeat right 5px transparent;
 	padding-right: 13px;
 	margin-right: 4px;
 }
@@ -276,7 +276,7 @@ Header
 }
 
 .logo-link {
-	background: url('../img/wordimpress-logo-small.png') no-repeat 0 0 transparent;
+	background: url('../../img/wordimpress-logo-small.png') no-repeat 0 0 transparent;
 	width: 100px;
 	height: 40px;
 	display: block;
@@ -287,7 +287,7 @@ Header
 }
 
 .hide-welcome span {
-	background: url('../img/arrows.png') no-repeat 0 -33px rgba(0, 0, 0, 0);
+	background: url('../../img/arrows.png') no-repeat 0 -33px rgba(0, 0, 0, 0);
 	width: 15px;
 	height: 14px;
 	display: inline-block;
