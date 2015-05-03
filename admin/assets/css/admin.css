@@ -93,16 +93,16 @@
 	margin-top: 5px;
 }
 
-.cmb_id_gmb_places_search_multicheckbox ul {
+.cmb2-id-gmb-places-search-multicheckbox ul {
 	overflow: hidden;
 }
 
-.cmb_id_gmb_places_search_multicheckbox li {
+.cmb2-id-gmb-places-search-multicheckbox li {
 	float: left;
 	width: 33%;
 }
 
-.cmb_id_gmb_places_search_multicheckbox .cmb_metabox_description {
+.cmb2-id-gmb-places-search-multicheckbox .cmb_metabox_description {
 	margin-top: 10px;
 	margin-right: 2px;
 }
