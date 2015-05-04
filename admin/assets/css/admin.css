@@ -29,7 +29,7 @@
 	/*display: none;*/
 }
 
-.cmb_id_gmb_theme_json {
+.cmb2-id-gmb-theme-json {
 	display: none;
 }
 
@@ -88,7 +88,7 @@
  CMB Interface
 --------------------------------------------*/
 
-.cmb_metabox_description {
+.cmb2-metabox-description {
 	display: block;
 	margin-top: 5px;
 }
@@ -102,7 +102,7 @@
 	width: 33%;
 }
 
-.cmb2-id-gmb-places-search-multicheckbox .cmb_metabox_description {
+.cmb2-id-gmb-places-search-multicheckbox .cmb2-metabox-description {
 	margin-top: 10px;
 	margin-right: 2px;
 }
@@ -182,15 +182,15 @@
 	display: none;
 }
 
-.cmb_id_gmb_map_type td {
+.cmb2-id-gmb-map-type td {
 	padding-bottom: 0;
 }
 
-.cmb_id_gmb_map_type .cmb_option {
+.cmb2-id-gmb-map-type-control .cmb2-option {
 	margin: 5px 0 10px;
 }
 
-.cmb_id_gmb_geocoder td {
+.cmb2-id-gmb-geocoder td {
 	padding-bottom: 3px;
 }
 
@@ -206,7 +206,7 @@
 	display: none;
 }
 
-#google_maps_details_options tr.cmb_id_gmb_show_poi {
+#google_maps_details_options tr.cmb2-id-gmb-show-poi {
 	display: table-row;
 }
 

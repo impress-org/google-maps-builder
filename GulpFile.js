@@ -4,7 +4,7 @@ var rename = require('gulp-rename');
 var watch = require('gulp-watch');
 var minifyCss = require('gulp-minify-css');
 
-gulp.task( 'compress', function() {
+gulp.task( 'admin', function() {
 	gulp.src('admin/assets/js/*.js')
 		.pipe(uglify())
 		.pipe(rename({
@@ -21,6 +21,21 @@ gulp.task( 'compress', function() {
 		
 });
 
-gulp.task('watch', function(){
-	watch('admin/aseets/js/*.js', ['compress'])
-})
+gulp.task( 'public', function() {
+	gulp.src('public/assets/js/*.js')
+		.pipe(uglify())
+		.pipe(rename({
+			extname: '.min.js'
+		}))
+		.pipe(gulp.dest('admin/assets/js/min'));
+	
+	gulp.src('public/assets/css/*.css')
+		.pipe(minifyCss({compatiability:'ie8'}))
+		.pipe(rename({
+			extname: '.min.css'
+		}))
+		.pipe(gulp.dest('admin/assets/css/min'))
+		
+});
+
+gulp.task('default', ['admin', 'public']);

@@ -375,7 +375,7 @@
 				}
 
 				map.setCenter( place.geometry.location );
-				add_tentative_marker( map, place.reference );
+				add_tentative_marker( map, place.place_id );
 
 			} );
 		}
@@ -488,7 +488,7 @@
 				info_window_content += add_place_content_to_info_window( place );
 
 
-				info_window_content += '<div class="infowindow-toolbar clear"><a href="#" class="add-marker" data-title="' + place.name + '" data-reference="' + place.reference + '"  data-lat="' + lat + '" data-lng="' + lng + '">Add to Map</a></div>';
+				info_window_content += '<div class="infowindow-toolbar clear"><a href="#" class="add-marker" data-title="' + place.name + '" data-reference="' + place.place_id + '"  data-lat="' + lat + '" data-lng="' + lng + '">Add to Map</a></div>';
 
 				info_window_content = set_info_window_wrapper( info_window_content ); //wraps the content in div and returns
 
@@ -973,7 +973,7 @@
 		info_bubble.open( map, marker );
 
 		var request = {
-			reference: place.reference
+			reference: place.place_id
 		};
 		places_service.getDetails( request, function ( place, status ) {
 			if ( status == google.maps.places.PlacesServiceStatus.OK ) {
@@ -1029,7 +1029,6 @@
 		$( '.warning-message' ).hide().empty();
 
 		var types_array = get_places_type_array();
-		console.log( types_array );
 
 		clear_search_markers();
 
@@ -1244,7 +1243,7 @@
 					info_bubble_content = '<div id="infobubble-content"><p>Hmm, it looks like there are multiple places in this area. Please confirm which place you would like this marker to display:</p>';
 
 					for ( var i = 0; i < results.length; i++ ) {
-						info_bubble_content += '<a class="marker-confirm-place"  data-reference="' + results[i].reference + '" data-name-address="' + results[i].name + ', ' + results[i].vicinity + '">' + results[i].name + '</a>';
+						info_bubble_content += '<a class="marker-confirm-place"  data-reference="' + results[i].place_id + '" data-name-address="' + results[i].name + ', ' + results[i].vicinity + '">' + results[i].name + '</a>';
 					}
 
 					info_bubble_content += '</div>';
@@ -1552,15 +1551,20 @@
 		if ( reset === true ) {
 			$( '#gmb_type' ).val( 'RoadMap' );
 			$( '#gmb_theme_json' ).val( 'none' );
+			$( '.cmb2-id-gmb-theme-json' ).hide();
 		}
 		//AJAX to get JSON data for Snazzy
 		$.getJSON( gmb_data.snazzy, function ( data ) {
 
 			var map_theme_input_val = parseInt( $( '#gmb_theme' ).val() );
-
-			if ( map_theme_input_val === 'none' ) {
+			
+			if ( $( '#gmb_theme' ).val() === 'none' ) {
 				set_map_type();
+				$( '.cmb2-id-gmb-theme-json' ).hide();
+			} else {
+				$( '.cmb2-id-gmb-theme-json' ).show();
 			}
+			
 			$.each( data, function ( index ) {
 
 				if ( data[index].id === map_theme_input_val ) {
