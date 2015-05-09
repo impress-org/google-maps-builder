@@ -573,15 +573,7 @@ class Google_Maps_Builder_Admin {
 
 			)
 		));
-		
-		$display_options->add_field( array(
-			'name'  => 'Custom Map Marker Icon',
-			'desc'  => 'Use a custom map marker for the map.',
-			'id'    => $prefix . 'map_marker',
-			'type'  => 'file',
-			'allow' => array( 'url', 'attachment' ),
-	    ));
-		
+				
 		// CONTROL OPTIONS
 		
 		$control_options = cmb2_get_metabox( array(
