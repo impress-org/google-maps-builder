@@ -158,8 +158,8 @@ class Google_Maps_Builder_Settings {
 		//Only enqueue scripts for Setting screen
 		if ( $this->options_page == $screen->id ) {
 
-			wp_enqueue_style( $this->plugin_slug . '-settings-grid', plugins_url( 'assets/css/grid' . $suffix . '.css', __FILE__ ), array(), Google_Maps_Builder::VERSION );
-			wp_enqueue_style( $this->plugin_slug . '-settings-styles', plugins_url( 'assets/css/admin-settings' . $suffix . '.css', __FILE__ ), array(), Google_Maps_Builder::VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-settings-grid', plugins_url( 'assets/css/min/grid' . $suffix . '.css', __FILE__ ), array(), Google_Maps_Builder::VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-settings-styles', plugins_url( 'assets/css/min/admin-settings' . $suffix . '.css', __FILE__ ), array(), Google_Maps_Builder::VERSION );
 
 		}
 
@@ -182,7 +182,7 @@ class Google_Maps_Builder_Settings {
 		//Only enqueue scripts for Setting screen
 		if ( $this->options_page == $screen->id ) {
 
-			wp_enqueue_script( $this->plugin_slug . '-admin-settings', plugins_url( 'assets/js/admin-settings' . $suffix . '.js', __FILE__ ), array( 'jquery' ), Google_Maps_Builder::VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-settings', plugins_url( 'assets/js/min/admin-settings' . $suffix . '.js', __FILE__ ), array( 'jquery' ), Google_Maps_Builder::VERSION );
 
 		}
 

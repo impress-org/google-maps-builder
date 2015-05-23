@@ -19,7 +19,7 @@
 
 			<p><?php _e( 'The following settings allow you to customize how Google Maps Builder functions within WordPress.', $this->plugin_slug ); ?></p>
 
-			<?php cmb_metabox_form( $this->general_option_fields(), self::$key ); ?>
+			<?php cmb2_metabox_form( $this->general_option_fields(), self::$key ); ?>
 		</div>
 		<div class="col-md-2">
 

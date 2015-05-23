@@ -967,19 +967,21 @@
 	 * @param marker
 	 */
 	function get_place_info_window_content( place, marker ) {
-
+		
 		info_bubble.setContent( '<div id="infobubble-content" class="loading"></div>' );
 
 		info_bubble.open( map, marker );
 
 		var request = {
-			reference: place.place_id
+			reference: place.reference
 		};
+
 		places_service.getDetails( request, function ( place, status ) {
+
 			if ( status == google.maps.places.PlacesServiceStatus.OK ) {
 
 				var info_window_content;
-
+				
 				//place name
 				info_window_content = '<p class="place-title">' + place.name + '</p>';
 

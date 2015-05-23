@@ -1,5 +1,5 @@
 /**
- * Google Places Map CPT Styles
+ * Google Places Map CPT Styles TEST
  */
 
 .clear:before,
@@ -272,7 +272,7 @@
 }
 
 #infobubble-content.loading {
-	background: url('../../../includes/assets/img/loading.GIF') no-repeat center center #FFF;
+	background: url('../../../../includes/assets/img/loading.GIF') no-repeat center center #FFF;
 }
 
 #google-map-wrap div#infobubble-content > div {
