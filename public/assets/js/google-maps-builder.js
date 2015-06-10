@@ -7,6 +7,17 @@
 	var search_markers = [];
 	
 	/*
+	* Global AJAX handler
+	*
+	* jQuery - https://api.jquery.com/category/ajax/global-ajax-event-handlers/
+	*
+	* $( document ).ajaxComplete(function( event, request, settings) {
+	*	console.log(request);
+	* });
+	*
+	*/
+	
+	/*
 	* global load function for other plugins / themes to use
 	*
 	* ex: google_maps_builder_load( object );
@@ -18,7 +29,7 @@
 	}
 
 	$( document ).ready( function () {
-		
+
 		var google_maps = $( '.google-maps-builder' );
 		/*
 		 * Loop through maps and initialize
@@ -47,10 +58,9 @@
 	function load_hidden_map( parent ) {
 		var google_hidden_maps = $(parent + ' .google-maps-builder');
 		if( !google_hidden_maps.length ) { return; }
+		
 		google_hidden_maps.each( function ( index, value ) {
-	
 			initialize_map( $( google_hidden_maps[index] ) );
-
 		} );
 	}
 

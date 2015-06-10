@@ -44,7 +44,18 @@ class Google_Maps_Builder {
 	 * @var      object
 	 */
 	protected static $instance = null;
-
+	
+	
+	/**
+	*
+	*
+	* Global Var for loading google maps api
+	* Global Var for dependancy
+	*
+	*/
+	protected $load_maps_api = true;
+	protected $load_maps_api_dep = 'jquery';
+	
 	/**
 	 * Initialize the plugin by setting localization and loading public scripts
 	 * and styles.
@@ -74,9 +85,13 @@ class Google_Maps_Builder {
 		// Activate plugin when new blog is added
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
 
+		// Loading GMaps the Jedi Master Way - http://scribu.net/wordpress/optimal-script-loading.html
+		add_action( 'wp_head', array( $this, 'check_for_multiple_google_maps_api_calls' ) );
+		add_action( 'init', array( $this, 'register_gmap_scripts') );
+		add_action( 'wp_footer', array( $this, 'print_gmap_footer') );
+		
 		// Load public-facing style sheet and JavaScript.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		add_action( 'admin_head', array( $this, 'icon_style' ) );
 
@@ -497,22 +512,25 @@ class Google_Maps_Builder {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
-
+	
+	public function register_gmap_scripts() {
+		wp_register_script( $this->plugin_slug . '-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
+		
 		$suffix = defined( 'GMB_DEBUG' ) && GMB_DEBUG ? '' : '.min';
+		$suffix = '';
 
-		$multiple_google_maps_api = $this->check_for_multiple_google_maps_api_calls();
-
-		//Only load Google Maps if multiple are not enequeued
-		if ( $multiple_google_maps_api === false ) {
-			wp_enqueue_script( $this->plugin_slug . '-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
-		}
-
-		wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/min/google-maps-builder' . $suffix . '.js', __FILE__ ), array( 'jquery' ), self::VERSION, true );
-		wp_enqueue_script( $this->plugin_slug . '-maps-icons', plugins_url( 'includes/map-icons/js/map-icons.js', dirname( __FILE__ ) ), array( 'jquery' ), self::VERSION, true );
+		wp_register_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/google-maps-builder' . $suffix . '.js', __FILE__ ), array( $this->load_maps_api_dep ), self::VERSION, true );
+		wp_register_script( $this->plugin_slug . '-maps-icons', plugins_url( 'includes/map-icons/js/map-icons.js', dirname( __FILE__ ) ), array( 'jquery' ), self::VERSION, true );
 
 		wp_localize_script( $this->plugin_slug . '-plugin-script', 'gmb_data', array() );
-
+		
+	}
+	public function print_gmap_footer() {
+		if( $this->load_maps_api ) {
+			wp_print_scripts( $this->plugin_slug . '-gmaps' );
+		}
+		wp_print_scripts( $this->plugin_slug . '-plugin-script' );
+		wp_print_scripts( $this->plugin_slug . '-maps-icons' );
 	}
 
 
@@ -524,20 +542,27 @@ class Google_Maps_Builder {
 	 * @return bool $multiple_google_maps_api
 	 */
 	public function check_for_multiple_google_maps_api_calls() {
-
+		
 		global $wp_scripts;
-
-		$multiple_google_maps_api = false;
 		
 		if( !$wp_scripts ) { return false; }
-
+		
 		//loop through registered scripts
 		foreach ( $wp_scripts->registered as $registered_script ) {
-
 			//find any that have the google script as the source, ensure it's not enqueud by this plugin
-			if ( strpos( $registered_script->src, 'maps.googleapis.com/maps/api/js' ) !== false && strpos( $registered_script->handle, 'google-maps-builder' ) === false ) {
+			if ( 
+				strpos( $registered_script->src, 'maps.googleapis.com/maps/api/js' ) !== false && 
+				strpos( $registered_script->handle, 'google-maps-builder' ) === false 
+			) {
+				
+				if( strpos( $registered_script->src, 'places' ) == false ) {
+					var_dump( $registered_script->src );
+					$registered_script->src = $registered_script->src . '&libraries=places';
+					var_dump( $registered_script->src );
+				}
 
-				$multiple_google_maps_api = true;
+				$this->load_maps_api = false;
+				$this->load_maps_api_dep = $registered_script->handle;
 				//ensure we can detect scripts on the frontend from backend; we'll use an option to do this
 				if ( ! is_admin() ) {
 					update_option( 'gmb_google_maps_conflict', true );
@@ -547,13 +572,11 @@ class Google_Maps_Builder {
 
 		}
 
+
 		//Ensure that if user resolved conflict on frontend we remove the option flag
-		if ( $multiple_google_maps_api === false && ! is_admin() ) {
+		if ( $this->load_maps_api === false && ! is_admin() ) {
 			update_option( 'gmb_google_maps_conflict', false );
 		}
-
-		//returns boolean
-		return $multiple_google_maps_api;
 	}
 
 
@@ -567,12 +590,11 @@ class Google_Maps_Builder {
 
 		global $current_user;
 		$user_id                  = $current_user->ID;
-		$multiple_google_maps_api = $this->check_for_multiple_google_maps_api_calls();
 		$gmb_google_maps_conflict = get_option( 'gmb_google_maps_conflict' );
 
 		// Check that the user hasn't already clicked to ignore the message and that they have appropriate permissions
 		// And, most importantly, that Google Maps are actually being enqueued twice
-		if ( ! get_user_meta( $user_id, 'gmb_ignore_maps_notice' ) && current_user_can( 'install_plugins' ) && $multiple_google_maps_api === true || ! get_user_meta( $user_id, 'gmb_ignore_maps_notice' ) && current_user_can( 'install_plugins' ) && $gmb_google_maps_conflict === '1' ) {
+		if ( ! get_user_meta( $user_id, 'gmb_ignore_maps_notice' ) && current_user_can( 'install_plugins' ) && $this->load_maps_api === false || ! get_user_meta( $user_id, 'gmb_ignore_maps_notice' ) && current_user_can( 'install_plugins' ) && $gmb_google_maps_conflict === '1' ) {
 
 			echo '<div class="updated error clearfix"><p>';
 			parse_str( $_SERVER['QUERY_STRING'], $params );

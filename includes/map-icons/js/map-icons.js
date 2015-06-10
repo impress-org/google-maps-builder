@@ -37,7 +37,12 @@ function Marker(options){
 }
 
 // Apply the inheritance
-inherits(Marker, google.maps.Marker);
+jQuery(document).ready(function(){
+	inherits(Marker, google.maps.Marker);
+	
+	// Create MarkerLabel Object
+	MarkerLabel.prototype = new google.maps.OverlayView;
+});
 
 // Custom Marker SetMap
 Marker.prototype.setMap = function() {
@@ -64,8 +69,6 @@ var MarkerLabel = function(options) {
 	});
 };
 
-// Create MarkerLabel Object
-MarkerLabel.prototype = new google.maps.OverlayView;
 
 // Marker Label onAdd
 MarkerLabel.prototype.onAdd = function() {
