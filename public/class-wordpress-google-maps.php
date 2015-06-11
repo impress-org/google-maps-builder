@@ -88,10 +88,11 @@ class Google_Maps_Builder {
 		// Loading GMaps the Jedi Master Way - http://scribu.net/wordpress/optimal-script-loading.html
 		add_action( 'wp_head', array( $this, 'check_for_multiple_google_maps_api_calls' ) );
 		add_action( 'init', array( $this, 'register_gmap_scripts') );
-		add_action( 'wp_footer', array( $this, 'print_gmap_footer') );
+		add_action( 'wp_footer', array( $this, 'print_gmap_footer'), 100 );
 		
 		// Load public-facing style sheet and JavaScript.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 11 );
 
 		add_action( 'admin_head', array( $this, 'icon_style' ) );
 
@@ -513,18 +514,22 @@ class Google_Maps_Builder {
 	 * @since    1.0.0
 	 */
 	
-	public function register_gmap_scripts() {
-		wp_register_script( $this->plugin_slug . '-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
+	public function enqueue_scripts() {
 		
 		$suffix = defined( 'GMB_DEBUG' ) && GMB_DEBUG ? '' : '.min';
 		$suffix = '';
-
 		wp_register_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/google-maps-builder' . $suffix . '.js', __FILE__ ), array( $this->load_maps_api_dep ), self::VERSION, true );
 		wp_register_script( $this->plugin_slug . '-maps-icons', plugins_url( 'includes/map-icons/js/map-icons.js', dirname( __FILE__ ) ), array( 'jquery' ), self::VERSION, true );
-
 		wp_localize_script( $this->plugin_slug . '-plugin-script', 'gmb_data', array() );
 		
 	}
+	
+	public function register_gmap_scripts() {
+		
+		wp_register_script( $this->plugin_slug . '-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );	
+		
+	}
+		
 	public function print_gmap_footer() {
 		if( $this->load_maps_api ) {
 			wp_print_scripts( $this->plugin_slug . '-gmaps' );
@@ -556,9 +561,9 @@ class Google_Maps_Builder {
 			) {
 				
 				if( strpos( $registered_script->src, 'places' ) == false ) {
-					var_dump( $registered_script->src );
+					
 					$registered_script->src = $registered_script->src . '&libraries=places';
-					var_dump( $registered_script->src );
+					
 				}
 
 				$this->load_maps_api = false;
