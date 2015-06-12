@@ -1,10 +1,9 @@
 # Google Maps Builder
 Contributors: dlocc, wordimpress
 Donate link: http://wordimpress.com/
-Tags: google maps, google map, google map widget, google map shortcode, maps, map, wp map, wp google maps, google maps directions, google maps builder, google maps plugin, google places, google places api, google maps api, google places reviews
 Requires at least: 3.6
 Tested up to: 3.9.1
-Stable tag: 1.0.1
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -113,13 +112,3 @@ Here is what we are working on for future releases:
 * Info Window - FOUC: Investigate why sometimes pointer tip of info window flashes before it opens (mainly Chrome)
 * Chrome - Look into while map tiles have strange lines in between
 * Firefox - Clicking on a marker to open the same info window creates content overflow
-
-# Changelog
-
-## 1.0.1
-* New: Added a custom meta field to the Google Map single post screen that outputs the post's shortcode so it's more easily accessible. Before you could only access the shortcode via the Google Maps post listing page.
-* Updated readme.txt file with more information about the plugin, fixed several formatting errors and typos.
-* Fixed: Activation error "PHP Strict Standards:  call_user_func_array() expects parameter 1 to be a valid callback, non-static method Google_Maps_Builder::activate() should not be called statically in ..." - Thanks Jon Brown!
-
-## 1.0.0
-* Plugin released. Yay!

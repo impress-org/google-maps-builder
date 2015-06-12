@@ -145,6 +145,16 @@ Here is what we are working on for future releases:
 
 == Changelog ==
 
+= 2.0 =
+* Upgraded CMB1 to CMB2
+* Switch and Test all Google Places API calls to "Reference ID" or "ID" to Google's new "Places ID"
+* Marker Creation Improvements: 1) Sometimes markers disappear in the post edit screen. 2) Sometimes markers don't get output on the front end correctly. 3)Sometimes markers don't get generated in the post edit screen at all.
+* Investigated + Resolved Google Maps API Conflict - Often when a user has a theme or plugin that registers Google Maps it breaks our plugin or ours breaks theirs. We now check for other google maps enqueues, and if present the plugin attempts to dequeue them in favor for ours. So far this has fixed issues with Uber Menu 3, Contact Forms 7 and more.
+* Maps placed in hidden tabs now redraw properly when the tab is selected
+* Found and resolved conflict with ACF plugin Google Maps field
+* Removed non-functional marker upload field (will be added to Pro version in a much enhanced format).
+* General Javascript Cleanup and Optimization
+
 = 1.0.3 =
 * New: New check for multiple Google Maps API calls to ensure more compatibility with themes and plugins which include the same maps API JS. If the check detects multiple enqueues a warning appears in the admin panel.
 * Additional Testing: Reviewed WooCommerce and Contact Forms 7 compatibility within WP admin panel
