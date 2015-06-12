@@ -38,6 +38,8 @@ function Marker(options){
 
 // Apply the inheritance
 inherits(Marker, google.maps.Marker);
+	
+	
 
 // Custom Marker SetMap
 Marker.prototype.setMap = function() {

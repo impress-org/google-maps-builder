@@ -1,5 +1,5 @@
 /**
- * Google Places Map CPT Styles
+ * Google Places Map CPT Styles TEST
  */
 
 .clear:before,
@@ -29,7 +29,7 @@
 	/*display: none;*/
 }
 
-.cmb_id_gmb_theme_json {
+.cmb2-id-gmb-theme-json {
 	display: none;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .new-window {
-	background: url('../img/new-window-icon.png') no-repeat right 3px transparent;
+	background: url('../../img/new-window-icon.png') no-repeat right 3px transparent;
 	padding-right: 16px;
 }
 
@@ -88,21 +88,21 @@
  CMB Interface
 --------------------------------------------*/
 
-.cmb_metabox_description {
+.cmb2-metabox-description {
 	display: block;
 	margin-top: 5px;
 }
 
-.cmb_id_gmb_places_search_multicheckbox ul {
+.cmb2-id-gmb-places-search-multicheckbox ul {
 	overflow: hidden;
 }
 
-.cmb_id_gmb_places_search_multicheckbox li {
+.cmb2-id-gmb-places-search-multicheckbox li {
 	float: left;
 	width: 33%;
 }
 
-.cmb_id_gmb_places_search_multicheckbox .cmb_metabox_description {
+.cmb2-id-gmb-places-search-multicheckbox .cmb2-metabox-description {
 	margin-top: 10px;
 	margin-right: 2px;
 }
@@ -112,7 +112,7 @@
 }
 
 .autocomplete-wrap {
-	background: url('../img/powered-by-google-on-white.png') no-repeat right 8px rgba(0, 0, 0, 0);
+	background: url('../../img/powered-by-google-on-white.png') no-repeat right 8px rgba(0, 0, 0, 0);
 }
 
 .repeatable-group .shift-rows {
@@ -173,7 +173,7 @@
 }
 
 .places-loading {
-	background: url('../img/spinner.gif') no-repeat center right transparent;
+	background: url('../../img/spinner.gif') no-repeat center right transparent;
 	font-style: italic;
 	position: absolute;
 	top: -34px;
@@ -182,15 +182,15 @@
 	display: none;
 }
 
-.cmb_id_gmb_map_type td {
+.cmb2-id-gmb-map-type td {
 	padding-bottom: 0;
 }
 
-.cmb_id_gmb_map_type .cmb_option {
+.cmb2-id-gmb-map-type-control .cmb2-option {
 	margin: 5px 0 10px;
 }
 
-.cmb_id_gmb_geocoder td {
+.cmb2-id-gmb-geocoder td {
 	padding-bottom: 3px;
 }
 
@@ -198,7 +198,7 @@
  General Styles
 --------------------------------------------*/
 
-.cmb_id_gmb_search_radius, .cmb_id_gmb_places_search_multicheckbox {
+.cmb2-id-gmb-search-radius, .cmb2-id-gmb-places-search-multicheckbox {
 	display: none;
 }
 
@@ -206,7 +206,7 @@
 	display: none;
 }
 
-#google_maps_details_options tr.cmb_id_gmb_show_poi {
+#google_maps_details_options tr.cmb2-id-gmb-show-poi {
 	display: table-row;
 }
 
@@ -272,7 +272,7 @@
 }
 
 #infobubble-content.loading {
-	background: url('../../../includes/assets/img/loading.GIF') no-repeat center center #FFF;
+	background: url('../../../../includes/assets/img/loading.GIF') no-repeat center center #FFF;
 }
 
 #google-map-wrap div#infobubble-content > div {

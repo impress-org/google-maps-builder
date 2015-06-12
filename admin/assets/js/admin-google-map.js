@@ -65,13 +65,21 @@
 
 		//Places Type Field
 		$( '[name^="gmb_places_search_multicheckbox"]' ).on( 'change', function () {
+			
 			//Show message if not already displayed
 			if ( $( '.places-change-message' ).length === 0 ) {
-				$( '.cmb_id_gmb_places_search_multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>Place selections have changed.</p><a href="#" class="button update-places-map">Update Map</a></div>' );
+				$( '.cmb2-id-gmb-places-search-multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>Place selections have changed.</p><a href="#" class="button update-places-map">Update Map</a></div>' );
 				$( '.places-change-message' ).slideDown();
 			}
 
 		} );
+		
+		$( '.cmb-multicheck-toggle' ).on('click', function(){
+			if ( $( '.places-change-message' ).length === 0 ) {
+				$( '.cmb2-id-gmb-places-search-multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>Place selections have changed.</p><a href="#" class="button update-places-map">Update Map</a></div>' );
+				$( '.places-change-message' ).slideDown();
+			}
+		})
 
 		//Places Update Map Button
 		$( document ).on( 'click', '.update-places-map', function ( e ) {
@@ -112,16 +120,17 @@
 
 			//get current number of repeatable rows ie markers
 			var index = get_marker_index();
-
+			
 			var reference = $( this ).data( 'reference' );
 
 			//add data to fields
-			$( '#gmb_markers_group_' + index + '_title' ).val( $( this ).data( 'title' ) );
-			$( '#gmb_markers_group_' + index + '_lat' ).val( $( this ).data( 'lat' ) );
-			$( '#gmb_markers_group_' + index + '_lng' ).val( $( this ).data( 'lng' ) );
-			$( '#gmb_markers_group_' + index + '_reference' ).val( reference );
-
 			get_editable_info_window( index, location_marker );
+			
+			$( 'input[data-field="#gmb_markers_group_' + index + '_title"]' ).val( $( this ).data( 'title' ) );
+			$( 'input#gmb_markers_group_' + index + '_lat' ).val( $( this ).data( 'lat' ) );
+			$( 'input#gmb_markers_group_' + index + '_lng' ).val( $( this ).data( 'lng' ) );
+			$( 'input#gmb_markers_group_' + index + '_reference' ).val( reference );
+
 
 			//location clicked
 			google.maps.event.addListener( location_marker, 'click', function () {
@@ -366,7 +375,7 @@
 				}
 
 				map.setCenter( place.geometry.location );
-				add_tentative_marker( map, place.reference );
+				add_tentative_marker( map, place.place_id );
 
 			} );
 		}
@@ -385,7 +394,7 @@
 			add_markers( map );
 
 			//toggle places
-			if ( typeof $( '.cmb_id_gmb_show_places input:radio' ).prop( 'checked' ) !== 'undefined' && $( '.cmb_id_gmb_show_places input:radio:checked' ).val() === 'yes' ) {
+			if ( typeof $( '.cmb2-id-gmb-show-places input:radio' ).prop( 'checked' ) !== 'undefined' && $( '.cmb2-id-gmb-show-places input:radio:checked' ).val() === 'yes' ) {
 				perform_places_search();
 			}
 
@@ -479,7 +488,7 @@
 				info_window_content += add_place_content_to_info_window( place );
 
 
-				info_window_content += '<div class="infowindow-toolbar clear"><a href="#" class="add-marker" data-title="' + place.name + '" data-reference="' + place.reference + '"  data-lat="' + lat + '" data-lng="' + lng + '">Add to Map</a></div>';
+				info_window_content += '<div class="infowindow-toolbar clear"><a href="#" class="add-marker" data-title="' + place.name + '" data-reference="' + place.place_id + '"  data-lat="' + lat + '" data-lng="' + lng + '">Add to Map</a></div>';
 
 				info_window_content = set_info_window_wrapper( info_window_content ); //wraps the content in div and returns
 
@@ -568,9 +577,15 @@
 		}
 
 		//place name
-		info_window_content = '<input class="edit-place-title" data-field="#gmb_markers_group_' + index + '_title" type="text" value="' + info_window_data.title + '">';
-
-		info_window_content += '<textarea class="edit-place-description" data-field="#gmb_markers_group_' + index + '_description">' + info_window_data.desc + '</textarea>';
+		if( info_window_data.title ) {
+			info_window_content = '<input class="edit-place-title" data-field="#gmb_markers_group_' + index + '_title" type="text" value="' + info_window_data.title + '">';
+		}
+		
+		if( info_window_data.desc ) {
+			info_window_content += '<textarea class="edit-place-description" data-field="#gmb_markers_group_' + index + '_description">' + info_window_data.desc + '</textarea>';	
+		} else {
+			info_window_content += '<textarea class="edit-place-description" data-field="#gmb_markers_group_' + index + '_description" placeholder="Point Description"></textarea>';
+		}
 
 		//info_window_content += add_place_content_to_info_window( place );
 
@@ -761,7 +776,7 @@
 		clear_main_markers();
 
 		//Loop through repeatable field of markers
-		$( "#gmb_markers_group_repeat .repeatable-grouping" ).each( function ( index ) {
+		$( "#gmb_markers_group_repeat .cmb-repeatable-grouping" ).each( function ( index ) {
 
 			var marker_icon = gmb_data.plugin_url + '/public/assets/img/default-marker.png';
 			var marker_label = '';
@@ -909,11 +924,11 @@
 
 			//if first item clear out all input values
 			if ( index === 0 ) {
-				$( 'tr[data-iterator="' + index + '"] ' ).find( 'input,textarea' ).val( '' );
+				$( 'div[data-iterator="' + index + '"] ' ).find( 'input,textarea' ).val( '' );
 			}
 
 			//trigger remove row button click for this specific markers row
-			$( 'tr[data-iterator="' + index + '"] .remove-group-row' ).trigger( 'click' );
+			$( 'div[data-iterator="' + index + '"] .remove-group-row' ).trigger( 'click' );
 			//close info window and remove marker
 			info_bubble.close();
 			marker.setVisible( false );
@@ -930,17 +945,17 @@
 	 */
 	function get_marker_index() {
 		//Create a new marker repeatable meta group
-		var index = parseInt( $( '#gmb_markers_group_repeat tr.repeatable-grouping' ).last().attr( 'data-iterator' ) );
-		var existing_vals = $( 'tr[data-iterator="0"] ' ).find( 'input,textarea' ).val();
-
+		var index = parseInt( $( '#gmb_markers_group_repeat div.cmb-repeatable-grouping' ).last().attr( 'data-iterator' ) );
+		var existing_vals = $( 'div[data-iterator="0"] ' ).find( 'input,textarea' ).val();
+		
 		//Ensure appropriate index is used for marker
 		if ( existing_vals && index === 0 ) {
-			$( '.add-group-row.button' ).trigger( 'click' );
+			$( '.cmb-add-group-row.button' ).trigger( 'click' );
 			index = 1;
 		} else if ( index !== 0 ) {
-			$( '.add-group-row.button' ).trigger( 'click' );
+			$( '.cmb-add-group-row.button' ).trigger( 'click' );
 			//recount rows
-			index = parseInt( $( '#gmb_markers_group_repeat tr.repeatable-grouping' ).last().attr( 'data-iterator' ) );
+			index = parseInt( $( '#gmb_markers_group_repeat div.cmb-repeatable-grouping' ).last().attr( 'data-iterator' ) );
 		}
 		return index;
 	}
@@ -952,7 +967,7 @@
 	 * @param marker
 	 */
 	function get_place_info_window_content( place, marker ) {
-
+		
 		info_bubble.setContent( '<div id="infobubble-content" class="loading"></div>' );
 
 		info_bubble.open( map, marker );
@@ -960,11 +975,13 @@
 		var request = {
 			reference: place.reference
 		};
+
 		places_service.getDetails( request, function ( place, status ) {
+
 			if ( status == google.maps.places.PlacesServiceStatus.OK ) {
 
 				var info_window_content;
-
+				
 				//place name
 				info_window_content = '<p class="place-title">' + place.name + '</p>';
 
@@ -992,7 +1009,7 @@
 
 		var types_array = [];
 
-		$( '.cmb_id_gmb_places_search_multicheckbox input[type="checkbox"]' ).each( function () {
+		$( '.cmb2-id-gmb-places-search-multicheckbox input[type="checkbox"]' ).each( function () {
 			if ( $( this ).is( ':checked' ) ) {
 				types_array.push( $( this ).val() );
 			}
@@ -1228,7 +1245,7 @@
 					info_bubble_content = '<div id="infobubble-content"><p>Hmm, it looks like there are multiple places in this area. Please confirm which place you would like this marker to display:</p>';
 
 					for ( var i = 0; i < results.length; i++ ) {
-						info_bubble_content += '<a class="marker-confirm-place"  data-reference="' + results[i].reference + '" data-name-address="' + results[i].name + ', ' + results[i].vicinity + '">' + results[i].name + '</a>';
+						info_bubble_content += '<a class="marker-confirm-place"  data-reference="' + results[i].place_id + '" data-name-address="' + results[i].name + ', ' + results[i].vicinity + '">' + results[i].name + '</a>';
 					}
 
 					info_bubble_content += '</div>';
@@ -1343,23 +1360,23 @@
 	 */
 	function toggle_metabox_fields() {
 
-		var show_places = $( '.cmb_id_gmb_show_places input:radio' );
-
+		var show_places = $( '.cmb2-id-gmb-show-places input:radio' );
+		
 		//Places Metabox
-		if ( show_places.prop( 'checked' ) === true ) {
-			$( '.cmb_id_gmb_search_radius' ).show();
-			$( '.cmb_id_gmb_places_search_multicheckbox' ).show();
+		if ( show_places.prop( 'checked' ) ) {
+			$( '.cmb2-id-gmb-search-radius' ).toggle();
+			$( '.cmb2-id-gmb-places-search-multicheckbox' ).toggle();
 		}
 
 		//Nothing checked yet so select 'No' by default
-		if ( show_places.prop( 'checked' ) === false ) {
+		if ( !show_places.prop( 'checked' ) ) {
 			$( '#gmb_show_places2' ).prop( 'checked', true );
 		}
 
 		show_places.on( 'change', function () {
 
-			$( '.cmb_id_gmb_search_radius' ).toggle();
-			$( '.cmb_id_gmb_places_search_multicheckbox' ).toggle();
+			$( '.cmb2-id-gmb-search-radius' ).toggle();
+			$( '.cmb2-id-gmb-places-search-multicheckbox' ).toggle();
 
 			if ( $( this ).val() === 'no' ) {
 				clear_search_markers();
@@ -1536,15 +1553,20 @@
 		if ( reset === true ) {
 			$( '#gmb_type' ).val( 'RoadMap' );
 			$( '#gmb_theme_json' ).val( 'none' );
+			$( '.cmb2-id-gmb-theme-json' ).hide();
 		}
 		//AJAX to get JSON data for Snazzy
 		$.getJSON( gmb_data.snazzy, function ( data ) {
 
 			var map_theme_input_val = parseInt( $( '#gmb_theme' ).val() );
-
-			if ( map_theme_input_val === 'none' ) {
+			
+			if ( $( '#gmb_theme' ).val() === 'none' ) {
 				set_map_type();
+				$( '.cmb2-id-gmb-theme-json' ).hide();
+			} else {
+				$( '.cmb2-id-gmb-theme-json' ).show();
 			}
+			
 			$.each( data, function ( index ) {
 
 				if ( data[index].id === map_theme_input_val ) {

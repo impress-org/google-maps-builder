@@ -1,0 +1,30 @@
+{
+  "name": "google-maps-builder",
+  "version": "1.0.0",
+  "description": "Contributors: dlocc, wordimpress Donate link: http://wordimpress.com/ Tags: google maps, google map, google map widget, google map shortcode, maps, map, wp map, wp google maps, google maps directions, google maps builder, google maps plugin, google places, google places api, google maps api, google places reviews Requires at least: 3.6 Tested up to: 3.9.1 Stable tag: 1.0.1 License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-install": "^0.4.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-minify-css": "^1.1.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-watch": "^4.2.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WordImpress/google-maps-builder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WordImpress/google-maps-builder/issues"
+  },
+  "homepage": "https://github.com/WordImpress/google-maps-builder"
+}

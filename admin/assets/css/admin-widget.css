@@ -12,7 +12,7 @@
 }
 
 .wpgp-toggler span {
-	background: url('../img/arrows.png') no-repeat 60% -107px;
+	background: url('../../img/arrows.png') no-repeat 60% -107px;
 	float: right;
 	height: 12px;
 	display: inline-block;
@@ -56,7 +56,7 @@
 }
 
 .new-window {
-	background: url('../img/new-window-icon.png') no-repeat right 3px transparent;
+	background: url('../../img/new-window-icon.png') no-repeat right 3px transparent;
 	padding-right: 16px;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .powered-by-google {
-	background: url('../img/powered-by-google-on-white.png') no-repeat 0 0 transparent;
+	background: url('../../img/powered-by-google-on-white.png') no-repeat 0 0 transparent;
 	width: 104px;
 	height: 16px;
 }

@@ -5,24 +5,64 @@
 	var place;
 	var location_marker_array = [];
 	var search_markers = [];
+	
+	/*
+	* Global AJAX handler
+	*
+	* jQuery - https://api.jquery.com/category/ajax/global-ajax-event-handlers/
+	*
+	* $( document ).ajaxComplete(function( event, request, settings) {
+	*	console.log(request);
+	* });
+	*
+	*/
+	
+	/*
+	* global load function for other plugins / themes to use
+	*
+	* ex: google_maps_builder_load( object );
+	* 
+	*/
+	window.google_maps_builder_load = function( map_canvas ) {
+		if( !$(map_canvas).hasClass('google-maps-builder') ) { return 'invalid Google Maps Builder'; }
+		initialize_map( map_canvas );
+	}
 
-
-	$( function () {
-
+	$( document ).ready( function () {
 
 		var google_maps = $( '.google-maps-builder' );
 		/*
 		 * Loop through maps and initialize
 		 */
 		google_maps.each( function ( index, value ) {
-
+			
 			initialize_map( $( google_maps[index] ) );
 
 		} );
-
+		
+		// fix for bootstrap tabs
+		$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+			var panel = $(e.target).attr('href');
+			load_hidden_map( panel );
+		})
 
 	} );
-
+	
+	/**
+	* Map Init After the fact
+	*
+	* Good for tabs / ajax - pass in wrapper div class/id
+	*
+	*/
+	
+	function load_hidden_map( parent ) {
+		var google_hidden_maps = $(parent + ' .google-maps-builder');
+		if( !google_hidden_maps.length ) { return; }
+		
+		google_hidden_maps.each( function ( index, value ) {
+			initialize_map( $( google_hidden_maps[index] ) );
+		} );
+	}
 
 	/**
 	 * Map Intialize
@@ -32,7 +72,6 @@
 	 * @param map_canvas
 	 */
 	function initialize_map( map_canvas ) {
-
 		//info_window - Contains the place's information and content
 		var info_window = new google.maps.InfoWindow( {
 			maxWidth: 315
