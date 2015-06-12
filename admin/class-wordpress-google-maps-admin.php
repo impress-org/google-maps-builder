@@ -11,8 +11,8 @@
  * @link      http://wordimpress.com
  * @copyright 2014 WordImpress, Devin Walker
  */
- 
- 
+
+
 //CMB2 INIT
 require_once( plugin_dir_path( dirname( __FILE__ ) ) . 'includes/metabox/init.php' );
 
@@ -76,7 +76,7 @@ class Google_Maps_Builder_Admin {
 
 		//Add metaboxes and fields to CPT
 		add_action( 'cmb2_init', array( $this, 'cpt2_metaboxes_fields' ) );
-		
+
 	}
 
 	/**
@@ -86,8 +86,9 @@ class Google_Maps_Builder_Admin {
 	 */
 	public function gmb_add_shortcode_to_publish_metabox() {
 
-		if ('google_maps' !== get_post_type())
+		if ( 'google_maps' !== get_post_type() ) {
 			return false;
+		}
 
 		global $post;
 
@@ -153,9 +154,9 @@ class Google_Maps_Builder_Admin {
 		$suffix = defined( 'GMB_DEBUG' ) && GMB_DEBUG ? '' : '.min';
 
 		//Only enqueue scripts for CPT on post type screen
-		if ( ($hook == 'post-new.php' || $hook == 'post.php') && 'google_maps' === $post->post_type ) {
+		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
 
-			wp_enqueue_style( $this->plugin_slug . '-admin-styles', plugins_url( 'assets/css/min/admin' . $suffix . '.css', __FILE__ ), array(), Google_Maps_Builder::VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-admin-styles', plugins_url( 'assets/css/admin' . $suffix . '.css', __FILE__ ), array(), Google_Maps_Builder::VERSION );
 			wp_enqueue_style( $this->plugin_slug . '-map-icons', plugins_url( 'includes/map-icons/css/map-icons.css', dirname( __FILE__ ) ), array(), Google_Maps_Builder::VERSION );
 			wp_enqueue_style( $this->plugin_slug . '-map-tooltips', plugins_url( 'includes/tooltips/jquery.qtip' . $suffix . '.css', __FILE__ ), array(), Google_Maps_Builder::VERSION );
 
@@ -175,16 +176,16 @@ class Google_Maps_Builder_Admin {
 		$suffix = defined( 'GMB_DEBUG' ) && GMB_DEBUG ? '' : '.min';
 
 		//Only enqueue scripts for CPT on post type screen
-		if ( ($hook == 'post-new.php' || $hook == 'post.php') && 'google_maps' === $post->post_type ) {
+		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
 
 			wp_enqueue_script( $this->plugin_slug . '-admin-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
 			wp_enqueue_script( $this->plugin_slug . '-map-icons', plugins_url( 'includes/map-icons/js/map-icons.js', dirname( __FILE__ ) ), array( 'jquery' ) );
 			wp_enqueue_script( $this->plugin_slug . '-admin-qtip', plugins_url( 'includes/tooltips/jquery.qtip' . $suffix . '.js', __FILE__ ), array( 'jquery' ), Google_Maps_Builder::VERSION, true );
-			
-			if( $suffix != '.min' ) {
+
+			if ( $suffix != '.min' ) {
 				wp_enqueue_script( $this->plugin_slug . '-admin-map-builder', plugins_url( 'assets/js/admin-google-map' . $suffix . '.js', __FILE__ ), array( 'jquery' ), Google_Maps_Builder::VERSION );
 			} else {
-				wp_enqueue_script( $this->plugin_slug . '-admin-map-builder', plugins_url( 'assets/js/min/admin-google-map' . $suffix . '.js', __FILE__ ), array( 'jquery' ), Google_Maps_Builder::VERSION );
+				wp_enqueue_script( $this->plugin_slug . '-admin-map-builder', plugins_url( 'assets/js/admin-google-map' . $suffix . '.js', __FILE__ ), array( 'jquery' ), Google_Maps_Builder::VERSION );
 			}
 
 			$api_key   = gmb_get_option( 'gmb_api_key' );
@@ -196,6 +197,7 @@ class Google_Maps_Builder_Admin {
 				'default_lat'       => isset( $geolocate['latitude'] ) ? $geolocate['latitude'] : '32.715738',
 				'default_lng'       => isset( $geolocate['longitude'] ) ? $geolocate['longitude'] : '-117.16108380000003',
 				'plugin_url'        => GMB_PLUGIN_URL,
+				'default_marker'    => apply_filters( 'gmb_default_marker', GMB_PLUGIN_URL . '/public/assets/img/default-marker.png' ),
 				'snazzy'            => GMB_PLUGIN_URL . '/admin/assets/js/snazzy.json'
 			);
 			wp_localize_script( $this->plugin_slug . '-admin-map-builder', 'gmb_data', $maps_data );
@@ -222,56 +224,56 @@ class Google_Maps_Builder_Admin {
 	 * @since  1.0.0
 	 * @return array
 	 */
-	 
-	 
+
+
 	public function cpt2_metaboxes_fields() {
-		
-		$prefix = 'gmb_';
+
+		$prefix          = 'gmb_';
 		$default_options = $this->get_default_map_options();
-		
+
 		// MARKER WITH AUTOCOMPLETE
 		$meta_boxes = cmb2_get_metabox( array(
-			'id' => 'google_maps_metabox',
-			'title' => __( 'Google Maps Marker Search', $this->plugin_slug ),
+			'id'           => 'google_maps_metabox',
+			'title'        => __( 'Google Maps Marker Search', $this->plugin_slug ),
 			'object_types' => array( 'google_maps' ),
-			'context' => 'normal',
-			'priority' => 'high',
-			'show_names' => true,
-		));
-		
+			'context'      => 'normal',
+			'priority'     => 'high',
+			'show_names'   => true,
+		) );
+
 		$meta_boxes->add_field( array(
 			'name' => 'Create Marker',
 			'id'   => $prefix . 'geocoder',
 			'type' => 'google_geocoder'
-		));
-		
+		) );
+
 		// PREVIEW
 		$preview_box = cmb2_get_metabox( array(
-			'id'         	=> 'google_maps_preview_metabox',
-			'title'      	=> __( 'Google Map Preview', $this->plugin_slug ),
-			'object_types'  => array( 'google_maps' ), // post type
-			'context'    	=> 'normal', //  'normal', 'advanced', or 'side'
-			'priority'   	=> 'high', //  'high', 'core', 'default' or 'low'
-			'show_names' 	=> false, // Show field names on the left
-		));
-		
+			'id'           => 'google_maps_preview_metabox',
+			'title'        => __( 'Google Map Preview', $this->plugin_slug ),
+			'object_types' => array( 'google_maps' ), // post type
+			'context'      => 'normal', //  'normal', 'advanced', or 'side'
+			'priority'     => 'high', //  'high', 'core', 'default' or 'low'
+			'show_names'   => false, // Show field names on the left
+		) );
+
 		$preview_box->add_field( array(
-			'name' 		=> 'Map Preview',
-			'id'   		=> $prefix . 'preview',
-			'type' 		=> 'google_maps_preview',
-			'default'  	=> '',
-		));
-		
+			'name'    => 'Map Preview',
+			'id'      => $prefix . 'preview',
+			'type'    => 'google_maps_preview',
+			'default' => '',
+		) );
+
 		// MARKERS
 		$marker_box = cmb2_get_metabox( array(
-			'id'         	=> 'google_maps_markers',
-			'title'      	=> __( 'Google Map Markers', $this->plugin_slug ),
-			'object_types'  => array( 'google_maps' ), // post type
-			'context'    	=> 'normal', //  'normal', 'advanced', or 'side'
-			'priority'   	=> 'low', //  'high', 'core', 'default' or 'low'
-			'show_names' 	=> true, // Show field names on the left
-		));
-		
+			'id'           => 'google_maps_markers',
+			'title'        => __( 'Google Map Markers', $this->plugin_slug ),
+			'object_types' => array( 'google_maps' ), // post type
+			'context'      => 'normal', //  'normal', 'advanced', or 'side'
+			'priority'     => 'low', //  'high', 'core', 'default' or 'low'
+			'show_names'   => true, // Show field names on the left
+		) );
+
 		$group_field_id = $marker_box->add_field( array(
 			'id'          => $prefix . 'markers_group',
 			'type'        => 'group',
@@ -281,61 +283,61 @@ class Google_Maps_Builder_Admin {
 				'remove_button' => __( 'Remove Marker', $this->plugin_slug ),
 				'sortable'      => true, // beta
 			),
-		));
+		) );
 		$marker_box->add_group_field( $group_field_id, array(
 			'name' => 'Marker Title',
 			'id'   => 'title',
 			'type' => 'text',
-		));
+		) );
 		$marker_box->add_group_field( $group_field_id, array(
 			'name'        => 'Marker Description',
 			'description' => 'Write a short description for this marker',
 			'id'          => 'description',
 			'type'        => 'textarea_small',
-		));
+		) );
 		$marker_box->add_group_field( $group_field_id, array(
 			'name' => 'Marker Reference',
 			'id'   => 'reference',
 			'type' => 'text',
-		));
+		) );
 		$marker_box->add_group_field( $group_field_id, array(
 			'name' => 'Hide Place Details',
 			'id'   => 'hide_details',
 			'type' => 'checkbox',
-		));
+		) );
 		$marker_box->add_group_field( $group_field_id, array(
 			'name' => 'Marker Latitude',
 			'id'   => 'lat',
 			'type' => 'text',
-		));
+		) );
 		$marker_box->add_group_field( $group_field_id, array(
 			'name' => 'Marker Longitude',
 			'id'   => 'lng',
 			'type' => 'text',
-		));
+		) );
 		$marker_box->add_group_field( $group_field_id, array(
 			'name' => 'Marker Data',
 			'id'   => 'marker',
 			'type' => 'textarea_code',
-		));
+		) );
 		$marker_box->add_group_field( $group_field_id, array(
 			'name' => 'Marker Label Data',
 			'id'   => 'label',
 			'type' => 'textarea_code',
-		));
-		
+		) );
+
 		// SEARCH OPTIONS
-		
+
 		$search_options = cmb2_get_metabox( array(
-			'id'         	=> 'google_maps_search_options',
-			'title'      	=> __( 'Google Places', $this->plugin_slug ),
-			'object_types'  => array( 'google_maps' ), // post type
-			'context'    	=> 'normal', //  'normal', 'advanced', or 'side'
-			'priority'   	=> 'core', //  'high', 'core', 'default' or 'low'
-			'show_names' 	=> true, // Show field names on the left
-		));
-		
-		$search_options->add_field(	
+			'id'           => 'google_maps_search_options',
+			'title'        => __( 'Google Places', $this->plugin_slug ),
+			'object_types' => array( 'google_maps' ), // post type
+			'context'      => 'normal', //  'normal', 'advanced', or 'side'
+			'priority'     => 'core', //  'high', 'core', 'default' or 'low'
+			'show_names'   => true, // Show field names on the left
+		) );
+
+		$search_options->add_field(
 			array(
 				'name'    => __( 'Show Places?', $this->plugin_slug ),
 				'desc'    => __( 'Display establishments, prominent points of interest, geographic locations, and more.', $this->plugin_slug ),
@@ -347,17 +349,17 @@ class Google_Maps_Builder_Admin {
 				),
 			)
 		);
-		
-		$search_options->add_field(	
+
+		$search_options->add_field(
 			array(
-				'name' 		=> __( 'Search Radius', $this->plugin_slug ),
-				'desc' 		=> __( 'Defines the distance (in meters) within which to return Place results. The maximum allowed radius is 50,000 meters.', $this->plugin_slug ),
-				'default' 	=> '1000',
-				'id'   		=> $prefix . 'search_radius',
-				'type' 		=> 'text_small'
+				'name'    => __( 'Search Radius', $this->plugin_slug ),
+				'desc'    => __( 'Defines the distance (in meters) within which to return Place results. The maximum allowed radius is 50,000 meters.', $this->plugin_slug ),
+				'default' => '1000',
+				'id'      => $prefix . 'search_radius',
+				'type'    => 'text_small'
 			)
 		);
-		
+
 		$search_options->add_field(
 			array(
 				'name'    => __( 'Place Types', $this->plugin_slug ),
@@ -464,18 +466,18 @@ class Google_Maps_Builder_Admin {
 				)
 			)
 		);
-		
+
 		// DISPLAY OPTIONS
-		
-		$display_options =  cmb2_get_metabox( array(
-			'id'         	=> 'google_maps_options',
-			'title'      	=> __( 'Google Map Display Options', $this->plugin_slug ),
-			'object_types'  => array( 'google_maps' ), // post type
-			'context'    	=> 'side', //  'normal', 'advanced', or 'side'
-			'priority'   	=> 'default', //  'high', 'core', 'default' or 'low'
-			'show_names' 	=> true, // Show field names on the left
-		));
-		
+
+		$display_options = cmb2_get_metabox( array(
+			'id'           => 'google_maps_options',
+			'title'        => __( 'Google Map Display Options', $this->plugin_slug ),
+			'object_types' => array( 'google_maps' ), // post type
+			'context'      => 'side', //  'normal', 'advanced', or 'side'
+			'priority'     => 'default', //  'high', 'core', 'default' or 'low'
+			'show_names'   => true, // Show field names on the left
+		) );
+
 		$display_options->add_field( array(
 			'name'           => __( 'Map Size', $this->plugin_slug ),
 			'id'             => $prefix . 'width_height',
@@ -484,7 +486,7 @@ class Google_Maps_Builder_Admin {
 			'width_unit_std' => $default_options['width_unit'],
 			'height_std'     => $default_options['height'],
 			'desc'           => '',
-		));
+		) );
 		$display_options->add_field( array(
 			'name'    => __( 'Map Location', $this->plugin_slug ),
 			'id'      => $prefix . 'lat_lng',
@@ -492,61 +494,61 @@ class Google_Maps_Builder_Admin {
 			'lat_std' => '',
 			'lng_std' => '',
 			'desc'    => '',
-		));
+		) );
 		$display_options->add_field( array(
-			'name'    		=> 'Map Type',
-			'id'      		=> $prefix . 'type',
-			'type'    		=> 'select',
-			'default'     	=> 'default',
+			'name'    => 'Map Type',
+			'id'      => $prefix . 'type',
+			'type'    => 'select',
+			'default' => 'default',
 			'options' => array(
-				'RoadMap' 	=> __( 'Road Map', $this->plugin_slug ),
+				'RoadMap'   => __( 'Road Map', $this->plugin_slug ),
 				'Satellite' => __( 'Satellite', $this->plugin_slug ),
-				'Hybrid' 	=> __( 'Hybrid', $this->plugin_slug ),
-				'Terrain'	=> __('Terrain', $this->plugin_slug )
+				'Hybrid'    => __( 'Hybrid', $this->plugin_slug ),
+				'Terrain'   => __( 'Terrain', $this->plugin_slug )
 			),
-		));
-		
+		) );
+
 		$display_options->add_field( array(
 			'name'    => 'Map Theme',
 			'desc'    => sprintf( __( 'Set optional preconfigured styles. <a href="%s" class="snazzy-link new-window"  target="_blank">Snazzy Maps</a>', $this->plugin_slug ), esc_url( 'http://snazzymaps.com' ) ),
-			'id'      		=> $prefix . 'theme',
-			'type'    		=> 'select',
-			'default'     	=> 'none',
+			'id'      => $prefix . 'theme',
+			'type'    => 'select',
+			'default' => 'none',
 			'options' => array(
-				'none' 	=> __( 'None', $this->plugin_slug ),
-				'68' 	=> __( 'Aqua', $this->plugin_slug ),
-				'73' 	=> __( 'A Dark World', $this->plugin_slug ),
-				'28' 	=> __( 'Bluish', $this->plugin_slug ),
-				'80' 	=> __( 'Cool Grey', $this->plugin_slug ),
-				'77' 	=> __( 'Clean Cut', $this->plugin_slug ),
-				'36' 	=> __( 'Flat Green', $this->plugin_slug ),
-				'44' 	=> __( 'MapBox', $this->plugin_slug ),
-				'83' 	=> __( 'Muted Blue', $this->plugin_slug ),
-				'22' 	=> __( 'Old Timey', $this->plugin_slug ),
-				'1' 	=> __( 'Pale Dawn', $this->plugin_slug ),
-				'19' 	=> __( 'Paper', $this->plugin_slug ),
-				'37' 	=> __( 'Lunar Landscape', $this->plugin_slug ),
-				'75' 	=> __( 'Shade of Green', $this->plugin_slug ),
-				'27' 	=> __( 'Shift Worker', $this->plugin_slug ),
-				'15' 	=> __( 'Subtle Grayscale', $this->plugin_slug ),
-				'50' 	=> __( 'The Endless Atlas', $this->plugin_slug ),
+				'none' => __( 'None', $this->plugin_slug ),
+				'68'   => __( 'Aqua', $this->plugin_slug ),
+				'73'   => __( 'A Dark World', $this->plugin_slug ),
+				'28'   => __( 'Bluish', $this->plugin_slug ),
+				'80'   => __( 'Cool Grey', $this->plugin_slug ),
+				'77'   => __( 'Clean Cut', $this->plugin_slug ),
+				'36'   => __( 'Flat Green', $this->plugin_slug ),
+				'44'   => __( 'MapBox', $this->plugin_slug ),
+				'83'   => __( 'Muted Blue', $this->plugin_slug ),
+				'22'   => __( 'Old Timey', $this->plugin_slug ),
+				'1'    => __( 'Pale Dawn', $this->plugin_slug ),
+				'19'   => __( 'Paper', $this->plugin_slug ),
+				'37'   => __( 'Lunar Landscape', $this->plugin_slug ),
+				'75'   => __( 'Shade of Green', $this->plugin_slug ),
+				'27'   => __( 'Shift Worker', $this->plugin_slug ),
+				'15'   => __( 'Subtle Grayscale', $this->plugin_slug ),
+				'50'   => __( 'The Endless Atlas', $this->plugin_slug ),
 			)
-		));
-		
+		) );
+
 		$display_options->add_field( array(
 			'name'    => 'Map Theme JSON',
 			'desc'    => 'Contains the map theme JSON',
 			'default' => 'none',
 			'id'      => $prefix . 'theme_json',
 			'type'    => 'textarea_code'
-		));
-				
+		) );
+
 		$display_options->add_field( array(
 			'name'    => 'Zoom',
 			'desc'    => __( 'Adjust the map zoom (0-21)', $this->plugin_slug ),
 			'id'      => $prefix . 'zoom',
 			'type'    => 'select',
-			'default'     => '15',
+			'default' => '15',
 			'options' => array(
 				'21' => '21',
 				'20' => '20',
@@ -572,32 +574,32 @@ class Google_Maps_Builder_Admin {
 				'0'  => '0',
 
 			)
-		));
-				
+		) );
+
 		// CONTROL OPTIONS
-		
+
 		$control_options = cmb2_get_metabox( array(
-			'id'         	=> 'google_maps_control_options',
-			'title'      	=> __( 'Google Map Control Options', $this->plugin_slug ),
-			'object_types'  => array( 'google_maps' ), // post type
-			'context'    	=> 'side', //  'normal', 'advanced', or 'side'
-			'priority'   	=> 'default', //  'high', 'core', 'default' or 'low'
-			'show_names' 	=> true, // Show field names on the left
-		));
-		
+			'id'           => 'google_maps_control_options',
+			'title'        => __( 'Google Map Control Options', $this->plugin_slug ),
+			'object_types' => array( 'google_maps' ), // post type
+			'context'      => 'side', //  'normal', 'advanced', or 'side'
+			'priority'     => 'default', //  'high', 'core', 'default' or 'low'
+			'show_names'   => true, // Show field names on the left
+		) );
+
 		$control_options->add_field( array(
 			'name'    => 'Zoom Control',
 			'id'      => $prefix . 'zoom_control',
 			'type'    => 'select',
 			'default' => 'default',
 			'options' => array(
-				'none' => __( 'None', $this->plugin_slug ),
-				'small' => __( 'Small', $this->plugin_slug ),
-				'large' => __( 'Large', $this->plugin_slug ),
+				'none'    => __( 'None', $this->plugin_slug ),
+				'small'   => __( 'Small', $this->plugin_slug ),
+				'large'   => __( 'Large', $this->plugin_slug ),
 				'default' => __( 'Default', $this->plugin_slug ),
 			),
-		));
-		
+		) );
+
 		$control_options->add_field( array(
 			'name'    => 'Street View',
 			'id'      => $prefix . 'street_view',
@@ -607,8 +609,8 @@ class Google_Maps_Builder_Admin {
 				'none' => __( 'None', $this->plugin_slug ),
 				'true' => __( 'Standard', $this->plugin_slug ),
 			),
-		));
-		
+		) );
+
 		$control_options->add_field( array(
 			'name'    => 'Pan Control',
 			'id'      => $prefix . 'pan',
@@ -618,19 +620,19 @@ class Google_Maps_Builder_Admin {
 				'none' => __( 'None', $this->plugin_slug ),
 				'true' => __( 'Standard', $this->plugin_slug ),
 			),
-		));
-		
+		) );
+
 		$control_options->add_field( array(
 			'name'    => 'Map Type Control',
 			'id'      => $prefix . 'map_type_control',
 			'type'    => 'select',
 			'default' => 'horizontal_bar',
 			'options' => array(
-				'none' => __( 'None', $this->plugin_slug ),
-				'dropdown_menu' => __( 'Dropdown Menu', $this->plugin_slug ),
+				'none'           => __( 'None', $this->plugin_slug ),
+				'dropdown_menu'  => __( 'Dropdown Menu', $this->plugin_slug ),
 				'horizontal_bar' => __( 'Horizontal Bar', $this->plugin_slug ),
 			),
-		));
+		) );
 
 		$control_options->add_field( array(
 			'name'    => 'Draggable Map',
@@ -641,8 +643,8 @@ class Google_Maps_Builder_Admin {
 				'none' => __( 'None', $this->plugin_slug ),
 				'true' => __( 'Standard', $this->plugin_slug ),
 			),
-		));
-		
+		) );
+
 		$control_options->add_field( array(
 			'name'    => 'Double Click to Zoom',
 			'id'      => $prefix . 'double_click',
@@ -652,8 +654,8 @@ class Google_Maps_Builder_Admin {
 				'none' => __( 'None', $this->plugin_slug ),
 				'true' => __( 'Standard', $this->plugin_slug ),
 			),
-		));
-		
+		) );
+
 		$control_options->add_field( array(
 			'name'    => 'Mouse Wheel to Zoom',
 			'id'      => $prefix . 'wheel_zoom',
@@ -663,9 +665,10 @@ class Google_Maps_Builder_Admin {
 				'none' => __( 'None', $this->plugin_slug ),
 				'true' => __( 'Standard', $this->plugin_slug ),
 			),
-		));
-		
+		) );
+
 	}
+
 	public function cpt_metaboxes_fields( array $meta_boxes ) {
 
 		$prefix = 'gmb_'; // Prefix for all fields
@@ -681,11 +684,11 @@ class Google_Maps_Builder_Admin {
 			'show_names' => true, // Show field names on the left
 			'fields'     => array(
 				array(
-					'name' 		=> __( 'Create Marker', $this->plugin_slug ),
-					'id'   		=> $prefix . 'geocoder',
-					'type' 		=> 'google_geocoder',
-					'default'  	=> 'San Diego, CA, United States',
-					'desc' 		=> '',
+					'name'    => __( 'Create Marker', $this->plugin_slug ),
+					'id'      => $prefix . 'geocoder',
+					'type'    => 'google_geocoder',
+					'default' => 'San Diego, CA, United States',
+					'desc'    => '',
 				),
 			),
 		);
@@ -698,10 +701,10 @@ class Google_Maps_Builder_Admin {
 			'show_names' => false, // Show field names on the left
 			'fields'     => array(
 				array(
-					'name' 		=> 'Map Preview',
-					'id'   		=> $prefix . 'preview',
-					'type' 		=> 'google_maps_preview',
-					'default'  	=> '',
+					'name'    => 'Map Preview',
+					'id'      => $prefix . 'preview',
+					'type'    => 'google_maps_preview',
+					'default' => '',
 				),
 
 			),
@@ -791,11 +794,11 @@ class Google_Maps_Builder_Admin {
 					),
 				),
 				array(
-					'name' 		=> __( 'Search Radius', $this->plugin_slug ),
-					'desc' 		=> __( 'Defines the distance (in meters) within which to return Place results. The maximum allowed radius is 50,000 meters.', $this->plugin_slug ),
-					'default'  	=> '1000',
-					'id'   		=> $prefix . 'search_radius',
-					'type' 		=> 'text_small'
+					'name'    => __( 'Search Radius', $this->plugin_slug ),
+					'desc'    => __( 'Defines the distance (in meters) within which to return Place results. The maximum allowed radius is 50,000 meters.', $this->plugin_slug ),
+					'default' => '1000',
+					'id'      => $prefix . 'search_radius',
+					'type'    => 'text_small'
 				),
 				array(
 					'name'    => __( 'Place Types', $this->plugin_slug ),
@@ -929,7 +932,6 @@ class Google_Maps_Builder_Admin {
 					'lng_std' => '',
 					'desc'    => '',
 				),
-
 				array(
 					'name'    => 'Map Type',
 					'id'      => $prefix . 'type',
@@ -1007,13 +1009,13 @@ class Google_Maps_Builder_Admin {
 
 					)
 				),
-			    array(
+				array(
 					'name'  => 'Custom Map Marker Icon',
 					'desc'  => 'Use a custom map marker for the map.',
 					'id'    => $prefix . 'map_marker',
 					'type'  => 'file',
 					'allow' => array( 'url', 'attachment' ),
-			    ),
+				),
 			),
 		);
 
@@ -1068,7 +1070,6 @@ class Google_Maps_Builder_Admin {
 						array( 'name' => __( 'Horizontal Bar', $this->plugin_slug ), 'value' => 'horizontal_bar' ),
 					),
 				),
-
 				array(
 					'name'    => 'Draggable Map',
 					'id'      => $prefix . 'draggable',
@@ -1198,8 +1199,8 @@ class Google_Maps_Builder_Admin {
 		);
 
 		echo '<div class="autocomplete-wrap"><input type="text" name="' . $field->args( 'id' ) . '[geocode]" id="' . $field->args( 'id' ) . '" value="" class="search-autocomplete" /><p class="autocomplete-description">' .
-			sprintf( __( 'Enter the name of a place or an address above to create a map marker or %s', $this->plugin_slug ), '<a href="#" class="drop-marker button button-small">Drop a Marker</a>' ) .
-			'</p></div>';
+		     sprintf( __( 'Enter the name of a place or an address above to create a map marker or %s', $this->plugin_slug ), '<a href="#" class="drop-marker button button-small">Drop a Marker</a>' ) .
+		     '</p></div>';
 
 		//'desc'    => sprintf( __( 'Set optional preconfigured styles. <a href="%s" class="snazzy-link new-window"  target="_blank">Snazzy Maps</a>', $this->plugin_slug ), esc_url( 'http://snazzymaps.com' ) ),
 

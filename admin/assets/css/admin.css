@@ -63,7 +63,7 @@
 }
 
 .new-window {
-	background: url('../../img/new-window-icon.png') no-repeat right 3px transparent;
+	background: url('../img/new-window-icon.png') no-repeat right 3px transparent;
 	padding-right: 16px;
 }
 
@@ -112,7 +112,7 @@
 }
 
 .autocomplete-wrap {
-	background: url('../../img/powered-by-google-on-white.png') no-repeat right 8px rgba(0, 0, 0, 0);
+	background: url('../img/powered-by-google-on-white.png') no-repeat right 8px rgba(0, 0, 0, 0);
 }
 
 .repeatable-group .shift-rows {
@@ -173,7 +173,7 @@
 }
 
 .places-loading {
-	background: url('../../img/spinner.gif') no-repeat center right transparent;
+	background: url('../img/spinner.gif') no-repeat center right transparent;
 	font-style: italic;
 	position: absolute;
 	top: -34px;
@@ -272,7 +272,7 @@
 }
 
 #infobubble-content.loading {
-	background: url('../../../../includes/assets/img/loading.GIF') no-repeat center center #FFF;
+	background: url('../../../includes/assets/img/loading.GIF') no-repeat center center #FFF;
 }
 
 #google-map-wrap div#infobubble-content > div {

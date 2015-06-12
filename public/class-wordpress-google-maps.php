@@ -501,7 +501,7 @@ class Google_Maps_Builder {
 
 		$suffix = defined( 'GMB_DEBUG' ) && GMB_DEBUG ? '' : '.min';
 
-		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/min/google-maps-builder' . $suffix . '.css', __FILE__ ), array(), self::VERSION );
+		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/google-maps-builder' . $suffix . '.css', __FILE__ ), array(), self::VERSION );
 		wp_enqueue_style( $this->plugin_slug . '-map-icons', plugins_url( 'includes/map-icons/css/map-icons.css', dirname( __FILE__ ) ), array(), self::VERSION );
 
 	}

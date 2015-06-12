@@ -153,6 +153,7 @@ Here is what we are working on for future releases:
 * Maps placed in hidden tabs now redraw properly when the tab is selected
 * Found and resolved conflict with ACF plugin Google Maps field
 * Removed non-functional marker upload field (will be added to Pro version in a much enhanced format).
+* Gulp implemented for minifying scripts
 * General Javascript Cleanup and Optimization
 
 = 1.0.3 =

@@ -110,7 +110,7 @@
 			var location_marker = new google.maps.Marker( {
 				position : tentative_location_marker.getPosition(),
 				map      : map,
-				icon     : gmb_data.plugin_url + "/public/assets/img/default-marker.png",
+				icon     : gmb_data.default_marker,
 				zIndex   : google.maps.Marker.MAX_ZINDEX + 1,
 				optimized: false
 			} );
