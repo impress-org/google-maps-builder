@@ -85,8 +85,17 @@
 }
 
 /*------------------------------------------
- CMB Interface
+ CMB2 Interface
 --------------------------------------------*/
+
+/* Google Maps Marker Search */
+#cmb2-metabox-google_maps_metabox .cmb2-id-gmb-geocoder {
+	padding-bottom: 0;
+}
+
+.cmb2-id-gmb-geocoder td {
+	padding-bottom: 3px;
+}
 
 .cmb2-metabox-description {
 	display: block;
@@ -167,6 +176,11 @@
  Google Map Metabox
 --------------------------------------------*/
 
+#cmb2-metabox-google_maps_preview_metabox > div {
+	padding: 5px 0 0;
+	margin: 0;
+}
+
 #map {
 	width: 100%;
 	margin: 0 auto;
@@ -188,10 +202,6 @@
 
 .cmb2-id-gmb-map-type-control .cmb2-option {
 	margin: 5px 0 10px;
-}
-
-.cmb2-id-gmb-geocoder td {
-	padding-bottom: 3px;
 }
 
 /*------------------------------------------

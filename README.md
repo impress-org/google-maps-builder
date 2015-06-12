@@ -96,19 +96,4 @@ WordImpress.com developed this and many more plugins. Check them all out at [Wor
 
 Here is what we are working on for future releases:
 
-* Maps Widget - Build in a widget to output Google Maps
 * Custom Map Marker Images - Ability to upload your own map marker images
-* Map Icons: Fix maps icon overlap issue when they are bunched in an area (zIndex issue)
-* Admin JS i18n - Please contact us at info@wordimpress.com to volunteer for translating!
-* Public JS i18n - Please contact us at info@wordimpress.com to volunteer for translating!
-* Google Places - Add the ability to remove place information
-* Google Places - Pagination for markers, the ability to set number of markers
-* Google Places - Customize the individual place markers
-* Markers - Add the ability to drag markers to new positions (lat, lng) in builder.
-* Info Window - Add a WYSIWYG editor? Possible complications with this.
-
-**Bug Fixes**
-
-* Info Window - FOUC: Investigate why sometimes pointer tip of info window flashes before it opens (mainly Chrome)
-* Chrome - Look into while map tiles have strange lines in between
-* Firefox - Clicking on a marker to open the same info window creates content overflow

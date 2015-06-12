@@ -1,20 +1,38 @@
-var gulp = require( 'gulp' );
-var uglify = require( 'gulp-uglify' );
-var rename = require( 'gulp-rename' );
-var watch = require( 'gulp-watch' );
-var minifyCss = require( 'gulp-minify-css' );
-var watch = require( 'gulp-watch' );
-var notify = require( 'gulp-notify' );
+/**
+ * Google Maps Builder Gulp File
+ * @description Compiles SCSS, minifies scripts, renames files, and many other useful tasks; using Gulp.js
+ * @since 2.0
+ */
+
+
+/* Modules (Can be installed with npm install command using package.json)
+ ------------------------------------- */
+var gulp = require( 'gulp' ),
+	uglify = require( 'gulp-uglify' ),
+	rename = require( 'gulp-rename' ),
+	watch = require( 'gulp-watch' ),
+	minifyCss = require( 'gulp-minify-css' ),
+	notify = require( 'gulp-notify' );
+
+
+/* Paths
+ ------------------------------------- */
+var source_paths = {
+	admin_styles    : ['admin/assets/js/*.js', '!admin/assets/js/*.min.js'],
+	admin_scripts   : ['admin/assets/css/*.css', '!admin/assets/css/*.min.css'],
+	frontend_styles : ['public/assets/js/*.js', '!public/assets/js/*.min.js'],
+	frontend_scripts: ['public/assets/css/*.css', '!public/assets/css/*.min.css']
+};
 
 gulp.task( 'admin', function () {
-	gulp.src( ['admin/assets/js/*.js', '!admin/assets/js/*.min.js'] )
+	gulp.src( source_paths.admin_styles )
 		.pipe( uglify() )
 		.pipe( rename( {
 			extname: '.min.js'
 		} ) )
 		.pipe( gulp.dest( 'admin/assets/js' ) );
 
-	gulp.src( ['admin/assets/css/*.css', '!admin/assets/css/*.min.css'] )
+	gulp.src( source_paths.admin_scripts )
 		.pipe( minifyCss( {compatiability: 'ie8'} ) )
 		.pipe( rename( {
 			extname: '.min.css'
@@ -24,14 +42,14 @@ gulp.task( 'admin', function () {
 } );
 
 gulp.task( 'public', function () {
-	gulp.src( ['public/assets/js/*.js', '!public/assets/js/*.min.js'] )
+	gulp.src( source_paths.frontend_scripts )
 		.pipe( uglify() )
 		.pipe( rename( {
 			extname: '.min.js'
 		} ) )
 		.pipe( gulp.dest( 'public/assets/js' ) );
 
-	gulp.src( ['public/assets/css/*.css', '!public/assets/css/*.min.css'] )
+	gulp.src( source_paths.frontend_styles )
 		.pipe( minifyCss( {compatiability: 'ie8'} ) )
 		.pipe( rename( {
 			extname: '.min.css'
