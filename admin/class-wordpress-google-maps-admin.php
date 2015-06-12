@@ -151,7 +151,7 @@ class Google_Maps_Builder_Admin {
 	public function enqueue_admin_styles( $hook ) {
 
 		global $post;
-		$suffix = defined( 'GMB_DEBUG' ) && GMB_DEBUG ? '' : '.min';
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		//Only enqueue scripts for CPT on post type screen
 		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
@@ -173,7 +173,7 @@ class Google_Maps_Builder_Admin {
 	 */
 	public function enqueue_admin_scripts( $hook ) {
 		global $post;
-		$suffix = defined( 'GMB_DEBUG' ) && GMB_DEBUG ? '' : '.min';
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		//Only enqueue scripts for CPT on post type screen
 		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {

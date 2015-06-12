@@ -152,7 +152,7 @@ class Google_Maps_Builder_Settings {
 	 */
 	public function enqueue_admin_styles( $hook ) {
 
-		$suffix = defined( 'GMB_DEBUG' ) && GMB_DEBUG ? '' : '.min';
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		$screen = get_current_screen();
 
 		//Only enqueue scripts for Setting screen
@@ -176,7 +176,7 @@ class Google_Maps_Builder_Settings {
 	 */
 	public function enqueue_admin_scripts( $hook ) {
 		global $post;
-		$suffix = defined( 'GMB_DEBUG' ) && GMB_DEBUG ? '' : '.min';
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		$screen = get_current_screen();
 
 		//Only enqueue scripts for Setting screen

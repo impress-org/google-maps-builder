@@ -29,13 +29,12 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'GMB_PLUGIN_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'GMB_PLUGIN_URL', plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) );
 define( 'GMB_PLUGIN_BASE', plugin_basename( __FILE__ ) );
-define( 'GMB_DEBUG', false );
 
 /*----------------------------------------------------------------------------*
  * Public-Facing Functionality
  *----------------------------------------------------------------------------*/
 require_once( plugin_dir_path( __FILE__ ) . 'public/class-wordpress-google-maps.php' );
-//require_once( plugin_dir_path( __FILE__ ) . 'public/class-wordpress-google-maps-widget.php' );
+//require_once( plugin_dir_path( __FILE__ ) . 'public/class-wordpress-google-maps-widget.php' ); Widget coming soon :)
 require_once( plugin_dir_path( __FILE__ ) . 'admin/class-wordpress-google-maps-settings.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'public/class-wordpress-google-maps-engine.php' );
 

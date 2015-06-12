@@ -13,7 +13,6 @@ gulp.task( 'admin', function () {
 			extname: '.min.js'
 		} ) )
 		.pipe( gulp.dest( 'admin/assets/js' ) );
-	//.pipe( notify( 'admin js' ) );
 
 	gulp.src( ['admin/assets/css/*.css', '!admin/assets/css/*.min.css'] )
 		.pipe( minifyCss( {compatiability: 'ie8'} ) )
@@ -21,7 +20,6 @@ gulp.task( 'admin', function () {
 			extname: '.min.css'
 		} ) )
 		.pipe( gulp.dest( 'admin/assets/css' ) );
-	//.pipe( notify( 'admin css' ) );
 
 } );
 
@@ -32,7 +30,6 @@ gulp.task( 'public', function () {
 			extname: '.min.js'
 		} ) )
 		.pipe( gulp.dest( 'public/assets/js' ) );
-	//.pipe( notify( 'public js' ) );
 
 	gulp.src( ['public/assets/css/*.css', '!public/assets/css/*.min.css'] )
 		.pipe( minifyCss( {compatiability: 'ie8'} ) )
@@ -40,7 +37,6 @@ gulp.task( 'public', function () {
 			extname: '.min.css'
 		} ) )
 		.pipe( gulp.dest( 'public/assets/css' ) );
-	//.pipe( notify( 'public css' ) );
 
 } );
 

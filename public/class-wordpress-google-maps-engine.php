@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Google Maps Builder Engine
  *
@@ -10,7 +11,6 @@
  * @link      http://wordimpress.com
  * @copyright 2014 WordImpress, Devin Walker
  */
-
 class Google_Maps_Builder_Engine {
 
 	/**
@@ -93,7 +93,8 @@ class Google_Maps_Builder_Engine {
 	 * Google Maps output relies on the shortcode to display
 	 *
 	 * @param $atts
- 	 * @return string
+	 *
+	 * @return string
 	 */
 	public function google_maps_shortcode( $atts ) {
 
@@ -108,11 +109,11 @@ class Google_Maps_Builder_Engine {
 		);
 
 		//gather data for this shortcode
-		$post        = get_post( $id );
-		$all_meta    = get_post_custom( $id );
+		$post     = get_post( $id );
+		$all_meta = get_post_custom( $id );
 
 		$visual_info = maybe_unserialize( $all_meta['gmb_width_height'][0] );
-		$lat_lng = maybe_unserialize( $all_meta['gmb_lat_lng'][0] );
+		$lat_lng     = maybe_unserialize( $all_meta['gmb_lat_lng'][0] );
 
 		//Put markers into an array for JS usage
 		$map_marker_array   = array();
@@ -126,17 +127,17 @@ class Google_Maps_Builder_Engine {
 		//@see: http://benjaminrojas.net/using-wp_localize_script-dynamically/
 		$localized_data = array(
 			$post->ID => array(
-				'id'           => $id,
-				'map_params'   => array(
+				'id'               => $id,
+				'map_params'       => array(
 					'title'          => $post->post_title,
 					'width'          => $visual_info['width'],
 					'height'         => $visual_info['height'],
 					'latitude'       => $lat_lng['latitude'],
 					'longitude'      => $lat_lng['longitude'],
 					'zoom'           => ! empty( $all_meta['gmb_zoom'][0] ) ? $all_meta['gmb_zoom'][0] : '15',
-					'default_marker' => GMB_PLUGIN_URL . '/public/assets/img/default-marker.png'
+					'default_marker' => apply_filters( 'gmb_default_marker', GMB_PLUGIN_URL . '/public/assets/img/default-marker.png' ),
 				),
-				'map_controls' => array(
+				'map_controls'     => array(
 					'zoom_control'      => ! empty( $all_meta['gmb_zoom_control'][0] ) ? strtoupper( $all_meta['gmb_zoom_control'][0] ) : 'STANDARD',
 					'pan_control'       => ! empty( $all_meta['gmb_pan'][0] ) ? $all_meta['gmb_pan'][0] : 'none',
 					'map_type_control'  => ! empty( $all_meta['gmb_map_type_control'][0] ) ? $all_meta['gmb_map_type_control'][0] : 'none',
@@ -145,18 +146,18 @@ class Google_Maps_Builder_Engine {
 					'wheel_zoom'        => ! empty( $all_meta['gmb_wheel_zoom'][0] ) ? $all_meta['gmb_wheel_zoom'][0] : 'none',
 					'street_view'       => ! empty( $all_meta['gmb_street_view'][0] ) ? $all_meta['gmb_street_view'][0] : 'none',
 				),
-				'map_theme'    => array(
+				'map_theme'        => array(
 					'map_type'       => ! empty( $all_meta['gmb_type'][0] ) ? $all_meta['gmb_type'][0] : 'RoadMap',
 					'map_theme_json' => ! empty( $all_meta['gmb_theme_json'][0] ) ? $all_meta['gmb_theme_json'][0] : 'none',
 
 				),
-				'map_markers'  => $map_marker_array,
-				'places_api'   => array(
+				'map_markers'      => $map_marker_array,
+				'places_api'       => array(
 					'show_places'   => ! empty( $all_meta['gmb_show_places'][0] ) ? $all_meta['gmb_show_places'][0] : 'no',
 					'search_radius' => ! empty( $all_meta['gmb_search_radius'][0] ) ? $all_meta['gmb_search_radius'][0] : '3000',
 					'search_places' => ! empty( $all_meta['gmb_places_search_multicheckbox'][0] ) ? maybe_unserialize( $all_meta['gmb_places_search_multicheckbox'][0] ) : '',
 				),
-			    'map_markers_icon' => ! empty( $all_meta['gmb_map_marker'] ) ? $all_meta['gmb_map_marker'][0] : 'none',
+				'map_markers_icon' => ! empty( $all_meta['gmb_map_marker'] ) ? $all_meta['gmb_map_marker'][0] : 'none',
 			)
 		);
 
@@ -165,7 +166,8 @@ class Google_Maps_Builder_Engine {
 		$map_include = $this->get_google_maps_template( 'public.php' );
 		ob_start();
 		include( $map_include );
-	    return ob_get_clean();
+
+		return ob_get_clean();
 
 		//echo $map_output;
 
@@ -192,7 +194,7 @@ class Google_Maps_Builder_Engine {
 			}
 
 			foreach ( $data as $key => $value ) {
-				$localized_data[$key] = $value;
+				$localized_data[ $key ] = $value;
 			}
 
 			$wp_scripts->add_data( $this->plugin_slug . '-plugin-script', 'data', '' );

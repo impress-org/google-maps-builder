@@ -499,7 +499,7 @@ class Google_Maps_Builder {
 	 */
 	public function enqueue_styles() {
 
-		$suffix = defined( 'GMB_DEBUG' ) && GMB_DEBUG ? '' : '.min';
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/google-maps-builder' . $suffix . '.css', __FILE__ ), array(), self::VERSION );
 		wp_enqueue_style( $this->plugin_slug . '-map-icons', plugins_url( 'includes/map-icons/css/map-icons.css', dirname( __FILE__ ) ), array(), self::VERSION );
@@ -515,7 +515,7 @@ class Google_Maps_Builder {
 
 	public function enqueue_scripts() {
 
-		$suffix = defined( 'GMB_DEBUG' ) && GMB_DEBUG ? '' : '.min';
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		$suffix = '';
 		wp_register_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/google-maps-builder' . $suffix . '.js', __FILE__ ), array( $this->load_maps_api_dep ), self::VERSION, true );
 		wp_register_script( $this->plugin_slug . '-maps-icons', plugins_url( 'includes/map-icons/js/map-icons.js', dirname( __FILE__ ) ), array( 'jquery' ), self::VERSION, true );
