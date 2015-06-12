@@ -1,5 +1,4 @@
 <?php
-
 /**
  * WordPress Google Maps.
  *
@@ -20,7 +19,7 @@ class Google_Maps_Builder {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.0.3';
+	const VERSION = '2.0';
 
 	/**
 	 *
@@ -44,18 +43,18 @@ class Google_Maps_Builder {
 	 * @var      object
 	 */
 	protected static $instance = null;
-	
-	
+
+
 	/**
-	*
-	*
-	* Global Var for loading google maps api
-	* Global Var for dependancy
-	*
-	*/
+	 *
+	 *
+	 * Global Var for loading google maps api
+	 * Global Var for dependancy
+	 *
+	 */
 	protected $load_maps_api = true;
 	protected $load_maps_api_dep = 'jquery';
-	
+
 	/**
 	 * Initialize the plugin by setting localization and loading public scripts
 	 * and styles.
@@ -73,7 +72,7 @@ class Google_Maps_Builder {
 
 		// Load plugin text domain
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
-		
+
 		//Init CPT
 		add_action( 'init', array( $this, 'setup_post_type' ), 1 );
 
@@ -87,9 +86,9 @@ class Google_Maps_Builder {
 
 		// Loading GMaps the Jedi Master Way - http://scribu.net/wordpress/optimal-script-loading.html
 		add_action( 'wp_head', array( $this, 'check_for_multiple_google_maps_api_calls' ) );
-		add_action( 'init', array( $this, 'register_gmap_scripts') );
-		add_action( 'wp_footer', array( $this, 'print_gmap_footer'), 100 );
-		
+		add_action( 'init', array( $this, 'register_gmap_scripts' ) );
+		add_action( 'wp_footer', array( $this, 'print_gmap_footer' ), 100 );
+
 		// Load public-facing style sheet and JavaScript.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 11 );
@@ -149,9 +148,9 @@ class Google_Maps_Builder {
 	 */
 	function setup_post_type() {
 
-		$post_slug   = gmb_get_option( 'gmb_custom_slug' );
+		$post_slug     = gmb_get_option( 'gmb_custom_slug' );
 		$menu_position = gmb_get_option( 'gmb_menu_position' );
-		$has_archive = filter_var( gmb_get_option( 'gmb_has_archive' ), FILTER_VALIDATE_BOOLEAN );
+		$has_archive   = filter_var( gmb_get_option( 'gmb_has_archive' ), FILTER_VALIDATE_BOOLEAN );
 
 		$labels = array(
 			'name'               => _x( 'Google Maps', 'post type general name', $this->plugin_slug ),
@@ -183,7 +182,7 @@ class Google_Maps_Builder {
 			'capability_type'    => 'post',
 			'has_archive'        => isset( $has_archive ) ? $has_archive : true,
 			'hierarchical'       => false,
-			'menu_position'      => ! empty( $menu_position ) ? intval($menu_position) : '23.1',
+			'menu_position'      => ! empty( $menu_position ) ? intval( $menu_position ) : '23.1',
 			'supports'           => array( 'title' )
 		);
 
@@ -513,25 +512,25 @@ class Google_Maps_Builder {
 	 *
 	 * @since    1.0.0
 	 */
-	
+
 	public function enqueue_scripts() {
-		
+
 		$suffix = defined( 'GMB_DEBUG' ) && GMB_DEBUG ? '' : '.min';
 		$suffix = '';
 		wp_register_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/google-maps-builder' . $suffix . '.js', __FILE__ ), array( $this->load_maps_api_dep ), self::VERSION, true );
 		wp_register_script( $this->plugin_slug . '-maps-icons', plugins_url( 'includes/map-icons/js/map-icons.js', dirname( __FILE__ ) ), array( 'jquery' ), self::VERSION, true );
 		wp_localize_script( $this->plugin_slug . '-plugin-script', 'gmb_data', array() );
-		
+
 	}
-	
+
 	public function register_gmap_scripts() {
-		
-		wp_register_script( $this->plugin_slug . '-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );	
-		
+
+		wp_register_script( $this->plugin_slug . '-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
+
 	}
-		
+
 	public function print_gmap_footer() {
-		if( $this->load_maps_api ) {
+		if ( $this->load_maps_api ) {
 			wp_print_scripts( $this->plugin_slug . '-gmaps' );
 		}
 		wp_print_scripts( $this->plugin_slug . '-plugin-script' );
@@ -547,26 +546,28 @@ class Google_Maps_Builder {
 	 * @return bool $multiple_google_maps_api
 	 */
 	public function check_for_multiple_google_maps_api_calls() {
-		
+
 		global $wp_scripts;
-		
-		if( !$wp_scripts ) { return false; }
-		
+
+		if ( ! $wp_scripts ) {
+			return false;
+		}
+
 		//loop through registered scripts
 		foreach ( $wp_scripts->registered as $registered_script ) {
 			//find any that have the google script as the source, ensure it's not enqueud by this plugin
-			if ( 
-				strpos( $registered_script->src, 'maps.googleapis.com/maps/api/js' ) !== false && 
-				strpos( $registered_script->handle, 'google-maps-builder' ) === false 
+			if (
+				strpos( $registered_script->src, 'maps.googleapis.com/maps/api/js' ) !== false &&
+				strpos( $registered_script->handle, 'google-maps-builder' ) === false
 			) {
-				
-				if( strpos( $registered_script->src, 'places' ) == false ) {
-					
+
+				if ( strpos( $registered_script->src, 'places' ) == false ) {
+
 					$registered_script->src = $registered_script->src . '&libraries=places';
-					
+
 				}
 
-				$this->load_maps_api = false;
+				$this->load_maps_api     = false;
 				$this->load_maps_api_dep = $registered_script->handle;
 				//ensure we can detect scripts on the frontend from backend; we'll use an option to do this
 				if ( ! is_admin() ) {
