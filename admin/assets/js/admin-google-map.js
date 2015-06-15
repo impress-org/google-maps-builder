@@ -853,7 +853,7 @@
 		if ( info_window_data.reference ) {
 
 			var request = {
-				reference: info_window_data.reference
+				placeId: info_window_data.reference
 			};
 			places_service.getDetails( request, function ( place, status ) {
 				if ( status == google.maps.places.PlacesServiceStatus.OK ) {
@@ -973,7 +973,7 @@
 		info_bubble.open( map, marker );
 
 		var request = {
-			reference: place.reference
+			placeId: place.reference
 		};
 
 		places_service.getDetails( request, function ( place, status ) {
