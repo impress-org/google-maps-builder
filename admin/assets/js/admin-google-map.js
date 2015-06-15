@@ -472,12 +472,12 @@
 	function add_tenative_info_window( reference, marker ) {
 
 		var request = {
-			key      : gmb_data.api_key,
-			reference: reference
+			key      : 'AIzaSyB1DR2IhWUt5RG3ZPvwaOjiQHVh55-P8Yc',
+			placeId: reference
 		};
 
 		places_service.getDetails( request, function ( place, status ) {
-
+			
 			if ( status == google.maps.places.PlacesServiceStatus.OK ) {
 
 				var lat = place.geometry.location.lat();
