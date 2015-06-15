@@ -472,7 +472,7 @@
 	function add_tenative_info_window( reference, marker ) {
 
 		var request = {
-			key      : 'AIzaSyB1DR2IhWUt5RG3ZPvwaOjiQHVh55-P8Yc',
+			key      : gmb_data.api_key,
 			placeId: reference
 		};
 
