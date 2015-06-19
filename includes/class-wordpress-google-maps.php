@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WordPress Google Maps.
  *
@@ -68,7 +69,7 @@ class Google_Maps_Builder {
 		if ( ! function_exists( 'get_plugin_data' ) ) {
 			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		}
-		$this->meta = get_plugin_data( GMB_PLUGIN_PATH . '/google-maps-builder.php', false );
+		$this->meta = get_plugin_data( GMB_PLUGIN_PATH . 'google-maps-builder.php', false );
 
 		// Load plugin text domain
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
@@ -501,8 +502,8 @@ class Google_Maps_Builder {
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/google-maps-builder' . $suffix . '.css', __FILE__ ), array(), self::VERSION );
-		wp_enqueue_style( $this->plugin_slug . '-map-icons', plugins_url( 'includes/map-icons/css/map-icons.css', dirname( __FILE__ ) ), array(), self::VERSION );
+		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', GMB_PLUGIN_URL . 'assets/css/google-maps-builder' . $suffix . '.css', array(), self::VERSION );
+		wp_enqueue_style( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'assets/map-icons/css/map-icons.css', array(), self::VERSION );
 
 	}
 
@@ -516,9 +517,8 @@ class Google_Maps_Builder {
 	public function enqueue_scripts() {
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		$suffix = '';
-		wp_register_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/google-maps-builder' . $suffix . '.js', __FILE__ ), array( $this->load_maps_api_dep ), self::VERSION, true );
-		wp_register_script( $this->plugin_slug . '-maps-icons', plugins_url( 'includes/map-icons/js/map-icons.js', dirname( __FILE__ ) ), array( 'jquery' ), self::VERSION, true );
+		wp_register_script( $this->plugin_slug . '-plugin-script', GMB_PLUGIN_URL . 'assets/js/google-maps-builder' . $suffix . '.js', array( $this->load_maps_api_dep ), self::VERSION, true );
+		wp_register_script( $this->plugin_slug . '-maps-icons', GMB_PLUGIN_URL . 'includes/map-icons/js/map-icons.js', array( 'jquery' ), self::VERSION, true );
 		wp_localize_script( $this->plugin_slug . '-plugin-script', 'gmb_data', array() );
 
 	}

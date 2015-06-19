@@ -432,7 +432,7 @@
 			title    : 'Map Icons',
 			animation: google.maps.Animation.DROP,
 			position : new google.maps.LatLng( map_center.lat(), map_center.lng() ),
-			icon     : new google.maps.MarkerImage( gmb_data.plugin_url + "/public/assets/img/temp-marker.png" ),
+			icon     : new google.maps.MarkerImage( gmb_data.plugin_url + "assets/img/temp-marker.png" ),
 			zIndex   : google.maps.Marker.MAX_ZINDEX + 1,
 			optimized: false
 		} );
@@ -666,7 +666,7 @@
 			//Set marker icon data
 			if ( marker_icon == '' ) {
 				//default icon
-				marker_icon_data = gmb_data.plugin_url + '/public/assets/img/default-marker.png';
+				marker_icon_data = gmb_data.plugin_url + 'assets/img/default-marker.png';
 				$( '#gmb_markers_group_' + index + '_marker' ).val( '' );
 				marker_label_data = '';
 			} else {
@@ -778,7 +778,7 @@
 		//Loop through repeatable field of markers
 		$( "#gmb_markers_group_repeat .cmb-repeatable-grouping" ).each( function ( index ) {
 
-			var marker_icon = gmb_data.plugin_url + '/public/assets/img/default-marker.png';
+			var marker_icon = gmb_data.plugin_url + 'assets/img/default-marker.png';
 			var marker_label = '';
 
 			//check for custom marker and label data

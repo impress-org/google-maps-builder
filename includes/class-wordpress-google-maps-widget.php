@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Google Maps Widget
  *
@@ -10,7 +11,6 @@
  * @link      http://wordimpress.com
  * @copyright 2014 WordImpress, Devin Walker
  */
-
 class Google_Maps_Builder_Widget extends WP_Widget {
 
 
@@ -92,8 +92,8 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 			$args['widget_id'] = $this->id;
 		}
 
-		if ( isset ( $cache[$args['widget_id']] ) ) {
-			return print $cache[$args['widget_id']];
+		if ( isset ( $cache[ $args['widget_id'] ] ) ) {
+			return print $cache[ $args['widget_id'] ];
 		}
 
 		// go on with your widget logic, put everything into a string and …
@@ -112,7 +112,7 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 		$widget_string .= $after_widget;
 
 
-		$cache[$args['widget_id']] = $widget_string;
+		$cache[ $args['widget_id'] ] = $widget_string;
 
 		wp_cache_set( 'widget-google-places', $cache, 'widget' );
 
@@ -137,7 +137,7 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 
 		//loop through options array and save to new instance
 		foreach ( $this->options as $option => $value ) {
-			$instance[$option] = strip_tags( stripslashes( $new_instance[$option] ) );
+			$instance[ $option ] = strip_tags( stripslashes( $new_instance[ $option ] ) );
 		}
 
 		return $instance;
@@ -153,7 +153,7 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 
 		//loop through options array and save options to new instance
 		foreach ( $this->options as $option => $value ) {
-			${$option} = ! isset( $instance[$option] ) ? '' : esc_attr( $instance[$option] );
+			${$option} = ! isset( $instance[ $option ] ) ? '' : esc_attr( $instance[ $option ] );
 		}
 
 		// Display the admin form
@@ -171,7 +171,7 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 	public function register_admin_styles( $hook ) {
 
 		if ( $hook == 'widgets.php' ) {
-			wp_enqueue_style( 'wordpress-google-places-admin-styles', plugins_url( '../admin/assets/css/admin-widget.css', __FILE__ ) );
+			wp_enqueue_style( 'wordpress-google-places-admin-styles', GMB_PLUGIN_URL . 'assets/css/admin-widget.css' );
 		}
 
 
@@ -184,9 +184,9 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 		if ( $hook == 'widgets.php' ) {
 
 			wp_enqueue_script( 'wordpress-google-places-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
-			wp_enqueue_script( 'wordpress-google-places-admin-script', plugins_url( '../admin/assets/js/admin-widget.js', __FILE__ ), array( 'jquery' ) );
-			wp_enqueue_script( 'wordpress-google-places-tipsy', plugins_url( '../admin/assets/js/tipsy.js', __FILE__ ), array( 'jquery' ) );
-			wp_enqueue_script( 'wordpress-google-places-infobubble', plugins_url( '../public/assets/js/infobubble-compiled.js', __FILE__ ), array( 'jquery' ) );
+			wp_enqueue_script( 'wordpress-google-places-admin-script', GMB_PLUGIN_URL . 'assets/js/admin-widget.js', array( 'jquery' ) );
+			wp_enqueue_script( 'wordpress-google-places-tipsy', GMB_PLUGIN_URL . ' assets/js/tipsy.js', array( 'jquery' ) );
+			wp_enqueue_script( 'wordpress-google-places-infobubble', GMB_PLUGIN_URL . 'assets/js/infobubble-compiled.js', array( 'jquery' ) );
 
 
 		}

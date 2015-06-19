@@ -135,7 +135,7 @@ class Google_Maps_Builder_Engine {
 					'latitude'       => $lat_lng['latitude'],
 					'longitude'      => $lat_lng['longitude'],
 					'zoom'           => ! empty( $all_meta['gmb_zoom'][0] ) ? $all_meta['gmb_zoom'][0] : '15',
-					'default_marker' => apply_filters( 'gmb_default_marker', GMB_PLUGIN_URL . '/public/assets/img/default-marker.png' ),
+					'default_marker' => apply_filters( 'gmb_default_marker', GMB_PLUGIN_URL . 'assets/img/default-marker.png' ),
 				),
 				'map_controls'     => array(
 					'zoom_control'      => ! empty( $all_meta['gmb_zoom_control'][0] ) ? strtoupper( $all_meta['gmb_zoom_control'][0] ) : 'STANDARD',
@@ -174,10 +174,12 @@ class Google_Maps_Builder_Engine {
 	}
 
 	/**
-	 *  Add params to AJAX for Shortcode Usage
+	 * Localize Scripts
 	 *
-	 *  http://benjaminrojas.net/using-wp_localize_script-dynamically/
+	 * @description: Add params to AJAX for Shortcode Usage
+	 * @see        : http://benjaminrojas.net/using-wp_localize_script-dynamically/
 	 *
+	 * @param $localized_data
 	 */
 	function array_push_localized_script( $localized_data ) {
 		global $wp_scripts;

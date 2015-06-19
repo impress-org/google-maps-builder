@@ -12,7 +12,7 @@ var gulp = require( 'gulp' ),
 	rename = require( 'gulp-rename' ),
 	watch = require( 'gulp-watch' ),
 	minifyCss = require( 'gulp-minify-css' ),
-	notify = require( 'gulp-notify' );
+notify = require( 'gulp-notify' );
 
 
 /* Paths

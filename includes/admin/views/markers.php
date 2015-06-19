@@ -33,7 +33,7 @@
 	</div>
 	<div class="marker-item" data-marker="default">
 		<div class="marker-svg">
-			<img src="<?php echo GMB_PLUGIN_URL . '/public/assets/img/default-marker.png' ?>" class="default-marker" />
+			<img src="<?php echo GMB_PLUGIN_URL . 'assets/img/default-marker.png' ?>" class="default-marker" />
 		</div>
 		<div class="marker-description"><?php _e( 'Default', $this->plugin_slug ); ?></div>
 	</div>
