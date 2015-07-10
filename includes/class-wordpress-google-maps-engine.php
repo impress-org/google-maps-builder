@@ -100,19 +100,18 @@ class Google_Maps_Builder_Engine {
 	 */
 	public function google_maps_shortcode( $atts ) {
 
-		extract(
-			shortcode_atts(
+
+		$atts = shortcode_atts(
 				array(
 					'title'     => '',
 					'id'        => '',
 					'reference' => '',
-				), $atts
-			)
-		);
+				), $atts, 'google_maps'
+			);
 
 		//gather data for this shortcode
-		$post     = get_post( $id );
-		$all_meta = get_post_custom( $id );
+		$post     = get_post( $atts['id'] );
+		$all_meta = get_post_custom( $atts['id'] );
 
 		$visual_info = maybe_unserialize( $all_meta['gmb_width_height'][0] );
 		$lat_lng     = maybe_unserialize( $all_meta['gmb_lat_lng'][0] );
@@ -132,7 +131,7 @@ class Google_Maps_Builder_Engine {
 		//@see: http://benjaminrojas.net/using-wp_localize_script-dynamically/
 		$localized_data = array(
 			$post->ID => array(
-				'id'               => $id,
+				'id'               => $atts['id'],
 				'map_params'       => array(
 					'title'          => $post->post_title,
 					'width'          => $visual_info['width'],

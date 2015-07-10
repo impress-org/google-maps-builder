@@ -282,7 +282,7 @@
 }
 
 #infobubble-content.loading {
-	background: url('../../../includes/assets/img/loading.GIF') no-repeat center center #FFF;
+	background: url('../img/loading.GIF') no-repeat center center #FFF;
 }
 
 #google-map-wrap div#infobubble-content > div {
@@ -344,7 +344,7 @@
 }
 
 #infobubble-content .star-rating-wrap {
-	background: url('../../../includes/assets/img/review_stars.png') no-repeat 0 0 transparent;
+	background: url('../img/review_stars.png') no-repeat 0 0 transparent;
 	height: 13px;
 	width: 67px;
 	float: left;
@@ -352,7 +352,7 @@
 }
 
 #infobubble-content .star-rating-size {
-	background: url('../../../includes/assets/img/review_stars.png') no-repeat 0 -13px transparent;
+	background: url('../img/review_stars.png') no-repeat 0 -13px transparent;
 	height: 13px;
 }
 

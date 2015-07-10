@@ -40,6 +40,7 @@ require_once( GMB_PLUGIN_PATH . 'includes/libraries/metabox/init.php' );
 require_once( GMB_PLUGIN_PATH . 'includes/class-wordpress-google-maps.php' );
 //require_once( GMB_PLUGIN_PATH . 'includes/class-wordpress-google-maps-widget.php' ); Widget coming soon :)
 require_once( GMB_PLUGIN_PATH . 'includes/class-wordpress-google-maps-engine.php' );
+require_once( GMB_PLUGIN_PATH . 'includes/admin/class-wordpress-google-maps-settings.php' );
 
 
 /*
@@ -63,7 +64,6 @@ if ( is_admin() ) {
 
 	require_once( GMB_PLUGIN_PATH . 'includes/admin/class-wordpress-google-maps-admin.php' );
 	add_action( 'plugins_loaded', array( 'Google_Maps_Builder_Admin', 'get_instance' ) );
-	require_once( GMB_PLUGIN_PATH . 'includes/admin/class-wordpress-google-maps-settings.php' );
 
 }
 
