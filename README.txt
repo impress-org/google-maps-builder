@@ -146,15 +146,17 @@ Here is what we are working on for future releases:
 == Changelog ==
 
 = 2.0 =
-* Upgraded CMB1 to CMB2
-* Switch and Test all Google Places API calls to "Reference ID" or "ID" to Google's new "Places ID"
-* Marker Creation Improvements: 1) Sometimes markers disappear in the post edit screen. 2) Sometimes markers don't get output on the front end correctly. 3)Sometimes markers don't get generated in the post edit screen at all.
-* Investigated + Resolved Google Maps API Conflict - Often when a user has a theme or plugin that registers Google Maps it breaks our plugin or ours breaks theirs. We now check for other google maps enqueues, and if present the plugin attempts to dequeue them in favor for ours. So far this has fixed issues with Uber Menu 3, Contact Forms 7 and more.
-* Maps placed in hidden tabs now redraw properly when the tab is selected
-* Found and resolved conflict with ACF plugin Google Maps field
-* Removed non-functional marker upload field (will be added to Pro version in a much enhanced format).
-* Gulp implemented for minifying scripts
-* General Javascript Cleanup and Optimization
+* General: This update focused on fixing a lot of pre-existing bugs commonly submitted to WordPress.org as well as improving the plugin base for future code enhancements.
+* New: Upgraded CMB1 to CMB2
+* New: Switch and Test all Google Places API calls to "Reference ID" or "ID" to Google's new "Places ID"
+* New: Gulp implemented for minifying scripts
+* New: Marker Creation Improvements - 1) Sometimes markers disappear in the post edit screen. 2) Sometimes markers don't get output on the front end correctly. 3)Sometimes markers don't get generated in the post edit screen at all.
+* New: Investigated + resolved several Google Maps API conflicts - Often when a user has a theme or plugin that registers Google Maps it breaks our plugin or ours breaks theirs. We now check for other Google Map enqueues, and if present the plugin attempts to dequeue them in favor for ours. So far this has fixed issues with Uber Menu 3, Contact Forms 7, as well as many additional plugins.
+* New: Plugin structure significantly changed to better reflect our development preference. The current structure is similar to Give, EDD, and other very reputable plugins.
+* Fix: Maps placed in hidden tabs now redraw properly when the tab is selected
+* Fix: Found and resolved conflict with ACF plugin Google Maps field
+* Fix: Removed non-functional marker upload field (will be added to Pro version in a much enhanced format).
+* General: Javascript cleanup and optimization
 
 = 1.0.3 =
 * New: New check for multiple Google Maps API calls to ensure more compatibility with themes and plugins which include the same maps API JS. If the check detects multiple enqueues a warning appears in the admin panel.

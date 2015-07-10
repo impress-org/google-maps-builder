@@ -4,7 +4,6 @@
  * @since 2.0
  */
 
-
 /* Modules (Can be installed with npm install command using package.json)
  ------------------------------------- */
 var gulp = require( 'gulp' ),
@@ -12,57 +11,36 @@ var gulp = require( 'gulp' ),
 	rename = require( 'gulp-rename' ),
 	watch = require( 'gulp-watch' ),
 	minifyCss = require( 'gulp-minify-css' ),
-notify = require( 'gulp-notify' );
+	notify = require( 'gulp-notify' );
 
 
 /* Paths
  ------------------------------------- */
 var source_paths = {
-	admin_styles    : ['admin/assets/js/*.js', '!admin/assets/js/*.min.js'],
-	admin_scripts   : ['admin/assets/css/*.css', '!admin/assets/css/*.min.css'],
-	frontend_styles : ['public/assets/js/*.js', '!public/assets/js/*.min.js'],
-	frontend_scripts: ['public/assets/css/*.css', '!public/assets/css/*.min.css']
+	scripts : ['assets/js/*.js', '!assets/js/*.min.js'],
+	styles: ['assets/css/*.css', '!assets/css/*.min.css']
 };
 
-gulp.task( 'admin', function () {
-	gulp.src( source_paths.admin_styles )
+gulp.task( 'scripts_styles', function () {
+	gulp.src( source_paths.scripts )
 		.pipe( uglify() )
 		.pipe( rename( {
 			extname: '.min.js'
 		} ) )
-		.pipe( gulp.dest( 'admin/assets/js' ) );
+		.pipe( gulp.dest( 'assets/js' ) );
 
-	gulp.src( source_paths.admin_scripts )
+	gulp.src( source_paths.styles )
 		.pipe( minifyCss( {compatiability: 'ie8'} ) )
 		.pipe( rename( {
 			extname: '.min.css'
 		} ) )
-		.pipe( gulp.dest( 'admin/assets/css' ) );
-
-} );
-
-gulp.task( 'public', function () {
-	gulp.src( source_paths.frontend_scripts )
-		.pipe( uglify() )
-		.pipe( rename( {
-			extname: '.min.js'
-		} ) )
-		.pipe( gulp.dest( 'public/assets/js' ) );
-
-	gulp.src( source_paths.frontend_styles )
-		.pipe( minifyCss( {compatiability: 'ie8'} ) )
-		.pipe( rename( {
-			extname: '.min.css'
-		} ) )
-		.pipe( gulp.dest( 'public/assets/css' ) );
+		.pipe( gulp.dest( 'assets/css' ) );
 
 } );
 
 gulp.task( 'watch', function () {
-	gulp.watch( 'public/assets/js/*.js', ['public'] );
-	gulp.watch( 'public/assets/css/*.css', ['public'] );
-	gulp.watch( 'admin/assets/js/*.js', ['admin'] );
-	gulp.watch( 'admin/assets/css/*.css', ['admin'] );
+	gulp.watch( 'admin/assets/js/*.js', ['scripts_styles'] );
+	gulp.watch( 'admin/assets/css/*.css', ['scripts_styles'] );
 } );
 
-gulp.task( 'default', ['admin', 'public'] );
+gulp.task( 'default', ['scripts_styles'] );

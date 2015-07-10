@@ -9,14 +9,8 @@
  * @author    Devin Walker <devin@wordimpress.com>
  * @license   GPL-2.0+
  * @link      http://wordimpress.com
- * @copyright 2014 WordImpress, Devin Walker
+ * @copyright 2015 WordImpress, Devin Walker
  */
-
-
-//CMB2 INIT
-require_once( GMB_PLUGIN_PATH . 'includes/metabox/init.php' );
-
-
 class Google_Maps_Builder_Admin {
 
 	/**
@@ -80,9 +74,8 @@ class Google_Maps_Builder_Admin {
 	}
 
 	/**
-	 *
 	 * Add Shortcode to Publish Metabox
-	 *
+	 * @return bool
 	 */
 	public function gmb_add_shortcode_to_publish_metabox() {
 
@@ -100,6 +93,7 @@ class Google_Maps_Builder_Admin {
 
 		}
 
+		return false;
 	}
 
 	/**
@@ -157,7 +151,7 @@ class Google_Maps_Builder_Admin {
 		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
 
 			wp_enqueue_style( $this->plugin_slug . '-admin-styles', GMB_PLUGIN_URL . 'assets/css/admin' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
-			wp_enqueue_style( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/map-icons/css/map-icons.css', array(), Google_Maps_Builder::VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/css/map-icons.css', array(), Google_Maps_Builder::VERSION );
 			wp_enqueue_style( $this->plugin_slug . '-map-tooltips', GMB_PLUGIN_URL . 'assets/css/jquery.qtip' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
 
 		}
@@ -179,7 +173,7 @@ class Google_Maps_Builder_Admin {
 		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
 
 			wp_enqueue_script( $this->plugin_slug . '-admin-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
-			wp_enqueue_script( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/map-icons/js/map-icons.js', array( 'jquery' ) );
+			wp_enqueue_script( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/js/map-icons.js', array( 'jquery' ) );
 			wp_enqueue_script( $this->plugin_slug . '-admin-qtip', GMB_PLUGIN_URL . 'assets/js/jquery.qtip' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION, true );
 
 			if ( $suffix != '.min' ) {
@@ -198,7 +192,7 @@ class Google_Maps_Builder_Admin {
 				'default_lng'       => isset( $geolocate['longitude'] ) ? $geolocate['longitude'] : '-117.16108380000003',
 				'plugin_url'        => GMB_PLUGIN_URL,
 				'default_marker'    => apply_filters( 'gmb_default_marker', GMB_PLUGIN_URL . 'assets/img/default-marker.png' ),
-				'snazzy'            => GMB_PLUGIN_URL . '/admin/assets/js/snazzy.json'
+				'snazzy'            => GMB_PLUGIN_URL . 'assets/js/snazzy.json'
 			);
 			wp_localize_script( $this->plugin_slug . '-admin-map-builder', 'gmb_data', $maps_data );
 

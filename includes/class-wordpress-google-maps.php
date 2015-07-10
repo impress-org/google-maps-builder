@@ -9,7 +9,7 @@
  * @author    Devin Walker <devin@wordimpress.com>
  * @license   GPL-2.0+
  * @link      http://wordimpress.com
- * @copyright 2014 WordImpress, Devin Walker
+ * @copyright 2015 WordImpress, Devin Walker
  */
 class Google_Maps_Builder {
 
@@ -47,11 +47,8 @@ class Google_Maps_Builder {
 
 
 	/**
-	 *
-	 *
 	 * Global Var for loading google maps api
-	 * Global Var for dependancy
-	 *
+	 * Global Var for dependency
 	 */
 	protected $load_maps_api = true;
 	protected $load_maps_api_dep = 'jquery';
@@ -74,8 +71,8 @@ class Google_Maps_Builder {
 		// Load plugin text domain
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
-		//Init CPT
-		add_action( 'init', array( $this, 'setup_post_type' ), 1 );
+		//Init CPT (after CMB2 -> hence the 10000 priority)
+		add_action( 'init', array( $this, 'setup_post_type' ), 10000 );
 
 		//CPT
 		add_filter( 'manage_edit-google_maps_columns', array( $this, 'setup_custom_columns' ) );
@@ -142,7 +139,7 @@ class Google_Maps_Builder {
 
 
 	/**
-	 * Registers and sets up the Google Maps BUilder custom post type
+	 * Registers and sets up the Maps Builder custom post type
 	 *
 	 * @since 1.0
 	 * @return void
@@ -152,8 +149,7 @@ class Google_Maps_Builder {
 		$post_slug     = gmb_get_option( 'gmb_custom_slug' );
 		$menu_position = gmb_get_option( 'gmb_menu_position' );
 		$has_archive   = filter_var( gmb_get_option( 'gmb_has_archive' ), FILTER_VALIDATE_BOOLEAN );
-
-		$labels = array(
+		$labels        = array(
 			'name'               => _x( 'Google Maps', 'post type general name', $this->plugin_slug ),
 			'singular_name'      => _x( 'Map', 'post type singular name', $this->plugin_slug ),
 			'menu_name'          => _x( 'Google Maps', 'admin menu', $this->plugin_slug ),
@@ -206,7 +202,7 @@ class Google_Maps_Builder {
 				content: '\f231';
 			}
 		</style>
-	<?php
+		<?php return;
 	}
 
 	/**
@@ -415,7 +411,7 @@ class Google_Maps_Builder {
 			//]]>
 		</script>
 
-	<?php
+		<?php
 	}
 
 	/**
@@ -503,7 +499,7 @@ class Google_Maps_Builder {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', GMB_PLUGIN_URL . 'assets/css/google-maps-builder' . $suffix . '.css', array(), self::VERSION );
-		wp_enqueue_style( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'assets/map-icons/css/map-icons.css', array(), self::VERSION );
+		wp_enqueue_style( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/css/map-icons.css', array(), self::VERSION );
 
 	}
 
@@ -518,7 +514,7 @@ class Google_Maps_Builder {
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		wp_register_script( $this->plugin_slug . '-plugin-script', GMB_PLUGIN_URL . 'assets/js/google-maps-builder' . $suffix . '.js', array( $this->load_maps_api_dep ), self::VERSION, true );
-		wp_register_script( $this->plugin_slug . '-maps-icons', GMB_PLUGIN_URL . 'includes/map-icons/js/map-icons.js', array( 'jquery' ), self::VERSION, true );
+		wp_register_script( $this->plugin_slug . '-maps-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/js/map-icons.js', array( 'jquery' ), self::VERSION, true );
 		wp_localize_script( $this->plugin_slug . '-plugin-script', 'gmb_data', array() );
 
 	}

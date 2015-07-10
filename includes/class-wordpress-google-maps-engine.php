@@ -9,7 +9,7 @@
  * @author    Devin Walker <devin@wordimpress.com>
  * @license   GPL-2.0+
  * @link      http://wordimpress.com
- * @copyright 2014 WordImpress, Devin Walker
+ * @copyright 2015 WordImpress, Devin Walker
  */
 class Google_Maps_Builder_Engine {
 
@@ -45,6 +45,9 @@ class Google_Maps_Builder_Engine {
 	 * the [google_maps] shortcode will be prepended/appended to the post body, once for each map
 	 * The shortcode is used so it can be filtered - for example WordPress will remove it in excerpts by default.
 	 *
+	 * @param $content
+	 *
+	 * @return mixed
 	 */
 	function the_content( $content ) {
 
@@ -75,13 +78,12 @@ class Google_Maps_Builder_Engine {
 	 * @return string
 	 */
 	public function get_google_maps_template( $single_template ) {
-		global $post;
+
 		if ( file_exists( get_stylesheet_directory() . '/google-maps/' . $single_template ) ) {
 			$output = get_stylesheet_directory() . '/google-maps/' . $single_template;
 		} else {
 			$output = dirname( __FILE__ ) . '/views/' . $single_template;
 		}
-
 
 		return $output;
 	}
@@ -117,9 +119,12 @@ class Google_Maps_Builder_Engine {
 
 		//Put markers into an array for JS usage
 		$map_marker_array   = array();
-		$markers_repeatable = maybe_unserialize( $all_meta['gmb_markers_group'][0] );
-		foreach ( $markers_repeatable as $marker ) {
-			array_push( $map_marker_array, $marker );
+		$markers_repeatable = isset( $all_meta['gmb_markers_group'][0] ) ? maybe_unserialize( $all_meta['gmb_markers_group'][0] ) : '';
+
+		if ( is_array( $markers_repeatable ) ) {
+			foreach ( $markers_repeatable as $marker ) {
+				array_push( $map_marker_array, $marker );
+			}
 		}
 
 		//send data for AJAX usage

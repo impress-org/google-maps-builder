@@ -22,21 +22,24 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
+
 // Define Constants
 define( 'GMB_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'GMB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'GMB_PLUGIN_BASE', plugin_basename( __FILE__ ) );
 
+//CMB2 INIT
+require_once( GMB_PLUGIN_PATH . 'includes/libraries/metabox/init.php' );
+
 /*----------------------------------------------------------------------------*
  * Public-Facing Functionality
  *----------------------------------------------------------------------------*/
-require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wordpress-google-maps.php' );
-//require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wordpress-google-maps-widget.php' ); Widget coming soon :)
-require_once( plugin_dir_path( __FILE__ ) . 'includes/admin/class-wordpress-google-maps-settings.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wordpress-google-maps-engine.php' );
+require_once( GMB_PLUGIN_PATH . 'includes/class-wordpress-google-maps.php' );
+//require_once( GMB_PLUGIN_PATH . 'includes/class-wordpress-google-maps-widget.php' ); Widget coming soon :)
+require_once( GMB_PLUGIN_PATH . 'includes/class-wordpress-google-maps-engine.php' );
 
 
 /*
@@ -52,11 +55,15 @@ register_deactivation_hook( __FILE__, array( 'Google_Maps_Builder', 'deactivate'
 add_action( 'plugins_loaded', array( 'Google_Maps_Builder', 'get_instance' ) );
 add_action( 'plugins_loaded', array( 'Google_Maps_Builder_Engine', 'get_instance' ) );
 
+
 /*----------------------------------------------------------------------------*
- * Dashboard and Administrative Functionality
+ * Dashboard and Administrative Functionality (CMB2)
  *----------------------------------------------------------------------------*/
 if ( is_admin() ) {
-	require_once( plugin_dir_path( __FILE__ ) . 'includes/admin/class-wordpress-google-maps-admin.php' );
+
+	require_once( GMB_PLUGIN_PATH . 'includes/admin/class-wordpress-google-maps-admin.php' );
 	add_action( 'plugins_loaded', array( 'Google_Maps_Builder_Admin', 'get_instance' ) );
+	require_once( GMB_PLUGIN_PATH . 'includes/admin/class-wordpress-google-maps-settings.php' );
 
 }
+
