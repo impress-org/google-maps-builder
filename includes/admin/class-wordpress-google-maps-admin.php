@@ -150,9 +150,17 @@ class Google_Maps_Builder_Admin {
 		//Only enqueue scripts for CPT on post type screen
 		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
 
-			wp_enqueue_style( $this->plugin_slug . '-admin-styles', GMB_PLUGIN_URL . 'assets/css/admin' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
-			wp_enqueue_style( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/css/map-icons.css', array(), Google_Maps_Builder::VERSION );
-			wp_enqueue_style( $this->plugin_slug . '-map-tooltips', GMB_PLUGIN_URL . 'assets/css/jquery.qtip' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
+			wp_register_style( $this->plugin_slug . '-admin-styles', GMB_PLUGIN_URL . 'assets/css/admin' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-admin-styles' );
+
+			wp_register_style( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/css/map-icons.css', array(), Google_Maps_Builder::VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-map-icons' );
+
+			wp_register_style( $this->plugin_slug . '-map-tooltips', GMB_PLUGIN_URL . 'assets/css/jquery.qtip' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-map-tooltips' );
+
+			wp_register_style( $this->plugin_slug . '-map-magnific', GMB_PLUGIN_URL . 'assets/css/magnific-popup' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-map-magnific' );
 
 		}
 
@@ -172,15 +180,21 @@ class Google_Maps_Builder_Admin {
 		//Only enqueue scripts for CPT on post type screen
 		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
 
-			wp_enqueue_script( $this->plugin_slug . '-admin-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
-			wp_enqueue_script( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/js/map-icons.js', array( 'jquery' ) );
-			wp_enqueue_script( $this->plugin_slug . '-admin-qtip', GMB_PLUGIN_URL . 'assets/js/jquery.qtip' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION, true );
+			wp_register_script( $this->plugin_slug . '-admin-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
+			wp_enqueue_script( $this->plugin_slug . '-admin-gmaps' );
 
-			if ( $suffix != '.min' ) {
-				wp_enqueue_script( $this->plugin_slug . '-admin-map-builder', GMB_PLUGIN_URL . 'assets/js/admin-google-map' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION );
-			} else {
-				wp_enqueue_script( $this->plugin_slug . '-admin-map-builder', GMB_PLUGIN_URL . 'assets/js/admin-google-map' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION );
-			}
+			wp_register_script( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/js/map-icons.js', array( 'jquery' ) );
+			wp_enqueue_script( $this->plugin_slug . '-map-icons' );
+
+			wp_register_script( $this->plugin_slug . '-admin-qtip', GMB_PLUGIN_URL . 'assets/js/jquery.qtip' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION, true );
+			wp_enqueue_script( $this->plugin_slug . '-admin-qtip' );
+
+			wp_register_script( $this->plugin_slug . '-admin-map-builder', GMB_PLUGIN_URL . 'assets/js/admin-google-map' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-map-builder' );
+
+			wp_register_script( $this->plugin_slug . '-admin-magnific-popup', GMB_PLUGIN_URL . 'assets/js/gmb-magnific' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-magnific-popup' );
+
 
 			$api_key   = gmb_get_option( 'gmb_api_key' );
 			$geolocate = gmb_get_option( 'gmb_lat_lng' );
@@ -761,7 +775,6 @@ class Google_Maps_Builder_Admin {
 
 
 		//Markers Modal
-		add_thickbox();
 		include( 'views/markers.php' );
 
 	}

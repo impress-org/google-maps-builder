@@ -236,7 +236,6 @@
 		google.maps.event.removeListener( event ); //remove map click event
 
 
-
 		//add marker at clicked location
 		var drop_location_marker = new Marker( {
 			position : lat_lng,
@@ -472,12 +471,12 @@
 	function add_tenative_info_window( reference, marker ) {
 
 		var request = {
-			key      : gmb_data.api_key,
+			key    : gmb_data.api_key,
 			placeId: reference
 		};
 
 		places_service.getDetails( request, function ( place, status ) {
-			
+
 			if ( status == google.maps.places.PlacesServiceStatus.OK ) {
 
 				var lat = place.geometry.location.lat();
@@ -537,11 +536,11 @@
 		//rating
 		if ( place.rating ) {
 			info_window_content += '<div class="rating-wrap clear">' +
-			'<p class="numeric-rating">' + place.rating + '</p>' +
-			'<div class="star-rating-wrap">' +
-			'<div class="star-rating-size" style="width:' + (65 * place.rating / 5) + 'px;"></div>' +
-			'</div>' +
-			'</div>'
+				'<p class="numeric-rating">' + place.rating + '</p>' +
+				'<div class="star-rating-wrap">' +
+				'<div class="star-rating-size" style="width:' + (65 * place.rating / 5) + 'px;"></div>' +
+				'</div>' +
+				'</div>'
 		}
 
 
@@ -591,11 +590,11 @@
 
 		//toolbar
 		info_window_content += '<div class="infowindow-toolbar clear"><ul id="save-toolbar">' +
-		'<li class="info-window-save"><div class="google-btn-blue google-btn google-save-btn" data-tooltip="Save changes" data-index="' + index + '">Save</div></li>' +
-		'<li class="info-window-cancel"><div class="google-btn-default google-btn google-cancel-btn" data-tooltip="Cancel edit" data-index="' + index + '">Cancel</div></li>' +
-		'</ul>' +
-		'<span class="marker-edit-link-wrap" data-index="' + index + '"><a href="#TB_inline?width=600&height=550&inlineId=marker-icon-modal" data-tooltip="Change icon" class="marker-edit-link thickbox"></a></span>' +
-		'</div>';
+			'<li class="info-window-save"><div class="google-btn-blue google-btn google-save-btn" data-tooltip="Save changes" data-index="' + index + '">Save</div></li>' +
+			'<li class="info-window-cancel"><div class="google-btn-default google-btn google-cancel-btn" data-tooltip="Cancel edit" data-index="' + index + '">Cancel</div></li>' +
+			'</ul>' +
+			'<span class="marker-edit-link-wrap" data-index="' + index + '"><a href="#marker-icon-modal" data-tooltip="Change icon"  data-mfp-src="#marker-icon-modal" class="marker-edit-link gmb-magnific-marker gmb-magnific-inline"></a></span>' +
+			'</div>';
 
 		info_window_content = set_info_window_wrapper( info_window_content );
 		info_bubble.setContent( info_window_content );
@@ -644,8 +643,8 @@
 
 
 		//Marker Modal Update Icon
-		var save_icon_listener = google.maps.event.addDomListener( $( '.save-marker-button' )[0], 'click', function () {
-
+		var save_icon_listener = google.maps.event.addDomListener( $( '.save-marker-button' )[0], 'click', function ( e ) {
+			e.preventDefault();
 			var marker_position = marker.getPosition();
 			var marker_icon_data;
 			var marker_icon = $( this ).data( 'marker' );
@@ -703,7 +702,7 @@
 			$( this ).removeData( 'marker-color' ); //Remove data
 			$( this ).removeData( 'label' ); //Remove data
 			$( this ).removeData( 'label-color' ); //Remove data
-			tb_remove(); //close TB lightbox
+			$.magnificPopup.close(); // Close popup that is currently opened (shorthand)
 			google.maps.event.removeListener( save_icon_listener ); //remove this event listener
 			google.maps.event.removeListener( edit_marker_icon_button_click ); //remove this event listener
 
@@ -865,10 +864,10 @@
 					info_window_content += add_place_content_to_info_window( place );
 					//toolbar
 					info_window_content += '<div class="infowindow-toolbar"><ul id="edit-toolbar">' +
-					'<li class="edit-info" data-index="' + index + '" data-tooltip="Edit Marker"></li>' +
-					'<li class="trash-marker" data-index="' + index + '" data-tooltip="Delete Marker"></li>' +
-					'</ul>' +
-					'</div>';
+						'<li class="edit-info" data-index="' + index + '" data-tooltip="Edit Marker"></li>' +
+						'<li class="trash-marker" data-index="' + index + '" data-tooltip="Delete Marker"></li>' +
+						'</ul>' +
+						'</div>';
 
 					add_edit_events( info_window_content, marker );
 
@@ -885,10 +884,10 @@
 			info_window_content += '<div class="place-description">' + info_window_data.desc + '</div>';
 			//toolbar
 			info_window_content += '<div class="infowindow-toolbar"><ul id="edit-toolbar">' +
-			'<li class="edit-info" data-index="' + index + '" data-tooltip="Edit Marker"></li>' +
-			'<li class="trash-marker" data-index="' + index + '" data-tooltip="Delete Marker"></li>' +
-			'</ul>' +
-			'</div>';
+				'<li class="edit-info" data-index="' + index + '" data-tooltip="Edit Marker"></li>' +
+				'<li class="trash-marker" data-index="' + index + '" data-tooltip="Delete Marker"></li>' +
+				'</ul>' +
+				'</div>';
 
 			add_edit_events( info_window_content, marker );
 
@@ -1602,13 +1601,13 @@
 
 				$( '.marker-icon-row, .marker-icon-color-wrap, .marker-label-color-wrap' ).slideUp();
 				$( '.save-marker-icon' ).slideDown();
-				$( '#TB_window .save-marker-button' ).attr( 'data-marker', '' );
-				$( '#TB_window .save-marker-button' ).attr( 'data-label', '' );
+				$( '#marker-icon-modal .save-marker-button' ).attr( 'data-marker', '' );
+				$( '#marker-icon-modal .save-marker-button' ).attr( 'data-label', '' );
 
 			} else {
 				//custom markers
 				$( '.marker-icon-color-wrap, .marker-icon-row' ).slideDown();
-				$( '#TB_window .save-marker-button' ).attr( 'data-marker', marker_data ); //Set marker data attribute on save btn
+				$( '#marker-icon-modal .save-marker-button' ).attr( 'data-marker', marker_data ); //Set marker data attribute on save btn
 			}
 
 		} );
@@ -1619,7 +1618,7 @@
 			$( '.icon' ).removeClass( 'marker-item-selected' );
 			$( this ).addClass( 'marker-item-selected' );
 			$( '.save-marker-icon, .marker-label-color-wrap' ).slideDown(); //slide down save button
-			$( '#TB_window .save-marker-button' ).attr( 'data-label', $( this ).find( 'span' ).attr( 'class' ) ); //Set marker data attribute on save btn
+			$( '#marker-icon-modal .save-marker-button' ).attr( 'data-label', $( this ).find( 'span' ).attr( 'class' ) ); //Set marker data attribute on save btn
 		} );
 
 
@@ -1693,6 +1692,11 @@
 					$( this ).fadeIn( 200 );
 				}
 			}
+		} );
+		//Initialize Magnific Too
+		$( '.gmb-magnific-inline' ).magnificPopup( {
+			type    : 'inline',
+			midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
 		} );
 	}
 

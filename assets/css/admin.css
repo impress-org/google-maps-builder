@@ -25,10 +25,6 @@
 	-webkit-box-sizing: border-box;
 }
 
-#gmb_markers_group_repeat {
-	/*display: none;*/
-}
-
 .cmb2-id-gmb-theme-json {
 	display: none;
 }
@@ -65,6 +61,15 @@
 .new-window {
 	background: url('../img/new-window-icon.png') no-repeat right 3px transparent;
 	padding-right: 16px;
+}
+
+#marker-icon-modal {
+	display: none;
+
+}
+
+.mfp-content #marker-icon-modal {
+	display: block;
 }
 
 /*Shortcode Input */
@@ -560,13 +565,19 @@ Marker Icon Modal
 }
 
 /* Color */
+.marker-row {
+	margin-bottom: 20px;
+}
+
+#marker-icon-modal .color-desc {
+	display: block;
+	clear: both;
+	font-size: 12px;
+	font-style: italic;
+}
 
 .marker-icon-color-wrap, .marker-label-color-wrap {
 	display: none;
-}
-
-.marker-label-color-wrap {
-	margin-bottom: 60px;
 }
 
 .marker-color-picker-wrap {
@@ -601,6 +612,10 @@ Marker Icon Modal
 	line-height: 50px;
 }
 
+.marker-description-wrap h3 {
+	margin-top: 0;
+}
+
 /* Save button */
 
 .save-marker-icon {
@@ -619,7 +634,7 @@ Marker Icon Modal
 .save-marker-icon .save-text {
 	float: left;
 	font-style: italic;
-	margin: 0;
+	margin: 6px 0 0 10px;
 }
 
 .save-marker-icon .button {
@@ -736,7 +751,7 @@ CMB2
 }
 
 #poststuff .cmb-repeat-group-wrap .cmb-row:not(:last-of-type) {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 #gmb_markers_group_repeat.cmb-remove-field-row {
@@ -752,10 +767,25 @@ CMB2
 	padding-bottom: 0 !important;
 }
 
-#cmb2-metabox-google_maps_markers .cmb-repeat-group-wrap {
+#cmb2-metabox-google_maps_markers .cmb-repeatable-group .cmb-remove-field-row {
+	padding-bottom: 12px !important;
+}
+
+
+#cmb2-metabox-google_maps_markers .cmb-repeatable-grouping {
 	padding-top: 0;
+	border-bottom: 1px solid #e9e9e9 !important;
 }
 
 #cmb2-metabox-google_maps_markers .cmb-repeat-group-wrap .cmb-group-description .cmb-th {
 	padding-bottom: 0;
+}
+
+.white-popup {
+	position: relative;
+	background: #FFF;
+	padding: 20px 20px 50px;
+	width: auto;
+	max-width: 600px;
+	margin: 20px auto;
 }

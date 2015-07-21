@@ -1,11 +1,4 @@
-# Google Maps Builder
-Contributors: dlocc, wordimpress
-Donate link: http://wordimpress.com/
-Requires at least: 3.6
-Tested up to: 3.9.1
-Stable tag: 2.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+# WordPress Maps Builder - Powered by Google Maps 
 
 One Google Maps plugin to rule them all. Google Maps Builder is intuitive, sleek, powerful and easy to use. Forget the rest, use the best.
 

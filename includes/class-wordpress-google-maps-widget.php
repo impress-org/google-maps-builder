@@ -171,7 +171,8 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 	public function register_admin_styles( $hook ) {
 
 		if ( $hook == 'widgets.php' ) {
-			wp_enqueue_style( 'wordpress-google-places-admin-styles', GMB_PLUGIN_URL . 'assets/css/admin-widget.css' );
+			wp_register_style( 'wordpress-google-places-admin-styles', GMB_PLUGIN_URL . 'assets/css/admin-widget.css' );
+			wp_enqueue_style( 'wordpress-google-places-admin-styles' );
 		}
 
 
@@ -183,10 +184,17 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 	public function register_admin_scripts( $hook ) {
 		if ( $hook == 'widgets.php' ) {
 
-			wp_enqueue_script( 'wordpress-google-places-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
-			wp_enqueue_script( 'wordpress-google-places-admin-script', GMB_PLUGIN_URL . 'assets/js/admin-widget.js', array( 'jquery' ) );
-			wp_enqueue_script( 'wordpress-google-places-tipsy', GMB_PLUGIN_URL . ' assets/js/tipsy.js', array( 'jquery' ) );
-			wp_enqueue_script( 'wordpress-google-places-infobubble', GMB_PLUGIN_URL . 'assets/js/infobubble-compiled.js', array( 'jquery' ) );
+			wp_register_script( 'wordpress-google-places-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
+			wp_enqueue_script( 'wordpress-google-places-gmaps' );
+
+			wp_register_script( 'wordpress-google-places-admin-script', GMB_PLUGIN_URL . 'assets/js/admin-widget.js', array( 'jquery' ) );
+			wp_enqueue_script( 'wordpress-google-places-admin-script' );
+
+			wp_register_script( 'wordpress-google-places-tipsy', GMB_PLUGIN_URL . ' assets/js/tipsy.js', array( 'jquery' ) );
+			wp_enqueue_script( 'wordpress-google-places-tipsy' );
+
+			wp_register_script( 'wordpress-google-places-infobubble', GMB_PLUGIN_URL . 'assets/js/infobubble-compiled.js', array( 'jquery' ) );
+			wp_enqueue_script( 'wordpress-google-places-infobubble' );
 
 
 		}
