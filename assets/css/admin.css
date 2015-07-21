@@ -721,3 +721,17 @@ Temporary Info Window
 .add-marker {
 	text-decoration: none;
 }
+
+#poststuff .postbox-container .cmb-row:not(:last-of-type), #poststuff .postbox-container .cmb-repeatable-group:not(:last-of-type), #poststuff .cmb-repeat-group-wrap .cmb-row:not(:last-of-type), #poststuff .cmb-repeat-group-wrap .cmb-repeatable-group:not(:last-of-type) {
+	border-bottom: 0;
+	margin-bottom: 0;
+}
+
+#poststuff .inner-sidebar .cmb-row .cmb2-metabox-description, #poststuff #side-sortables .cmb-row .cmb2-metabox-description {
+	padding-bottom: 0;
+}
+
+.cmb-row:last-of-type, .cmb2-wrap .cmb-row:last-of-type, .cmb-repeatable-group:last-of-type {
+	margin-bottom:0;
+	padding-bottom:0 !important;
+}
