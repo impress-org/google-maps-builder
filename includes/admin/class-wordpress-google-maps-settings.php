@@ -182,7 +182,8 @@ class Google_Maps_Builder_Settings {
 		//Only enqueue scripts for Setting screen
 		if ( $this->options_page == $screen->id ) {
 
-			wp_enqueue_script( $this->plugin_slug . '-admin-settings', GMB_PLUGIN_URL . 'assets/js/admin-settings' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION );
+			wp_register_script( $this->plugin_slug . '-admin-settings', GMB_PLUGIN_URL . 'assets/js/admin-settings' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-settings' );
 
 		}
 
