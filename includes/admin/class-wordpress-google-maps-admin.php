@@ -273,7 +273,7 @@ class Google_Maps_Builder_Admin {
 			'type'        => 'group',
 			'description' => __( 'Map marker data is contained within the repeatable fields below. You may add or update marker data here in bulk.', $this->plugin_slug ),
 			'options'     => array(
-				'group_title'   => __( 'Marker:', 'cmb' ),
+				'group_title'   => __( 'Marker: {#}', 'cmb' ),
 				'add_button'    => __( 'Add Another Marker', $this->plugin_slug ),
 				'remove_button' => __( 'Remove Marker', $this->plugin_slug ),
 				'sortable'      => true, // beta
