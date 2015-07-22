@@ -3,27 +3,17 @@
  *
  * @description: Frontend form rendering
  */
+var gmb_data;
+
 (function ( $ ) {
 	"use strict";
 	var map;
 	var places_service;
 	var place;
-	var location_marker_array = [];
 	var search_markers = [];
 
 	/*
-	 * Global AJAX handler
-	 *
-	 * jQuery - https://api.jquery.com/category/ajax/global-ajax-event-handlers/
-	 *
-	 * $( document ).ajaxComplete(function( event, request, settings) {
-	 *	console.log(request);
-	 * });
-	 *
-	 */
-
-	/*
-	 * global load function for other plugins / themes to use
+	 * Global load function for other plugins / themes to use
 	 *
 	 * ex: google_maps_builder_load( object );
 	 */
@@ -111,6 +101,7 @@
 		set_map_theme( map, map_data );
 		set_map_markers( map, map_data, info_window );
 
+		//Display places?
 		if ( map_data.places_api.show_places === 'yes' ) {
 			perform_places_search( map, map_data, info_window );
 		}
@@ -310,8 +301,10 @@
 		if ( marker_data.place_id ) {
 
 			var request = {
+				key    : gmb_data.api_key,
 				placeId: marker_data.place_id
 			};
+
 			//Get details from Google on this place
 			places_service.getDetails( request, function ( place, status ) {
 
@@ -409,6 +402,7 @@
 
 			//perform search request
 			var request = {
+				key     : gmb_data.api_key,
 				location: new google.maps.LatLng( map_center.lat(), map_center.lng() ),
 				types   : types_array,
 				radius  : map_data.places_api.search_radius
@@ -426,8 +420,7 @@
 						create_search_result_marker( map, results[i], info_window );
 					}
 
-					//show all pages of results
-					//@see: http://stackoverflow.com/questions/11665684/more-than-20-results-by-pagination-with-google-places-api
+					//show all pages of results @see: http://stackoverflow.com/questions/11665684/more-than-20-results-by-pagination-with-google-places-api
 					if ( pagination.hasNextPage ) {
 						pagination.nextPage();
 					}
@@ -471,8 +464,8 @@
 			info_window.setContent( '<div id="infobubble-content" class="loading"></div>' );
 
 			var marker_data = {
-				title  : place.name,
-				placeId: place.place_id
+				title   : place.name,
+				place_id: place.place_id
 			};
 
 			set_info_window_content( marker_data, info_window );

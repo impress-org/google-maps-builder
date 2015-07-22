@@ -5,7 +5,10 @@
  * https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple
  *
  */
+var gmb_data;
+
 (function ( $ ) {
+
 	"use strict";
 
 	/**
@@ -487,7 +490,7 @@
 				info_window_content += add_place_content_to_info_window( place );
 
 
-				info_window_content += '<div class="infowindow-toolbar clear"><a href="#" class="add-marker" data-title="' + place.name + '" data-reference="' + place.place_id + '"  data-lat="' + lat + '" data-lng="' + lng + '">Add to Map</a></div>';
+				info_window_content += '<div class="infowindow-toolbar clear"><a href="#" class="add-marker" data-title="' + place.name + '" data-place_id="' + place.place_id + '"  data-lat="' + lat + '" data-lng="' + lng + '">Add to Map</a></div>';
 
 				info_window_content = set_info_window_wrapper( info_window_content ); //wraps the content in div and returns
 
@@ -497,7 +500,7 @@
 
 				//close info window button
 				google.maps.event.addListener( info_bubble, 'closeclick', function () {
-					//Get initial place details from reference
+					//Get initial place details from place_id
 					hover_circle.setVisible( false );
 
 				} );
@@ -756,7 +759,7 @@
 			add_tenative_info_window( place_id, tentative_location_marker );
 		} );
 		google.maps.event.addListener( tentative_location_marker, 'click', function () {
-			//Get initial place details from reference
+			//Get initial place details from place_id
 			hover_circle.setVisible( true );
 		} );
 
@@ -853,6 +856,7 @@
 		if ( info_window_data.place_id ) {
 
 			var request = {
+				key    : gmb_data.api_key,
 				placeId: info_window_data.place_id
 			};
 			places_service.getDetails( request, function ( place, status ) {
@@ -974,7 +978,8 @@
 		info_bubble.open( map, marker );
 
 		var request = {
-			placeId: place.reference
+			key    : gmb_data.api_key,
+			placeId: place.place_id
 		};
 
 		places_service.getDetails( request, function ( place, status ) {
@@ -993,6 +998,10 @@
 				info_bubble.setContent( info_window_content );
 
 				initialize_tooltips(); //refresh tooltips
+
+			} else {
+				//There was an API error; display it for the user:
+				info_bubble.setContent( '<p class="place-error">Google API Error: ' + status + '</p>' );
 
 			}
 		} );
@@ -1040,6 +1049,7 @@
 
 			//perform search request
 			var request = {
+				key     : gmb_data.api_key,
 				location: return_lat_lng(),
 				types   : types_array,
 				radius  : parseInt( $( '#gmb_search_radius' ).val() )
@@ -1206,7 +1216,6 @@
 	 * Clears Search Markers
 	 *
 	 * Used to clear out main search markers
-	 *
 	 */
 	function clear_search_markers() {
 
@@ -1230,6 +1239,7 @@
 	function geocode_position( pos ) {
 
 		var request = {
+			key     : gmb_data.api_key,
 			location: pos,
 			radius  : 10
 		};
@@ -1246,7 +1256,7 @@
 					info_bubble_content = '<div id="infobubble-content"><p>Hmm, it looks like there are multiple places in this area. Please confirm which place you would like this marker to display:</p>';
 
 					for ( var i = 0; i < results.length; i++ ) {
-						info_bubble_content += '<a class="marker-confirm-place"  data-reference="' + results[i].place_id + '" data-name-address="' + results[i].name + ', ' + results[i].vicinity + '">' + results[i].name + '</a>';
+						info_bubble_content += '<a class="marker-confirm-place"  data-place_id="' + results[i].place_id + '" data-name-address="' + results[i].name + ', ' + results[i].vicinity + '">' + results[i].name + '</a>';
 					}
 
 					info_bubble_content += '</div>';
@@ -1256,9 +1266,9 @@
 						$( '.marker-confirm-place' ).on( 'click', function ( e ) {
 							e.preventDefault();
 							$( '#gmb_geocoder' ).val( $( this ).data( 'name-address' ) );
-							$( '#gmb_reference' ).val( $( this ).data( 'reference' ) );
+							$( '#gmb_place_id' ).val( $( this ).data( 'place_id' ) );
 							info_bubble.close();
-							get_info_window_content( $( this ).data( 'reference' ) );
+							get_info_window_content( $( this ).data( 'place_id' ) );
 							//info_bubble.open( location_marker );
 						} );
 					} );

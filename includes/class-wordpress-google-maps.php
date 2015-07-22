@@ -585,6 +585,7 @@ class Google_Maps_Builder {
 		if ( $this->load_maps_api === false && ! is_admin() ) {
 			update_option( 'gmb_google_maps_conflict', false );
 		}
+
 	}
 
 

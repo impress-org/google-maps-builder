@@ -78,7 +78,7 @@
 
 
 //		console.log(google_widget);
-
+//
 //		var map_canvas = google_widget.find('.map-canvas');
 //		place_details_autocomplete_initialize(map_canvas);
 
