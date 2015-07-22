@@ -136,14 +136,16 @@ function gmb_v2_upgrades() {
 			//Markers loop
 			foreach ( $markers as $key => $marker ) {
 
-				$ref_id   = isset( $marker['place_id'] ) ? $marker['place_id'] : '';
-				$place_id = isset( $marker['reference'] ) ? $marker['reference'] : '';
+				$ref_id   = isset( $marker['reference'] ) ? $marker['reference'] : '';
+				$place_id = isset( $marker['place_id'] ) ? $marker['place_id'] : '';
 
 				//No ref ID -> skip; If place_id already there skip
-				if ( empty( $ref_id ) || ! empty( $place_id ) ) {
+				if ( empty( $ref_id ) ) {
 					continue;
 				}
-
+				if ( ! empty( $place_id ) ) {
+					continue;
+				}
 				//cURL the Google API for the Google Place ID
 				$google_places_url = add_query_arg(
 					array(
@@ -176,15 +178,14 @@ function gmb_v2_upgrades() {
 
 				}
 
-				//Update repeater data with new data
-				update_post_meta( get_the_ID(), 'gmb_markers_group', $markers );
-
 				//Pause for 2 seconds so we don't overwhelm the Google API with requests
 				sleep( 2 );
 
 
 			} //end foreach
 
+			//Update repeater data with new data
+			update_post_meta( get_the_ID(), 'gmb_markers_group', $markers );
 
 		} //endif
 
