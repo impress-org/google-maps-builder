@@ -1,3 +1,8 @@
+/**
+ * Maps Builder JS
+ *
+ * @description: Frontend form rendering
+ */
 (function ( $ ) {
 	"use strict";
 	var map;
@@ -21,7 +26,6 @@
 	 * global load function for other plugins / themes to use
 	 *
 	 * ex: google_maps_builder_load( object );
-	 *
 	 */
 	window.google_maps_builder_load = function ( map_canvas ) {
 		if ( !$( map_canvas ).hasClass( 'google-maps-builder' ) ) {
@@ -272,7 +276,7 @@
 			google.maps.event.addListener( location_marker, 'click', function () {
 				info_window.close();
 				info_window.setContent( '<div id="infobubble-content" class="loading"></div>' );
-				 set_info_window_content( marker_data, info_window );
+				set_info_window_content( marker_data, info_window );
 				info_window.open( map, location_marker );
 			} );
 
@@ -282,9 +286,10 @@
 	}
 
 	/**
-	 * Queries to get Google Place Details information
+	 * Set Infowindow Content
 	 *
-	 * Help function
+	 * @description: Queries to get Google Place Details information
+	 *
 	 * @param marker_data
 	 * @param info_window
 	 */
@@ -301,11 +306,13 @@
 			info_window_content += '<div class="place-description">' + marker_data.description + '</div>';
 		}
 
+		//Does this marker have a place_id
+		if ( marker_data.place_id ) {
 
-		if ( marker_data.reference ) {
 			var request = {
-				reference: marker_data.reference
+				placeId: marker_data.place_id
 			};
+			//Get details from Google on this place
 			places_service.getDetails( request, function ( place, status ) {
 
 				if ( status == google.maps.places.PlacesServiceStatus.OK ) {
@@ -464,8 +471,8 @@
 			info_window.setContent( '<div id="infobubble-content" class="loading"></div>' );
 
 			var marker_data = {
-				'title'    : place.name,
-				'reference': place.reference
+				title  : place.name,
+				placeId: place.place_id
 			};
 
 			set_info_window_content( marker_data, info_window );
