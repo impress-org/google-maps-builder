@@ -2,17 +2,10 @@
 /**
  * Google Maps Builder
  *
- * @package   Google_Maps_Builder
- * @author    Devin Walker <devin@wordimpress.com>
- * @license   GPL-2.0+
- * @link      http://wordimpress.com
- * @copyright 2014 WordImpress, Devin Walker
- *
- * @wordpress-google-places
  * Plugin Name:       Google Maps Builder
  * Plugin URI:        http://wordimpress.com/
  * Description:       Create stylish and powerful Google Maps quickly and easily.
- * Version:           1.0
+ * Version:           2.0
  * Author:            WordImpress
  * Author URI:        http://wordimpress.com/
  * Text Domain:       google-maps-builder
