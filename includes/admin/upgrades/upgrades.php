@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return void
  */
 function gmb_upgrades_screen() {
+
 	$action = isset( $_GET['gmb-upgrade'] ) ? sanitize_text_field( $_GET['gmb-upgrade'] ) : '';
 	$step   = isset( $_GET['step'] ) ? absint( $_GET['step'] ) : 1;
 	$total  = isset( $_GET['total'] ) ? absint( $_GET['total'] ) : false;
@@ -65,7 +66,7 @@ function gmb_upgrades_screen() {
 
 			<div id="gmb-upgrade-status" class="updated" style="margin-top:15px;">
 				<p style="margin-bottom:8px;">
-					<?php _e( 'The upgrade process has started, please be patient. This could take several minutes. You will be automatically redirected when the upgrade is finished.', 'gmb' ); ?>
+					<?php _e( 'The upgrade process has started, please do not close your browser or refresh. This could take several minutes. You will be automatically redirected when the upgrade has finished.', 'gmb' ); ?>
 					<img src="<?php echo GMB_PLUGIN_URL . '/assets/img/loading.gif'; ?>" id="gmb-upgrade-loader" style="position:relative; top:3px;" />
 				</p>
 			</div>
@@ -75,8 +76,14 @@ function gmb_upgrades_screen() {
 					var data = {action: 'gmb_trigger_upgrades'};
 					var el_upgrade_status = jQuery( '#gmb-upgrade-status' );
 
+					//Trigger via AJAX
 					jQuery.post( ajaxurl, data, function ( response ) {
 
+						//Uncomment for debugging
+						jQuery( '#gmb-upgrade-status' ).after( response ); //Don't leave me uncommented!
+
+						console.log( response );
+						//Success Message
 						if ( response == 'complete' ) {
 
 							el_upgrade_status.hide();

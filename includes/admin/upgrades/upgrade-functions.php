@@ -66,6 +66,7 @@ function gmb_add_upgrade_submenu_page() {
 }
 
 add_action( 'admin_menu', 'gmb_add_upgrade_submenu_page', 10 );
+
 /**
  * Triggers all upgrade functions
  *
@@ -112,58 +113,87 @@ add_action( 'wp_ajax_gmb_trigger_upgrades', 'gmb_trigger_upgrades' );
  */
 function gmb_v2_upgrades() {
 
-	//Upgrade the Reference ID
-	$plugin_options = get_option( 'googleplacesreviews_options' );
-	$google_api_key = $plugin_options['google_places_api_key'];
+	//Set key variables
+	$google_api_key = gmb_get_option( 'gmb_api_key' );
 
-	//Loop through widgets' options
-	foreach ( $gmb_widget_options as $key => $widget ) {
+	//Loop through maps
+	$args = array(
+		'post_type'      => 'google_maps',
+		'posts_per_page' => - 1
+	);
+	// The Query
+	$the_query = new WP_Query( $args );
 
-		$ref_id   = isset( $widget['reference'] ) ? $widget['reference'] : '';
-		$place_id = isset( $widget['place_id'] ) ? $widget['place_id'] : '';
+	// The CPT Loop
+	if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 
-		//If no place AND there's a ref ID proceed
-		if ( empty( $place_id ) && ! empty( $ref_id ) ) {
+		//Repeater markers data
+		$markers = get_post_meta( get_the_ID(), 'gmb_markers_group', true );
 
-			//cURL the Google API for the Google Place ID
-			$google_places_url = add_query_arg(
-				array(
-					'reference' => $ref_id,
-					'key'       => $google_api_key
-				),
-				'https://maps.googleapis.com/maps/api/place/details/json'
-			);
+		//If no markers skip
+		if ( ! empty( $markers ) ) {
 
-			$response = wp_remote_get( $google_places_url,
-				array(
-					'timeout'   => 15,
-					'sslverify' => false
-				) );
+			//Markers loop
+			foreach ( $markers as $key => $marker ) {
 
-			// make sure the response came back okay
-			if ( is_wp_error( $response ) ) {
-				return;
-			}
+				$ref_id   = isset( $marker['place_id'] ) ? $marker['place_id'] : '';
+				$place_id = isset( $marker['reference'] ) ? $marker['reference'] : '';
 
-			// decode the license data
-			$response = json_decode( $response['body'], true );
+				//No ref ID -> skip; If place_id already there skip
+				if ( empty( $ref_id ) || ! empty( $place_id ) ) {
+					continue;
+				}
 
-			//Place ID is there, now let's update the widget data
-			if ( isset( $response['result']['place_id'] ) ) {
+				//cURL the Google API for the Google Place ID
+				$google_places_url = add_query_arg(
+					array(
+						'reference' => $ref_id,
+						'key'       => $google_api_key
+					),
+					'https://maps.googleapis.com/maps/api/place/details/json'
+				);
 
-				//Add Place ID to GPR widgets options array
-				$gmb_widget_options[ $key ]['place_id'] = $response['result']['place_id'];
+				$response = wp_remote_get( $google_places_url,
+					array(
+						'timeout'   => 15,
+						'sslverify' => false
+					)
+				);
 
-			}
+				// make sure the response came back okay
+				if ( is_wp_error( $response ) ) {
+					return;
+				}
+
+				// decode the license data
+				$response = json_decode( $response['body'], true );
+
+				//Place ID is there, now let's update the widget data
+				if ( isset( $response['result']['place_id'] ) ) {
+
+					//Add Place ID to markers array
+					$markers[ $key ]['place_id'] = $response['result']['place_id'];
+
+				}
+
+				//Update repeater data with new data
+				update_post_meta( get_the_ID(), 'gmb_markers_group', $markers );
+
+				//Pause for 2 seconds so we don't overwhelm the Google API with requests
+				sleep( 2 );
 
 
-		}
-		//Pause for 2 seconds so we don't overwhelm the Google API with requests
-		sleep( 2 );
-	}
+			} //end foreach
+
+
+		} //endif
+
+	endwhile; endif;
+
+	// Reset Post Data
+	wp_reset_postdata();
 
 	//Update our options and GTF out
 	update_option( 'gmb_refid_upgraded', 'upgraded' );
-	update_option( 'widget_gmb_widget', $gmb_widget_options );
 
 }
