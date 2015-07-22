@@ -119,7 +119,7 @@
 			//get current number of repeatable rows ie markers
 			var index = get_marker_index();
 
-			var reference = $( this ).data( 'reference' );
+			var place_id = $( this ).data( 'place_id' );
 
 			//add data to fields
 			get_editable_info_window( index, location_marker );
@@ -127,7 +127,7 @@
 			$( 'input[data-field="#gmb_markers_group_' + index + '_title"]' ).val( $( this ).data( 'title' ) );
 			$( 'input#gmb_markers_group_' + index + '_lat' ).val( $( this ).data( 'lat' ) );
 			$( 'input#gmb_markers_group_' + index + '_lng' ).val( $( this ).data( 'lng' ) );
-			$( 'input#gmb_markers_group_' + index + '_reference' ).val( reference );
+			$( 'input#gmb_markers_group_' + index + '_place_id' ).val( place_id );
 
 
 			//location clicked
@@ -419,9 +419,9 @@
 	/**
 	 * Shows a Marker when Autocomplete search is used
 	 * @param map
-	 * @param reference
+	 * @param place_id
 	 */
-	function add_tentative_marker( map, reference ) {
+	function add_tentative_marker( map, place_id ) {
 
 		var map_center = map.getCenter();
 
@@ -438,7 +438,7 @@
 
 		//EVENTS
 		var location_marker_mouseover = google.maps.event.addListener( tentative_location_marker, 'mouseover', function ( event ) {
-			add_circle( reference );
+			add_circle( place_id );
 		} );
 		var location_marker_mouseout = google.maps.event.addListener( tentative_location_marker, 'mouseout', function ( event ) {
 			hover_circle.setVisible( false );
@@ -452,8 +452,8 @@
 			//show circle
 			hover_circle.setVisible( true );
 			//update marker icons
-			//Get initial place details from reference
-			add_tenative_info_window( reference, tentative_location_marker );
+			//Get initial place details from place_id
+			add_tenative_info_window( place_id, tentative_location_marker );
 		} );
 
 
@@ -468,11 +468,11 @@
 	/**
 	 * Set the editable marker window content
 	 */
-	function add_tenative_info_window( reference, marker ) {
+	function add_tenative_info_window( place_id, marker ) {
 
 		var request = {
 			key    : gmb_data.api_key,
-			placeId: reference
+			placeId: place_id
 		};
 
 		places_service.getDetails( request, function ( place, status ) {
@@ -732,7 +732,7 @@
 	/**
 	 * Adds a marker circle
 	 */
-	function add_circle( reference ) {
+	function add_circle( place_id ) {
 
 		hover_circle = new google.maps.Marker( {
 			position : tentative_location_marker.getPosition(),
@@ -752,8 +752,8 @@
 
 
 		google.maps.event.addListener( hover_circle, 'click', function () {
-			//Get initial place details from reference
-			add_tenative_info_window( reference, tentative_location_marker );
+			//Get initial place details from place_id
+			add_tenative_info_window( place_id, tentative_location_marker );
 		} );
 		google.maps.event.addListener( tentative_location_marker, 'click', function () {
 			//Get initial place details from reference
@@ -820,6 +820,7 @@
 		info_window_data.title = $( '#gmb_markers_group_' + index + '_title' ).val();
 		info_window_data.desc = $( '#gmb_markers_group_' + index + '_description' ).val();
 		info_window_data.reference = $( '#gmb_markers_group_' + index + '_reference' ).val();
+		info_window_data.place_id = $( '#gmb_markers_group_' + index + '_place_id' ).val();
 		info_window_data.lat = $( '#gmb_markers_group_' + index + '_lat' ).val();
 		info_window_data.lng = $( '#gmb_markers_group_' + index + '_lng' ).val();
 
@@ -849,12 +850,13 @@
 
 
 		//Show place information within info bubble
-		if ( info_window_data.reference ) {
+		if ( info_window_data.place_id ) {
 
 			var request = {
-				placeId: info_window_data.reference
+				placeId: info_window_data.place_id
 			};
 			places_service.getDetails( request, function ( place, status ) {
+
 				if ( status == google.maps.places.PlacesServiceStatus.OK ) {
 					//place name
 					info_window_content = '<p class="place-title">' + info_window_data.title + '</p>';
