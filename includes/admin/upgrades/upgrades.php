@@ -80,7 +80,7 @@ function gmb_upgrades_screen() {
 					jQuery.post( ajaxurl, data, function ( response ) {
 
 						//Uncomment for debugging
-						jQuery( '#gmb-upgrade-status' ).after( response ); //Don't leave me uncommented!
+//						jQuery( '#gmb-upgrade-status' ).after( response );
 
 						console.log( response );
 						//Success Message
