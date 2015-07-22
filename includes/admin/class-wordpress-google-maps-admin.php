@@ -266,7 +266,7 @@ class Google_Maps_Builder_Admin {
 		) );
 
 		$preview_box->add_field( array(
-			'name'    => 'Map Preview',
+			'name'    => __( 'Map Preview', $this->plugin_slug ),
 			'id'      => $prefix . 'preview',
 			'type'    => 'google_maps_preview',
 			'default' => '',
@@ -294,43 +294,48 @@ class Google_Maps_Builder_Admin {
 			),
 		) );
 		$marker_box->add_group_field( $group_field_id, array(
-			'name' => 'Marker Title',
+			'name' => __( 'Marker Title', $this->plugin_slug ),
 			'id'   => 'title',
 			'type' => 'text',
 		) );
 		$marker_box->add_group_field( $group_field_id, array(
-			'name'        => 'Marker Description',
+			'name'        => __( 'Marker Description', $this->plugin_slug ),
 			'description' => 'Write a short description for this marker',
 			'id'          => 'description',
 			'type'        => 'textarea_small',
 		) );
 		$marker_box->add_group_field( $group_field_id, array(
-			'name' => 'Marker Reference',
+			'name' => __( 'Marker Reference', $this->plugin_slug ),
 			'id'   => 'reference',
 			'type' => 'text',
 		) );
 		$marker_box->add_group_field( $group_field_id, array(
-			'name' => 'Hide Place Details',
+			'name' => __( 'Marker Place ID', $this->plugin_slug ),
+			'id'   => 'place_id',
+			'type' => 'text',
+		) );
+		$marker_box->add_group_field( $group_field_id, array(
+			'name' => __( 'Hide Place Details', $this->plugin_slug ),
 			'id'   => 'hide_details',
 			'type' => 'checkbox',
 		) );
 		$marker_box->add_group_field( $group_field_id, array(
-			'name' => 'Marker Latitude',
+			'name' => __( 'Marker Latitude', $this->plugin_slug ),
 			'id'   => 'lat',
 			'type' => 'text',
 		) );
 		$marker_box->add_group_field( $group_field_id, array(
-			'name' => 'Marker Longitude',
+			'name' => __( 'Marker Longitude', $this->plugin_slug ),
 			'id'   => 'lng',
 			'type' => 'text',
 		) );
 		$marker_box->add_group_field( $group_field_id, array(
-			'name' => 'Marker Data',
+			'name' => __( 'Marker Data', $this->plugin_slug ),
 			'id'   => 'marker',
 			'type' => 'textarea_code',
 		) );
 		$marker_box->add_group_field( $group_field_id, array(
-			'name' => 'Marker Label Data',
+			'name' => __( 'Marker Label Data', $this->plugin_slug ),
 			'id'   => 'label',
 			'type' => 'textarea_code',
 		) );
@@ -476,8 +481,9 @@ class Google_Maps_Builder_Admin {
 			)
 		);
 
-		// DISPLAY OPTIONS
-
+		/**
+		 * Display Options
+		 */
 		$display_options = cmb2_get_metabox( array(
 			'id'           => 'google_maps_options',
 			'title'        => __( 'Google Map Display Options', $this->plugin_slug ),
@@ -505,7 +511,7 @@ class Google_Maps_Builder_Admin {
 			'desc'    => '',
 		) );
 		$display_options->add_field( array(
-			'name'    => 'Map Type',
+			'name'    => __( 'Map Type', $this->plugin_slug ),
 			'id'      => $prefix . 'type',
 			'type'    => 'select',
 			'default' => 'default',
@@ -544,13 +550,13 @@ class Google_Maps_Builder_Admin {
 			)
 		) );
 
-		$display_options->add_field( array(
-			'name'    => 'Map Theme JSON',
-			'desc'    => 'Contains the map theme JSON',
-			'default' => 'none',
-			'id'      => $prefix . 'theme_json',
-			'type'    => 'textarea_code'
-		) );
+		//		$display_options->add_field( array(
+		//			'name'    => __('Map Theme JSON', $this->plugin_slug),
+		//			'desc'    => 'Contains the map theme JSON',
+		//			'default' => 'none',
+		//			'id'      => $prefix . 'theme_json',
+		//			'type'    => 'textarea_code'
+		//		) );
 
 		$display_options->add_field( array(
 			'name'    => 'Zoom',
@@ -597,7 +603,7 @@ class Google_Maps_Builder_Admin {
 		) );
 
 		$control_options->add_field( array(
-			'name'    => 'Zoom Control',
+			'name'    => __( 'Zoom Control', $this->plugin_slug ),
 			'id'      => $prefix . 'zoom_control',
 			'type'    => 'select',
 			'default' => 'default',
@@ -610,7 +616,7 @@ class Google_Maps_Builder_Admin {
 		) );
 
 		$control_options->add_field( array(
-			'name'    => 'Street View',
+			'name'    => __( 'Street View', $this->plugin_slug ),
 			'id'      => $prefix . 'street_view',
 			'type'    => 'select',
 			'default' => 'true',
@@ -621,7 +627,7 @@ class Google_Maps_Builder_Admin {
 		) );
 
 		$control_options->add_field( array(
-			'name'    => 'Pan Control',
+			'name'    => __( 'Pan Control', $this->plugin_slug ),
 			'id'      => $prefix . 'pan',
 			'type'    => 'select',
 			'default' => 'true',
@@ -632,7 +638,7 @@ class Google_Maps_Builder_Admin {
 		) );
 
 		$control_options->add_field( array(
-			'name'    => 'Map Type Control',
+			'name'    => __( 'Map Type Control', $this->plugin_slug ),
 			'id'      => $prefix . 'map_type_control',
 			'type'    => 'select',
 			'default' => 'horizontal_bar',
@@ -644,7 +650,7 @@ class Google_Maps_Builder_Admin {
 		) );
 
 		$control_options->add_field( array(
-			'name'    => 'Draggable Map',
+			'name'    => __( 'Draggable Map', $this->plugin_slug ),
 			'id'      => $prefix . 'draggable',
 			'type'    => 'select',
 			'default' => 'true',
@@ -655,7 +661,7 @@ class Google_Maps_Builder_Admin {
 		) );
 
 		$control_options->add_field( array(
-			'name'    => 'Double Click to Zoom',
+			'name'    => __( 'Double Click to Zoom', $this->plugin_slug ),
 			'id'      => $prefix . 'double_click',
 			'type'    => 'select',
 			'default' => 'true',
@@ -666,7 +672,7 @@ class Google_Maps_Builder_Admin {
 		) );
 
 		$control_options->add_field( array(
-			'name'    => 'Mouse Wheel to Zoom',
+			'name'    => __( 'Mouse Wheel to Zoom', $this->plugin_slug ),
 			'id'      => $prefix . 'wheel_zoom',
 			'type'    => 'select',
 			'default' => 'true',

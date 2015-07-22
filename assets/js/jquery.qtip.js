@@ -2,11 +2,11 @@
  * qTip2 - Pretty powerful tooltips - v2.2.0
  * http://qtip2.com
  *
- * Copyright (c) 2014 Craig Michael Thompson
+ * Copyright (c) 2015 Craig Michael Thompson
  * Released under the MIT, GPL licenses
  * http://jquery.org/license
  *
- * Date: Sun Mar 16 2014 07:12 EDT-0400
+ * Date: Sun Mar 16 2015 07:12 EDT-0400
  * Plugins: tips viewport imagemap svg modal
  * Styles: css3
  */

@@ -5,28 +5,30 @@
 	var place;
 	var location_marker_array = [];
 	var search_markers = [];
-	
+
 	/*
-	* Global AJAX handler
-	*
-	* jQuery - https://api.jquery.com/category/ajax/global-ajax-event-handlers/
-	*
-	* $( document ).ajaxComplete(function( event, request, settings) {
-	*	console.log(request);
-	* });
-	*
-	*/
-	
+	 * Global AJAX handler
+	 *
+	 * jQuery - https://api.jquery.com/category/ajax/global-ajax-event-handlers/
+	 *
+	 * $( document ).ajaxComplete(function( event, request, settings) {
+	 *	console.log(request);
+	 * });
+	 *
+	 */
+
 	/*
-	* global load function for other plugins / themes to use
-	*
-	* ex: google_maps_builder_load( object );
-	* 
-	*/
-	window.google_maps_builder_load = function( map_canvas ) {
-		if( !$(map_canvas).hasClass('google-maps-builder') ) { return 'invalid Google Maps Builder'; }
+	 * global load function for other plugins / themes to use
+	 *
+	 * ex: google_maps_builder_load( object );
+	 *
+	 */
+	window.google_maps_builder_load = function ( map_canvas ) {
+		if ( !$( map_canvas ).hasClass( 'google-maps-builder' ) ) {
+			return 'invalid Google Maps Builder';
+		}
 		initialize_map( map_canvas );
-	}
+	};
 
 	$( document ).ready( function () {
 
@@ -35,30 +37,32 @@
 		 * Loop through maps and initialize
 		 */
 		google_maps.each( function ( index, value ) {
-			
+
 			initialize_map( $( google_maps[index] ) );
 
 		} );
-		
+
 		// fix for bootstrap tabs
-		$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-			var panel = $(e.target).attr('href');
+		$( 'a[data-toggle="tab"]' ).on( 'shown.bs.tab', function ( e ) {
+			var panel = $( e.target ).attr( 'href' );
 			load_hidden_map( panel );
-		})
+		} )
 
 	} );
-	
+
 	/**
-	* Map Init After the fact
-	*
-	* Good for tabs / ajax - pass in wrapper div class/id
-	*
-	*/
-	
+	 * Map Init After the fact
+	 *
+	 * Good for tabs / ajax - pass in wrapper div class/id
+	 *
+	 */
+
 	function load_hidden_map( parent ) {
-		var google_hidden_maps = $(parent + ' .google-maps-builder');
-		if( !google_hidden_maps.length ) { return; }
-		
+		var google_hidden_maps = $( parent + ' .google-maps-builder' );
+		if ( !google_hidden_maps.length ) {
+			return;
+		}
+
 		google_hidden_maps.each( function ( index, value ) {
 			initialize_map( $( google_hidden_maps[index] ) );
 		} );
@@ -84,12 +88,16 @@
 			center: new google.maps.LatLng( latitude, longitude ),
 			zoom  : parseInt( map_data.map_params.zoom ),
 			styles: [
-				{stylers: [
-					{ visibility: 'simplified' }
-				]},
-				{elementType: 'labels', stylers: [
-					{ visibility: 'off' }
-				]}
+				{
+					stylers: [
+						{visibility: 'simplified'}
+					]
+				},
+				{
+					elementType: 'labels', stylers: [
+					{visibility: 'off'}
+				]
+				}
 			]
 		};
 		map = new google.maps.Map( map_canvas[0], map_options );
@@ -264,7 +272,7 @@
 			google.maps.event.addListener( location_marker, 'click', function () {
 				info_window.close();
 				info_window.setContent( '<div id="infobubble-content" class="loading"></div>' );
-				set_info_window_content( marker_data, info_window );
+				 set_info_window_content( marker_data, info_window );
 				info_window.open( map, location_marker );
 			} );
 

@@ -12,7 +12,7 @@
  * Plugin Name:       Google Maps Builder
  * Plugin URI:        http://wordimpress.com/
  * Description:       Create stylish and powerful Google Maps quickly and easily.
- * Version:           2.0
+ * Version:           1.0
  * Author:            WordImpress
  * Author URI:        http://wordimpress.com/
  * Text Domain:       google-maps-builder
@@ -62,6 +62,11 @@ add_action( 'plugins_loaded', array( 'Google_Maps_Builder_Engine', 'get_instance
  *----------------------------------------------------------------------------*/
 if ( is_admin() ) {
 
+	//Upgrades
+	require_once GMB_PLUGIN_PATH . 'includes/admin/upgrades/upgrade-functions.php';
+	require_once GMB_PLUGIN_PATH . 'includes/admin/upgrades/upgrades.php';
+
+	//Admin
 	require_once( GMB_PLUGIN_PATH . 'includes/admin/class-wordpress-google-maps-admin.php' );
 	add_action( 'plugins_loaded', array( 'Google_Maps_Builder_Admin', 'get_instance' ) );
 
