@@ -180,7 +180,10 @@ class Google_Maps_Builder_Admin {
 		//Only enqueue scripts for CPT on post type screen
 		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
 
-			wp_enqueue_script('colorpicker');
+			wp_enqueue_script( 'colorpicker' );
+
+			wp_register_script( $this->plugin_slug . '-admin-magnific-popup', GMB_PLUGIN_URL . 'assets/js/gmb-magnific' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-magnific-popup' );
 
 			wp_register_script( $this->plugin_slug . '-admin-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
 			wp_enqueue_script( $this->plugin_slug . '-admin-gmaps' );
@@ -191,11 +194,18 @@ class Google_Maps_Builder_Admin {
 			wp_register_script( $this->plugin_slug . '-admin-qtip', GMB_PLUGIN_URL . 'assets/js/jquery.qtip' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION, true );
 			wp_enqueue_script( $this->plugin_slug . '-admin-qtip' );
 
-			wp_register_script( $this->plugin_slug . '-admin-map-builder', GMB_PLUGIN_URL . 'assets/js/admin-google-map' . $suffix . '.js', array( 'jquery', 'wp-color-picker' ), Google_Maps_Builder::VERSION );
+			wp_register_script( $this->plugin_slug . '-admin-map-builder', GMB_PLUGIN_URL . 'assets/js/admin-google-map' . $suffix . '.js', array(
+				'jquery',
+				'wp-color-picker'
+			), Google_Maps_Builder::VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-admin-map-builder' );
 
-			wp_register_script( $this->plugin_slug . '-admin-magnific-popup', GMB_PLUGIN_URL . 'assets/js/gmb-magnific' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION );
-			wp_enqueue_script( $this->plugin_slug . '-admin-magnific-popup' );
+
+			wp_register_script( $this->plugin_slug . '-admin-magnific-builder', GMB_PLUGIN_URL . 'assets/js/admin-maps-magnific' . $suffix . '.js', array(
+				'jquery',
+				'wp-color-picker'
+			), Google_Maps_Builder::VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-magnific-builder' );
 
 
 			$api_key   = gmb_get_option( 'gmb_api_key' );
