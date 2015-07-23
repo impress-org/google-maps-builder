@@ -87,7 +87,7 @@ var gmb_data;
 							.data( 'placeholder', undefined );        // Unset placeholder data
 
 					} );
-					
+
 				}
 			},
 
