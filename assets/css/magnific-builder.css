@@ -48,3 +48,17 @@ Magnific Builder
 .magnific-builder .postbox .hndle {
 	cursor: pointer;
 }
+
+
+.magnific-builder .postbox .hndle:hover {
+	color: #23282d;
+	background: #f5f5f5;
+}
+
+
+.magnific-builder#poststuff .places-loading {
+	top: auto;
+	right: auto;
+	bottom: 0;
+	left: 0;
+}
