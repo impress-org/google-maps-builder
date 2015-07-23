@@ -82,7 +82,6 @@ function gmb_upgrades_screen() {
 						//Uncomment for debugging
 //						jQuery( '#gmb-upgrade-status' ).after( response );
 
-						console.log( response );
 						//Success Message
 						if ( response == 'complete' ) {
 
