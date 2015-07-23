@@ -159,6 +159,9 @@ class Google_Maps_Builder_Admin {
 			wp_register_style( $this->plugin_slug . '-map-tooltips', GMB_PLUGIN_URL . 'assets/css/jquery.qtip' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
 			wp_enqueue_style( $this->plugin_slug . '-map-tooltips' );
 
+			wp_register_style( $this->plugin_slug . '-map-magnific-builder', GMB_PLUGIN_URL . 'assets/css/magnific-builder' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-map-magnific-builder' );
+
 			wp_register_style( $this->plugin_slug . '-map-magnific', GMB_PLUGIN_URL . 'assets/css/magnific-popup' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
 			wp_enqueue_style( $this->plugin_slug . '-map-magnific' );
 
