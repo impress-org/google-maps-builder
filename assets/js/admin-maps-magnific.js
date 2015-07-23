@@ -29,11 +29,6 @@ var gmb_data;
 					postbox.each( function ( index, value ) {
 						var postbox_id = $( this ).attr( 'id' );
 
-						//console.log( index );
-						//console.log( value );
-						//console.log( $( this, 'div[id^="google_maps"]' ) );
-						//console.log( postbox_id );
-
 						//Check that this is a GMB metabox
 						if ( typeof postbox_id !== 'undefined' && postbox_id.match( /^\google_maps/ ) ) {
 
@@ -66,18 +61,9 @@ var gmb_data;
 							} );
 						}
 
-
 					} );
 
 				},
-				elementParse: function ( item ) {
-					// Function will fire for each target element
-					// "item.el" is a target DOM element (if present)
-					// "item.src" is a source that you may modify
-
-					console.log( 'Parsing content. Item object that is being parsed:', item );
-				},
-
 
 				close: function () {
 					postbox.removeClass( 'mfp-hide' );
@@ -93,7 +79,7 @@ var gmb_data;
 
 					//Move back metaboxes to original positions
 					postbox.each( function ( index, value ) {
-						
+
 						// Move back out of container
 						$( this )
 							.appendTo( '.placeholder.' + $( this ).data( 'placeholder' ) )  // Move it back to it's proper location
@@ -101,8 +87,7 @@ var gmb_data;
 							.data( 'placeholder', undefined );        // Unset placeholder data
 
 					} );
-
-
+					
 				}
 			},
 
