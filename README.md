@@ -86,9 +86,3 @@ We always welcome your feedback for improvements or if you have uncovered a bug.
 
 8. **Who is behind this plugin?**<br />
 WordImpress.com developed this and many more plugins. Check them all out at [WordImpress.com](https://wordimpress.com).
-
-# Roadmap
-
-Here is what we are working on for future releases:
-
-* Custom Map Marker Images - Ability to upload your own map marker images
