@@ -20,9 +20,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define Constants
-define( 'GMB_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-define( 'GMB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'GMB_PLUGIN_BASE', plugin_basename( __FILE__ ) );
+if ( ! defined( 'GMB_PLUGIN_PATH' ) ) {
+	define( 'GMB_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+}
+if ( ! defined( 'GMB_PLUGIN_URL' ) ) {
+	define( 'GMB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+}
+if ( ! defined( 'GMB_PLUGIN_BASE' ) ) {
+	define( 'GMB_PLUGIN_BASE', plugin_basename( __FILE__ ) );
+}
+if ( ! defined( 'GMB_VERSION' ) ) {
+	define( 'GMB_VERSION', '2.0' );
+}
 
 //CMB2 INIT
 require_once( GMB_PLUGIN_PATH . 'includes/libraries/metabox/init.php' );
