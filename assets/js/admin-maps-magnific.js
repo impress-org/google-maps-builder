@@ -90,10 +90,10 @@ var gmb_data;
 							.unwrap() // Remove the placeholder
 							.data( 'placeholder', undefined );  // Unset placeholder data
 
+						//Reinstate original metabox toggling
+						$( this ).off( 'click', '.hndle', gmb_toggle_metaboxes );
 					} );
 
-					//Reinstate original metabox toggling
-					$( 'body' ).off( 'click', '.hndle', gmb_toggle_metaboxes );
 
 				}
 			},
