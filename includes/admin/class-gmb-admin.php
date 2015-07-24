@@ -48,17 +48,14 @@ class Google_Maps_Builder_Admin {
 	 *
 	 * @since     1.0.0
 	 */
-	private function __construct() {
+	public function __construct() {
 
-		/**
-		 * Call $plugin_slug from public plugin class.
-		 */
-		$plugin            = Google_Maps_Builder::get_instance();
-		$this->plugin_slug = $plugin->get_plugin_slug();
+		$this->plugin_slug = Google_Maps_Builder()->get_plugin_slug();
 
-		// Load admin style sheet and JavaScript.
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+		//CPT
+		add_filter( 'manage_edit-google_maps_columns', array( $this, 'setup_custom_columns' ) );
+		add_action( 'manage_google_maps_posts_custom_column', array( $this, 'configure_custom_columns' ), 10, 2 );
+		add_filter( 'get_user_option_closedpostboxes_google_maps', array( $this, 'closed_meta_boxes' ) );
 
 		//Custom Meta Fields
 		add_action( 'cmb2_render_google_geocoder', array( $this, 'cmb2_render_google_geocoder' ), 10, 2 );
@@ -115,123 +112,6 @@ class Google_Maps_Builder_Admin {
 		return $defaults;
 
 	}
-
-	/**
-	 * Return an instance of this class.
-	 *
-	 * @since     1.0.0
-	 *
-	 * @return    object    A single instance of this class.
-	 */
-	public static function get_instance() {
-
-		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self;
-		}
-
-		return self::$instance;
-	}
-
-
-	/**
-	 * Register and enqueue admin-specific style sheet.
-	 *
-	 * Return early if no settings page is registered.
-	 * @since     1.0.0
-	 *
-	 * @return    null
-	 */
-	public function enqueue_admin_styles( $hook ) {
-
-		global $post;
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-
-		//Only enqueue scripts for CPT on post type screen
-		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
-
-			wp_register_style( $this->plugin_slug . '-admin-styles', GMB_PLUGIN_URL . 'assets/css/admin' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
-			wp_enqueue_style( $this->plugin_slug . '-admin-styles' );
-
-			wp_register_style( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/css/map-icons.css', array(), Google_Maps_Builder::VERSION );
-			wp_enqueue_style( $this->plugin_slug . '-map-icons' );
-
-			wp_register_style( $this->plugin_slug . '-map-tooltips', GMB_PLUGIN_URL . 'assets/css/jquery.qtip' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
-			wp_enqueue_style( $this->plugin_slug . '-map-tooltips' );
-
-			wp_register_style( $this->plugin_slug . '-map-magnific-builder', GMB_PLUGIN_URL . 'assets/css/magnific-builder' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
-			wp_enqueue_style( $this->plugin_slug . '-map-magnific-builder' );
-
-			wp_register_style( $this->plugin_slug . '-map-magnific', GMB_PLUGIN_URL . 'assets/css/magnific-popup' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
-			wp_enqueue_style( $this->plugin_slug . '-map-magnific' );
-
-		}
-
-	}
-
-	/**
-	 * Register and enqueue admin-specific JavaScript.
-	 *
-	 * @since     1.0.0
-	 *
-	 * @return    null    Return early if no settings page is registered.
-	 */
-	public function enqueue_admin_scripts( $hook ) {
-		global $post;
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-
-		//Only enqueue scripts for CPT on post type screen
-		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
-
-			wp_enqueue_script( 'colorpicker' );
-
-			wp_register_script( $this->plugin_slug . '-admin-magnific-popup', GMB_PLUGIN_URL . 'assets/js/gmb-magnific' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION );
-			wp_enqueue_script( $this->plugin_slug . '-admin-magnific-popup' );
-
-			wp_register_script( $this->plugin_slug . '-admin-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
-			wp_enqueue_script( $this->plugin_slug . '-admin-gmaps' );
-
-			wp_register_script( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/js/map-icons.js', array( 'jquery' ) );
-			wp_enqueue_script( $this->plugin_slug . '-map-icons' );
-
-			wp_register_script( $this->plugin_slug . '-admin-qtip', GMB_PLUGIN_URL . 'assets/js/jquery.qtip' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION, true );
-			wp_enqueue_script( $this->plugin_slug . '-admin-qtip' );
-
-			wp_register_script( $this->plugin_slug . '-admin-map-builder', GMB_PLUGIN_URL . 'assets/js/admin-google-map' . $suffix . '.js', array(
-				'jquery',
-				'wp-color-picker'
-			), Google_Maps_Builder::VERSION );
-			wp_enqueue_script( $this->plugin_slug . '-admin-map-builder' );
-
-
-			wp_register_script( $this->plugin_slug . '-admin-magnific-builder', GMB_PLUGIN_URL . 'assets/js/admin-maps-magnific' . $suffix . '.js', array(
-				'jquery',
-				'wp-color-picker'
-			), Google_Maps_Builder::VERSION );
-			wp_enqueue_script( $this->plugin_slug . '-admin-magnific-builder' );
-
-
-			$api_key   = gmb_get_option( 'gmb_api_key' );
-			$geolocate = gmb_get_option( 'gmb_lat_lng' );
-
-			$maps_data = array(
-				'api_key'           => $api_key,
-				'geolocate_setting' => isset( $geolocate['geolocate_map'] ) ? $geolocate['geolocate_map'] : 'yes',
-				'default_lat'       => isset( $geolocate['latitude'] ) ? $geolocate['latitude'] : '32.715738',
-				'default_lng'       => isset( $geolocate['longitude'] ) ? $geolocate['longitude'] : '-117.16108380000003',
-				'plugin_url'        => GMB_PLUGIN_URL,
-				'default_marker'    => apply_filters( 'gmb_default_marker', GMB_PLUGIN_URL . 'assets/img/default-marker.png' ),
-				'snazzy'            => GMB_PLUGIN_URL . 'assets/js/snazzy.json'
-			);
-			wp_localize_script( $this->plugin_slug . '-admin-map-builder', 'gmb_data', $maps_data );
-
-		}
-
-		wp_enqueue_style( 'dashicons' );
-
-
-	}
-
 
 	/**
 	 * Register our setting to WP
@@ -824,5 +704,66 @@ class Google_Maps_Builder_Admin {
 
 	}
 
+	/**
+	 * Setup Custom CPT Columns
+	 *
+	 * @param $columns
+	 *
+	 * @return array
+	 */
+	function setup_custom_columns( $columns ) {
+		$columns = array(
+			'cb'        => '<input type="checkbox" />',
+			'title'     => __( 'Google Map Title', $this->plugin_slug ),
+			'shortcode' => __( 'Shortcode', $this->plugin_slug ),
+			'date'      => __( 'Creation Date', $this->plugin_slug )
+		);
+
+		return $columns;
+	}
+
+
+	/**
+	 * Configure Custom Columns
+	 *
+	 * Sets the content of the custom column contents
+	 *
+	 * @param $column
+	 * @param $post_id
+	 */
+	function configure_custom_columns( $column, $post_id ) {
+		switch ( $column ) {
+			case 'shortcode' :
+
+				//Shortcode column with select all input
+				$shortcode = htmlentities( '[google_maps id="' . $post_id . '"]' );
+				echo '<input onClick="this.setSelectionRange(0, this.value.length)" type="text" class="shortcode-input" readonly value="' . $shortcode . '">';
+
+				break;
+			/* Just break out of the switch statement for everything else. */
+			default :
+				break;
+		}
+	}
+
+
+	/**
+	 * Close certain metaboxes by default
+	 *
+	 * @param $closed
+	 *
+	 * @return array
+	 */
+	function closed_meta_boxes( $closed ) {
+
+		if ( false === $closed ) {
+			$closed = array( 'google_maps_options', 'google_maps_control_options', 'google_maps_markers' );
+		}
+
+		return $closed;
+	}
+
 
 } //end class
+
+new Google_Maps_Builder_Admin();

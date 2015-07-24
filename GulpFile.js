@@ -35,7 +35,7 @@ var old_source_paths = {
 var source_paths = {
 	admin_styles    : ['./assets/scss/**/gmb-admin.scss'],
 	plugin_styles    : ['./assets/scss/**/*.scss'],
-	frontend_styles : ['./assets/scss/frontend/give-frontend.scss'],
+	frontend_styles : ['./assets/scss/frontend/maps-builder.scss'],
 	scripts         : ['./assets/js/**/*.js', '!./assets/js/**/*.min.js'],
 	frontend_scripts: [
 		'./assets/js/plugins/jQuery.blockUI.min.js',
@@ -71,6 +71,57 @@ gulp.task( 'admin_styles', function () {
 } );
 
 
+/* Frontend SCSS Task
+ ------------------------------------- */
+gulp.task( 'frontend_styles', function () {
+	return gulp.src( source_paths.frontend_styles )
+		.pipe( sourcemaps.init() ) //start up sourcemapping
+		.pipe( autoprefixer() ) //add prefixes for older browsers
+		.pipe( sass( {
+			errLogToConsole: true
+		} ) ) //compile SASS; ensure any errors don't stop gulp watch
+		.pipe( rename( 'google-maps-builder.css' ) ) //rename for our main un-minified file
+		.pipe( sourcemaps.write( '.' ) ) //write SCSS source maps to the appropriate plugin dir
+		.pipe( gulp.dest( './assets/css' ) ) //place compiled file in appropriate directory
+		.pipe( rename( 'google-maps-builder.min.css' ) ) //rename for our minified version
+		.pipe( minifyCSS() ) //actually minify the file
+		.pipe( sourcemaps.write( '' ) ) //write SCSS source maps to the appropriate plugin dir
+		.pipe( gulp.dest( './assets/css' ) ) //place the minified compiled file
+		.pipe( livereload() ) //reload browser
+		.pipe( notify( {
+			message: 'Frontend styles task complete!',
+			onLast : true //notify developer: only notify on completion of task (prevents multiple notifications per file)
+		} ) );
+} );
+
+
+/* Watch Files For Changes
+ ------------------------------------- */
+gulp.task( 'watch', function () {
+
+	//Start up livereload on this biz
+	livereload.listen();
+
+	//Add watching on Admin SCSS-files
+	gulp.watch( 'assets/scss/admin/*.scss', function () {
+		gulp.start( 'admin_styles' );
+	} );
+
+	//Add watching on Frontend SCSS-files
+	//gulp.watch( 'assets/scss/frontend/*.scss', function () {
+	//	gulp.start( 'frontend_styles' );
+	//} );
+
+	//Add watching on JS files
+	gulp.watch( source_paths.scripts, ['scripts'] );
+
+	//Add watching on template-files
+	gulp.watch( 'templates/*.php', function () {
+		livereload(); //and reload when changed
+	} );
+
+} );
+
 /* Handle errors elegantly with gulp-notify
  ------------------------------------- */
 var onError = function ( err ) {
@@ -81,34 +132,10 @@ var onError = function ( err ) {
 };
 
 
-//Old:
-//gulp.task( 'scripts_styles', function () {
-//	gulp.src( source_paths.scripts )
-//		.pipe( uglify() )
-//		.pipe( rename( {
-//			extname: '.min.js'
-//		} ) )
-//		.pipe( gulp.dest( 'assets/js' ) );
-//
-//	gulp.src( source_paths.styles )
-//		.pipe( minifyCss( {compatiability: 'ie8'} ) )
-//		.pipe( rename( {
-//			extname: '.min.css'
-//		} ) )
-//		.pipe( gulp.dest( 'assets/css' ) );
-//
-//} );
-
-//gulp.task( 'watch', function () {
-//	gulp.watch( 'admin/assets/js/*.js', ['scripts_styles'] );
-//	gulp.watch( 'admin/assets/css/*.css', ['scripts_styles'] );
-//} );
-//
-//gulp.task( 'default', ['scripts_styles'] );
 
 /* Default Gulp task
  ------------------------------------- */
 gulp.task( 'default', function () {
-	gulp.start( 'admin_styles', 'watch' );
+	gulp.start( 'admin_styles', 'frontend_styles', 'watch' );
 	notify( {message: 'Default task complete'} )
 } );

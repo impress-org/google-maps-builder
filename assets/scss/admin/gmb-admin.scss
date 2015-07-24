@@ -1,0 +1,15 @@
+/*!
+ * Maps Builder Admin SCSS/CSS
+ *
+ * @description: The Main SCSS file for admin styles which is compiled and minified via Gulp taskrunner
+ * @package:     GMB
+ * @subpackage:  SCSS/Admin
+ * @copyright:   Copyright (c) 2015, WordImpress
+ * @license:     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+*/
+@import '../plugins/magnific';
+@import '../plugins/grid';
+@import 'magnific-builder';
+@import 'builder';
+@import 'cmb2-custom';
+@import 'settings';

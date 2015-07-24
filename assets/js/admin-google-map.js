@@ -238,7 +238,6 @@ var gmb_data;
 		map.setOptions( {draggableCursor: null} ); //reset cursor
 		google.maps.event.removeListener( event ); //remove map click event
 
-
 		//add marker at clicked location
 		var drop_location_marker = new Marker( {
 			position : lat_lng,
@@ -683,7 +682,7 @@ var gmb_data;
 
 			//Update fields with necessary data
 			$( '#gmb_markers_group_' + index + '_label' ).val( marker_label_data );
-
+console.log(marker_label_data);
 			//Update Icon
 			marker = new Marker( {
 				position: marker_position,

@@ -1,0 +1,1770 @@
+/*!
+ * Maps Builder Admin SCSS/CSS
+ *
+ * @description: The Main SCSS file for admin styles which is compiled and minified via Gulp taskrunner
+ * @package:     GMB
+ * @subpackage:  SCSS/Admin
+ * @copyright:   Copyright (c) 2015, WordImpress
+ * @license:     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+*/
+/* Magnific Popup CSS */
+.mfp-bg {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100000;
+  overflow: hidden;
+  position: fixed;
+  background: #0b0b0b;
+  opacity: 0.8;
+  filter: alpha(opacity=80); }
+
+.mfp-wrap {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100001;
+  position: fixed;
+  outline: none !important;
+  -webkit-backface-visibility: hidden; }
+
+.mfp-container {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 0 8px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.mfp-container:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle; }
+
+.mfp-align-top .mfp-container:before {
+  display: none; }
+
+.mfp-content {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 auto;
+  text-align: left;
+  z-index: 100003; }
+
+.mfp-inline-holder .mfp-content, .mfp-ajax-holder .mfp-content {
+  width: 100%;
+  cursor: auto; }
+
+.mfp-ajax-cur {
+  cursor: progress; }
+
+.mfp-zoom-out-cur, .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
+  cursor: -moz-zoom-out;
+  cursor: -webkit-zoom-out;
+  cursor: zoom-out; }
+
+.mfp-zoom {
+  cursor: pointer;
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+  cursor: zoom-in; }
+
+.mfp-auto-cursor .mfp-content {
+  cursor: auto; }
+
+.mfp-close, .mfp-arrow, .mfp-preloader, .mfp-counter {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none; }
+
+.mfp-loading.mfp-figure {
+  display: none; }
+
+.mfp-hide {
+  display: none !important; }
+
+.mfp-preloader {
+  color: #CCC;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  text-align: center;
+  margin-top: -0.8em;
+  left: 8px;
+  right: 8px;
+  z-index: 100004; }
+
+.mfp-preloader a {
+  color: #CCC; }
+
+.mfp-preloader a:hover {
+  color: #FFF; }
+
+.mfp-s-ready .mfp-preloader {
+  display: none; }
+
+.mfp-s-error .mfp-content {
+  display: none; }
+
+button.mfp-close, button.mfp-arrow {
+  overflow: visible;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  display: block;
+  outline: none;
+  padding: 0;
+  z-index: 100005;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+.mfp-close {
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-decoration: none;
+  text-align: center;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  padding: 0 0 18px 10px;
+  color: #FFF;
+  font-style: normal;
+  font-size: 28px;
+  font-family: Arial, Baskerville, monospace; }
+
+.mfp-close:hover, .mfp-close:focus {
+  opacity: 1;
+  filter: alpha(opacity=100); }
+
+.mfp-close:active {
+  top: 1px; }
+
+.mfp-close-btn-in .mfp-close {
+  color: #333; }
+
+.mfp-image-holder .mfp-close, .mfp-iframe-holder .mfp-close {
+  color: #FFF;
+  right: -6px;
+  text-align: right;
+  padding-right: 6px;
+  width: 100%; }
+
+.mfp-counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #CCC;
+  font-size: 12px;
+  line-height: 18px;
+  white-space: nowrap; }
+
+.mfp-arrow {
+  position: absolute;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  margin: 0;
+  top: 50%;
+  margin-top: -55px;
+  padding: 0;
+  width: 90px;
+  height: 110px;
+  -webkit-tap-highlight-color: transparent; }
+
+.mfp-arrow:active {
+  margin-top: -54px; }
+
+.mfp-arrow:hover, .mfp-arrow:focus {
+  opacity: 1;
+  filter: alpha(opacity=100); }
+
+.mfp-arrow:before, .mfp-arrow:after, .mfp-arrow .mfp-b, .mfp-arrow .mfp-a {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-top: 35px;
+  margin-left: 35px;
+  border: medium inset transparent; }
+
+.mfp-arrow:after, .mfp-arrow .mfp-a {
+  border-top-width: 13px;
+  border-bottom-width: 13px;
+  top: 8px; }
+
+.mfp-arrow:before, .mfp-arrow .mfp-b {
+  border-top-width: 21px;
+  border-bottom-width: 21px;
+  opacity: 0.7; }
+
+.mfp-arrow-left {
+  left: 0; }
+
+.mfp-arrow-left:after, .mfp-arrow-left .mfp-a {
+  border-right: 17px solid #FFF;
+  margin-left: 31px; }
+
+.mfp-arrow-left:before, .mfp-arrow-left .mfp-b {
+  margin-left: 25px;
+  border-right: 27px solid #3F3F3F; }
+
+.mfp-arrow-right {
+  right: 0; }
+
+.mfp-arrow-right:after, .mfp-arrow-right .mfp-a {
+  border-left: 17px solid #FFF;
+  margin-left: 39px; }
+
+.mfp-arrow-right:before, .mfp-arrow-right .mfp-b {
+  border-left: 27px solid #3F3F3F; }
+
+.mfp-iframe-holder {
+  padding-top: 40px;
+  padding-bottom: 40px; }
+
+.mfp-iframe-holder .mfp-content {
+  line-height: 0;
+  width: 100%;
+  max-width: 900px; }
+
+.mfp-iframe-holder .mfp-close {
+  top: -40px; }
+
+.mfp-iframe-scaler {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  padding-top: 56.25%; }
+
+.mfp-iframe-scaler iframe {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  background: #000; }
+
+/* Main image in popup */
+img.mfp-img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  line-height: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 0 40px;
+  margin: 0 auto; }
+
+/* The shadow behind the image */
+.mfp-figure {
+  line-height: 0; }
+
+.mfp-figure:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 40px;
+  bottom: 40px;
+  display: block;
+  right: 0;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  background: #444; }
+
+.mfp-figure small {
+  color: #BDBDBD;
+  display: block;
+  font-size: 12px;
+  line-height: 14px; }
+
+.mfp-figure figure {
+  margin: 0; }
+
+.mfp-bottom-bar {
+  margin-top: -36px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  cursor: auto; }
+
+.mfp-title {
+  text-align: left;
+  line-height: 18px;
+  color: #F3F3F3;
+  word-wrap: break-word;
+  padding-right: 36px; }
+
+.mfp-image-holder .mfp-content {
+  max-width: 100%; }
+
+.mfp-gallery .mfp-image-holder .mfp-figure {
+  cursor: pointer; }
+
+@media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
+  /**
+		 * Remove all paddings around the image on small screen
+		 */
+  .mfp-img-mobile .mfp-image-holder {
+    padding-left: 0;
+    padding-right: 0; }
+  .mfp-img-mobile img.mfp-img {
+    padding: 0; }
+  .mfp-img-mobile .mfp-figure:after {
+    top: 0;
+    bottom: 0; }
+  .mfp-img-mobile .mfp-figure small {
+    display: inline;
+    margin-left: 5px; }
+  .mfp-img-mobile .mfp-bottom-bar {
+    background: rgba(0, 0, 0, 0.6);
+    bottom: 0;
+    margin: 0;
+    top: auto;
+    padding: 3px 5px;
+    position: fixed;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  .mfp-img-mobile .mfp-bottom-bar:empty {
+    padding: 0; }
+  .mfp-img-mobile .mfp-counter {
+    right: 5px;
+    top: 3px; }
+  .mfp-img-mobile .mfp-close {
+    top: 0;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    text-align: center;
+    padding: 0; } }
+
+@media all and (max-width: 900px) {
+  .mfp-arrow {
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75); }
+  .mfp-arrow-left {
+    -webkit-transform-origin: 0;
+    transform-origin: 0; }
+  .mfp-arrow-right {
+    -webkit-transform-origin: 100%;
+    transform-origin: 100%; }
+  .mfp-container {
+    padding-left: 6px;
+    padding-right: 6px; } }
+
+.mfp-ie7 .mfp-img {
+  padding: 0; }
+
+.mfp-ie7 .mfp-bottom-bar {
+  width: 600px;
+  left: 50%;
+  margin-left: -300px;
+  margin-top: 5px;
+  padding-bottom: 5px; }
+
+.mfp-ie7 .mfp-container {
+  padding: 0; }
+
+.mfp-ie7 .mfp-content {
+  padding-top: 44px; }
+
+.mfp-ie7 .mfp-close {
+  top: 0;
+  right: 0;
+  padding-top: 0; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.clearfix:before, .clearfix:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after {
+  content: " ";
+  display: table; }
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px; } }
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px; } }
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px; } }
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px; }
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+  float: left; }
+
+.col-xs-12 {
+  width: 100%; }
+
+.col-xs-11 {
+  width: 91.66667%; }
+
+.col-xs-10 {
+  width: 83.33333%; }
+
+.col-xs-9 {
+  width: 75%; }
+
+.col-xs-8 {
+  width: 66.66667%; }
+
+.col-xs-7 {
+  width: 58.33333%; }
+
+.col-xs-6 {
+  width: 50%; }
+
+.col-xs-5 {
+  width: 41.66667%; }
+
+.col-xs-4 {
+  width: 33.33333%; }
+
+.col-xs-3 {
+  width: 25%; }
+
+.col-xs-2 {
+  width: 16.66667%; }
+
+.col-xs-1 {
+  width: 8.33333%; }
+
+.col-xs-pull-12 {
+  right: 100%; }
+
+.col-xs-pull-11 {
+  right: 91.66667%; }
+
+.col-xs-pull-10 {
+  right: 83.33333%; }
+
+.col-xs-pull-9 {
+  right: 75%; }
+
+.col-xs-pull-8 {
+  right: 66.66667%; }
+
+.col-xs-pull-7 {
+  right: 58.33333%; }
+
+.col-xs-pull-6 {
+  right: 50%; }
+
+.col-xs-pull-5 {
+  right: 41.66667%; }
+
+.col-xs-pull-4 {
+  right: 33.33333%; }
+
+.col-xs-pull-3 {
+  right: 25%; }
+
+.col-xs-pull-2 {
+  right: 16.66667%; }
+
+.col-xs-pull-1 {
+  right: 8.33333%; }
+
+.col-xs-pull-0 {
+  right: 0%; }
+
+.col-xs-push-12 {
+  left: 100%; }
+
+.col-xs-push-11 {
+  left: 91.66667%; }
+
+.col-xs-push-10 {
+  left: 83.33333%; }
+
+.col-xs-push-9 {
+  left: 75%; }
+
+.col-xs-push-8 {
+  left: 66.66667%; }
+
+.col-xs-push-7 {
+  left: 58.33333%; }
+
+.col-xs-push-6 {
+  left: 50%; }
+
+.col-xs-push-5 {
+  left: 41.66667%; }
+
+.col-xs-push-4 {
+  left: 33.33333%; }
+
+.col-xs-push-3 {
+  left: 25%; }
+
+.col-xs-push-2 {
+  left: 16.66667%; }
+
+.col-xs-push-1 {
+  left: 8.33333%; }
+
+.col-xs-push-0 {
+  left: 0%; }
+
+.col-xs-offset-12 {
+  margin-left: 100%; }
+
+.col-xs-offset-11 {
+  margin-left: 91.66667%; }
+
+.col-xs-offset-10 {
+  margin-left: 83.33333%; }
+
+.col-xs-offset-9 {
+  margin-left: 75%; }
+
+.col-xs-offset-8 {
+  margin-left: 66.66667%; }
+
+.col-xs-offset-7 {
+  margin-left: 58.33333%; }
+
+.col-xs-offset-6 {
+  margin-left: 50%; }
+
+.col-xs-offset-5 {
+  margin-left: 41.66667%; }
+
+.col-xs-offset-4 {
+  margin-left: 33.33333%; }
+
+.col-xs-offset-3 {
+  margin-left: 25%; }
+
+.col-xs-offset-2 {
+  margin-left: 16.66667%; }
+
+.col-xs-offset-1 {
+  margin-left: 8.33333%; }
+
+.col-xs-offset-0 {
+  margin-left: 0%; }
+
+@media (min-width: 768px) {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left; }
+  .col-sm-12 {
+    width: 100%; }
+  .col-sm-11 {
+    width: 91.66667%; }
+  .col-sm-10 {
+    width: 83.33333%; }
+  .col-sm-9 {
+    width: 75%; }
+  .col-sm-8 {
+    width: 66.66667%; }
+  .col-sm-7 {
+    width: 58.33333%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-5 {
+    width: 41.66667%; }
+  .col-sm-4 {
+    width: 33.33333%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-2 {
+    width: 16.66667%; }
+  .col-sm-1 {
+    width: 8.33333%; }
+  .col-sm-pull-12 {
+    right: 100%; }
+  .col-sm-pull-11 {
+    right: 91.66667%; }
+  .col-sm-pull-10 {
+    right: 83.33333%; }
+  .col-sm-pull-9 {
+    right: 75%; }
+  .col-sm-pull-8 {
+    right: 66.66667%; }
+  .col-sm-pull-7 {
+    right: 58.33333%; }
+  .col-sm-pull-6 {
+    right: 50%; }
+  .col-sm-pull-5 {
+    right: 41.66667%; }
+  .col-sm-pull-4 {
+    right: 33.33333%; }
+  .col-sm-pull-3 {
+    right: 25%; }
+  .col-sm-pull-2 {
+    right: 16.66667%; }
+  .col-sm-pull-1 {
+    right: 8.33333%; }
+  .col-sm-pull-0 {
+    right: 0%; }
+  .col-sm-push-12 {
+    left: 100%; }
+  .col-sm-push-11 {
+    left: 91.66667%; }
+  .col-sm-push-10 {
+    left: 83.33333%; }
+  .col-sm-push-9 {
+    left: 75%; }
+  .col-sm-push-8 {
+    left: 66.66667%; }
+  .col-sm-push-7 {
+    left: 58.33333%; }
+  .col-sm-push-6 {
+    left: 50%; }
+  .col-sm-push-5 {
+    left: 41.66667%; }
+  .col-sm-push-4 {
+    left: 33.33333%; }
+  .col-sm-push-3 {
+    left: 25%; }
+  .col-sm-push-2 {
+    left: 16.66667%; }
+  .col-sm-push-1 {
+    left: 8.33333%; }
+  .col-sm-push-0 {
+    left: 0%; }
+  .col-sm-offset-12 {
+    margin-left: 100%; }
+  .col-sm-offset-11 {
+    margin-left: 91.66667%; }
+  .col-sm-offset-10 {
+    margin-left: 83.33333%; }
+  .col-sm-offset-9 {
+    margin-left: 75%; }
+  .col-sm-offset-8 {
+    margin-left: 66.66667%; }
+  .col-sm-offset-7 {
+    margin-left: 58.33333%; }
+  .col-sm-offset-6 {
+    margin-left: 50%; }
+  .col-sm-offset-5 {
+    margin-left: 41.66667%; }
+  .col-sm-offset-4 {
+    margin-left: 33.33333%; }
+  .col-sm-offset-3 {
+    margin-left: 25%; }
+  .col-sm-offset-2 {
+    margin-left: 16.66667%; }
+  .col-sm-offset-1 {
+    margin-left: 8.33333%; }
+  .col-sm-offset-0 {
+    margin-left: 0%; } }
+
+@media (min-width: 992px) {
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left; }
+  .col-md-12 {
+    width: 100%; }
+  .col-md-11 {
+    width: 91.66667%; }
+  .col-md-10 {
+    width: 83.33333%; }
+  .col-md-9 {
+    width: 75%; }
+  .col-md-8 {
+    width: 66.66667%; }
+  .col-md-7 {
+    width: 58.33333%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-5 {
+    width: 41.66667%; }
+  .col-md-4 {
+    width: 33.33333%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-2 {
+    width: 16.66667%; }
+  .col-md-1 {
+    width: 8.33333%; }
+  .col-md-pull-12 {
+    right: 100%; }
+  .col-md-pull-11 {
+    right: 91.66667%; }
+  .col-md-pull-10 {
+    right: 83.33333%; }
+  .col-md-pull-9 {
+    right: 75%; }
+  .col-md-pull-8 {
+    right: 66.66667%; }
+  .col-md-pull-7 {
+    right: 58.33333%; }
+  .col-md-pull-6 {
+    right: 50%; }
+  .col-md-pull-5 {
+    right: 41.66667%; }
+  .col-md-pull-4 {
+    right: 33.33333%; }
+  .col-md-pull-3 {
+    right: 25%; }
+  .col-md-pull-2 {
+    right: 16.66667%; }
+  .col-md-pull-1 {
+    right: 8.33333%; }
+  .col-md-pull-0 {
+    right: 0%; }
+  .col-md-push-12 {
+    left: 100%; }
+  .col-md-push-11 {
+    left: 91.66667%; }
+  .col-md-push-10 {
+    left: 83.33333%; }
+  .col-md-push-9 {
+    left: 75%; }
+  .col-md-push-8 {
+    left: 66.66667%; }
+  .col-md-push-7 {
+    left: 58.33333%; }
+  .col-md-push-6 {
+    left: 50%; }
+  .col-md-push-5 {
+    left: 41.66667%; }
+  .col-md-push-4 {
+    left: 33.33333%; }
+  .col-md-push-3 {
+    left: 25%; }
+  .col-md-push-2 {
+    left: 16.66667%; }
+  .col-md-push-1 {
+    left: 8.33333%; }
+  .col-md-push-0 {
+    left: 0%; }
+  .col-md-offset-12 {
+    margin-left: 100%; }
+  .col-md-offset-11 {
+    margin-left: 91.66667%; }
+  .col-md-offset-10 {
+    margin-left: 83.33333%; }
+  .col-md-offset-9 {
+    margin-left: 75%; }
+  .col-md-offset-8 {
+    margin-left: 66.66667%; }
+  .col-md-offset-7 {
+    margin-left: 58.33333%; }
+  .col-md-offset-6 {
+    margin-left: 50%; }
+  .col-md-offset-5 {
+    margin-left: 41.66667%; }
+  .col-md-offset-4 {
+    margin-left: 33.33333%; }
+  .col-md-offset-3 {
+    margin-left: 25%; }
+  .col-md-offset-2 {
+    margin-left: 16.66667%; }
+  .col-md-offset-1 {
+    margin-left: 8.33333%; }
+  .col-md-offset-0 {
+    margin-left: 0%; } }
+
+@media (min-width: 1200px) {
+  .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+    float: left; }
+  .col-lg-12 {
+    width: 100%; }
+  .col-lg-11 {
+    width: 91.66667%; }
+  .col-lg-10 {
+    width: 83.33333%; }
+  .col-lg-9 {
+    width: 75%; }
+  .col-lg-8 {
+    width: 66.66667%; }
+  .col-lg-7 {
+    width: 58.33333%; }
+  .col-lg-6 {
+    width: 50%; }
+  .col-lg-5 {
+    width: 41.66667%; }
+  .col-lg-4 {
+    width: 33.33333%; }
+  .col-lg-3 {
+    width: 25%; }
+  .col-lg-2 {
+    width: 16.66667%; }
+  .col-lg-1 {
+    width: 8.33333%; }
+  .col-lg-pull-12 {
+    right: 100%; }
+  .col-lg-pull-11 {
+    right: 91.66667%; }
+  .col-lg-pull-10 {
+    right: 83.33333%; }
+  .col-lg-pull-9 {
+    right: 75%; }
+  .col-lg-pull-8 {
+    right: 66.66667%; }
+  .col-lg-pull-7 {
+    right: 58.33333%; }
+  .col-lg-pull-6 {
+    right: 50%; }
+  .col-lg-pull-5 {
+    right: 41.66667%; }
+  .col-lg-pull-4 {
+    right: 33.33333%; }
+  .col-lg-pull-3 {
+    right: 25%; }
+  .col-lg-pull-2 {
+    right: 16.66667%; }
+  .col-lg-pull-1 {
+    right: 8.33333%; }
+  .col-lg-pull-0 {
+    right: 0%; }
+  .col-lg-push-12 {
+    left: 100%; }
+  .col-lg-push-11 {
+    left: 91.66667%; }
+  .col-lg-push-10 {
+    left: 83.33333%; }
+  .col-lg-push-9 {
+    left: 75%; }
+  .col-lg-push-8 {
+    left: 66.66667%; }
+  .col-lg-push-7 {
+    left: 58.33333%; }
+  .col-lg-push-6 {
+    left: 50%; }
+  .col-lg-push-5 {
+    left: 41.66667%; }
+  .col-lg-push-4 {
+    left: 33.33333%; }
+  .col-lg-push-3 {
+    left: 25%; }
+  .col-lg-push-2 {
+    left: 16.66667%; }
+  .col-lg-push-1 {
+    left: 8.33333%; }
+  .col-lg-push-0 {
+    left: 0%; }
+  .col-lg-offset-12 {
+    margin-left: 100%; }
+  .col-lg-offset-11 {
+    margin-left: 91.66667%; }
+  .col-lg-offset-10 {
+    margin-left: 83.33333%; }
+  .col-lg-offset-9 {
+    margin-left: 75%; }
+  .col-lg-offset-8 {
+    margin-left: 66.66667%; }
+  .col-lg-offset-7 {
+    margin-left: 58.33333%; }
+  .col-lg-offset-6 {
+    margin-left: 50%; }
+  .col-lg-offset-5 {
+    margin-left: 41.66667%; }
+  .col-lg-offset-4 {
+    margin-left: 33.33333%; }
+  .col-lg-offset-3 {
+    margin-left: 25%; }
+  .col-lg-offset-2 {
+    margin-left: 16.66667%; }
+  .col-lg-offset-1 {
+    margin-left: 8.33333%; }
+  .col-lg-offset-0 {
+    margin-left: 0%; } }
+
+/**
+ * CMB Magnific Builder SCSS
+ *
+ * @package     Give
+ * @subpackage  SCSS/Admin
+ * @copyright   Copyright (c) 2015, WordImpress
+ * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+*/
+/*-------------------------------------
+Magnific Builder
+---------------------------------------*/
+.magnific-builder#poststuff {
+  margin: 20px;
+  padding: 0;
+  background: #EEE; }
+  .magnific-builder#poststuff #cmb2-metabox-google_maps_preview_metabox > div {
+    padding-top: 0; }
+
+.magnific-builder #titlediv, .magnific-builder #submitdiv, .magnific-builder #google_maps_preview_metabox .handlediv, .magnific-builder #google_maps_preview_metabox .ui-sortable-handle, .magnific-builder #post-body-content, .magnific-builder #marker-icon-modal {
+  display: none; }
+
+.magnific-builder #google_maps_preview_metabox {
+  border: none; }
+
+.magnific-builder #google_maps_preview_metabox .inside {
+  margin: 0;
+  padding: 0; }
+
+/* Magnific Builder Sidebar */
+.magnific-builder#poststuff #postbox-container-1 {
+  margin-left: 0;
+  width: 300px !important; }
+.magnific-builder#poststuff #post-body.columns-2 #side-sortables {
+  margin-right: 0;
+  width: 300px !important; }
+.magnific-builder#poststuff .postbox {
+  margin: 0;
+  border-left: none;
+  border-right: none;
+  border-bottom: none; }
+
+/* No Dragging */
+.magnific-builder .postbox .hndle {
+  cursor: pointer; }
+
+.magnific-builder .postbox .hndle:hover {
+  color: #23282d;
+  background: #f5f5f5; }
+
+.magnific-builder#poststuff .places-loading {
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0; }
+
+/**
+ * Google Places Map CPT Styles TEST
+ */
+.clear:before, .clear:after {
+  content: " ";
+  display: table; }
+
+.clear:after {
+  clear: both; }
+
+.hover-transition, .marker-icon-row .icon, .marker-row .marker-item {
+  -webkit-transition: 0.2s all linear;
+  -moz-transition: 0.2s all linear;
+  -o-transition: 0.2s all linear;
+  transition: 0.2s all linear; }
+
+.box-sizing {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+
+.cmb2-id-gmb-theme-json {
+  display: none; }
+
+.marker-info-wrapper {
+  background-color: #F1F1F1;
+  margin: 8px 0 4px;
+  padding: 12px 12px 12px 12px;
+  font-size: 13px; }
+
+.marker-info-wrapper > div {
+  margin: 0 0 5px;
+  padding: 0; }
+
+.marker-info-wrapper > div.rating-wrap {
+  margin: 0;
+  padding: 0; }
+
+.repeatable-grouping .cmb-nested-table td {
+  padding-top: 3px; }
+
+.repeatable-grouping .cmb-nested-table td pre {
+  margin: 0; }
+
+.repeatable-grouping .cmb-nested-table td pre textarea {
+  height: 50px; }
+
+.new-window {
+  background: url('../img/new-window-icon.png') no-repeat right 3px transparent;
+  padding-right: 16px; }
+
+#marker-icon-modal {
+  display: none; }
+
+.mfp-content #marker-icon-modal {
+  display: block; }
+
+/*Shortcode Input */
+.shortcode-wrap {
+  margin: 1px 14px 12px 11px; }
+
+.shortcode-wrap label {
+  margin: 0 0 3px;
+  display: block;
+  cursor: default; }
+
+.shortcode-input {
+  margin: 0;
+  width: 100%; }
+
+/*------------------------------------------
+ CMB2 Interface
+--------------------------------------------*/
+/* Google Maps Marker Search */
+#cmb2-metabox-google_maps_metabox .cmb2-id-gmb-geocoder {
+  padding-bottom: 0; }
+
+.cmb2-id-gmb-geocoder td {
+  padding-bottom: 3px; }
+
+.cmb2-metabox-description {
+  display: block;
+  margin-top: 5px; }
+
+.cmb2-id-gmb-places-search-multicheckbox ul {
+  overflow: hidden; }
+
+.cmb2-id-gmb-places-search-multicheckbox li {
+  float: left;
+  width: 33%; }
+
+.cmb2-id-gmb-places-search-multicheckbox .cmb2-metabox-description {
+  margin-top: 10px;
+  margin-right: 2px; }
+
+#google-map-wrap {
+  position: relative; }
+
+.autocomplete-wrap {
+  background: url('../img/powered-by-google-on-white.png') no-repeat right 8px transparent; }
+
+.repeatable-group .shift-rows {
+  display: none; }
+
+/*------------------------------------------
+ Messages
+--------------------------------------------*/
+.wpgp-message {
+  background-color: #FFF;
+  border-left: 4px solid #7AD03A;
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 1px 12px;
+  display: none; }
+
+.wpgp-message.warning-message {
+  border-left: 4px solid #d40000;
+  margin: 20px 0 0; }
+
+.wpgp-message p, .form-table td .wpgp-message p {
+  margin: .5em 0;
+  padding: 2px; }
+
+.places-change-message {
+  margin-bottom: 15px;
+  margin-right: 2px; }
+
+.places-change-message p {
+  float: left; }
+
+.places-change-message .button {
+  float: right;
+  margin-top: 5px; }
+
+#google-map-wrap .wpgp-message {
+  margin-top: 20px; }
+
+/*------------------------------------------
+ Google Map Metabox
+--------------------------------------------*/
+#cmb2-metabox-google_maps_preview_metabox > div {
+  padding: 5px 0 0;
+  margin: 0; }
+
+#map {
+  width: 100%;
+  margin: 0 auto; }
+
+.places-loading {
+  background: url('../img/spinner.gif') no-repeat center right transparent;
+  font-style: italic;
+  position: absolute;
+  top: -34px;
+  right: 31px;
+  padding: 0 25px 0 0;
+  display: none; }
+
+.cmb2-id-gmb-map-type td {
+  padding-bottom: 0; }
+
+.cmb2-id-gmb-map-type-control .cmb2-option {
+  margin: 5px 0 10px; }
+
+/*------------------------------------------
+ General Styles
+--------------------------------------------*/
+.cmb2-id-gmb-search-radius, .cmb2-id-gmb-places-search-multicheckbox {
+  display: none; }
+
+#google_maps_details_options tr {
+  display: none; }
+
+#google_maps_details_options tr.cmb2-id-gmb-show-poi {
+  display: table-row; }
+
+.snazzy-link {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-style: normal;
+  display: inline-block; }
+
+.width_unit_label, .width_radio, .map-width, .map-height, .size-label {
+  float: left !important; }
+
+#width_wrap {
+  margin: 0 0 10px; }
+
+#size_labels_wrap {
+  margin: 8px 0 0 10px;
+  padding: 0;
+  float: left; }
+
+#width_unit_percent {
+  margin: 0 3px 0 0; }
+
+#width_unit_px {
+  margin: 0 3px 0 8px; }
+
+.inner-sidebar table.cmb_metabox label.size-label, #side-sortables table.cmb_metabox label.size-label, label.size-label {
+  font-weight: normal;
+  font-style: italic; }
+
+.inner-sidebar table.cmb_metabox label.size-label, #side-sortables table.cmb_metabox label.size-label, .form-table label.size-label {
+  padding: 9px 0 0;
+  width: 50px;
+  font-weight: normal; }
+
+.map-width, .map-height {
+  width: 55px !important; }
+
+/*------------------------------------------
+ Place Markers
+--------------------------------------------*/
+/* Hacky fix to prevent scrollbars */
+#google_maps_preview_metabox .gm-style-iw, #google_maps_preview_metabox .gm-style-iw > div {
+  overflow: visible !important; }
+
+#google_maps_preview_metabox .gm-style-iw > div > div {
+  overflow: visible !important; }
+
+#infobubble-content {
+  overflow: hidden !important; }
+
+#infobubble-content.loading {
+  background: url('../img/loading.gif') no-repeat center center #FFF; }
+
+#google-map-wrap div#infobubble-content > div {
+  white-space: normal; }
+
+#infobubble-content p {
+  font-size: 12px;
+  margin: 0 0 7px;
+  color: #2C2C2C; }
+
+#infobubble-content {
+  padding: 0 0 0 0;
+  margin: 3px -20px 0 0;
+  min-width: 314px;
+  min-height: 80px;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  cursor: default; }
+
+#infobubble-content .place-title {
+  border: 1px solid #FFF;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 700;
+  min-height: 21px;
+  white-space: normal;
+  padding-right: 20px; }
+
+#infobubble-content .place-description {
+  white-space: normal; }
+
+.marker-confirm-place {
+  margin: 0 8px 4px 0;
+  display: inline-block; }
+
+.marker-confirm-place:hover {
+  cursor: pointer; }
+
+/* Ratings */
+#infobubble-content .rating-wrap {
+  overflow: hidden; }
+
+#infobubble-content .numeric-rating {
+  font-size: 16px;
+  color: #DD4B39;
+  font-weight: 400;
+  float: left;
+  margin: 0 5px 0 0; }
+
+#infobubble-content .star-rating-wrap {
+  background: url('../img/review_stars.png') no-repeat 0 0 transparent;
+  height: 13px;
+  width: 67px;
+  float: left;
+  margin: 1px 0 0; }
+
+#infobubble-content .star-rating-size {
+  background: url('../img/review_stars.png') no-repeat 0 -13px transparent;
+  height: 13px; }
+
+/*------------------------------------------
+ Editable Marker
+--------------------------------------------*/
+#edit-toolbar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right; }
+
+#edit-toolbar > li {
+  margin: 0 4px;
+  cursor: pointer;
+  display: inline-block;
+  content: '';
+  height: 21px;
+  width: 21px;
+  opacity: .5;
+  background: url('../img/icons-infowindow-002.svg'); }
+
+#edit-toolbar > li:hover {
+  opacity: .75; }
+
+#edit-toolbar > li.trash-marker {
+  background-position: -42px 0; }
+
+#edit-toolbar > li.edit-info {
+  background: url('../img/icons-app-000.svg');
+  background-position: 21px 21px; }
+
+/*------------------------------------------
+Display Options
+--------------------------------------------*/
+#lat-lng-wrap input[type=text].latitude, #lat-lng-wrap input[type=text].longitude, #side-sortables #lat-lng-wrap input[type=text].latitude, #side-sortables #lat-lng-wrap input[type=text].longitude {
+  width: 100px;
+  float: left; }
+
+.lat-lng-wrap {
+  float: left;
+  margin: 0 0 10px;
+  clear: none; }
+
+.lng-wrap {
+  margin-bottom: 0; }
+
+.lat-lng-wrap > span, .lat-lng-wrap > input {
+  float: left; }
+
+.lat-lng-wrap > span {
+  margin: 8px 5px 0 0;
+  width: 80px;
+  font-style: italic; }
+
+/* Mini message */
+.lat-lng-change-message {
+  float: left;
+  clear: both;
+  margin: 10px 0 0;
+  width: 100%; }
+
+.lat-lng-change-message > p {
+  float: left; }
+
+.lat-lng-update-btn {
+  float: right;
+  margin: 7px 0 0 !important; }
+
+/*-------------------------------------
+Autocomplete Metabox
+---------------------------------------*/
+#google_maps_metabox .search-autocomplete {
+  width: 78%;
+  margin-right: 10px; }
+
+#google_maps_metabox .autocomplete-wrap p {
+  font-style: italic;
+  margin-bottom: 5px !important; }
+
+#google_maps_metabox a.drop-marker {
+  font-style: normal; }
+
+/*-------------------------------------
+Save Info Window Toolbar
+---------------------------------------*/
+#save-toolbar {
+  margin: 0;
+  padding: 0;
+  float: left; }
+
+#save-toolbar > li {
+  display: inline-block;
+  margin: 0;
+  padding: 0; }
+
+#save-toolbar > li:first-child {
+  margin: 0 5px 0 0; }
+
+#save-toolbar > li .google-btn {
+  width: 75px; }
+
+a.marker-edit-link {
+  background: url('../img/marker-btn.png') no-repeat 0 0 transparent;
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+  margin: 4px 0 0;
+  display: block;
+  float: right; }
+
+#save-toolbar > li .marker-edit-link {
+  opacity: 0.75; }
+
+#infobubble-content .edit-place-title {
+  width: 290px;
+  margin: 0 0 10px; }
+
+#infobubble-content .edit-place-description {
+  display: block;
+  font-size: 12px;
+  width: 100%;
+  min-height: 100px; }
+
+/*-------------------------------------
+Marker Icon Modal
+---------------------------------------*/
+.marker-icon-row {
+  margin-bottom: 10px; }
+
+.marker-icon-row, .save-marker-icon {
+  display: none; }
+
+.marker-icon-row .icon, .marker-row .marker-item {
+  width: 31%;
+  float: left;
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding: 4px;
+  border-radius: 5px; }
+
+.icon-inner {
+  position: relative;
+  top: -8px; }
+
+.marker-icon-row .icon span {
+  font-size: 32px;
+  margin-right: 8px;
+  position: relative;
+  top: 8px; }
+
+.marker-icon-row .icon:hover, .marker-row .marker-item:hover, .marker-item-selected {
+  cursor: pointer;
+  background: #DDEAEC; }
+
+.marker-label {
+  z-index: 99;
+  position: absolute;
+  display: block;
+  margin-top: -50px;
+  margin-left: -25px;
+  width: 50px;
+  height: 50px;
+  font-size: 28px;
+  text-align: center;
+  color: #FFFFFF;
+  white-space: nowrap;
+  line-height: 1; }
+
+/* Color */
+.marker-row {
+  margin-bottom: 20px; }
+
+#marker-icon-modal .color-desc {
+  display: block;
+  clear: both;
+  font-size: 12px;
+  font-style: italic; }
+
+.marker-icon-color-wrap, .marker-label-color-wrap {
+  display: none; }
+
+.marker-color-picker-wrap {
+  float: left; }
+
+#TB_ajaxContent p.color-desc {
+  float: left;
+  margin: 0 0 0 10px;
+  padding-top: 3px;
+  font-style: italic; }
+
+/* Pins */
+.marker-row .marker-item {
+  float: left;
+  width: 31%; }
+
+.marker-svg {
+  float: left;
+  margin-right: 12px;
+  height: 50px; }
+
+.marker-svg .default-marker {
+  margin: 8px 0 0 10px; }
+
+.marker-description {
+  line-height: 50px; }
+
+.marker-description-wrap h3 {
+  margin-top: 0; }
+
+/* Save button */
+.save-marker-icon {
+  background: #F1F1F1;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-top: 1px solid #DFDFDF; }
+
+.save-marker-icon .save-text {
+  float: left;
+  font-style: italic;
+  margin: 6px 0 0 10px; }
+
+.save-marker-icon .button {
+  float: right; }
+
+.radius-label {
+  position: relative;
+  top: 35px;
+  color: #7dbee8; }
+
+/*-------------------------------------
+Buttons
+---------------------------------------*/
+.google-btn {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  cursor: default;
+  font-weight: 300;
+  font-size: 13px;
+  text-align: center;
+  white-space: nowrap;
+  height: 27px;
+  line-height: 27px;
+  min-width: 54px;
+  outline: 0;
+  padding: 0 8px; }
+
+.google-btn-blue {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #4D90FE;
+  background-image: -webkit-linear-gradient(top, #4D90FE, #4787ED);
+  background-image: linear-gradient(top, #4d90fe, #4787ed);
+  border: 1px solid #3079ED;
+  color: #FFF; }
+
+.google-btn-blue:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #357AE8;
+  background-image: -webkit-linear-gradient(top, #4D90FE, #357AE8);
+  background-image: linear-gradient(top, #4d90fe, #357ae8);
+  border: 1px solid #2F5BB7;
+  border-bottom-color: #2F5BB7; }
+
+.google-btn-blue:active, .google-btn-blue:focus {
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  background: #357AE8;
+  border: 1px solid #2F5BB7;
+  border-top: 1px solid #2F5BB7; }
+
+.google-btn-default {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #F5F5F5;
+  background-image: -webkit-linear-gradient(top, #F5F5F5, #F1F1F1);
+  background-image: linear-gradient(top, #f5f5f5, #f1f1f1);
+  color: #333;
+  border: 1px solid #DCDCDC;
+  border: 1px solid rgba(0, 0, 0, 0.1); }
+
+.google-btn-default:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #F8F8F8;
+  background-image: -webkit-linear-gradient(top, #F8F8F8, #F1F1F1);
+  background-image: linear-gradient(top, #f8f8f8, #f1f1f1);
+  border: 1px solid #C6C6C6;
+  color: #111; }
+
+.google-btn-default:active {
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  background: #F8F8F8;
+  color: #111; }
+
+/*-------------------------------------
+Temporary Info Window
+---------------------------------------*/
+.infowindow-toolbar {
+  display: block;
+  margin: 0;
+  padding: 8px 0 5px; }
+
+.add-marker {
+  text-decoration: none; }
+
+/*-------------------------------------
+CMB2
+---------------------------------------*/
+#poststuff .postbox-container .cmb-row:not(:last-of-type) {
+  border-bottom: 0;
+  margin-bottom: 0; }
+
+/**
+ * CMB2 Customized SCSS
+ *
+ * @description Here we customize the look-and-feel of CMB2 to suit GMB
+ * @package     Give
+ * @subpackage  SCSS/Admin
+ * @copyright   Copyright (c) 2015, WordImpress
+ * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+*/
+#poststuff .postbox-container .cmb-repeatable-group:not(:last-of-type) {
+  border-bottom: 1px solid #e9e9e9;
+  padding: 0 0 15px; }
+#poststuff .postbox-container .cmb-repeat-group-wrap .cmb-row:not(:last-of-type) {
+  margin-bottom: 10px; }
+
+#gmb_markers_group_repeat.cmb-remove-field-row {
+  margin-bottom: 15px; }
+
+#poststuff .inner-sidebar .cmb-row .cmb2-metabox-description, #poststuff #side-sortables .cmb-row .cmb2-metabox-description {
+  padding-bottom: 0; }
+
+.cmb-row:last-of-type, .cmb2-wrap .cmb-row:last-of-type, .cmb-repeatable-group:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0 !important; }
+
+#cmb2-metabox-google_maps_markers .cmb-repeatable-grouping {
+  padding-top: 0;
+  border-bottom: 1px solid #e9e9e9 !important; }
+  #cmb2-metabox-google_maps_markers .cmb-repeatable-grouping .cmb-remove-field-row {
+    padding-bottom: 12px !important; }
+
+#cmb2-metabox-google_maps_markers .cmb-repeat-group-wrap .cmb-group-description .cmb-th {
+  padding-bottom: 0; }
+
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px 20px 50px;
+  width: auto;
+  max-width: 600px;
+  margin: 20px auto; }
+
+/*!
+ * Maps Builder Admin Settings Pages SCSS/CSS
+ *
+ * @description: The Main SCSS file for admin SETTINGS styles which is compiled and minified via Gulp taskrunner
+ * @package:     GMB
+ * @subpackage:  SCSS/Admin
+ * @copyright:   Copyright (c) 2015, WordImpress
+ * @license:     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+*/
+.google_maps_page_gmb_settings .wrap {
+  margin-left: -5px; }
+.google_maps_page_gmb_settings .clear:before, .google_maps_page_gmb_settings .clear:after {
+  content: " ";
+  display: table; }
+.google_maps_page_gmb_settings .clear:after {
+  clear: both; }
+.google_maps_page_gmb_settings table.form-table {
+  margin: 0 0 20px; }
+
+/*---------------------------
+Header
+-----------------------------*/
+.welcome-header .main-heading {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.1em;
+  margin: 10px 0 20px; }
+.welcome-header .main-subheading {
+  font-size: 20px;
+  line-height: 1.4em; }
+.welcome-header .logo-svg {
+  margin: 15px 0 0; }
+.welcome-header .logo-svg.logo-svg-small {
+  float: right;
+  margin: 0; }
+.welcome-header .new-window {
+  background: url('../img/new-window-icon.png') no-repeat right 5px transparent;
+  padding-right: 13px;
+  margin-right: 4px; }
+
+.gmb-plugin-heading {
+  width: 170px;
+  float: left;
+  margin: 9px 0 0; }
+
+/* Social Media */
+.social-items-wrap {
+  float: left; }
+  .social-items-wrap > div {
+    display: inline-block; }
+  .social-items-wrap .google-plus {
+    margin-left: 20px;
+    display: inline;
+    width: 190px; }
+  .social-items-wrap .wordimpress-logo {
+    float: left;
+    margin: -7px 0 0; }
+  .social-items-wrap .logo-link {
+    background: url('../img/wordimpress-logo-small.png') no-repeat 0 0 transparent;
+    width: 100px;
+    height: 40px;
+    display: block; }
+
+.hide-welcome {
+  margin: 2px 0 0 30px; }
+  .hide-welcome span {
+    background: url('../img/arrows.png') no-repeat 0 -33px transparent;
+    width: 15px;
+    height: 14px;
+    display: inline-block;
+    margin-left: 3px; }
+
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+.small-desc {
+  font-size: 12px;
+  font-style: italic;
+  color: #B3B3B3; }
+
+/*---------------------------
+Map Options Tab
+-----------------------------*/
+.size-label {
+  margin: 8px 10px 0 0;
+  font-style: italic;
+  width: 50px; }
+
+/* Map Size */
+.width_unit_label, .width_radio, .map-width, .map-height, .size-label, .radio-left, .label-left {
+  float: left !important; }
+
+#width_wrap {
+  margin: 0 0 10px; }
+
+#size_labels_wrap {
+  margin: 8px 0 0 10px;
+  padding: 0;
+  float: left; }
+
+#width_unit_percent {
+  margin: 0 3px 0 0; }
+
+#width_unit_px {
+  margin: 0 3px 0 8px; }
+
+.map-width, .map-height {
+  width: 55px !important; }
+
+/* Lat Lng */
+#lat-lng-wrap {
+  float: left;
+  clear: both;
+  margin: 15px 0 0;
+  display: none; }
+
+label.geocode-label {
+  width: 130px;
+  margin-right: 0; }
+
+label.yes-label {
+  margin-right: 10px; }
+
+#lat-lng-wrap input[type=text].latitude, #lat-lng-wrap input[type=text].longitude {
+  width: 120px;
+  float: left; }
+
+.lat-lng-wrap {
+  margin: 0 0 10px;
+  clear: none; }
+  .lat-lng-wrap > span, .lat-lng-wrap > input {
+    float: left; }
+  .lat-lng-wrap > span {
+    margin: 8px 5px 0 0;
+    width: 80px;
+    font-style: italic; }
+
+/*---------------------------
+General Options Tab
+-----------------------------*/
+#gmb_menu_position {
+  width: 40px; }
+
+
+/*# sourceMappingURL=gmb-admin.css.map */

@@ -41,8 +41,7 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 		/*
 		 * Call $plugin_slug from public plugin class.
 		 */
-		$plugin            = Google_Maps_Builder::get_instance();
-		$this->plugin_slug = $plugin->get_plugin_slug();
+		$this->plugin_slug = Google_Maps_Builder()->get_plugin_slug();
 
 		parent::__construct(
 			'widget-google-places',

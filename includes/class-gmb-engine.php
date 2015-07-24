@@ -13,23 +13,17 @@
  */
 class Google_Maps_Builder_Engine {
 
-	/**
-	 * Instance of this class.
-	 *
-	 * @since    1.0.0
-	 *
-	 * @var      object
-	 */
-	protected static $instance = null;
 
+	/**
+	 * Google Maps Builder Engine
+	 *
+	 * Hooks and actions start here.
+	 *
+	 * @since     1.0.0
+	 */
 	public function __construct() {
 
-		/*
-		 * Call $plugin_slug from public plugin class.
-		 */
-		$plugin            = Google_Maps_Builder::get_instance();
-		$this->plugin_slug = $plugin->get_plugin_slug();
-
+		$this->plugin_slug = Google_Maps_Builder()->get_plugin_slug();
 
 		// Filter to automatically add maps to post type content
 		add_filter( 'the_content', array( $this, 'the_content' ), 2 );
@@ -53,19 +47,18 @@ class Google_Maps_Builder_Engine {
 
 		global $post;
 
-		if ( $post->post_type == 'google_maps' ) {
+		if ( is_main_query() ) {
 
 			$shortcode = '[google_maps ';
 			$shortcode .= 'id="' . $post->ID . '"';
 			$shortcode .= ']';
 
 			//Output shortcode
-			echo do_shortcode( $shortcode );
+			return $shortcode;
 
 		}
 
 		return $content;
-
 
 	}
 
@@ -100,14 +93,13 @@ class Google_Maps_Builder_Engine {
 	 */
 	public function google_maps_shortcode( $atts ) {
 
-
 		$atts = shortcode_atts(
-				array(
-					'title'     => '',
-					'id'        => '',
-					'reference' => '',
-				), $atts, 'google_maps'
-			);
+			array(
+				'title'     => '',
+				'id'        => '',
+				'reference' => '',
+			), $atts, 'google_maps'
+		);
 
 		//gather data for this shortcode
 		$post     = get_post( $atts['id'] );
@@ -129,7 +121,7 @@ class Google_Maps_Builder_Engine {
 		//send data for AJAX usage
 		//Add params to AJAX for Shortcode Usage
 		//@see: http://benjaminrojas.net/using-wp_localize_script-dynamically/
-		$localized_data = array(
+		$localized_data = apply_filters( 'gmb_localized_data', array(
 			$post->ID => array(
 				'id'               => $atts['id'],
 				'map_params'       => array(
@@ -163,17 +155,15 @@ class Google_Maps_Builder_Engine {
 				),
 				'map_markers_icon' => ! empty( $all_meta['gmb_map_marker'] ) ? $all_meta['gmb_map_marker'][0] : 'none',
 			)
-		);
+		) );
 
 		$this->array_push_localized_script( $localized_data );
 
-		$map_include = $this->get_google_maps_template( 'public.php' );
 		ob_start();
-		include( $map_include );
 
-		return ob_get_clean();
+		include $this->get_google_maps_template( 'public.php' );
 
-		//echo $map_output;
+		return apply_filters( 'gmb_shortcode_output', ob_get_clean() );
 
 	}
 
@@ -210,22 +200,5 @@ class Google_Maps_Builder_Engine {
 
 	}
 
-
-	/**
-	 * Return an instance of this class.
-	 *
-	 * @since     1.0.0
-	 *
-	 * @return    object    A single instance of this class.
-	 */
-	public static function get_instance() {
-
-		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self;
-		}
-
-		return self::$instance;
-	}
 
 }

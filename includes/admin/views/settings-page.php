@@ -44,7 +44,7 @@
 
 	<div class="logo-svg logo-svg-small pull-left" <?php echo( ! get_user_meta( $user_id, 'gmb_hide_welcome' ) ?
 		'style="display:none;"' : '' ); ?>>
-		<div class="gmb-plugin-heading">Google Maps Builder <?php echo $this->meta['Version']; ?></div>
+		<div class="gmb-plugin-heading">Google Maps Builder</div>
 		<?php include( 'logo-svg-small.php' ); ?>
 	</div>
 

@@ -30,9 +30,7 @@ class Google_Maps_Builder_Settings {
 	 */
 	public function __construct() {
 
-		$plugin            = Google_Maps_Builder::get_instance();
-		$this->plugin_slug = $plugin->get_plugin_slug();
-		$this->meta        = $plugin->meta;
+		$this->plugin_slug = Google_Maps_Builder()->get_plugin_slug();
 
 
 		//Create Settings submenu
@@ -84,39 +82,6 @@ class Google_Maps_Builder_Settings {
 	}
 
 	/**
-	 * Print Activation Message
-	 */
-	function welcome_pointer_print_scripts() {
-		$pointer_content = '<h3>' . __( 'Welcome to the Google Maps Builder', $this->plugin_slug ) . '</h3>';
-		$pointer_content .= '<p>' . __( 'Thank you for using Google Maps Builder for WordPress. To stay up to date on the latest plugin updates, enhancements and news please sign up for our mailing list.', $this->plugin_slug ) . '</p>';
-		$pointer_content .= '<div id="mc_embed_signup" style="padding: 0 15px;"><form action="http://wordimpress.us3.list-manage2.com/subscribe/post?u=3ccb75d68bda4381e2f45794c&amp;id=83609e2883" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate><div class="mc-field-group" style="margin: 0 0 10px;"><input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" style="margin-right:5px;width:230px;" placeholder="my.email@wordpress.com"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div><div id="mce-responses" class="clear"><div class="response" id="mce-error-response" style="display:none"></div><div class="response" id="mce-success-response" style="display:none"></div></div><div style="position: absolute; left: -5000px;"><input type="text" name="b_3ccb75d68bda4381e2f45794c_83609e2883" value=""></div></form></div>';
-		?>
-
-		<script type="text/javascript">
-			//<![CDATA[
-			jQuery( document ).ready( function ( $ ) {
-				$( '#menu-posts-google_maps' ).pointer( {
-					content     : '<?php echo $pointer_content; ?>',
-					position    : {
-						edge : 'left', // arrow direction
-						align: 'center' // vertical alignment
-					},
-					pointerWidth: 350,
-					close       : function () {
-						$.post( ajaxurl, {
-							pointer: 'gmb_welcome_pointer', // pointer ID
-							action : 'dismiss-wp-pointer'
-						} );
-					}
-				} ).pointer( 'open' );
-			} );
-			//]]>
-		</script>
-
-		<?php
-	}
-
-	/**
 	 * Register our setting to WP
 	 * @since  0.1.0
 	 */
@@ -158,8 +123,8 @@ class Google_Maps_Builder_Settings {
 		//Only enqueue scripts for Setting screen
 		if ( $this->options_page == $screen->id ) {
 
-			wp_enqueue_style( $this->plugin_slug . '-settings-grid', GMB_PLUGIN_URL . 'assets/css/grid' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
-			wp_enqueue_style( $this->plugin_slug . '-settings-styles', GMB_PLUGIN_URL . 'assets/css/admin-settings' . $suffix . '.css', array(), Google_Maps_Builder::VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-settings-grid', GMB_PLUGIN_URL . 'assets/css/grid' . $suffix . '.css', array(), GMB_VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-settings-styles', GMB_PLUGIN_URL . 'assets/css/admin-settings' . $suffix . '.css', array(), GMB_VERSION );
 
 		}
 
@@ -182,7 +147,7 @@ class Google_Maps_Builder_Settings {
 		//Only enqueue scripts for Setting screen
 		if ( $this->options_page == $screen->id ) {
 
-			wp_register_script( $this->plugin_slug . '-admin-settings', GMB_PLUGIN_URL . 'assets/js/admin-settings' . $suffix . '.js', array( 'jquery' ), Google_Maps_Builder::VERSION );
+			wp_register_script( $this->plugin_slug . '-admin-settings', GMB_PLUGIN_URL . 'assets/js/admin-settings' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-admin-settings' );
 
 		}
@@ -404,11 +369,7 @@ class Google_Maps_Builder_Settings {
 		return $meta;
 	}
 
-
 }
-
-// Get it started
-$Google_Maps_Builder_Settings = new Google_Maps_Builder_Settings();
 
 /**
  * Wrapper function around cmb_get_option

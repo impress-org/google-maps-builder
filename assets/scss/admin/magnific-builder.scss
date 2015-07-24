@@ -1,0 +1,78 @@
+/**
+ * CMB Magnific Builder SCSS
+ *
+ * @package     Give
+ * @subpackage  SCSS/Admin
+ * @copyright   Copyright (c) 2015, WordImpress
+ * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+*/
+/*-------------------------------------
+Magnific Builder
+---------------------------------------*/
+.magnific-builder#poststuff {
+
+
+  margin: 20px;
+  padding: 0;
+  background: #EEE;
+
+  #cmb2-metabox-google_maps_preview_metabox {
+	> div {
+	  padding-top: 0;
+	}
+  }
+}
+
+//Display none things
+.magnific-builder #titlediv, .magnific-builder #submitdiv, .magnific-builder #google_maps_preview_metabox .handlediv, .magnific-builder #google_maps_preview_metabox .ui-sortable-handle, .magnific-builder #post-body-content, .magnific-builder #marker-icon-modal {
+  display: none;
+}
+
+//Border none things
+.magnific-builder #google_maps_preview_metabox {
+  border: none;
+}
+
+//No margin or padding things
+.magnific-builder #google_maps_preview_metabox .inside {
+  margin: 0;
+  padding: 0;
+}
+
+/* Magnific Builder Sidebar */
+
+.magnific-builder#poststuff {
+  #postbox-container-1 {
+    margin-left: 0;
+    width: 300px !important;
+  }
+
+  #post-body.columns-2 #side-sortables {
+    margin-right: 0;
+    width: 300px !important;
+  }
+  .postbox {
+    margin: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+}
+
+/* No Dragging */
+.magnific-builder .postbox .hndle {
+  cursor: pointer;
+}
+
+.magnific-builder .postbox .hndle:hover {
+  color: #23282d;
+  background: #f5f5f5;
+}
+
+.magnific-builder#poststuff .places-loading {
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0;
+}

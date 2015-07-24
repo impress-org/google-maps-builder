@@ -1,0 +1,55 @@
+/**
+ * CMB2 Customized SCSS
+ *
+ * @description Here we customize the look-and-feel of CMB2 to suit GMB
+ * @package     Give
+ * @subpackage  SCSS/Admin
+ * @copyright   Copyright (c) 2015, WordImpress
+ * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+*/
+
+#poststuff .postbox-container {
+  .cmb-repeatable-group:not(:last-of-type) {
+	border-bottom: 1px solid #e9e9e9;
+	padding: 0 0 15px;
+  }
+  .cmb-repeat-group-wrap .cmb-row:not(:last-of-type) {
+	margin-bottom: 10px;
+  }
+}
+
+#gmb_markers_group_repeat.cmb-remove-field-row {
+  margin-bottom: 15px;
+}
+
+#poststuff .inner-sidebar .cmb-row .cmb2-metabox-description, #poststuff #side-sortables .cmb-row .cmb2-metabox-description {
+  padding-bottom: 0;
+}
+
+.cmb-row:last-of-type, .cmb2-wrap .cmb-row:last-of-type, .cmb-repeatable-group:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0 !important;
+}
+
+#cmb2-metabox-google_maps_markers {
+  .cmb-repeatable-grouping {
+	padding-top: 0;
+	border-bottom: 1px solid #e9e9e9 !important;
+	.cmb-remove-field-row {
+	  padding-bottom: 12px !important;
+	}
+  }
+}
+
+#cmb2-metabox-google_maps_markers .cmb-repeat-group-wrap .cmb-group-description .cmb-th {
+  padding-bottom: 0;
+}
+
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px 20px 50px;
+  width: auto;
+  max-width: 600px;
+  margin: 20px auto;
+}

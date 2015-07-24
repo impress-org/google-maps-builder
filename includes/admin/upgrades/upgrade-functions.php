@@ -44,7 +44,7 @@ function gmb_show_upgrade_notices() {
 		);
 	}
 
-	update_option( 'gmb_version', Google_Maps_Builder::VERSION );
+	update_option( 'gmb_version', GMB_VERSION );
 
 }
 
@@ -89,7 +89,7 @@ function gmb_trigger_upgrades() {
 		add_option( 'gmb_version', $gmb_version );
 	}
 
-	if ( version_compare( Google_Maps_Builder::VERSION, $gmb_version, '>=' ) && ! get_option( 'gmb_refid_upgraded' ) ) {
+	if ( version_compare( GMB_VERSION, $gmb_version, '>=' ) && ! get_option( 'gmb_refid_upgraded' ) ) {
 		gmb_v2_upgrades();
 	}
 
