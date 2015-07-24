@@ -251,10 +251,10 @@ var gmb_data;
 
 			//Marker for map
 			var location_marker = new Marker( {
-				map   : map,
-				zIndex: 9,
-				icon  : marker_icon,
-				label : marker_label
+				map         : map,
+				zIndex      : 9,
+				icon        : marker_icon,
+				custom_label: marker_label
 			} );
 
 			var marker_lat = marker_data.lat;

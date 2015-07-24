@@ -682,7 +682,7 @@ var gmb_data;
 
 			//Update fields with necessary data
 			$( '#gmb_markers_group_' + index + '_label' ).val( marker_label_data );
-console.log(marker_label_data);
+
 			//Update Icon
 			marker = new Marker( {
 				position: marker_position,

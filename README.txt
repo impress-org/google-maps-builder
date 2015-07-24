@@ -150,6 +150,7 @@ Here is what we are working on for future releases:
 * New: Upgrade process for maps using Google's old reference ID in place for the new Place_ID @see: https://github.com/WordImpress/google-maps-builder/issues/18
 * New: Upgraded CMB1 to CMB2
 * New: Switch and Test all Google Places API calls to "Reference ID" or "ID" to Google's new "Places ID"
+* New: Class improvements and modernized structure organization
 * New: Gulp implemented for minifying scripts
 * New: Marker Creation Improvements - 1) Sometimes markers disappear in the post edit screen. 2) Sometimes markers don't get output on the front end correctly. 3)Sometimes markers don't get generated in the post edit screen at all.
 * New: Investigated + resolved several Google Maps API conflicts - Often when a user has a theme or plugin that registers Google Maps it breaks our plugin or ours breaks theirs. We now check for other Google Map enqueues, and if present the plugin attempts to dequeue them in favor for ours. So far this has fixed issues with Uber Menu 3, Contact Forms 7, as well as many additional plugins.
@@ -159,6 +160,7 @@ Here is what we are working on for future releases:
 * Fix: Maps placed in hidden tabs now redraw properly when the tab is selected
 * Fix: Found and resolved conflict with ACF plugin Google Maps field
 * Fix: Removed non-functional marker upload field (will be added to Pro version in a much enhanced format).
+* Fix: Maps icons fixed to no longer show first character incorrectly @see: https://github.com/scottdejonge/Map-Icons/issues/26
 * General: Javascript cleanup and optimization
 
 = 1.0.3 =
