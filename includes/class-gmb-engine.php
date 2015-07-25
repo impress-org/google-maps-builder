@@ -47,7 +47,7 @@ class Google_Maps_Builder_Engine {
 
 		global $post;
 
-		if ( is_main_query() ) {
+		if ( is_main_query() && is_singular('google_maps') || is_post_type_archive('google_maps') ) {
 
 			$shortcode = '[google_maps ';
 			$shortcode .= 'id="' . $post->ID . '"';
