@@ -96,6 +96,14 @@ if ( ! class_exists( 'Google_Maps_Builder' ) ) : /**
 		public $engine;
 
 		/**
+		 * GMB Plugin Meta
+		 *
+		 * @var object
+		 * @since 2.0
+		 */
+		public $meta;
+
+		/**
 		 * Main Google_Maps_Builder Instance
 		 *
 		 * Insures that only one instance of Google_Maps_Builder exists in memory at any one
@@ -112,6 +120,8 @@ if ( ! class_exists( 'Google_Maps_Builder' ) ) : /**
 		 */
 		public static function instance() {
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Google_Maps_Builder ) ) {
+
+
 				self::$instance = new Google_Maps_Builder();
 				self::$instance->setup_constants();
 
@@ -125,6 +135,14 @@ if ( ! class_exists( 'Google_Maps_Builder' ) ) : /**
 
 				//Init CPT (after CMB2 -> hence the 10000 priority)
 				add_action( 'init', array( self::$instance, 'setup_post_type' ), 10000 );
+
+
+				// Read plugin meta
+				// Check that function get_plugin_data exists
+				if ( ! function_exists( 'get_plugin_data' ) ) {
+					require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+				}
+				self::$instance->meta = get_plugin_data( GMB_PLUGIN_FILE, false );
 
 			}
 

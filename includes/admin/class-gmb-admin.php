@@ -137,7 +137,7 @@ class Google_Maps_Builder_Admin {
 		// MARKER WITH AUTOCOMPLETE
 		$meta_boxes = cmb2_get_metabox( array(
 			'id'           => 'google_maps_metabox',
-			'title'        => __( 'Google Maps Marker Search', $this->plugin_slug ),
+			'title'        => __( 'Add Marker', $this->plugin_slug ),
 			'object_types' => array( 'google_maps' ),
 			'context'      => 'normal',
 			'priority'     => 'high',
@@ -170,7 +170,7 @@ class Google_Maps_Builder_Admin {
 		// MARKERS
 		$marker_box = cmb2_get_metabox( array(
 			'id'           => 'google_maps_markers',
-			'title'        => __( 'Google Map Markers', $this->plugin_slug ),
+			'title'        => __( 'Map Markers', $this->plugin_slug ),
 			'object_types' => array( 'google_maps' ), // post type
 			'context'      => 'normal', //  'normal', 'advanced', or 'side'
 			'priority'     => 'low', //  'high', 'core', 'default' or 'low'
@@ -275,7 +275,7 @@ class Google_Maps_Builder_Admin {
 				'desc'    => __( 'Select which type of places you would like to display on this map.', $this->plugin_slug ),
 				'id'      => $prefix . 'places_search_multicheckbox',
 				'type'    => 'multicheck',
-				'options' => array(
+				'options' => apply_filters( 'gmb_place_types', array(
 					'accounting'              => __( 'Accounting', $this->plugin_slug ),
 					'airport'                 => __( 'Airport', $this->plugin_slug ),
 					'amusement_park'          => __( 'Amusement Park', $this->plugin_slug ),
@@ -372,7 +372,7 @@ class Google_Maps_Builder_Admin {
 					'university'              => __( 'University', $this->plugin_slug ),
 					'veterinary_care'         => __( 'Veterinary Care', $this->plugin_slug ),
 					'zoo'                     => __( 'Zoo', $this->plugin_slug )
-				)
+				) )
 			)
 		);
 
@@ -381,7 +381,7 @@ class Google_Maps_Builder_Admin {
 		 */
 		$display_options = cmb2_get_metabox( array(
 			'id'           => 'google_maps_options',
-			'title'        => __( 'Google Map Display Options', $this->plugin_slug ),
+			'title'        => __( 'Display Options', $this->plugin_slug ),
 			'object_types' => array( 'google_maps' ), // post type
 			'context'      => 'side', //  'normal', 'advanced', or 'side'
 			'priority'     => 'default', //  'high', 'core', 'default' or 'low'
@@ -459,30 +459,30 @@ class Google_Maps_Builder_Admin {
 			'id'      => $prefix . 'zoom',
 			'type'    => 'select',
 			'default' => '15',
-			'options' => array(
-				'21' => '21',
-				'20' => '20',
-				'19' => '19',
-				'18' => '18',
-				'17' => '17',
-				'16' => '16',
-				'15' => '15',
-				'14' => '14',
-				'13' => '13',
-				'12' => '12',
-				'11' => '11',
-				'10' => '10',
-				'9'  => '9',
-				'8'  => '8',
-				'7'  => '7',
-				'6'  => '6',
-				'5'  => '5',
-				'4'  => '4',
-				'3'  => '3',
-				'2'  => '2',
-				'1'  => '1',
-				'0'  => '0',
-
+			'options' => apply_filters( 'gmb_map_zoom_levels', array(
+					'21' => '21',
+					'20' => '20',
+					'19' => '19',
+					'18' => '18',
+					'17' => '17',
+					'16' => '16',
+					'15' => '15',
+					'14' => '14',
+					'13' => '13',
+					'12' => '12',
+					'11' => '11',
+					'10' => '10',
+					'9'  => '9',
+					'8'  => '8',
+					'7'  => '7',
+					'6'  => '6',
+					'5'  => '5',
+					'4'  => '4',
+					'3'  => '3',
+					'2'  => '2',
+					'1'  => '1',
+					'0'  => '0',
+				)
 			)
 		) );
 
@@ -490,7 +490,7 @@ class Google_Maps_Builder_Admin {
 
 		$control_options = cmb2_get_metabox( array(
 			'id'           => 'google_maps_control_options',
-			'title'        => __( 'Google Map Control Options', $this->plugin_slug ),
+			'title'        => __( 'Map Controls', $this->plugin_slug ),
 			'object_types' => array( 'google_maps' ), // post type
 			'context'      => 'side', //  'normal', 'advanced', or 'side'
 			'priority'     => 'default', //  'high', 'core', 'default' or 'low'

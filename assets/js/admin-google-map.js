@@ -689,7 +689,7 @@ var gmb_data;
 				map     : map,
 				zIndex  : 9,
 				icon    : marker_icon_data,
-				label   : marker_label_data
+				custom_label   : marker_label_data
 			} );
 
 			//Add event listener to new marker
@@ -797,7 +797,7 @@ var gmb_data;
 				map   : map,
 				zIndex: 9,
 				icon  : marker_icon,
-				label : marker_label
+				custom_label : marker_label
 			} );
 
 			var marker_lat = $( '#gmb_markers_group_' + index + '_lat' ).val();
@@ -1342,7 +1342,7 @@ var gmb_data;
 				strokeWeight: 0,
 				scale       : 1 / 4
 			},
-			label    : '<i class="map-icon-crosshairs radius-label"></i>',
+			custom_label    : '<i class="map-icon-crosshairs radius-label"></i>',
 			zIndex   : google.maps.Marker.MAX_ZINDEX + 1,
 			optimized: false
 		} );

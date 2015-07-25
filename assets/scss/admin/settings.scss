@@ -65,9 +65,11 @@ Header
 }
 
 .gmb-plugin-heading {
-  width: 170px;
-  float: left;
-  margin: 9px 0 0;
+  display: none;
+}
+
+.gmb-plugin-heading + #Layer_1 {
+  margin:0 10px 0 5px;
 }
 
 /* Social Media */
