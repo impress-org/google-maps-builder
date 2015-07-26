@@ -6,15 +6,17 @@
  * @copyright   Copyright (c) 2015, WordImpress
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
 */
+
 /*-------------------------------------
 Magnific Builder
 ---------------------------------------*/
 .magnific-builder#poststuff {
-
-
+  position: relative;
   margin: 20px;
   padding: 0;
   background: #EEE;
+  width: auto;
+  overflow: hidden;
 
   #cmb2-metabox-google_maps_preview_metabox {
 	> div {
@@ -42,20 +44,37 @@ Magnific Builder
 /* Magnific Builder Sidebar */
 
 .magnific-builder#poststuff {
+
   #postbox-container-1 {
-    margin-left: 0;
-    width: 300px !important;
+	margin-left: 0;
+	padding: 65px 0;
+	width: 300px !important;
+	#side-sortables {
+	  border-left: 1px solid #DDD;
+	  border-bottom: 1px solid #DDD;
+	  background-color: #F7F7F7;
+	  overflow-y: auto;
+	  overflow-x: hidden;
+	  height: 100%;
+	  min-height: 100%;
+	  position: relative;
+	}
+
   }
 
   #post-body.columns-2 #side-sortables {
-    margin-right: 0;
-    width: 300px !important;
+	margin-right: 0;
+	width: 300px !important;
   }
   .postbox {
-    margin: 0;
-    border-left: none;
-    border-right: none;
-    border-bottom: none;
+	margin: 0;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+
+	&:last-of-type {
+	  border-bottom: 1px solid #DDD;
+	}
   }
 
 }

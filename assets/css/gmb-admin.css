@@ -37,7 +37,7 @@
   height: 100%;
   left: 0;
   top: 0;
-  padding: 0 8px;
+  padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -57,7 +57,8 @@
   vertical-align: middle;
   margin: 0 auto;
   text-align: left;
-  z-index: 100003; }
+  z-index: 100003;
+  box-sizing: border-box; }
 
 .mfp-inline-holder .mfp-content, .mfp-ajax-holder .mfp-content {
   width: 100%;
@@ -327,8 +328,8 @@ img.mfp-img {
 
 @media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
   /**
-		 * Remove all paddings around the image on small screen
-		 */
+	   * Remove all paddings around the image on small screen
+	   */
   .mfp-img-mobile .mfp-image-holder {
     padding-left: 0;
     padding-right: 0; }
@@ -377,8 +378,7 @@ img.mfp-img {
     -webkit-transform-origin: 100%;
     transform-origin: 100%; }
   .mfp-container {
-    padding-left: 6px;
-    padding-right: 6px; } }
+    padding: 0; } }
 
 .mfp-ie7 .mfp-img {
   padding: 0; }
@@ -928,9 +928,12 @@ img.mfp-img {
 Magnific Builder
 ---------------------------------------*/
 .magnific-builder#poststuff {
+  position: relative;
   margin: 20px;
   padding: 0;
-  background: #EEE; }
+  background: #EEE;
+  width: auto;
+  overflow: hidden; }
   .magnific-builder#poststuff #cmb2-metabox-google_maps_preview_metabox > div {
     padding-top: 0; }
 
@@ -947,7 +950,17 @@ Magnific Builder
 /* Magnific Builder Sidebar */
 .magnific-builder#poststuff #postbox-container-1 {
   margin-left: 0;
+  padding: 65px 0;
   width: 300px !important; }
+  .magnific-builder#poststuff #postbox-container-1 #side-sortables {
+    border-left: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    background-color: #F7F7F7;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    min-height: 100%;
+    position: relative; }
 .magnific-builder#poststuff #post-body.columns-2 #side-sortables {
   margin-right: 0;
   width: 300px !important; }
@@ -956,6 +969,8 @@ Magnific Builder
   border-left: none;
   border-right: none;
   border-bottom: none; }
+  .magnific-builder#poststuff .postbox:last-of-type {
+    border-bottom: 1px solid #DDD; }
 
 /* No Dragging */
 .magnific-builder .postbox .hndle {

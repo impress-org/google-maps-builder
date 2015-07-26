@@ -13,8 +13,10 @@ var gmb_data;
 
 		var poststuff = $( '#poststuff' ),
 			postboxes = $( '.postbox' ),
+			map = $( '#map' ),
 			placeholder_id,
-			placeholder_gid = 0;
+			placeholder_gid = 0,
+			viewport = $( window ).height() - 40;
 
 		//Initialize Magnific Too
 		$.magnificPopup.open( {
@@ -23,7 +25,8 @@ var gmb_data;
 
 				beforeOpen: function () {
 
-					poststuff.addClass( 'magnific-builder' );
+
+					lightbox_resize();
 
 					//Move metaboxes to sidebar and hide other none-GMB metaboxes in Magnific modal
 					postboxes.each( function ( index, value ) {
@@ -68,8 +71,10 @@ var gmb_data;
 
 
 				},
-
-				close: function () {
+				resize    : function () {
+					lightbox_resize();
+				},
+				close     : function () {
 					postboxes.removeClass( 'mfp-hide' );
 					poststuff.removeClass( 'mfp-hide' );
 					poststuff.removeClass( 'magnific-builder' );
@@ -90,19 +95,16 @@ var gmb_data;
 							.unwrap() // Remove the placeholder
 							.data( 'placeholder', undefined );  // Unset placeholder data
 
-						//Reinstate original metabox toggling
-						$( this ).off( 'click', '.hndle', gmb_toggle_metaboxes );
 					} );
 
 
 				}
-			},
-
-			items   : {
+			},//end callbacks
+			items    : {
 				src : poststuff,
 				type: 'inline'
 			},
-			midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+			midClick : true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
 		} );
 
 		/**
@@ -110,25 +112,21 @@ var gmb_data;
 		 * @param postbox
 		 */
 		function gmb_close_metaboxes( postbox ) {
-			//Close all metaboxes by default
 			if ( postbox.attr( 'id' ) === 'google_maps_preview_metabox' ) {
+				//ensure Gmap metabox always is open
 				postbox.removeClass( 'closed' );
 			} else {
-				//Close other metaboxes
+				//Close all other GMB metaboxes by default
 				postbox.addClass( 'closed' );
-
-				postbox.find( '.hndle' ).on( 'click', gmb_toggle_metaboxes );
+				//Ensure max height is applied to sidebar
+				//$( '.magnific-builder #side-sortables' ).height( $( window ).height() - 120 );
 			}
 		}
 
-		/**
-		 * GMB Toggle Metaboxes
-		 *
-		 * @param metabox
-		 */
-		function gmb_toggle_metaboxes( metabox ) {
-			console.log( postboxes );
-			postboxes.not( '#google_maps_preview_metabox' ).addClass( 'closed' )
+		function lightbox_resize() {
+			poststuff.addClass( 'magnific-builder' ).height( viewport );
+			$( '#map' ).height( viewport );
+			$( '#postbox-container-1' ).outerHeight( viewport );
 		}
 
 	} );

@@ -107,8 +107,8 @@ gulp.task( 'scripts', function () {
 		.pipe( notify( {
 			message: 'Scripts task complete!',
 			onLast : true //only notify on completion of task (prevents multiple notifications per file)
-		} ) )
-		.pipe( livereload() );
+		} ) );
+		//.pipe( livereload() );
 } );
 
 

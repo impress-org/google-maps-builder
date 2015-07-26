@@ -179,15 +179,6 @@ var gmb_data;
 		$( '#gmb_zoom_control' ).change( function () {
 			set_map_zoom_control();
 		} );
-		//Width/Height
-		$( "#gmb_width_height-width, #gmb_width_height-height" ).keyup( function () {
-			delay( function () {
-				set_map_size();
-			}, 500 );
-		} );
-		$( 'input[name="gmb_width_height[map_width_unit]"]' ).change( function () {
-			set_map_size();
-		} );
 
 	} ); //End Window Load
 
@@ -1397,20 +1388,6 @@ var gmb_data;
 		} );
 
 	}
-
-	/**
-	 * Set Map Size
-	 */
-	function set_map_size() {
-		var map_width = $( '#gmb_width_height-width' ).val();
-		var map_width_value = $( 'input[name="gmb_width_height[map_width_unit]"]:checked' ).val();
-		var map_height = $( '#gmb_width_height-height' ).val();
-		$( '#map' ).css( {
-			'width' : map_width + map_width_value,
-			'height': map_height
-		} );
-	}
-
 
 	/**
 	 * Set Zoom Control
