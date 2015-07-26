@@ -101,14 +101,7 @@
 
 	label {
 	  font-weight: normal;
-	  padding: 6px 8px;
-	  border: 1px solid #E4E4E4;
-	  background: #f5f5f5;
-
-	  &:hover {
-		background: #EEE;
-	  }
-
+	  padding: 6px 8px 10px 0;
 	}
 
   }
@@ -124,18 +117,4 @@
 
   }
 
-}
-
-//Hide borders
-#poststuff .inner-sidebar .cmb-th label:after, #side-sortables .cmb-th label:after {
-  content: '';
-  width: 0;
-  height: 0;
-  border-color: #CCC transparent;
-  border-style: solid;
-  border-width: 4px 4px 0;
-  position: absolute;
-  top: 14px;
-  right: 12px;
-  z-index: 1;
 }

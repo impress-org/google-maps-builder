@@ -981,9 +981,6 @@ Magnific Builder
 .clear:after {
   clear: both; }
 
-.post-type-google_maps #side-sortables .cmb-th + .cmb-td {
-  display: none; }
-
 .hover-transition, .marker-icon-row .icon, .marker-row .marker-item {
   -webkit-transition: 0.2s all linear;
   -moz-transition: 0.2s all linear;
@@ -1611,28 +1608,12 @@ CMB2
   position: relative; }
   #poststuff .inner-sidebar .cmb-th label, #poststuff #side-sortables .cmb-th label {
     font-weight: normal;
-    padding: 6px 8px;
-    border: 1px solid #E4E4E4;
-    background: #f5f5f5; }
-    #poststuff .inner-sidebar .cmb-th label:hover, #poststuff #side-sortables .cmb-th label:hover {
-      background: #EEE; }
+    padding: 6px 8px 10px 0; }
 #poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-group-title, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-group-title {
   margin: 0;
   padding: 6px 8px 6px 30px;
   font-weight: normal;
   cursor: pointer; }
-
-#poststuff .inner-sidebar .cmb-th label:after, #side-sortables .cmb-th label:after {
-  content: '';
-  width: 0;
-  height: 0;
-  border-color: #CCC transparent;
-  border-style: solid;
-  border-width: 4px 4px 0;
-  position: absolute;
-  top: 14px;
-  right: 12px;
-  z-index: 1; }
 
 /*!
  * Maps Builder Admin Settings Pages SCSS/CSS
@@ -1751,8 +1732,7 @@ Map Options Tab
 #lat-lng-wrap {
   float: left;
   clear: both;
-  margin: 15px 0 0;
-  display: none; }
+  margin: 15px 0 0; }
 
 label.geocode-label {
   width: 130px;
