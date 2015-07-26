@@ -685,11 +685,11 @@ var gmb_data;
 
 			//Update Icon
 			marker = new Marker( {
-				position: marker_position,
-				map     : map,
-				zIndex  : 9,
-				icon    : marker_icon_data,
-				custom_label   : marker_label_data
+				position    : marker_position,
+				map         : map,
+				zIndex      : 9,
+				icon        : marker_icon_data,
+				custom_label: marker_label_data
 			} );
 
 			//Add event listener to new marker
@@ -794,10 +794,10 @@ var gmb_data;
 
 			//Marker for map
 			var location_marker = new Marker( {
-				map   : map,
-				zIndex: 9,
-				icon  : marker_icon,
-				custom_label : marker_label
+				map         : map,
+				zIndex      : 9,
+				icon        : marker_icon,
+				custom_label: marker_label
 			} );
 
 			var marker_lat = $( '#gmb_markers_group_' + index + '_lat' ).val();
@@ -1332,9 +1332,9 @@ var gmb_data;
 
 		//update marker with set marker
 		radius_marker = new Marker( {
-			position : map.getCenter(),
-			map      : map,
-			icon     : {
+			position    : map.getCenter(),
+			map         : map,
+			icon        : {
 				path        : MAP_PIN,
 				fillColor   : '#0E77E9',
 				fillOpacity : 0,
@@ -1342,9 +1342,9 @@ var gmb_data;
 				strokeWeight: 0,
 				scale       : 1 / 4
 			},
-			custom_label    : '<i class="map-icon-crosshairs radius-label"></i>',
-			zIndex   : google.maps.Marker.MAX_ZINDEX + 1,
-			optimized: false
+			custom_label: '<i class="map-icon-crosshairs radius-label"></i>',
+			zIndex      : google.maps.Marker.MAX_ZINDEX + 1,
+			optimized   : false
 		} );
 
 		radius_circle = new google.maps.Circle( {
@@ -1712,3 +1712,4 @@ var gmb_data;
 	}
 
 }( jQuery ));
+

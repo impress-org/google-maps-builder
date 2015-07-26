@@ -95,6 +95,23 @@ gulp.task( 'frontend_styles', function () {
 } );
 
 
+/* JS
+ ------------------------------------- */
+gulp.task( 'scripts', function () {
+	return gulp.src( source_paths.scripts )
+		.pipe( uglify( {
+			preserveComments: 'all'
+		} ) )
+		.pipe( rename( {suffix: ".min"} ) )
+		.pipe( gulp.dest( 'assets/js' ) )
+		.pipe( notify( {
+			message: 'Scripts task complete!',
+			onLast : true //only notify on completion of task (prevents multiple notifications per file)
+		} ) )
+		.pipe( livereload() );
+} );
+
+
 /* Watch Files For Changes
  ------------------------------------- */
 gulp.task( 'watch', function () {
@@ -136,6 +153,6 @@ var onError = function ( err ) {
 /* Default Gulp task
  ------------------------------------- */
 gulp.task( 'default', function () {
-	gulp.start( 'admin_styles', 'frontend_styles', 'watch' );
+	gulp.start( 'admin_styles', 'frontend_styles', 'scripts', 'watch' );
 	notify( {message: 'Default task complete'} )
 } );
