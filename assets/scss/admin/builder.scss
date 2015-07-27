@@ -12,7 +12,6 @@
   clear: both;
 }
 
-
 .hover-transition, .marker-icon-row .icon, .marker-row .marker-item {
   -webkit-transition: 0.2s all linear;
   -moz-transition: 0.2s all linear;
@@ -87,7 +86,6 @@
 	width: 100%;
   }
 }
-
 
 /*------------------------------------------
  Messages
@@ -292,29 +290,28 @@
 }
 
 /* Ratings */
-#infobubble-content .rating-wrap {
-  overflow: hidden;
-}
-
-#infobubble-content .numeric-rating {
-  font-size: 16px;
-  color: #DD4B39;
-  font-weight: 400;
-  float: left;
-  margin: 0 5px 0 0;
-}
-
-#infobubble-content .star-rating-wrap {
-  background: url('../img/review_stars.png') no-repeat 0 0 transparent;
-  height: 13px;
-  width: 67px;
-  float: left;
-  margin: 1px 0 0;
-}
-
-#infobubble-content .star-rating-size {
-  background: url('../img/review_stars.png') no-repeat 0 -13px transparent;
-  height: 13px;
+#infobubble-content {
+  .rating-wrap {
+	overflow: hidden;
+  }
+  .numeric-rating {
+	font-size: 16px;
+	color: #DD4B39;
+	font-weight: 400;
+	float: left;
+	margin: 0 5px 0 0;
+  }
+  .star-rating-wrap {
+	background: url('../img/review_stars.png') no-repeat 0 0 transparent;
+	height: 13px;
+	width: 67px;
+	float: left;
+	margin: 4px 0 0;
+  }
+  .star-rating-size {
+	background: url('../img/review_stars.png') no-repeat 0 -13px transparent;
+	height: 13px;
+  }
 }
 
 /*------------------------------------------
@@ -411,6 +408,7 @@ Autocomplete Metabox
 #google_maps_metabox .autocomplete-wrap p {
   font-style: italic;
   margin-bottom: 5px !important;
+  color: #aaaaaa;
 }
 
 #google_maps_metabox a.drop-marker {

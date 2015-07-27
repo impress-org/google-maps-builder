@@ -935,14 +935,16 @@ img.mfp-img {
 /*-------------------------------------
 Magnific Builder
 ---------------------------------------*/
-.magnific-builder#poststuff {
+.magnific-builder#post {
   position: relative;
   margin: 20px;
   padding: 0;
   background: #EEE;
   width: auto;
   overflow: hidden; }
-  .magnific-builder#poststuff #cmb2-metabox-google_maps_preview_metabox > div {
+  .magnific-builder#post #poststuff {
+    padding-top: 0; }
+  .magnific-builder#post #cmb2-metabox-google_maps_preview_metabox > div {
     padding-top: 0; }
 
 .magnific-builder #titlediv, .magnific-builder #submitdiv, .magnific-builder #google_maps_preview_metabox .handlediv, .magnific-builder #google_maps_preview_metabox .ui-sortable-handle, .magnific-builder #post-body-content, .magnific-builder #marker-icon-modal {
@@ -956,11 +958,11 @@ Magnific Builder
   padding: 0; }
 
 /* Magnific Builder Sidebar */
-.magnific-builder#poststuff #postbox-container-1 {
+.magnific-builder#post #postbox-container-1 {
   margin-left: 0;
   padding: 65px 0 50px;
   width: 300px !important; }
-  .magnific-builder#poststuff #postbox-container-1 #side-sortables {
+  .magnific-builder#post #postbox-container-1 #side-sortables {
     border-left: 1px solid #DDD;
     border-bottom: 1px solid #DDD;
     background-color: #F7F7F7;
@@ -969,19 +971,45 @@ Magnific Builder
     height: 100%;
     min-height: 100%;
     position: relative; }
-  .magnific-builder#poststuff #postbox-container-1 .magnific-submit {
+  .magnific-builder#post #postbox-container-1 .magnific-submit {
     position: absolute;
     bottom: 10px;
-    right: 10px; }
-.magnific-builder#poststuff #post-body.columns-2 #side-sortables {
+    right: 10px;
+    display: block; }
+  .magnific-builder#post #postbox-container-1 .cmb2-metabox-description {
+    font-size: 13px;
+    padding: 5px 0;
+    line-height: 18px; }
+  .magnific-builder#post #postbox-container-1 .cmb2-id-gmb-places-search-multicheckbox ul li {
+    width: 50%;
+    position: relative; }
+    .magnific-builder#post #postbox-container-1 .cmb2-id-gmb-places-search-multicheckbox ul li .cmb2-option {
+      position: absolute;
+      top: 0;
+      left: 0; }
+    .magnific-builder#post #postbox-container-1 .cmb2-id-gmb-places-search-multicheckbox ul li label {
+      padding-left: 25px;
+      display: block;
+      padding-right: 3px; }
+  .magnific-builder#post #postbox-container-1 a.drop-marker {
+    margin-top: 10px;
+    display: block;
+    width: 100px;
+    text-align: center; }
+  .magnific-builder#post #postbox-container-1 .white-popup {
+    display: none; }
+  .magnific-builder#post #postbox-container-1 .places-change-message .button {
+    margin-bottom: 10px;
+    float: left; }
+.magnific-builder#post #post-body.columns-2 #side-sortables {
   margin-right: 0;
   width: 300px !important; }
-.magnific-builder#poststuff .postbox {
+.magnific-builder#post .postbox {
   margin: 0;
   border-left: none;
   border-right: none;
   border-bottom: none; }
-  .magnific-builder#poststuff .postbox:last-of-type {
+  .magnific-builder#post .postbox:last-of-type {
     border-bottom: 1px solid #DDD; }
 
 /* No Dragging */
@@ -992,11 +1020,19 @@ Magnific Builder
   color: #23282d;
   background: #f5f5f5; }
 
-.magnific-builder#poststuff .places-loading {
+.magnific-builder#post .places-loading {
   top: auto;
   right: auto;
   bottom: 0;
   left: 0; }
+
+#wpbody-content .magnific-submit {
+  display: none; }
+
+#map-builder {
+  position: absolute;
+  top: 22px;
+  left: 15px; }
 
 /**
  * Google Places Map CPT Styles TEST
@@ -1229,21 +1265,18 @@ Magnific Builder
 /* Ratings */
 #infobubble-content .rating-wrap {
   overflow: hidden; }
-
 #infobubble-content .numeric-rating {
   font-size: 16px;
   color: #DD4B39;
   font-weight: 400;
   float: left;
   margin: 0 5px 0 0; }
-
 #infobubble-content .star-rating-wrap {
   background: url('../img/review_stars.png') no-repeat 0 0 transparent;
   height: 13px;
   width: 67px;
   float: left;
-  margin: 1px 0 0; }
-
+  margin: 4px 0 0; }
 #infobubble-content .star-rating-size {
   background: url('../img/review_stars.png') no-repeat 0 -13px transparent;
   height: 13px; }
@@ -1323,7 +1356,8 @@ Autocomplete Metabox
 
 #google_maps_metabox .autocomplete-wrap p {
   font-style: italic;
-  margin-bottom: 5px !important; }
+  margin-bottom: 5px !important;
+  color: #aaaaaa; }
 
 #google_maps_metabox a.drop-marker {
   font-style: normal; }
@@ -1622,7 +1656,8 @@ CMB2
   margin-top: 0;
   padding-top: 12px; }
 #poststuff .inner-sidebar p.cmb2-metabox-description, #poststuff #side-sortables p.cmb2-metabox-description {
-  padding: 0; }
+  padding: 0;
+  font-weight: normal; }
 #poststuff .inner-sidebar .cmb-row, #poststuff #side-sortables .cmb-row {
   margin: 0;
   padding: 0;
@@ -1644,6 +1679,19 @@ CMB2
   padding: 6px 8px 6px 30px;
   font-weight: normal;
   cursor: pointer; }
+#poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-field-list, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-field-list {
+  border-left: 1px solid #EEE;
+  border-right: 1px solid #EEE; }
+#poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-remove-row, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-remove-row {
+  margin: 0;
+  padding: 0; }
+#poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-remove-group-row, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-remove-group-row {
+  top: 4px; }
+#poststuff .inner-sidebar #gmb_markers_group_repeat .cmbhandle, #poststuff #side-sortables #gmb_markers_group_repeat .cmbhandle {
+  right: 0;
+  top: -2px; }
+#poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-add-row, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-add-row {
+  margin: 15px 0 10px; }
 
 /*!
  * Maps Builder Admin Settings Pages SCSS/CSS

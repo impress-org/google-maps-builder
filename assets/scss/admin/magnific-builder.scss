@@ -10,13 +10,17 @@
 /*-------------------------------------
 Magnific Builder
 ---------------------------------------*/
-.magnific-builder#poststuff {
+.magnific-builder#post {
   position: relative;
   margin: 20px;
   padding: 0;
   background: #EEE;
   width: auto;
   overflow: hidden;
+
+  #poststuff {
+	padding-top: 0;
+  }
 
   #cmb2-metabox-google_maps_preview_metabox {
 	> div {
@@ -43,7 +47,7 @@ Magnific Builder
 
 /* Magnific Builder Sidebar */
 
-.magnific-builder#poststuff {
+.magnific-builder#post {
 
   #postbox-container-1 {
 	margin-left: 0;
@@ -64,7 +68,48 @@ Magnific Builder
 	  position: absolute;
 	  bottom: 10px;
 	  right: 10px;
+	  display: block;
 	}
+
+	.cmb2-metabox-description {
+	  font-size: 13px;
+	  padding: 5px 0;
+	  line-height: 18px;
+	}
+
+	.cmb2-id-gmb-places-search-multicheckbox {
+	  ul li {
+		width: 50%;
+		position: relative;
+		.cmb2-option {
+		  position: absolute;
+		  top:0;
+		  left:0;
+		}
+		label {
+		  padding-left: 25px;
+		  display: block;
+		  padding-right: 3px;
+		}
+	  }
+	}
+
+	a.drop-marker {
+	  margin-top:10px;
+	  display: block;
+	  width: 100px;
+	  text-align: center;
+	}
+
+	.white-popup {
+	  display: none;
+	}
+
+	.places-change-message .button {
+	  margin-bottom:10px;
+	  float:left;
+	}
+
   }
 
   #post-body.columns-2 #side-sortables {
@@ -95,9 +140,17 @@ Magnific Builder
   background: #f5f5f5;
 }
 
-.magnific-builder#poststuff .places-loading {
+.magnific-builder#post .places-loading {
   top: auto;
   right: auto;
   bottom: 0;
   left: 0;
+}
+#wpbody-content .magnific-submit {
+  display: none;
+}
+#map-builder {
+  position: absolute;
+  top: 22px;
+  left: 15px;
 }

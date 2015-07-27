@@ -82,6 +82,7 @@
 
   p.cmb2-metabox-description {
 	padding: 0;
+	font-weight: normal;
   }
 
   .cmb-row {
@@ -121,6 +122,28 @@
 	  padding: 6px 8px 6px 30px;
 	  font-weight: normal;
 	  cursor: pointer;
+	}
+
+	.cmb-field-list {
+	  border-left: 1px solid #EEE;
+	  border-right: 1px solid #EEE;
+	}
+
+	.cmb-remove-row {
+	  margin: 0;
+	  padding: 0;
+	}
+
+	.cmb-remove-group-row {
+	  top: 4px;
+	}
+
+	.cmbhandle {
+	  right:0;
+	  top:-2px;
+	}
+	.cmb-add-row {
+	  margin: 15px 0 10px;
 	}
 
   }
