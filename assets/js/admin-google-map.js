@@ -180,6 +180,15 @@ var gmb_data;
 			set_map_zoom_control();
 		} );
 
+		//Close repeaters
+		$( '#gmb_markers_group_repeat .cmb-repeatable-grouping' ).addClass( 'closed' );
+
+		//Add Repeater toggle button
+		$( '.toggle-repeater-groups' ).on( 'click', function ( e ) {
+			e.preventDefault();
+			$( '#gmb_markers_group_repeat .cmb-repeatable-grouping' ).toggleClass( 'closed' );
+		} );
+
 	} ); //End Window Load
 
 
@@ -289,9 +298,6 @@ var gmb_data;
 
 		map = new google.maps.Map( map_canvas[0], mapOptions );
 		places_service = new google.maps.places.PlacesService( map );
-
-		console.log(latitude);
-		console.log(longitude);
 
 		//Handle Map Geolocation
 		if ( navigator.geolocation && gmb_data.geolocate_setting === 'yes' && longitude == '' && latitude == '' ) {
@@ -1686,6 +1692,8 @@ var gmb_data;
 			type    : 'inline',
 			midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
 		} );
+
+
 	}
 
 }( jQuery ));

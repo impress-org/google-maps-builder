@@ -139,8 +139,8 @@
 	}
 
 	.cmbhandle {
-	  right:0;
-	  top:-2px;
+	  right: 0;
+	  top: -2px;
 	}
 	.cmb-add-row {
 	  margin: 15px 0 10px;
@@ -148,4 +148,25 @@
 
   }
 
+}
+
+//Non-magnific Builder Repeater styles
+#postbox-container-2 #cmb2-metabox-google_maps_markers {
+
+  .toggle-repeater-groups {
+	float: right;
+  }
+
+  .cmb-repeat-group-wrap {
+	padding: 0;
+  }
+
+  .cmb-group-description .cmb-th {
+	padding-right: 0;
+  }
+
+}
+
+p.cmb2-metabox-description {
+  font-weight: normal;
 }

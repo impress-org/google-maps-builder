@@ -181,7 +181,7 @@ class Google_Maps_Builder_Admin {
 		$group_field_id = $marker_box->add_field( array(
 			'id'          => $prefix . 'markers_group',
 			'type'        => 'group',
-			'description' => __( 'Map marker data is contained within the repeatable fields below. You may add or update marker data here in bulk.', $this->plugin_slug ),
+			'description' => __( 'Map marker data is contained within the repeatable fields below. You may add or update marker data here in bulk.', $this->plugin_slug ) . '<a href="#" class="button button-small toggle-repeater-groups">' . __( 'Toggle Marker Groups', $this->plugin_slug ) . '</a>',
 			'options'     => array(
 				'group_title'   => __( 'Marker: {#}', 'cmb' ),
 				'add_button'    => __( 'Add Another Marker', $this->plugin_slug ),
