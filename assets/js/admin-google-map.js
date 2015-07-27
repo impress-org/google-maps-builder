@@ -340,20 +340,28 @@ var gmb_data;
 		//Setup Autocomplete field if undefined
 		if ( typeof(autocomplete) == 'undefined' ) {
 
-			autocomplete = new google.maps.places.Autocomplete( $( '#gmb_geocoder' )[0] );
+			var autocomplete_el = $( '#gmb_geocoder' );
+
+			autocomplete = new google.maps.places.Autocomplete( autocomplete_el[0] );
 			autocomplete.bindTo( 'bounds', map );
+
+			//Tame the enter key to not save the widget while using the autocomplete input
+			google.maps.event.addDomListener(autocomplete_el[0], 'keydown', function(e) {
+			    if (e.keyCode == 13) {
+			        e.preventDefault();
+			    }
+			  });
 
 			//Autocomplete event listener
 			google.maps.event.addListener( autocomplete, 'place_changed', function () {
 
 				//Clear autocomplete input value
-				$( '#gmb_geocoder' ).one( 'blur', function () {
-					$( '#gmb_geocoder' ).val( "" );
+				autocomplete_el.one( 'blur', function () {
+					autocomplete_el.val( '' );
 				} );
 				setTimeout( function () {
-					$( '#gmb_geocoder' ).val( "" );
+					autocomplete_el.val( '' );
 				}, 10 );
-
 
 				if ( typeof tentative_location_marker !== 'undefined' ) {
 					tentative_location_marker.setVisible( false );
@@ -1251,7 +1259,7 @@ var gmb_data;
 				//if more than one result ask the user which one?
 				if ( results.length > 1 ) {
 
-					info_bubble_content = '<div id="infobubble-content"><p>Hmm, it looks like there are multiple places in this area. Please confirm which place you would like this marker to display:</p>';
+					info_bubble_content = '<div id="infobubble-content"><p>' + gmb_data.string_multiple_places + '</p>';
 
 					for ( var i = 0; i < results.length; i++ ) {
 						info_bubble_content += '<a class="marker-confirm-place"  data-place_id="' + results[i].place_id + '" data-name-address="' + results[i].name + ', ' + results[i].vicinity + '">' + results[i].name + '</a>';
