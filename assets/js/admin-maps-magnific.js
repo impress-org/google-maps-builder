@@ -14,6 +14,7 @@ var gmb_data;
 		var poststuff = $( '#poststuff' ),
 			postboxes = $( '.postbox' ),
 			map = $( '#map' ),
+			submit_btn = '<input name="save" type="submit" class="button button-primary button-large magnific-submit" id="publish" value="Update">',
 			placeholder_id,
 			placeholder_gid = 0,
 			viewport = $( window ).height() - 40;
@@ -25,8 +26,12 @@ var gmb_data;
 
 				beforeOpen: function () {
 
-
 					lightbox_resize();
+
+					//Add save button
+					if ( $( '.magnific-submit' ).length === 0 ) {
+						$( '.magnific-builder #postbox-container-1' ).append( submit_btn );
+					}
 
 					//Move metaboxes to sidebar and hide other none-GMB metaboxes in Magnific modal
 					postboxes.each( function ( index, value ) {
@@ -129,6 +134,11 @@ var gmb_data;
 			$( '#map' ).height( viewport );
 			$( '#postbox-container-1' ).outerHeight( viewport );
 		}
+
+		//Submit button works
+		$( 'body' ).on( 'click', '.magnific-submit', function ( e ) {
+			$( 'form#post' ).submit();
+		} );
 
 	} );
 }( jQuery ));

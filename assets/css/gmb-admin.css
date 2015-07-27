@@ -958,7 +958,7 @@ Magnific Builder
 /* Magnific Builder Sidebar */
 .magnific-builder#poststuff #postbox-container-1 {
   margin-left: 0;
-  padding: 65px 0;
+  padding: 65px 0 50px;
   width: 300px !important; }
   .magnific-builder#poststuff #postbox-container-1 #side-sortables {
     border-left: 1px solid #DDD;
@@ -969,6 +969,10 @@ Magnific Builder
     height: 100%;
     min-height: 100%;
     position: relative; }
+  .magnific-builder#poststuff #postbox-container-1 .magnific-submit {
+    position: absolute;
+    bottom: 10px;
+    right: 10px; }
 .magnific-builder#poststuff #post-body.columns-2 #side-sortables {
   margin-right: 0;
   width: 300px !important; }

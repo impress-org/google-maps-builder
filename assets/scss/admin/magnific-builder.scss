@@ -47,7 +47,7 @@ Magnific Builder
 
   #postbox-container-1 {
 	margin-left: 0;
-	padding: 65px 0;
+	padding: 65px 0 50px;
 	width: 300px !important;
 	#side-sortables {
 	  border-left: 1px solid #DDD;
@@ -60,12 +60,18 @@ Magnific Builder
 	  position: relative;
 	}
 
+	.magnific-submit {
+	  position: absolute;
+	  bottom: 10px;
+	  right: 10px;
+	}
   }
 
   #post-body.columns-2 #side-sortables {
 	margin-right: 0;
 	width: 300px !important;
   }
+
   .postbox {
 	margin: 0;
 	border-left: none;
