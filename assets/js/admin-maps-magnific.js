@@ -78,6 +78,7 @@ var gmb_data;
 					postboxes.removeClass( 'mfp-hide' );
 					poststuff.removeClass( 'mfp-hide' );
 					poststuff.removeClass( 'magnific-builder' );
+					$( '#postbox-container-1' ).outerHeight( '' );
 
 					//reenable metabox dragging/sorting
 					if ( typeof $.fn.sortable !== 'undefined' ) {

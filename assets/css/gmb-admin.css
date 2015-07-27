@@ -401,6 +401,14 @@ img.mfp-img {
   right: 0;
   padding-top: 0; }
 
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px 20px 50px;
+  width: auto;
+  max-width: 600px;
+  margin: 20px auto; }
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1624,6 +1632,9 @@ CMB2
   #poststuff .inner-sidebar .cmb-th label, #poststuff #side-sortables .cmb-th label {
     font-weight: normal;
     padding: 6px 8px 10px 0; }
+#poststuff .inner-sidebar .cmb-td.cmb-nested, #poststuff #side-sortables .cmb-td.cmb-nested {
+  padding-left: 12px;
+  padding-right: 12px; }
 #poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-group-title, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-group-title {
   margin: 0;
   padding: 6px 8px 6px 30px;
@@ -1744,11 +1755,6 @@ Map Options Tab
   width: 55px !important; }
 
 /* Lat Lng */
-#lat-lng-wrap {
-  float: left;
-  clear: both;
-  margin: 15px 0 0; }
-
 label.geocode-label {
   width: 130px;
   margin-right: 0; }
