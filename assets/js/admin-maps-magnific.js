@@ -69,7 +69,6 @@ var gmb_data;
 							} else {
 								//hide non GMB metaboxes
 								$( this ).addClass( 'mfp-hide' );
-
 							}
 
 							//Disable metabox dragging/sorting
@@ -119,7 +118,7 @@ var gmb_data;
 					src : poststuff,
 					type: 'inline'
 				},
-				midClick : true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+				midClick : true
 			} );
 
 		}
@@ -144,7 +143,6 @@ var gmb_data;
 			poststuff.addClass( 'magnific-builder' ).height( viewport );
 			$( '#map' ).height( viewport );
 			$( '#postbox-container-1' ).outerHeight( viewport );
-			console.log('here');
 		}
 
 		//Submit button works

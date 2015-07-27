@@ -355,6 +355,7 @@ class Google_Maps_Builder_Scripts {
 		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
 
 			wp_enqueue_script( 'colorpicker' );
+			wp_enqueue_style( 'wp-color-picker' );
 
 			wp_register_script( $this->plugin_slug . '-admin-magnific-popup', GMB_PLUGIN_URL . 'assets/js/gmb-magnific' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-admin-magnific-popup' );

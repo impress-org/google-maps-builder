@@ -635,7 +635,7 @@ var gmb_data;
 
 		} );
 
-		//Infowindow pin icon click to open ThickBox modal
+		//Infowindow pin icon click to open magnific modal
 		var edit_marker_icon_button_click = google.maps.event.addDomListener( $( '.marker-edit-link-wrap' )[0], 'click', function () {
 			$( '.save-marker-button' ).attr( 'data-marker-index', $( this ).data( 'index' ) ); //Set the index for this marker
 		} );
@@ -1688,9 +1688,38 @@ var gmb_data;
 			}
 		} );
 		//Initialize Magnific Too
-		$( '.gmb-magnific-inline' ).magnificPopup( {
-			type    : 'inline',
-			midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+		$( '.gmb-magnific-inline' ).on( 'click', function () {
+			if ( $.magnificPopup.instance.isOpen === true ) {
+
+				//We can't have a magnific inside magnific so CSS3 modal it is
+				var target = $( this ).attr( 'href' );
+
+				//Open CSS modal
+				$( target ).before( '<div class="modal-placeholder"></div>' ) // Save a DOM "bookmark"
+					.removeClass( 'mfp-hide' ) //ensure it's visible
+					.appendTo( '.magnific-builder #poststuff' ); // Move the element to container
+
+				//Add close functionality
+				$( '.magnific-builder .white-popup' ).on( 'click', function ( e ) {
+					if ( e.target.className === 'white-popup' ) {
+						// Move back out of container
+						$( this )
+							.appendTo( '.modal-placeholder' )  // Move it back to it's proper location
+							.unwrap(); // Remove the placeholder
+					}
+
+				} );
+
+
+			} else {
+				$.magnificPopup.open( {
+					items   : {
+						src : $( '#marker-icon-modal' ),
+						type: 'inline'
+					},
+					midClick: true
+				} );
+			}
 		} );
 
 

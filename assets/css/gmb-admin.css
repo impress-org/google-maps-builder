@@ -1034,6 +1034,36 @@ Magnific Builder
   display: block;
   text-align: center; }
 
+.magnific-builder #poststuff .white-popup {
+  position: absolute;
+  max-width: none;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100008;
+  opacity: 1;
+  background: rgba(250, 250, 250, 0.8);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  overflow-y: auto; }
+  .magnific-builder #poststuff .white-popup .inner-modal {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #FFF;
+    padding: 20px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.45); }
+    .magnific-builder #poststuff .white-popup .inner-modal h3 {
+      margin: 0 0 15px;
+      font-size: 16px;
+      padding: 0; }
+  .magnific-builder #poststuff .white-popup .save-marker-icon {
+    position: relative;
+    border: none;
+    margin-top: 15px; }
+
 /**
  * Google Places Map CPT Styles TEST
  */
@@ -1697,6 +1727,9 @@ CMB2
 
 p.cmb2-metabox-description {
   font-weight: normal; }
+
+a.wp-color-result {
+  height: 24px; }
 
 /*!
  * Maps Builder Admin Settings Pages SCSS/CSS
