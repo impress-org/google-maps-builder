@@ -290,6 +290,8 @@ var gmb_data;
 		map = new google.maps.Map( map_canvas[0], mapOptions );
 		places_service = new google.maps.places.PlacesService( map );
 
+		console.log(latitude);
+		console.log(longitude);
 
 		//Handle Map Geolocation
 		if ( navigator.geolocation && gmb_data.geolocate_setting === 'yes' && longitude == '' && latitude == '' ) {
@@ -307,9 +309,7 @@ var gmb_data;
 			map.setCenter( new google.maps.LatLng( latitude, longitude ) );
 
 		}
-		// Browser doesn't support Geolocation
 		else {
-			alert( 'Geolocation service failed.' );
 			initial_location = new google.maps.LatLng( gmb_data.default_lat, gmb_data.default_lng );
 			lat_field.val( gmb_data.default_lat ); //set lat field
 			lng_field.val( gmb_data.default_lng ); //set lng field

@@ -84,7 +84,7 @@ class Google_Maps_Builder_Admin {
 
 		//Only enqueue scripts for CPT on post type screen
 		if ( 'google_maps' === $post->post_type ) {
-			echo '<a href="#" class="button button-primary" id="map-builder">' . __( 'Open Builder', $this->plugin_slug ) . '</a>';
+			echo '<a href="#" class="button button-primary" id="map-builder">' . __( 'Open Map Builder', $this->plugin_slug ) . '</a>';
 			//Shortcode column with select all input
 			$shortcode = htmlentities( '[google_maps id="' . $post->ID . '"]' );
 			echo '<div class="shortcode-wrap box-sizing"><label>' . __( 'Map Shortcode:', $this->plugin_slug ) . '</label><input onClick="this.setSelectionRange(0, this.value.length)" type="text" class="shortcode-input" readonly value="' . $shortcode . '"></div>';

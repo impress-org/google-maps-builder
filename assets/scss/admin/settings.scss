@@ -69,7 +69,7 @@ Header
 }
 
 .gmb-plugin-heading + #Layer_1 {
-  margin:0 10px 0 5px;
+  margin: 0 10px 0 5px;
 }
 
 /* Social Media */
@@ -163,6 +163,10 @@ Map Options Tab
 }
 
 /* Lat Lng */
+#geolocate-wrap {
+  margin: 0 0 15px;
+}
+
 label.geocode-label {
   width: 130px;
   margin-right: 0;
@@ -178,7 +182,7 @@ label.yes-label {
 }
 
 .lat-lng-wrap {
-  margin: 0 0 10px;
+  margin: 0 20px 10px 0;
   clear: none;
   > span, > input {
 	float: left;

@@ -42,7 +42,7 @@ class Google_Maps_Builder_Settings {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 		add_action( 'wp_ajax_hide_welcome', array( $this, 'hide_welcome_callback' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_pointer_script_style' ) );
-		add_action( 'cmb_render_lat_lng_default', array( $this, 'cmb_render_lat_lng_default' ), 10, 2 );
+		add_action( 'cmb2_render_lat_lng_default', array( $this, 'cmb2_render_lat_lng_default' ), 10, 2 );
 
 		//Add links/information to plugin row meta
 		add_filter( 'plugin_row_meta', array( $this, 'add_plugin_meta_links' ), 10, 2 );
@@ -290,7 +290,7 @@ class Google_Maps_Builder_Settings {
 	 * @param $field
 	 * @param $meta
 	 */
-	function cmb_render_lat_lng_default( $field, $meta ) {
+	function cmb2_render_lat_lng_default( $field, $meta ) {
 
 		$meta = wp_parse_args(
 			$meta, array(
@@ -301,25 +301,25 @@ class Google_Maps_Builder_Settings {
 		);
 
 		//Geolocate
-		$output = '<div id="width_wrap" class="clear">';
+		$output = '<div id="geolocate-wrap" class="clear">';
 		$output .= '<label class="geocode-label size-label">' . __( 'Geolocate Position', $this->plugin_slug ) . ':</label>';
 		$output .= '<div id="size_labels_wrap" class="geolocate-radio-wrap">';
-		$output .= '<input id="geolocate_map_yes" type="radio" name="' . $field['id'] . '[geolocate_map]" class="geolocate_map_radio radio-left" value="yes" ' . ( $meta['geolocate_map'] === 'yes' ? 'checked="checked"' : '' ) . '><label class="yes-label label-left">' . __( 'Yes', $this->plugin_slug ) . '</label>';
+		$output .= '<label class="yes-label label-left"><input id="geolocate_map_yes" type="radio" name="' . $field->args['id'] . '[geolocate_map]" class="geolocate_map_radio radio-left" value="yes" ' . ( $meta['geolocate_map'] === 'yes' ? 'checked="checked"' : '' ) . '>' . __( 'Yes', $this->plugin_slug ) . '</label>';
 
-		$output .= '<input id="geolocate_map_no" type="radio" name="' . $field['id'] . '[geolocate_map]" class="geolocate_map_radio radio-left" value="no" ' . ( $meta['geolocate_map'] === 'no' ? 'checked="checked"' : '' ) . ' ><label class="no-label label-left">' . __( 'No', $this->plugin_slug ) . '</label>';
+		$output .= '<label class="no-label label-left"><input id="geolocate_map_no" type="radio" name="' . $field->args['id'] . '[geolocate_map]" class="geolocate_map_radio radio-left" value="no" ' . ( $meta['geolocate_map'] === 'no' ? 'checked="checked"' : '' ) . ' >' . __( 'No', $this->plugin_slug ) . '</label>';
+		$output .= '</div>';
 		$output .= '</div>';
 
 		//lat_lng
 		$output .= '<div id="lat-lng-wrap"><div class="coordinates-wrap clear">';
-		$output .= '<div class="lat-lng-wrap lat-wrap clear"><span>Latitude: </span>
-								<input type="text" class="regular-text latitude" name="' . $field['id'] . '[latitude]" id="' . $field['id'] . '-latitude" value="' . ( $meta['latitude'] ? $meta['latitude'] : $field['lat_std'] ) . '" />
-								</div>
-								<div class="lat-lng-wrap lng-wrap clear"><span>Longitude: </span>
-								<input type="text" class="regular-text longitude" name="' . $field['id'] . '[longitude]" id="' . $field['id'] . '-longitude" value="' . ( $meta['longitude'] ? $meta['longitude'] : $field['lng_std'] ) . '" />
+		$output .= '<div class="lat-lng-wrap lat-wrap clear"><span>' . __( 'Latitude', $this->plugin_slug ) . ': </span>
+						<input type="text" class="regular-text latitude" name="' . $field->args['id'] . '[latitude]" id="' . $field->args['id'] . '-latitude" value="' . ( $meta['latitude'] ? $meta['latitude'] : $field->args['lat_std'] ) . '" /></div>
+								<div class="lat-lng-wrap lng-wrap clear"><span>' . __( 'Longitude', $this->plugin_slug ) . ': </span>
+								<input type="text" class="regular-text longitude" name="' . $field->args['id'] . '[longitude]" id="' . $field->args['id'] . '-longitude" value="' . ( $meta['longitude'] ? $meta['longitude'] : $field->args['lng_std'] ) . '" />
 								</div>';
 		$output .= '<p class="small-desc">' . sprintf( __( 'For quick lat/lng lookup use <a href="%s" class="new-window"  target="_blank">this service</a>', $this->plugin_slug ), esc_url( 'http://www.latlong.net/' ) ) . '</p>';
 		$output .= '</div><!-- /.search-coordinates-wrap -->
-				</div>';
+			</div>';
 
 
 		echo $output;
