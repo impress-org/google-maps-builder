@@ -242,12 +242,6 @@
   white-space: normal;
 }
 
-#infobubble-content p {
-  font-size: 12px;
-  margin: 0 0 7px;
-  color: #2C2C2C;
-}
-
 #infobubble-content {
   padding: 0 0 0 0;
   margin: 3px -20px 0 0;
@@ -257,22 +251,27 @@
   overflow: hidden;
   box-sizing: border-box;
   cursor: default;
+
+  p {
+    font-size: 12px;
+    margin: 0 0 7px;
+    color: #2C2C2C;
+  }
+  .place-title {
+    border: 1px solid #FFF;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 700;
+    min-height: 21px;
+    white-space: normal;
+    padding-right: 20px;
+  }
+  .place-description {
+   white-space: normal;
+ }
 }
 
-#infobubble-content .place-title {
-  border: 1px solid #FFF;
-  font-family: Roboto, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 21px;
-  font-weight: 700;
-  min-height: 21px;
-  white-space: normal;
-  padding-right: 20px;
-}
-
-#infobubble-content .place-description {
-  white-space: normal;
-}
 
 .marker-confirm-place {
   margin: 0 8px 4px 0;

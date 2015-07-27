@@ -14,7 +14,7 @@ var gmb_data;
 		var poststuff = $( 'form#post' ),
 			postboxes = $( '.postbox' ).not('.cmb-row, .cmb-repeatable-grouping'),
 			map = $( '#map' ),
-			submit_btn = '<input name="save" type="submit" class="button button-primary button-large magnific-submit" id="publish" value="Update">',
+			submit_btn = '<input name="save" type="submit" class="button button-primary button-large magnific-submit" id="publish" value="Update Map">',
 			placeholder_id,
 			placeholder_gid = 0,
 			viewport = $( window ).height() - 40;

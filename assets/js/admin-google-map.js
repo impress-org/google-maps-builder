@@ -664,7 +664,7 @@ var gmb_data;
 			//Set marker icon data
 			if ( marker_icon == '' ) {
 				//default icon
-				marker_icon_data = gmb_data.plugin_url + 'assets/img/default-marker.png';
+				marker_icon_data = gmb_data.default_marker;
 				$( '#gmb_markers_group_' + index + '_marker' ).val( '' );
 				marker_label_data = '';
 			} else {
@@ -701,7 +701,9 @@ var gmb_data;
 			$( this ).removeData( 'marker-color' ); //Remove data
 			$( this ).removeData( 'label' ); //Remove data
 			$( this ).removeData( 'label-color' ); //Remove data
-			$.magnificPopup.close(); // Close popup that is currently opened (shorthand)
+			if ( $( '.magnific-builder' ).length === 0 ) {
+				$.magnificPopup.close(); // Close popup that is currently opened (shorthand)
+			}
 			google.maps.event.removeListener( save_icon_listener ); //remove this event listener
 			google.maps.event.removeListener( edit_marker_icon_button_click ); //remove this event listener
 
@@ -776,7 +778,7 @@ var gmb_data;
 		//Loop through repeatable field of markers
 		$( "#gmb_markers_group_repeat .cmb-repeatable-grouping" ).each( function ( index ) {
 
-			var marker_icon = gmb_data.plugin_url + 'assets/img/default-marker.png';
+			var marker_icon = gmb_data.default_marker;
 			var marker_label = '';
 
 			//check for custom marker and label data
@@ -1689,6 +1691,7 @@ var gmb_data;
 		} );
 		//Initialize Magnific Too
 		$( '.gmb-magnific-inline' ).on( 'click', function () {
+			//Modal in modal?
 			if ( $.magnificPopup.instance.isOpen === true ) {
 
 				//We can't have a magnific inside magnific so CSS3 modal it is
@@ -1707,11 +1710,18 @@ var gmb_data;
 							.appendTo( '.modal-placeholder' )  // Move it back to it's proper location
 							.unwrap(); // Remove the placeholder
 					}
-
+				} );
+				//Close button
+				$( '.magnific-builder .button-primary' ).on( 'click', function () {
+					$( this ).parents( '.white-popup' )
+						.appendTo( '.modal-placeholder' )  // Move it back to it's proper location
+						.unwrap(); // Remove the placeholder
 				} );
 
 
-			} else {
+			}
+			//Normal modal open
+			else {
 				$.magnificPopup.open( {
 					items   : {
 						src : $( '#marker-icon-modal' ),
