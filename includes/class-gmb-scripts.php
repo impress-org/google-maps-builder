@@ -84,7 +84,7 @@ class Google_Maps_Builder_Scripts {
 		// Use minified libraries if SCRIPT_DEBUG is turned off
 		wp_register_script( $this->plugin_slug . '-plugin-script', GMB_PLUGIN_URL . 'assets/js/google-maps-builder' . $suffix . '.js', array( 'jquery' ), GMB_VERSION, true );
 		wp_register_script( 'google-maps-builder-maps-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/js/map-icons.js', array( 'jquery' ), GMB_VERSION, true );
-		wp_localize_script(  $this->plugin_slug . '-plugin-script', 'gmb_data', array() );
+		wp_localize_script( $this->plugin_slug . '-plugin-script', 'gmb_data', array() );
 
 
 	}
@@ -333,6 +333,8 @@ class Google_Maps_Builder_Scripts {
 			wp_register_style( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/css/map-icons.css', array(), GMB_VERSION );
 			wp_enqueue_style( $this->plugin_slug . '-map-icons' );
 
+			wp_register_script( $this->plugin_slug . '-admin-settings', GMB_PLUGIN_URL . 'assets/js/admin-settings' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-settings' );
 
 		}
 
@@ -387,15 +389,15 @@ class Google_Maps_Builder_Scripts {
 			$geolocate = gmb_get_option( 'gmb_lat_lng' );
 
 			$maps_data = array(
-				'api_key'           => $api_key,
-				'geolocate_setting' => isset( $geolocate['geolocate_map'] ) ? $geolocate['geolocate_map'] : 'yes',
-				'default_lat'       => isset( $geolocate['latitude'] ) ? $geolocate['latitude'] : '32.715738',
-				'default_lng'       => isset( $geolocate['longitude'] ) ? $geolocate['longitude'] : '-117.16108380000003',
-				'plugin_url'        => GMB_PLUGIN_URL,
-				'default_marker'    => apply_filters( 'gmb_default_marker', GMB_PLUGIN_URL . 'assets/img/default-marker.png' ),
-				'ajax_loader'    =>  set_url_scheme( apply_filters( 'gmb_ajax_preloader_img', GMB_PLUGIN_URL . 'assets/images/spinner.gif' ), 'relative' ),
-				'snazzy'            => GMB_PLUGIN_URL . 'assets/js/snazzy.json',
-				'string_multiple_places'    => __('Hmm, it looks like there are multiple places in this area. Please confirm which place you would like this marker to display:', $this->plugin_slug)
+				'api_key'                => $api_key,
+				'geolocate_setting'      => isset( $geolocate['geolocate_map'] ) ? $geolocate['geolocate_map'] : 'yes',
+				'default_lat'            => isset( $geolocate['latitude'] ) ? $geolocate['latitude'] : '32.715738',
+				'default_lng'            => isset( $geolocate['longitude'] ) ? $geolocate['longitude'] : '-117.16108380000003',
+				'plugin_url'             => GMB_PLUGIN_URL,
+				'default_marker'         => apply_filters( 'gmb_default_marker', GMB_PLUGIN_URL . 'assets/img/default-marker.png' ),
+				'ajax_loader'            => set_url_scheme( apply_filters( 'gmb_ajax_preloader_img', GMB_PLUGIN_URL . 'assets/images/spinner.gif' ), 'relative' ),
+				'snazzy'                 => GMB_PLUGIN_URL . 'assets/js/snazzy.json',
+				'string_multiple_places' => __( 'Hmm, it looks like there are multiple places in this area. Please confirm which place you would like this marker to display:', $this->plugin_slug )
 			);
 			wp_localize_script( $this->plugin_slug . '-admin-map-builder', 'gmb_data', $maps_data );
 

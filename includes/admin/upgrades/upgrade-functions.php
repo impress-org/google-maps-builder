@@ -38,7 +38,7 @@ function gmb_show_upgrade_notices() {
 
 	if ( version_compare( $gmb_version, '2.0', '<=' ) && ! get_option( 'gmb_refid_upgraded' ) ) {
 		printf(
-			'<div class="updated"><p><strong>Google Maps Builder Notice:</strong> ' . esc_html__( 'Google has updated their Maps API to use the new Google Places ID rather than previous Reference ID. The old method will soon be deprecated and eventually go offline. We are being proactive and would like to update your maps to use the new Places ID. Once you upgrade, your maps should work just fine. If you choose not to upgrade Google will eventually take the old reference ID offline (no date has been given). Please contact WordImpress support via our website if you have any further questions or issues. %sClick here to upgrade your maps to use the new Places ID%s', 'gmb' ) . '</p></div>',
+			'<div class="updated"><p><strong>Google Maps Builder Notice:</strong> ' . esc_html__( 'Google has updated their Maps API to use the new Google Places ID rather than previous Reference ID. The old method will soon be deprecated and eventually go offline. We are being proactive and would like to update your maps to use the new Places ID. Once you upgrade, your maps should work just fine but remember to make a backup prior to upgrading. If you choose not to upgrade Google will eventually take the old reference ID offline (no date has been given). Please contact WordImpress support via our website if you have any further questions or issues. %sClick here to upgrade your maps to use the new Places ID%s', 'gmb' ) . '</p></div>',
 			'<br><a href="' . esc_url( admin_url( 'options.php?page=gmb-upgrades' ) ) . '" class="button button-primary" style="margin-top:10px;">',
 			'</a>'
 		);

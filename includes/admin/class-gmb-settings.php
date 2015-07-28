@@ -32,52 +32,17 @@ class Google_Maps_Builder_Settings {
 
 		$this->plugin_slug = Google_Maps_Builder()->get_plugin_slug();
 
-
 		//Create Settings submenu
 		add_action( 'admin_init', array( $this, 'mninit' ) );
 		add_action( 'admin_menu', array( $this, 'add_page' ) );
 
 		// Load admin style sheet and JavaScript.
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 		add_action( 'wp_ajax_hide_welcome', array( $this, 'hide_welcome_callback' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_pointer_script_style' ) );
 		add_action( 'cmb2_render_lat_lng_default', array( $this, 'cmb2_render_lat_lng_default' ), 10, 2 );
 
 		//Add links/information to plugin row meta
 		add_filter( 'plugin_row_meta', array( $this, 'add_plugin_meta_links' ), 10, 2 );
 		add_filter( 'plugin_action_links', array( $this, 'add_plugin_page_links' ), 10, 2 );
-
-	}
-
-
-	/**
-	 * Activation Welcome Tooltip Scripts
-	 *
-	 * @param $hook_suffix
-	 */
-	function enqueue_pointer_script_style( $hook_suffix ) {
-
-		// Assume pointer shouldn't be shown
-		$enqueue_pointer_script_style = false;
-
-		// Get array list of dismissed pointers for current user and convert it to array
-		$dismissed_pointers = explode( ',', get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
-		$key                = array_search( 'gmb_welcome_pointer', $dismissed_pointers ); // $key = 2;
-
-		// Check if our pointer is not among dismissed ones
-		if ( ! in_array( 'gmb_welcome_pointer', $dismissed_pointers ) ) {
-			$enqueue_pointer_script_style = true;
-
-			// Add footer scripts using callback function
-			add_action( 'admin_print_footer_scripts', array( $this, 'welcome_pointer_print_scripts' ) );
-		}
-
-		// Enqueue pointer CSS and JS files, if needed
-		if ( $enqueue_pointer_script_style ) {
-			wp_enqueue_style( 'wp-pointer' );
-			wp_enqueue_script( 'wp-pointer' );
-		}
 
 	}
 
@@ -104,54 +69,6 @@ class Google_Maps_Builder_Settings {
 			self::$key,
 			array( $this, 'admin_page_display' )
 		);
-
-	}
-
-	/**
-	 * Register and enqueue admin-specific style sheet.
-	 *
-	 *
-	 * @since     1.0.0
-	 *
-	 * @param $hook
-	 */
-	public function enqueue_admin_styles( $hook ) {
-
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		$screen = get_current_screen();
-
-		//Only enqueue scripts for Setting screen
-		if ( $this->options_page == $screen->id ) {
-
-			wp_enqueue_style( $this->plugin_slug . '-settings-grid', GMB_PLUGIN_URL . 'assets/css/grid' . $suffix . '.css', array(), GMB_VERSION );
-			wp_enqueue_style( $this->plugin_slug . '-settings-styles', GMB_PLUGIN_URL . 'assets/css/admin-settings' . $suffix . '.css', array(), GMB_VERSION );
-
-		}
-
-
-	}
-
-	/**
-	 * Register and enqueue admin-specific JavaScript
-	 *
-	 *
-	 * @since     1.0.0
-	 *
-	 * @param $hook
-	 */
-	public function enqueue_admin_scripts( $hook ) {
-		global $post;
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		$screen = get_current_screen();
-
-		//Only enqueue scripts for Setting screen
-		if ( $this->options_page == $screen->id ) {
-
-			wp_register_script( $this->plugin_slug . '-admin-settings', GMB_PLUGIN_URL . 'assets/js/admin-settings' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
-			wp_enqueue_script( $this->plugin_slug . '-admin-settings' );
-
-		}
-
 
 	}
 

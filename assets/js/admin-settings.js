@@ -37,10 +37,9 @@
 		} );
 
 		//Default setting for Has Archive Inline Radio
-		if ( $( '#gmb_has_archive1' ).prop( 'checked' ) === false && $( '#gmb_has_archive2' ).prop( 'checked' ) === 'false' ) {
+		if ( $( '#gmb_has_archive1' ).prop( 'checked' ) === false && $( '#gmb_has_archive2' ).prop( 'checked' ) === false ) {
 			$( '#gmb_has_archive1' ).prop( 'checked', true );
 		}
-
 
 		//Label Click Helper
 		$( 'input:radio + label' ).on( 'click', function () {
