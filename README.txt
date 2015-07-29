@@ -102,28 +102,6 @@ We always welcome your feedback for improvements or if you have uncovered a bug.
 
 The main developer of this plugin is WordImpress. To find out more information about the company and the people behind it please visit [the WordImpress website.](http://wordimpress.com)
 
-== Roadmap ==
-
-Here is what we are working on for future releases:
-
-= Enhancements =
-
-* Directions - Add the ability to add a directions link to each marker location
-* Marker Visibility - Add the ability to set a marker's info window open by default
-* Marker Clustering - Add the option to use marker clusters for when you have multiple markers in close proximity
-* Maps Widget - Build in a widget to output Google Maps
-* Custom Map Marker Images - Ability to upload your own map marker images
-* Map Icons: Fix maps icon overlap issue when they are bunched in an area (zIndex issue)
-* Draggable Markers - Add the ability to drag dropped markers in the build UI
-* Admin JS i18n - Please contact us at info@wordimpress.com to volunteer for translating!
-* Public JS i18n - Please contact us at info@wordimpress.com to volunteer for translating!
-* Google Places - Add the ability to remove place information
-* Google Places - Pagination for markers, the ability to set number of markers
-* Google Places - Customize the individual place markers
-* Markers - Add the ability to drag markers to new positions (lat, lng) in builder.
-* Info Window - Add a WYSIWYG editor? Possible complications with this.
-* Custom Map Themes - Add the ability for users to add their own map styles
-
 = Known Issues =
 
 * Info Window - FOUC: Investigate why sometimes pointer tip of info window flashes before it opens (mainly Chrome)
