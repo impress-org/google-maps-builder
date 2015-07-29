@@ -147,16 +147,17 @@ Here is what we are working on for future releases:
 
 = 2.0 =
 * General: This update focused on fixing a lot of pre-existing bugs commonly submitted to WordPress.org as well as improving the plugin base for future code enhancements.
+* New: Enhanced Full Screen Maps Builder mode.
 * New: Upgrade process for maps using Google's old reference ID in place for the new Place_ID @see: https://github.com/WordImpress/google-maps-builder/issues/18
-* New: Upgraded CMB1 to CMB2
 * New: Switch and Test all Google Places API calls to "Reference ID" or "ID" to Google's new "Places ID"
-* New: Class improvements and modernized structure organization
 * New: Gulp implemented for minifying scripts
-* New: Marker Creation Improvements - 1) Sometimes markers disappear in the post edit screen. 2) Sometimes markers don't get output on the front end correctly. 3)Sometimes markers don't get generated in the post edit screen at all.
-* New: Investigated + resolved several Google Maps API conflicts - Often when a user has a theme or plugin that registers Google Maps it breaks our plugin or ours breaks theirs. We now check for other Google Map enqueues, and if present the plugin attempts to dequeue them in favor for ours. So far this has fixed issues with Uber Menu 3, Contact Forms 7, as well as many additional plugins.
-* New: Plugin structure significantly changed to better reflect our development preference. The current structure is similar to Give, EDD, and other very reputable plugins.
-* New: Swapped out Thickbox for Magnific popup @see: https://github.com/WordImpress/google-maps-builder/issues/11
+* Improvement: Upgraded CMB1 to CMB2
+* Improvement: Class improvements and modernized structure organization
+* Improvement: Plugin structure significantly changed to better reflect our development preference. The current structure is similar to Give, EDD, and other reputable plugins.
+* Improvement: Swapped out Thickbox for Magnific popup @see: https://github.com/WordImpress/google-maps-builder/issues/11
 * Improvement: Register scripts and styles properly prior to enqueuing them for other plugins and themes
+* Improvement: Marker Creation Improvements - 1) Sometimes markers disappear in the post edit screen. 2) Sometimes markers don't get output on the front end correctly. 3)Sometimes markers don't get generated in the post edit screen at all.
+* Fix: Investigated + resolved several Google Maps API conflicts - Often when a user has a theme or plugin that registers Google Maps it breaks our plugin or ours breaks theirs. We now check for other Google Map enqueues, and if present the plugin attempts to dequeue them in favor for ours. So far this has fixed issues with Uber Menu 3, Contact Forms 7, as well as many additional plugins.
 * Fix: Maps placed in hidden tabs now redraw properly when the tab is selected
 * Fix: Found and resolved conflict with ACF plugin Google Maps field
 * Fix: Removed non-functional marker upload field (will be added to Pro version in a much enhanced format).
