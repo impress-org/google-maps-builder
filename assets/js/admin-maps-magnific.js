@@ -12,7 +12,7 @@ var gmb_data;
 	$( document ).ready( function () {
 
 		var poststuff = $( 'form#post' ),
-			postboxes = $( '.postbox' ).not('.cmb-row, .cmb-repeatable-grouping'),
+			postboxes = $( '.postbox' ).not( '.cmb-row, .cmb-repeatable-grouping' ),
 			map = $( '#map' ),
 			submit_btn = '<input name="save" type="submit" class="button button-primary button-large magnific-submit" id="publish" value="Update Map">',
 			placeholder_id,
@@ -82,6 +82,9 @@ var gmb_data;
 
 
 					},
+					open      : function () {
+						google.maps.event.trigger( window.map, 'resize' );
+					},
 					resize    : function () {
 						if ( $.magnificPopup.instance.isOpen === true ) {
 							lightbox_resize();
@@ -139,6 +142,12 @@ var gmb_data;
 			}
 		}
 
+		/**
+		 * Window/Lightbox Resize
+		 *
+		 * @description: Resizes modal elements as the browser resizes & refreshes Google Maps
+		 * @since 2.0
+		 */
 		function lightbox_resize() {
 			poststuff.addClass( 'magnific-builder' ).height( viewport );
 			$( '#map' ).height( viewport );

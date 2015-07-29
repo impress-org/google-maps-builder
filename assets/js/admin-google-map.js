@@ -189,6 +189,12 @@ var gmb_data;
 			$( '#gmb_markers_group_repeat .cmb-repeatable-grouping' ).toggleClass( 'closed' );
 		} );
 
+		//Window resize
+		$( window ).on( 'resize', function () {
+			//Ensure window resizes triggers map resize
+			google.maps.event.trigger( map, 'resize' );
+		} );
+
 	} ); //End Window Load
 
 
@@ -297,6 +303,7 @@ var gmb_data;
 		};
 
 		map = new google.maps.Map( map_canvas[0], mapOptions );
+		window.map = map;
 		places_service = new google.maps.places.PlacesService( map );
 
 		//Handle Map Geolocation
@@ -346,11 +353,11 @@ var gmb_data;
 			autocomplete.bindTo( 'bounds', map );
 
 			//Tame the enter key to not save the widget while using the autocomplete input
-			google.maps.event.addDomListener(autocomplete_el[0], 'keydown', function(e) {
-			    if (e.keyCode == 13) {
-			        e.preventDefault();
-			    }
-			  });
+			google.maps.event.addDomListener( autocomplete_el[0], 'keydown', function ( e ) {
+				if ( e.keyCode == 13 ) {
+					e.preventDefault();
+				}
+			} );
 
 			//Autocomplete event listener
 			google.maps.event.addListener( autocomplete, 'place_changed', function () {
