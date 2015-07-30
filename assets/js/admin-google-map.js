@@ -69,7 +69,7 @@ var gmb_data;
 
 			//Show message if not already displayed
 			if ( $( '.places-change-message' ).length === 0 ) {
-				$( '.cmb2-id-gmb-places-search-multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>Place selections have changed.</p><a href="#" class="button update-places-map">Update Map</a></div>' );
+				$( '.cmb2-id-gmb-places-search-multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>' + gmb_data.i18n.places_selection_changed + '</p><a href="#" class="button update-places-map">' + gmb_data.i18n.update_map + '</a></div>' );
 				$( '.places-change-message' ).slideDown();
 			}
 
@@ -77,7 +77,7 @@ var gmb_data;
 
 		$( '.cmb-multicheck-toggle' ).on( 'click', function () {
 			if ( $( '.places-change-message' ).length === 0 ) {
-				$( '.cmb2-id-gmb-places-search-multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>Place selections have changed.</p><a href="#" class="button update-places-map">Update Map</a></div>' );
+				$( '.cmb2-id-gmb-places-search-multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>' + gmb_data.i18n.places_selection_changed + '</p><a href="#" class="button update-places-map">' + gmb_data.i18n.update_map + '</a></div>' );
 				$( '.places-change-message' ).slideDown();
 			}
 		} );
@@ -1266,7 +1266,7 @@ var gmb_data;
 				//if more than one result ask the user which one?
 				if ( results.length > 1 ) {
 
-					info_bubble_content = '<div id="infobubble-content"><p>' + gmb_data.string_multiple_places + '</p>';
+					info_bubble_content = '<div id="infobubble-content"><p>' + gmb_data.i18n.multiple_places + '</p>';
 
 					for ( var i = 0; i < results.length; i++ ) {
 						info_bubble_content += '<a class="marker-confirm-place"  data-place_id="' + results[i].place_id + '" data-name-address="' + results[i].name + ', ' + results[i].vicinity + '">' + results[i].name + '</a>';
