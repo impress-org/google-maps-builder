@@ -140,6 +140,16 @@ class Google_Maps_Builder_Settings {
 						'false' => __( 'No', 'cmb' ),
 					),
 				),
+				array(
+					'name'    => __( 'Opening Map Builder', $this->plugin_slug ),
+					'id'      => $prefix . 'open_builder',
+					'desc'    => __( 'Do you want the Map Builder customizer to open by default when editing maps?', $this->plugin_slug ),
+					'type'    => 'radio_inline',
+					'options' => array(
+						'true'  => __( 'Yes', 'cmb' ),
+						'false' => __( 'No', 'cmb' ),
+					),
+				),
 			),
 		);
 

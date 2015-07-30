@@ -24,6 +24,12 @@ var gmb_data;
 			magnific_builder();
 		} );
 
+		//Open by default?
+		if ( gmb_data.modal_default === 'true' ) {
+			magnific_builder();
+		}
+
+		
 		function magnific_builder() {
 
 			//Initialize Magnific Too

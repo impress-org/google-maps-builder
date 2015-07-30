@@ -40,6 +40,10 @@
 		if ( $( '#gmb_has_archive1' ).prop( 'checked' ) === false && $( '#gmb_has_archive2' ).prop( 'checked' ) === false ) {
 			$( '#gmb_has_archive1' ).prop( 'checked', true );
 		}
+		//Default setting for the
+		if ( $( '#gmb_open_builder1' ).prop( 'checked' ) === false && $( '#gmb_open_builder2' ).prop( 'checked' ) === false ) {
+			$( '#gmb_open_builder2' ).prop( 'checked', true );
+		}
 
 		//Label Click Helper
 		$( 'input:radio + label' ).on( 'click', function () {
