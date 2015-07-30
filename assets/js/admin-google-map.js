@@ -1397,8 +1397,9 @@ var gmb_data;
 			$( '#gmb_show_places2' ).prop( 'checked', true );
 		}
 
-		show_places.on( 'change', function () {
+		$( '.cmb2-id-gmb-show-places li' ).on( 'click', function () {
 
+			$( this ).find( 'input:radio' ).prop( 'checked', true );
 			$( '.cmb2-id-gmb-search-radius' ).toggle();
 			$( '.cmb2-id-gmb-places-search-multicheckbox' ).toggle();
 

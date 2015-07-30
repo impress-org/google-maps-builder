@@ -946,6 +946,11 @@ Magnific Builder
     padding-top: 0; }
   .magnific-builder#post #cmb2-metabox-google_maps_preview_metabox > div {
     padding-top: 0; }
+  .magnific-builder#post .magnific-builder#post .places-loading {
+    top: auto;
+    right: -175px;
+    bottom: 15px;
+    left: auto; }
 
 .magnific-builder #titlediv, .magnific-builder #submitdiv, .magnific-builder #google_maps_preview_metabox .handlediv, .magnific-builder #google_maps_preview_metabox .ui-sortable-handle, .magnific-builder #post-body-content, .magnific-builder #marker-icon-modal {
   display: none; }
