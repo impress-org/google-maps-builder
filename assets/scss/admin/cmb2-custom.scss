@@ -12,15 +12,6 @@
  CMB2 Interface
 --------------------------------------------*/
 
-/* Google Maps Marker Search */
-#cmb2-metabox-google_maps_metabox .cmb2-id-gmb-geocoder {
-  padding-bottom: 0;
-  td {
-	padding-bottom: 3px;
-  }
-
-}
-
 .cmb2-metabox-description {
   display: block;
   margin-top: 5px;
@@ -40,12 +31,38 @@
   }
 }
 
-#google-map-wrap {
-  position: relative;
+
+
+/*-------------------------------------
+Autocomplete Metabox
+---------------------------------------*/
+#cmb2-metabox-google_maps_markers {
+
+  .search-autocomplete {
+	width: 78%;
+	margin-right: 10px;
+  }
+  .autocomplete-wrap p {
+	font-style: italic;
+	margin: 5px 0;
+	color: #aaaaaa;
+  }
+  a.drop-marker {
+	font-style: normal;
+  }
+  .autocomplete-wrap {
+    border-bottom: 1px solid #EEE;
+    padding: 0 0 12px;
+  }
 }
 
-.autocomplete-wrap {
-  background: url('../img/powered-by-google-on-white.png') no-repeat right 8px rgba(0, 0, 0, 0);
+
+/*-------------------------------------
+
+---------------------------------------*/
+
+#google-map-wrap {
+  position: relative;
 }
 
 #poststuff .postbox-container {

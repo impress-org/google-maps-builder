@@ -967,6 +967,14 @@ Magnific Builder
   margin-left: 0;
   padding: 65px 0 50px;
   width: 300px !important; }
+  .magnific-builder#post #postbox-container-1:after {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: url('../img/powered-by-google-on-white.png') no-repeat 0 0 transparent;
+    width: 104px;
+    height: 16px; }
   .magnific-builder#post #postbox-container-1 #side-sortables {
     border-left: 1px solid #DDD;
     border-bottom: 1px solid #DDD;
@@ -1383,38 +1391,20 @@ Display Options
   margin: 7px 0 0 !important; }
 
 /*-------------------------------------
-Autocomplete Metabox
----------------------------------------*/
-#google_maps_metabox .search-autocomplete {
-  width: 78%;
-  margin-right: 10px; }
-
-#google_maps_metabox .autocomplete-wrap p {
-  font-style: italic;
-  margin-bottom: 5px !important;
-  color: #aaaaaa; }
-
-#google_maps_metabox a.drop-marker {
-  font-style: normal; }
-
-/*-------------------------------------
 Save Info Window Toolbar
 ---------------------------------------*/
 #save-toolbar {
   margin: 0;
   padding: 0;
   float: left; }
-
-#save-toolbar > li {
-  display: inline-block;
-  margin: 0;
-  padding: 0; }
-
-#save-toolbar > li:first-child {
-  margin: 0 5px 0 0; }
-
-#save-toolbar > li .google-btn {
-  width: 75px; }
+  #save-toolbar > li {
+    display: inline-block;
+    margin: 0;
+    padding: 0; }
+    #save-toolbar > li:first-child {
+      margin: 0 5px 0 0; }
+    #save-toolbar > li .google-btn {
+      width: 75px; }
 
 a.marker-edit-link {
   background: url('../img/marker-btn.png') no-repeat 0 0 transparent;
@@ -1647,12 +1637,6 @@ CMB2
 /*------------------------------------------
  CMB2 Interface
 --------------------------------------------*/
-/* Google Maps Marker Search */
-#cmb2-metabox-google_maps_metabox .cmb2-id-gmb-geocoder {
-  padding-bottom: 0; }
-  #cmb2-metabox-google_maps_metabox .cmb2-id-gmb-geocoder td {
-    padding-bottom: 3px; }
-
 .cmb2-metabox-description {
   display: block;
   margin-top: 5px; }
@@ -1666,11 +1650,27 @@ CMB2
   margin-top: 10px;
   margin-right: 2px; }
 
+/*-------------------------------------
+Autocomplete Metabox
+---------------------------------------*/
+#cmb2-metabox-google_maps_markers .search-autocomplete {
+  width: 78%;
+  margin-right: 10px; }
+#cmb2-metabox-google_maps_markers .autocomplete-wrap p {
+  font-style: italic;
+  margin: 5px 0;
+  color: #aaaaaa; }
+#cmb2-metabox-google_maps_markers a.drop-marker {
+  font-style: normal; }
+#cmb2-metabox-google_maps_markers .autocomplete-wrap {
+  border-bottom: 1px solid #EEE;
+  padding: 0 0 12px; }
+
+/*-------------------------------------
+
+---------------------------------------*/
 #google-map-wrap {
   position: relative; }
-
-.autocomplete-wrap {
-  background: url('../img/powered-by-google-on-white.png') no-repeat right 8px transparent; }
 
 #poststuff .postbox-container .cmb-repeatable-group:not(:last-of-type) {
   border-bottom: 1px solid #e9e9e9;

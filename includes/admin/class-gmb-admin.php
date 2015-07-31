@@ -136,48 +136,28 @@ class Google_Maps_Builder_Admin {
 		$default_options = $this->get_default_map_options();
 
 		// MARKER WITH AUTOCOMPLETE
-		$meta_boxes = cmb2_get_metabox( array(
-			'id'           => 'google_maps_metabox',
-			'title'        => __( 'Add Marker', $this->plugin_slug ),
-			'object_types' => array( 'google_maps' ),
-			'context'      => 'normal',
-			'priority'     => 'high',
-			'show_names'   => true,
-		) );
-
-		$meta_boxes->add_field( array(
-			'name' => 'Create Marker',
-			'id'   => $prefix . 'geocoder',
-			'type' => 'google_geocoder'
-		) );
-
-		// PREVIEW
-		$preview_box = cmb2_get_metabox( array(
-			'id'           => 'google_maps_preview_metabox',
-			'title'        => __( 'Google Map Preview', $this->plugin_slug ),
-			'object_types' => array( 'google_maps' ), // post type
-			'context'      => 'normal', //  'normal', 'advanced', or 'side'
-			'priority'     => 'high', //  'high', 'core', 'default' or 'low'
-			'show_names'   => false, // Show field names on the left
-		) );
-
-		$preview_box->add_field( array(
-			'name'    => __( 'Map Preview', $this->plugin_slug ),
-			'id'      => $prefix . 'preview',
-			'type'    => 'google_maps_preview',
-			'default' => '',
-		) );
-
-		// MARKERS
+//		$meta_boxes = cmb2_get_metabox( array(
+//			'id'           => 'google_maps_metabox',
+//			'title'        => __( 'Add Marker', $this->plugin_slug ),
+//			'object_types' => array( 'google_maps' ),
+//			'context'      => 'normal',
+//			'priority'     => 'high',
+//			'show_names'   => true,
+//		) );
+// MARKERS
 		$marker_box = cmb2_get_metabox( array(
 			'id'           => 'google_maps_markers',
 			'title'        => __( 'Map Markers', $this->plugin_slug ),
 			'object_types' => array( 'google_maps' ), // post type
 			'context'      => 'normal', //  'normal', 'advanced', or 'side'
-			'priority'     => 'low', //  'high', 'core', 'default' or 'low'
+			'priority'     => 'high', //  'high', 'core', 'default' or 'low'
 			'show_names'   => true, // Show field names on the left
 		) );
-
+		$marker_box->add_field( array(
+			'name' => 'Create Marker',
+			'id'   => $prefix . 'geocoder',
+			'type' => 'google_geocoder'
+		) );
 		$group_field_id = $marker_box->add_field( array(
 			'id'          => $prefix . 'markers_group',
 			'type'        => 'group',
@@ -236,8 +216,24 @@ class Google_Maps_Builder_Admin {
 			'type' => 'textarea_code',
 		) );
 
-		// SEARCH OPTIONS
+		// PREVIEW
+		$preview_box = cmb2_get_metabox( array(
+			'id'           => 'google_maps_preview_metabox',
+			'title'        => __( 'Google Map Preview', $this->plugin_slug ),
+			'object_types' => array( 'google_maps' ), // post type
+			'context'      => 'normal', //  'normal', 'advanced', or 'side'
+			'priority'     => 'high', //  'high', 'core', 'default' or 'low'
+			'show_names'   => false, // Show field names on the left
+		) );
 
+		$preview_box->add_field( array(
+			'name'    => __( 'Map Preview', $this->plugin_slug ),
+			'id'      => $prefix . 'preview',
+			'type'    => 'google_maps_preview',
+			'default' => '',
+		) );
+
+		// SEARCH OPTIONS
 		$search_options = cmb2_get_metabox( array(
 			'id'           => 'google_maps_search_options',
 			'title'        => __( 'Google Places', $this->plugin_slug ),

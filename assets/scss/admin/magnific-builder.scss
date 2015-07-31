@@ -59,6 +59,17 @@ Magnific Builder
 	margin-left: 0;
 	padding: 65px 0 50px;
 	width: 300px !important;
+
+	&:after {
+	  content: ' ';
+	  position: absolute;
+	  bottom: 0;
+	  right: 0;
+	  background: url('../img/powered-by-google-on-white.png') no-repeat 0 0 transparent;
+	  width: 104px;
+	  height: 16px;
+	}
+
 	#side-sortables {
 	  border-left: 1px solid #DDD;
 	  border-bottom: 1px solid #DDD;

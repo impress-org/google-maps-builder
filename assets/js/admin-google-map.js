@@ -16,6 +16,7 @@ var gmb_data;
 	 */
 	$( window ).load( function () {
 
+
 		toggle_metabox_fields();
 
 		//tooltips
@@ -180,6 +181,7 @@ var gmb_data;
 			set_map_zoom_control();
 		} );
 
+
 		//Close repeaters
 		$( '#gmb_markers_group_repeat .cmb-repeatable-grouping' ).addClass( 'closed' );
 
@@ -194,6 +196,13 @@ var gmb_data;
 			//Ensure window resizes triggers map resize
 			google.maps.event.trigger( map, 'resize' );
 		} );
+
+		//Map Markers Repeatable Add button
+		$('#cmb2-metabox-google_maps_markers .cmb-add-group-row' ).on('click', function(){
+
+			alert('here');
+
+		});
 
 	} ); //End Window Load
 
@@ -1046,7 +1055,6 @@ var gmb_data;
 
 	/**
 	 * Google Places Nearby Search
-	 *
 	 */
 	function perform_places_search() {
 
@@ -1397,16 +1405,17 @@ var gmb_data;
 			$( '#gmb_show_places2' ).prop( 'checked', true );
 		}
 
-		$( '.cmb2-id-gmb-show-places li' ).on( 'click', function () {
+		//Places
+		$( '.cmb2-id-gmb-show-places li input:radio' ).on( 'click', function () {
 
 			$( this ).find( 'input:radio' ).prop( 'checked', true );
-			$( '.cmb2-id-gmb-search-radius' ).toggle();
-			$( '.cmb2-id-gmb-places-search-multicheckbox' ).toggle();
 
 			if ( $( this ).val() === 'no' ) {
 				clear_search_markers();
+				$( '.cmb2-id-gmb-search-radius, .cmb2-id-gmb-places-search-multicheckbox' ).hide();
 			} else {
 				perform_places_search();
+				$( '.cmb2-id-gmb-search-radius, .cmb2-id-gmb-places-search-multicheckbox' ).show();
 			}
 
 		} );

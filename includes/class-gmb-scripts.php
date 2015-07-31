@@ -384,7 +384,6 @@ class Google_Maps_Builder_Scripts {
 			), GMB_VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-admin-magnific-builder' );
 
-
 			$api_key   = gmb_get_option( 'gmb_api_key' );
 			$geolocate = gmb_get_option( 'gmb_lat_lng' );
 
