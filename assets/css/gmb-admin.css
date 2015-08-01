@@ -1088,6 +1088,9 @@ Magnific Builder
 /**
  * Google Places Map CPT Styles TEST
  */
+#google-map-wrap {
+  position: relative; }
+
 .clear:before, .clear:after {
   content: " ";
   display: table; }
@@ -1106,7 +1109,7 @@ Magnific Builder
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box; }
 
-.cmb2-id-gmb-theme-json {
+.cmb2-id-gmb-theme-json, #marker-icon-modal {
   display: none; }
 
 .marker-info-wrapper {
@@ -1123,18 +1126,14 @@ Magnific Builder
 
 .repeatable-grouping .cmb-nested-table td {
   padding-top: 3px; }
+  .repeatable-grouping .cmb-nested-table td pre textarea {
+    height: 50px; }
 .repeatable-grouping .cmb-nested-table td pre {
   margin: 0; }
-
-.repeatable-grouping .cmb-nested-table td pre textarea {
-  height: 50px; }
 
 .new-window {
   background: url('../img/new-window-icon.png') no-repeat right 3px transparent;
   padding-right: 16px; }
-
-#marker-icon-modal {
-  display: none; }
 
 .mfp-content #marker-icon-modal {
   display: block; }
@@ -1175,13 +1174,11 @@ Magnific Builder
 .places-change-message {
   margin-bottom: 15px;
   margin-right: 2px; }
-
-.places-change-message p {
-  float: left; }
-
-.places-change-message .button {
-  float: right;
-  margin-top: 5px; }
+  .places-change-message p {
+    float: left; }
+  .places-change-message .button {
+    float: right;
+    margin-top: 5px; }
 
 #google-map-wrap .wpgp-message {
   margin-top: 20px; }
@@ -1257,22 +1254,6 @@ Magnific Builder
 /*------------------------------------------
  Place Markers
 --------------------------------------------*/
-/* Hacky fix to prevent scrollbars */
-#google_maps_preview_metabox .gm-style-iw, #google_maps_preview_metabox .gm-style-iw > div {
-  overflow: visible !important; }
-
-#google_maps_preview_metabox .gm-style-iw > div > div {
-  overflow: visible !important; }
-
-#infobubble-content {
-  overflow: hidden !important; }
-
-#infobubble-content.loading {
-  background: url('../img/loading.gif') no-repeat center center #FFF; }
-
-#google-map-wrap div#infobubble-content > div {
-  white-space: normal; }
-
 #infobubble-content {
   padding: 0 0 0 0;
   margin: 3px -20px 0 0;
@@ -1305,6 +1286,22 @@ Magnific Builder
 .marker-confirm-place:hover {
   cursor: pointer; }
 
+/* Hacky fix to prevent scrollbars */
+#google_maps_preview_metabox .gm-style-iw, #google_maps_preview_metabox .gm-style-iw > div {
+  overflow: visible !important; }
+
+#google_maps_preview_metabox .gm-style-iw > div > div {
+  overflow: visible !important; }
+
+#infobubble-content {
+  overflow: hidden !important; }
+
+#infobubble-content.loading {
+  background: url('../img/loading.gif') no-repeat center center #FFF; }
+
+#google-map-wrap div#infobubble-content > div {
+  white-space: normal; }
+
 /* Ratings */
 #infobubble-content .rating-wrap {
   overflow: hidden; }
@@ -1332,26 +1329,22 @@ Magnific Builder
   margin: 0;
   padding: 0;
   text-align: right; }
-
-#edit-toolbar > li {
-  margin: 0 4px;
-  cursor: pointer;
-  display: inline-block;
-  content: '';
-  height: 21px;
-  width: 21px;
-  opacity: .5;
-  background: url('../img/icons-infowindow-002.svg'); }
-
-#edit-toolbar > li:hover {
-  opacity: .75; }
-
-#edit-toolbar > li.trash-marker {
-  background-position: -42px 0; }
-
-#edit-toolbar > li.edit-info {
-  background: url('../img/icons-app-000.svg');
-  background-position: 21px 21px; }
+  #edit-toolbar > li {
+    margin: 0 4px;
+    cursor: pointer;
+    display: inline-block;
+    content: '';
+    height: 21px;
+    width: 21px;
+    opacity: .5;
+    background: url('../img/icons-infowindow-002.svg'); }
+    #edit-toolbar > li:hover {
+      opacity: .75; }
+    #edit-toolbar > li.trash-marker {
+      background-position: -42px 0; }
+    #edit-toolbar > li.edit-info {
+      background: url('../img/icons-app-000.svg');
+      background-position: 21px 21px; }
 
 /*------------------------------------------
 Display Options
@@ -1526,14 +1519,12 @@ Marker Icon Modal
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   border-top: 1px solid #DFDFDF; }
-
-.save-marker-icon .save-text {
-  float: left;
-  font-style: italic;
-  margin: 6px 0 0 10px; }
-
-.save-marker-icon .button {
-  float: right; }
+  .save-marker-icon .save-text {
+    float: left;
+    font-style: italic;
+    margin: 6px 0 0 10px; }
+  .save-marker-icon .button {
+    float: right; }
 
 .radius-label {
   position: relative;
@@ -1541,7 +1532,7 @@ Marker Icon Modal
   color: #7dbee8; }
 
 /*-------------------------------------
-Buttons
+Google Style Buttons
 ---------------------------------------*/
 .google-btn {
   -webkit-border-radius: 2px;
@@ -1565,22 +1556,20 @@ Buttons
   background-image: linear-gradient(top, #4d90fe, #4787ed);
   border: 1px solid #3079ED;
   color: #FFF; }
-
-.google-btn-blue:hover {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background-color: #357AE8;
-  background-image: -webkit-linear-gradient(top, #4D90FE, #357AE8);
-  background-image: linear-gradient(top, #4d90fe, #357ae8);
-  border: 1px solid #2F5BB7;
-  border-bottom-color: #2F5BB7; }
-
-.google-btn-blue:active, .google-btn-blue:focus {
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
-  background: #357AE8;
-  border: 1px solid #2F5BB7;
-  border-top: 1px solid #2F5BB7; }
+  .google-btn-blue:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #357AE8;
+    background-image: -webkit-linear-gradient(top, #4D90FE, #357AE8);
+    background-image: linear-gradient(top, #4d90fe, #357ae8);
+    border: 1px solid #2F5BB7;
+    border-bottom-color: #2F5BB7; }
+  .google-btn-blue:active, .google-btn-blue:focus {
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    background: #357AE8;
+    border: 1px solid #2F5BB7;
+    border-top: 1px solid #2F5BB7; }
 
 .google-btn-default {
   -webkit-box-shadow: none;
@@ -1591,21 +1580,19 @@ Buttons
   color: #333;
   border: 1px solid #DCDCDC;
   border: 1px solid rgba(0, 0, 0, 0.1); }
-
-.google-btn-default:hover {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background-color: #F8F8F8;
-  background-image: -webkit-linear-gradient(top, #F8F8F8, #F1F1F1);
-  background-image: linear-gradient(top, #f8f8f8, #f1f1f1);
-  border: 1px solid #C6C6C6;
-  color: #111; }
-
-.google-btn-default:active {
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  background: #F8F8F8;
-  color: #111; }
+  .google-btn-default:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #F8F8F8;
+    background-image: -webkit-linear-gradient(top, #F8F8F8, #F1F1F1);
+    background-image: linear-gradient(top, #f8f8f8, #f1f1f1);
+    border: 1px solid #C6C6C6;
+    color: #111; }
+  .google-btn-default:active {
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    background: #F8F8F8;
+    color: #111; }
 
 /*-------------------------------------
 Temporary Info Window
@@ -1617,13 +1604,6 @@ Temporary Info Window
 
 .add-marker {
   text-decoration: none; }
-
-/*-------------------------------------
-CMB2
----------------------------------------*/
-#poststuff .postbox-container .cmb-row:not(:last-of-type) {
-  border-bottom: 0;
-  margin-bottom: 0; }
 
 /**
  * CMB2 Customized SCSS
@@ -1650,6 +1630,13 @@ CMB2
   margin-top: 10px;
   margin-right: 2px; }
 
+#cmb2-metabox-google_maps_search_options .cmb2-id-gmb-show-places {
+  border-bottom: none;
+  margin-bottom: 0; }
+
+#post-body-content #cmb2-metabox-google_maps_search_options .cmb2-id-gmb-search-radius {
+  border-top: 1px solid #e9e9e9; }
+
 /*-------------------------------------
 Autocomplete Metabox
 ---------------------------------------*/
@@ -1662,71 +1649,79 @@ Autocomplete Metabox
   color: #aaaaaa; }
 #cmb2-metabox-google_maps_markers a.drop-marker {
   font-style: normal; }
-#cmb2-metabox-google_maps_markers .autocomplete-wrap {
-  border-bottom: 1px solid #EEE;
-  padding: 0 0 12px; }
 
 /*-------------------------------------
-
+Map Markers
 ---------------------------------------*/
-#google-map-wrap {
-  position: relative; }
+#google_maps_markers #cmb2-metabox-google_maps_markers .cmb-repeatable-grouping {
+  padding-top: 0;
+  border-bottom: 1px solid #e9e9e9 !important; }
+#google_maps_markers .cmb-add-row {
+  display: none; }
 
 #poststuff .postbox-container .cmb-repeatable-group:not(:last-of-type) {
   border-bottom: 1px solid #e9e9e9;
   padding: 0 0 15px; }
 #poststuff .postbox-container .cmb-repeat-group-wrap .cmb-row:not(:last-of-type) {
   margin-bottom: 10px; }
+#poststuff .postbox-container h2.cmb-group-name {
+  font-size: 14px; }
 
 #gmb_markers_group_repeat.cmb-remove-field-row {
   margin-bottom: 15px; }
 
-#cmb2-metabox-google_maps_markers .cmb-repeatable-grouping {
-  padding-top: 0;
-  border-bottom: 1px solid #e9e9e9 !important; }
-  #cmb2-metabox-google_maps_markers .cmb-repeatable-grouping .cmb-remove-field-row {
-    padding-bottom: 12px !important; }
-
-#poststuff .inner-sidebar .inside, #poststuff #side-sortables .inside {
-  margin-top: 0;
-  padding-top: 12px; }
-#poststuff .inner-sidebar p.cmb2-metabox-description, #poststuff #side-sortables p.cmb2-metabox-description {
-  padding: 0;
-  font-weight: normal; }
-#poststuff .inner-sidebar .cmb-row, #poststuff #side-sortables .cmb-row {
-  margin: 0;
-  padding: 0;
-  margin-bottom: 6px; }
-  #poststuff .inner-sidebar .cmb-row:last-child, #poststuff #side-sortables .cmb-row:last-child {
-    margin-bottom: 0; }
-#poststuff .inner-sidebar .cmb-th, #poststuff #side-sortables .cmb-th {
-  background: transparent;
-  padding: 0;
-  position: relative; }
-  #poststuff .inner-sidebar .cmb-th label, #poststuff #side-sortables .cmb-th label {
+/*-------------------------------------
+Sidebar
+---------------------------------------*/
+#poststuff .inner-sidebar, #poststuff #side-sortables {
+  /*-------------------------------------
+  Sidebar Repeater
+  ---------------------------------------*/ }
+  #poststuff .inner-sidebar .inside, #poststuff #side-sortables .inside {
+    margin-top: 0;
+    padding-top: 12px; }
+  #poststuff .inner-sidebar p.cmb2-metabox-description, #poststuff #side-sortables p.cmb2-metabox-description {
+    padding: 0;
+    font-weight: normal; }
+  #poststuff .inner-sidebar .cmb-row, #poststuff #side-sortables .cmb-row {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 6px; }
+    #poststuff .inner-sidebar .cmb-row:not(:last-of-type), #poststuff #side-sortables .cmb-row:not(:last-of-type) {
+      border-bottom: 0; }
+    #poststuff .inner-sidebar .cmb-row:last-child, #poststuff #side-sortables .cmb-row:last-child {
+      margin-bottom: 0; }
+  #poststuff .inner-sidebar .cmb-th, #poststuff #side-sortables .cmb-th {
+    background: transparent;
+    padding: 0;
+    position: relative; }
+    #poststuff .inner-sidebar .cmb-th label, #poststuff #side-sortables .cmb-th label {
+      font-weight: normal;
+      padding: 6px 8px 10px 0; }
+  #poststuff .inner-sidebar .cmb-td.cmb-nested, #poststuff #side-sortables .cmb-td.cmb-nested {
+    padding-left: 12px;
+    padding-right: 12px; }
+  #poststuff .inner-sidebar h2.cmb-group-name, #poststuff #side-sortables h2.cmb-group-name {
+    padding: 6px 0 10px 0;
+    border-bottom: 1px solid #e9e9e9; }
+  #poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-group-title, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-group-title {
+    margin: 0;
+    padding: 6px 8px 6px 30px;
     font-weight: normal;
-    padding: 6px 8px 10px 0; }
-#poststuff .inner-sidebar .cmb-td.cmb-nested, #poststuff #side-sortables .cmb-td.cmb-nested {
-  padding-left: 12px;
-  padding-right: 12px; }
-#poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-group-title, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-group-title {
-  margin: 0;
-  padding: 6px 8px 6px 30px;
-  font-weight: normal;
-  cursor: pointer; }
-#poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-field-list, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-field-list {
-  border-left: 1px solid #EEE;
-  border-right: 1px solid #EEE; }
-#poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-remove-row, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-remove-row {
-  margin: 0;
-  padding: 0; }
-#poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-remove-group-row, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-remove-group-row {
-  top: 4px; }
-#poststuff .inner-sidebar #gmb_markers_group_repeat .cmbhandle, #poststuff #side-sortables #gmb_markers_group_repeat .cmbhandle {
-  right: 0;
-  top: -2px; }
-#poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-add-row, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-add-row {
-  margin: 15px 0 10px; }
+    cursor: pointer; }
+  #poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-field-list, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-field-list {
+    border-left: 1px solid #EEE;
+    border-right: 1px solid #EEE; }
+  #poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-remove-row, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-remove-row {
+    margin: 0;
+    padding: 0; }
+  #poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-remove-group-row, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-remove-group-row {
+    top: 4px; }
+  #poststuff .inner-sidebar #gmb_markers_group_repeat .cmbhandle, #poststuff #side-sortables #gmb_markers_group_repeat .cmbhandle {
+    right: 0;
+    top: -2px; }
+  #poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-add-row, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-add-row {
+    margin: 15px 0 10px; }
 
 #postbox-container-2 #cmb2-metabox-google_maps_markers .toggle-repeater-groups {
   float: right; }

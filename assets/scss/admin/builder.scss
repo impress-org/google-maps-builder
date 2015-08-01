@@ -2,6 +2,10 @@
  * Google Places Map CPT Styles TEST
  */
 
+#google-map-wrap {
+  position: relative;
+}
+
 .clear:before,
 .clear:after {
   content: " ";
@@ -25,7 +29,7 @@
   -webkit-box-sizing: border-box;
 }
 
-.cmb2-id-gmb-theme-json {
+.cmb2-id-gmb-theme-json, #marker-icon-modal {
   display: none;
 }
 
@@ -47,24 +51,18 @@
 .repeatable-grouping {
   .cmb-nested-table td {
 	padding-top: 3px;
+	pre textarea {
+	  height: 50px;
+	}
   }
   .cmb-nested-table td pre {
 	margin: 0;
   }
 }
 
-.repeatable-grouping .cmb-nested-table td pre textarea {
-  height: 50px;
-}
-
 .new-window {
   background: url('../img/new-window-icon.png') no-repeat right 3px transparent;
   padding-right: 16px;
-}
-
-#marker-icon-modal {
-  display: none;
-
 }
 
 .mfp-content #marker-icon-modal {
@@ -90,7 +88,6 @@
 /*------------------------------------------
  Messages
 --------------------------------------------*/
-
 .wpgp-message {
   background-color: #FFF;
   border-left: 4px solid #7AD03A;
@@ -116,15 +113,13 @@
 .places-change-message {
   margin-bottom: 15px;
   margin-right: 2px;
-}
-
-.places-change-message p {
-  float: left;
-}
-
-.places-change-message .button {
-  float: right;
-  margin-top: 5px;
+  p {
+	float: left;
+  }
+  .button {
+	float: right;
+	margin-top: 5px;
+  }
 }
 
 #google-map-wrap .wpgp-message {
@@ -134,7 +129,6 @@
 /*------------------------------------------
  Google Map Metabox
 --------------------------------------------*/
-
 #cmb2-metabox-google_maps_preview_metabox > div {
   padding: 5px 0 0;
   margin: 0;
@@ -166,7 +160,6 @@
 /*------------------------------------------
  General Styles
 --------------------------------------------*/
-
 .cmb2-id-gmb-search-radius, .cmb2-id-gmb-places-search-multicheckbox {
   display: none;
 }
@@ -220,28 +213,6 @@
 /*------------------------------------------
  Place Markers
 --------------------------------------------*/
-
-/* Hacky fix to prevent scrollbars */
-#google_maps_preview_metabox .gm-style-iw, #google_maps_preview_metabox .gm-style-iw > div {
-  overflow: visible !important;
-}
-
-#google_maps_preview_metabox .gm-style-iw > div > div {
-  overflow: visible !important;
-}
-
-#infobubble-content {
-  overflow: hidden !important;
-}
-
-#infobubble-content.loading {
-  background: url('../img/loading.gif') no-repeat center center #FFF;
-}
-
-#google-map-wrap div#infobubble-content > div {
-  white-space: normal;
-}
-
 #infobubble-content {
   padding: 0 0 0 0;
   margin: 3px -20px 0 0;
@@ -281,6 +252,27 @@
   cursor: pointer;
 }
 
+/* Hacky fix to prevent scrollbars */
+#google_maps_preview_metabox .gm-style-iw, #google_maps_preview_metabox .gm-style-iw > div {
+  overflow: visible !important;
+}
+
+#google_maps_preview_metabox .gm-style-iw > div > div {
+  overflow: visible !important;
+}
+
+#infobubble-content {
+  overflow: hidden !important;
+}
+
+#infobubble-content.loading {
+  background: url('../img/loading.gif') no-repeat center center #FFF;
+}
+
+#google-map-wrap div#infobubble-content > div {
+  white-space: normal;
+}
+
 /* Ratings */
 #infobubble-content {
   .rating-wrap {
@@ -315,30 +307,30 @@
   margin: 0;
   padding: 0;
   text-align: right;
-}
+  > li {
+	margin: 0 4px;
+	cursor: pointer;
+	display: inline-block;
+	content: '';
+	height: 21px;
+	width: 21px;
+	opacity: .5;
+	background: url('../img/icons-infowindow-002.svg');
+	&:hover {
+	  opacity: .75;
+	}
 
-#edit-toolbar > li {
-  margin: 0 4px;
-  cursor: pointer;
-  display: inline-block;
-  content: '';
-  height: 21px;
-  width: 21px;
-  opacity: .5;
-  background: url('../img/icons-infowindow-002.svg');
-}
+	&.trash-marker {
+	  background-position: -42px 0;
+	}
 
-#edit-toolbar > li:hover {
-  opacity: .75;
-}
+	&.edit-info {
+	  background: url('../img/icons-app-000.svg');
+	  background-position: 21px 21px;
+	}
 
-#edit-toolbar > li.trash-marker {
-  background-position: -42px 0;
-}
+  }
 
-#edit-toolbar > li.edit-info {
-  background: url('../img/icons-app-000.svg');
-  background-position: 21px 21px;
 }
 
 /*------------------------------------------
@@ -388,7 +380,6 @@ Display Options
   float: right;
   margin: 7px 0 0 !important;
 }
-
 
 /*-------------------------------------
 Save Info Window Toolbar
@@ -554,16 +545,14 @@ Marker Icon Modal
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   border-top: 1px solid #DFDFDF;
-}
-
-.save-marker-icon .save-text {
-  float: left;
-  font-style: italic;
-  margin: 6px 0 0 10px;
-}
-
-.save-marker-icon .button {
-  float: right;
+  .save-text {
+	float: left;
+	font-style: italic;
+	margin: 6px 0 0 10px;
+  }
+  .button {
+	float: right;
+  }
 }
 
 .radius-label {
@@ -573,9 +562,8 @@ Marker Icon Modal
 }
 
 /*-------------------------------------
-Buttons
+Google Style Buttons
 ---------------------------------------*/
-
 .google-btn {
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -600,24 +588,22 @@ Buttons
   background-image: linear-gradient(top, #4d90fe, #4787ed);
   border: 1px solid #3079ED;
   color: #FFF;
-}
-
-.google-btn-blue:hover {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background-color: #357AE8;
-  background-image: -webkit-linear-gradient(top, #4D90FE, #357AE8);
-  background-image: linear-gradient(top, #4d90fe, #357ae8);
-  border: 1px solid #2F5BB7;
-  border-bottom-color: #2F5BB7;
-}
-
-.google-btn-blue:active, .google-btn-blue:focus {
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
-  background: #357AE8;
-  border: 1px solid #2F5BB7;
-  border-top: 1px solid #2F5BB7;
+  &:hover {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background-color: #357AE8;
+	background-image: -webkit-linear-gradient(top, #4D90FE, #357AE8);
+	background-image: linear-gradient(top, #4d90fe, #357ae8);
+	border: 1px solid #2F5BB7;
+	border-bottom-color: #2F5BB7;
+  }
+  &:active, &:focus {
+	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+	background: #357AE8;
+	border: 1px solid #2F5BB7;
+	border-top: 1px solid #2F5BB7;
+  }
 }
 
 .google-btn-default {
@@ -629,23 +615,23 @@ Buttons
   color: #333;
   border: 1px solid #DCDCDC;
   border: 1px solid rgba(0, 0, 0, 0.1);
-}
 
-.google-btn-default:hover {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background-color: #F8F8F8;
-  background-image: -webkit-linear-gradient(top, #F8F8F8, #F1F1F1);
-  background-image: linear-gradient(top, #f8f8f8, #f1f1f1);
-  border: 1px solid #C6C6C6;
-  color: #111;
-}
+  &:hover {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background-color: #F8F8F8;
+	background-image: -webkit-linear-gradient(top, #F8F8F8, #F1F1F1);
+	background-image: linear-gradient(top, #f8f8f8, #f1f1f1);
+	border: 1px solid #C6C6C6;
+	color: #111;
+  }
 
-.google-btn-default:active {
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  background: #F8F8F8;
-  color: #111;
+  &:active {
+	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+	background: #F8F8F8;
+	color: #111;
+  }
 }
 
 /*-------------------------------------
@@ -660,12 +646,4 @@ Temporary Info Window
 
 .add-marker {
   text-decoration: none;
-}
-
-/*-------------------------------------
-CMB2
----------------------------------------*/
-#poststuff .postbox-container .cmb-row:not(:last-of-type) {
-  border-bottom: 0;
-  margin-bottom: 0;
 }

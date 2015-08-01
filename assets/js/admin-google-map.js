@@ -197,13 +197,6 @@ var gmb_data;
 			google.maps.event.trigger( map, 'resize' );
 		} );
 
-		//Map Markers Repeatable Add button
-		$('#cmb2-metabox-google_maps_markers .cmb-add-group-row' ).on('click', function(){
-
-			alert('here');
-
-		});
-
 	} ); //End Window Load
 
 
