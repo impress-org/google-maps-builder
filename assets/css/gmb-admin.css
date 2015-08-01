@@ -970,8 +970,8 @@ Magnific Builder
   .magnific-builder#post #postbox-container-1:after {
     content: ' ';
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 15px;
+    right: 130px;
     background: url('../img/powered-by-google-on-white.png') no-repeat 0 0 transparent;
     width: 104px;
     height: 16px; }
