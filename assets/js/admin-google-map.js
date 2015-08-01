@@ -55,6 +55,7 @@ var gmb_data;
 
 		//Search Radius Circle
 		$( '#gmb_search_radius' ).on( 'focus', function () {
+			google.maps.event.trigger( map, 'resize' ); //refresh map to get exact center
 			current_radius = $( this ).val();
 			calc_radius( map, parseInt( $( this ).val() ) );
 		} ).focusout( function () {
