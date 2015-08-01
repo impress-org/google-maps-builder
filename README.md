@@ -1,4 +1,4 @@
-# WordPress Maps Builder
+# Maps Builder - Google Maps WordPress Plugin 
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/WordImpress/google-maps-builder/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/WordImpress/google-maps-builder/?branch=master) [![License](https://img.shields.io/badge/license-GPL--2.0%2B-green.svg)](https://github.com/WordImpress/Give/blob/master/license.txt)
 
