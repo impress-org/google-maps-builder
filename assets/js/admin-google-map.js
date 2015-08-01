@@ -183,7 +183,7 @@ var gmb_data;
 
 
 		//Close repeaters
-		$( '#gmb_markers_group_repeat .cmb-repeatable-grouping' ).addClass( 'closed' );
+		$( '.cmb-repeatable-grouping' ).addClass( 'closed' );
 
 		//Add Repeater toggle button
 		$( '.toggle-repeater-groups' ).on( 'click', function ( e ) {
