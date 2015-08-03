@@ -82,7 +82,7 @@ class Google_Maps_Builder_Scripts {
 		$suffix     = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		// Use minified libraries if SCRIPT_DEBUG is turned off
-		wp_register_script( $this->plugin_slug . '-plugin-script', GMB_PLUGIN_URL . 'assets/js/google-maps-builder' . $suffix . '.js', array( 'jquery' ), GMB_VERSION, true );
+		wp_register_script( $this->plugin_slug . '-plugin-script', $js_dir . 'google-maps-builder' . $suffix . '.js', array( 'jquery' ), GMB_VERSION, true );
 		wp_register_script( 'google-maps-builder-maps-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/js/map-icons.js', array( 'jquery' ), GMB_VERSION, true );
 		wp_localize_script( $this->plugin_slug . '-plugin-script', 'gmb_data', array() );
 
@@ -333,9 +333,6 @@ class Google_Maps_Builder_Scripts {
 			wp_register_style( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/css/map-icons.css', array(), GMB_VERSION );
 			wp_enqueue_style( $this->plugin_slug . '-map-icons' );
 
-			wp_register_script( $this->plugin_slug . '-admin-settings', GMB_PLUGIN_URL . 'assets/js/admin-settings' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
-			wp_enqueue_script( $this->plugin_slug . '-admin-settings' );
-
 		}
 
 	}
@@ -353,13 +350,17 @@ class Google_Maps_Builder_Scripts {
 		global $post;
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
+		$js_dir     = GMB_PLUGIN_URL . 'assets/js/admin/';
+		$js_plugins = GMB_PLUGIN_URL . 'assets/js/plugins/';
+
+
 		//Only enqueue scripts for CPT on post type screen
 		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
 
 			wp_enqueue_script( 'colorpicker' );
 			wp_enqueue_style( 'wp-color-picker' );
 
-			wp_register_script( $this->plugin_slug . '-admin-magnific-popup', GMB_PLUGIN_URL . 'assets/js/gmb-magnific' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
+			wp_register_script( $this->plugin_slug . '-admin-magnific-popup', $js_plugins . 'gmb-magnific' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-admin-magnific-popup' );
 
 			wp_register_script( $this->plugin_slug . '-admin-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
@@ -368,21 +369,26 @@ class Google_Maps_Builder_Scripts {
 			wp_register_script( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/js/map-icons.js', array( 'jquery' ) );
 			wp_enqueue_script( $this->plugin_slug . '-map-icons' );
 
-			wp_register_script( $this->plugin_slug . '-admin-qtip', GMB_PLUGIN_URL . 'assets/js/jquery.qtip' . $suffix . '.js', array( 'jquery' ), GMB_VERSION, true );
+			wp_register_script( $this->plugin_slug . '-admin-qtip', $js_plugins . 'jquery.qtip' . $suffix . '.js', array( 'jquery' ), GMB_VERSION, true );
 			wp_enqueue_script( $this->plugin_slug . '-admin-qtip' );
 
-			wp_register_script( $this->plugin_slug . '-admin-map-builder', GMB_PLUGIN_URL . 'assets/js/admin-google-map' . $suffix . '.js', array(
+			//Map controls
+			wp_register_script( $this->plugin_slug . '-admin-map-builder', $js_dir . 'admin-google-map' . $suffix . '.js', array(
 				'jquery',
 				'wp-color-picker'
 			), GMB_VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-admin-map-builder' );
 
-
-			wp_register_script( $this->plugin_slug . '-admin-magnific-builder', GMB_PLUGIN_URL . 'assets/js/admin-maps-magnific' . $suffix . '.js', array(
+			//Modal builder
+			wp_register_script( $this->plugin_slug . '-admin-magnific-builder', $js_dir . 'admin-maps-magnific' . $suffix . '.js', array(
 				'jquery',
 				'wp-color-picker'
 			), GMB_VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-admin-magnific-builder' );
+
+			//Settings
+			wp_register_script( $this->plugin_slug . '-admin-settings', $js_dir . 'admin-settings' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-settings' );
 
 			$api_key   = gmb_get_option( 'gmb_api_key' );
 			$geolocate = gmb_get_option( 'gmb_lat_lng' );
@@ -395,7 +401,7 @@ class Google_Maps_Builder_Scripts {
 				'plugin_url'        => GMB_PLUGIN_URL,
 				'default_marker'    => apply_filters( 'gmb_default_marker', GMB_PLUGIN_URL . 'assets/img/default-marker.png' ),
 				'ajax_loader'       => set_url_scheme( apply_filters( 'gmb_ajax_preloader_img', GMB_PLUGIN_URL . 'assets/images/spinner.gif' ), 'relative' ),
-				'snazzy'            => GMB_PLUGIN_URL . 'assets/js/snazzy.json',
+				'snazzy'            => GMB_PLUGIN_URL . 'assets/js/admin/snazzy.json',
 				'modal_default'     => gmb_get_option( 'gmb_open_builder' ),
 				'i18n'              => array(
 					'update_map'               => __( 'Update Map', $this->plugin_slug ),

@@ -20,7 +20,6 @@ class GMB_Shortcode_Generator {
 
 		// Tiny MCE button icon
 		add_action( 'admin_head', array( $this, 'set_tinymce_button_icon' ) );
-
 		add_action( 'wp_ajax_gmb_shortcode_iframe', array( $this, 'gmb_shortcode_iframe' ), 9 );
 	}
 
@@ -28,7 +27,14 @@ class GMB_Shortcode_Generator {
 	 * Add a button for the GPR shortcode to the WP editor.
 	 */
 	public function add_shortcode_button() {
+		global $post;
+
 		if ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
+			return;
+		}
+
+		//Be sure to not allow on out post type
+		if ( $post->post_type === 'google_maps' ) {
 			return;
 		}
 
@@ -148,7 +154,7 @@ class GMB_Shortcode_Generator {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		//Shortcode Generator Specific JS
-		wp_register_script( 'gmb-shortcode-generator', GMB_PLUGIN_URL . '/assets/js/shortcode-iframe' . $suffix . '.js', array( 'jquery' ) );
+		wp_register_script( 'gmb-shortcode-generator', GMB_PLUGIN_URL . '/assets/js/admin/shortcode-iframe' . $suffix . '.js', array( 'jquery' ) );
 		wp_enqueue_script( 'gmb-shortcode-generator' );
 
 

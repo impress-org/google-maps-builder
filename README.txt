@@ -126,6 +126,7 @@ The main developer of this plugin is WordImpress. To find out more information a
 = 2.0 =
 * General: This update focused on fixing a lot of pre-existing bugs commonly submitted to WordPress.org as well as improving the plugin base for future code enhancements.
 * New: Enhanced Full Screen Maps Builder mode.
+* New: Shortcode builder integrated into TinyMCE to make adding maps to your posts a breeze. @see: https://github.com/WordImpress/google-maps-builder/issues/24
 * New: Upgrade process for maps using Google's old reference ID in place for the new Place_ID @see: https://github.com/WordImpress/google-maps-builder/issues/18
 * New: Switch and Test all Google Places API calls to "Reference ID" or "ID" to Google's new "Places ID"
 * New: Gulp implemented for minifying scripts

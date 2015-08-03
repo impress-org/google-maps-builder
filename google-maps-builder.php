@@ -121,7 +121,6 @@ if ( ! class_exists( 'Google_Maps_Builder' ) ) : /**
 		public static function instance() {
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Google_Maps_Builder ) ) {
 
-
 				self::$instance = new Google_Maps_Builder();
 				self::$instance->setup_constants();
 
@@ -135,7 +134,6 @@ if ( ! class_exists( 'Google_Maps_Builder' ) ) : /**
 
 				//Init CPT (after CMB2 -> hence the 10000 priority)
 				add_action( 'init', array( self::$instance, 'setup_post_type' ), 10000 );
-
 
 				// Read plugin meta
 				// Check that function get_plugin_data exists
@@ -221,7 +219,7 @@ if ( ! class_exists( 'Google_Maps_Builder' ) ) : /**
 			require_once GMB_PLUGIN_PATH . 'includes/class-gmb-activate.php';
 			require_once GMB_PLUGIN_PATH . 'includes/libraries/metabox/init.php';
 			require_once GMB_PLUGIN_PATH . 'includes/class-gmb-scripts.php';
-			//require_once GMB_PLUGIN_PATH . 'includes/class-gmb-widget.php'; Widget coming soon :)
+			require_once GMB_PLUGIN_PATH . 'includes/class-gmb-widget.php';
 			require_once GMB_PLUGIN_PATH . 'includes/class-gmb-engine.php';
 			require_once GMB_PLUGIN_PATH . 'includes/admin/class-gmb-settings.php';
 
