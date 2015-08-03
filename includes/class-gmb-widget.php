@@ -51,12 +51,15 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 	 * Register widget with WordPress.
 	 */
 	public function __construct() {
+
+		$this->plugin_slug = Google_Maps_Builder()->get_plugin_slug();
+
 		parent::__construct(
 			'gmb_maps_widget', // Base ID
-			__( 'Maps Builder Widget', 'google-maps-builder' ), // Name
+			__( 'Maps Builder Widget', $this->plugin_slug ), // Name
 			array(
 				'classname'   => 'gmb-maps-widget',
-				'description' => __( 'Display a Google Map in your theme\'s widget powered sidebar.', 'google-maps-builder' )
+				'description' => __( 'Display a Google Map in your theme\'s widget powered sidebar.', $this->plugin_slug )
 			) //Args
 		);
 
@@ -69,20 +72,19 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 	//Load Widget JS Script ONLY on Widget page
 	public function admin_widget_scripts( $hook ) {
 
-		//Directories of assets
-		$js_dir  = GMB_PLUGIN_URL . 'assets/js/admin';
-		$css_dir = GMB_PLUGIN_URL . 'assets/css/';
-
 		// Use minified libraries if SCRIPT_DEBUG is turned off
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 		//Widget Script
 		if ( $hook == 'widgets.php' ) {
-			wp_register_script( 'gmb-qtip', $js_dir . 'jquery.qtip' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
+
+			wp_register_style( $this->plugin_slug . '-admin-styles', GMB_PLUGIN_URL . 'assets/css/gmb-admin' . $suffix . '.css', array(), GMB_VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-admin-styles' );
+
+			wp_register_script( 'gmb-qtip', GMB_PLUGIN_URL . 'assets/js/plugins/jquery.qtip' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
 			wp_enqueue_script( 'gmb-qtip' );
 
-
-			wp_register_script( 'gmb-admin-widgets-scripts', $js_dir . 'admin-widget' . $suffix . '.js', array( 'jquery' ), GMB_VERSION, false );
+			wp_register_script( 'gmb-admin-widgets-scripts', GMB_PLUGIN_URL . 'assets/js/admin/admin-widget' . $suffix . '.js', array( 'jquery' ), GMB_VERSION, false );
 			wp_enqueue_script( 'gmb-admin-widgets-scripts' );
 		}
 
@@ -120,11 +122,11 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 		$gmb_forms = get_posts( $args );
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'id' ) ); ?>"><?php _e( 'Select a Map:', 'google-maps-builder' ); ?>
-				<span class="dashicons dashicons-tinymce-help" data-tooltip="<?php _e( 'Select a map that you would like to embed in this widget area.', 'google-maps-builder' ); ?>"></span>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'id' ) ); ?>"><?php _e( 'Select a Map:', $this->plugin_slug ); ?>
+				<span class="dashicons gmb-tooltip-icon" data-tooltip="<?php _e( 'Select a map that you would like to embed in this widget area.', $this->plugin_slug ); ?>"></span>
 			</label>
 			<select class="widefat" name="<?php echo esc_attr( $this->get_field_name( 'id' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'id' ) ); ?>">
-				<option value="current"><?php _e( 'Please select...', 'google-maps-builder' ); ?></option>
+				<option value="current"><?php _e( 'Please select...', $this->plugin_slug ); ?></option>
 				<?php foreach ( $gmb_forms as $gmb_form ) { ?>
 					<option <?php selected( absint( $instance['id'] ), $gmb_form->ID ); ?> value="<?php echo esc_attr( $gmb_form->ID ); ?>"><?php echo $gmb_form->post_title; ?></option>
 				<?php } ?>
@@ -153,6 +155,12 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
+
+		$atts = array(
+			'id' => $instance['id'],
+		);
+
+		echo Google_Maps_Builder()->engine->google_maps_shortcode( $atts );
 
 		echo $args['after_widget'];
 

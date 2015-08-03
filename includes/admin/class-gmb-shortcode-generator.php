@@ -157,7 +157,6 @@ class GMB_Shortcode_Generator {
 		wp_register_script( 'gmb-shortcode-generator', GMB_PLUGIN_URL . '/assets/js/admin/shortcode-iframe' . $suffix . '.js', array( 'jquery' ) );
 		wp_enqueue_script( 'gmb-shortcode-generator' );
 
-
 		iframe_header(); ?>
 
 		<style>
