@@ -10,7 +10,7 @@
 
 <div id="marker-icon-modal" class="white-popup">
 	<div class="inner-modal">
-
+		<button type="button" class="gmb-modal-close">&times;</button>
 		<div class="marker-description-wrap clear">
 			<h3><?php _e( 'Customize Map Marker', $this->plugin_slug ); ?></h3>
 

@@ -182,12 +182,11 @@ Magnific Builder
 
   span.dashicons {
 	position: relative;
-	top:2px;
-	margin-right:3px;
+	top: 2px;
+	margin-right: 3px;
   }
 
 }
-
 
 /*-------------------------------------
 Modal within Modal
@@ -202,7 +201,7 @@ Modal within Modal
   left: 0;
   z-index: 100008;
   opacity: 1;
-  background: rgba(250, 250, 250, 0.8);
+  background: rgba(88, 88, 88, 0.8);
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
@@ -214,6 +213,7 @@ Modal within Modal
 	background: #FFF;
 	padding: 20px;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
+	position: relative;
 
 	h3 {
 	  margin: 0 0 15px;
@@ -232,4 +232,13 @@ Modal within Modal
 
 .pac-container {
   z-index: 100020 !important;
+}
+
+button.gmb-modal-close {
+  border: none;
+  background-color: transparent;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
 }

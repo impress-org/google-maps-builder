@@ -1731,7 +1731,7 @@ var gmb_data;
 					}
 				} );
 				//Close button
-				$( '.magnific-builder .button-primary' ).on( 'click', function () {
+				$( '.magnific-builder .button-primary, .gmb-modal-close' ).on( 'click', function () {
 					$( this ).parents( '.white-popup' )
 						.appendTo( '.modal-placeholder' )  // Move it back to it's proper location
 						.unwrap(); // Remove the placeholder
