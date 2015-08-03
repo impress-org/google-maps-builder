@@ -1899,7 +1899,7 @@ QTIP.nextid = 0;
 QTIP.inactiveEvents = INACTIVE_EVENTS;
 
 // Base z-index for all qTips
-QTIP.zindex = 15000;
+QTIP.zindex = 100010;
 
 // Define configuration defaults
 QTIP.defaults = {

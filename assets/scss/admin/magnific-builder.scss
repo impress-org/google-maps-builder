@@ -179,9 +179,19 @@ Magnific Builder
   margin: 5px 12px 10px;
   display: block;
   text-align: center;
+
+  span.dashicons {
+	position: relative;
+	top:2px;
+	margin-right:3px;
+  }
+
 }
 
-//Modal within modal
+
+/*-------------------------------------
+Modal within Modal
+---------------------------------------*/
 .magnific-builder #poststuff .white-popup {
   position: absolute;
   max-width: none;

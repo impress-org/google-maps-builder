@@ -148,13 +148,14 @@ Sidebar
   }
 
   /*-------------------------------------
-  Sidebar Repeater
+  Sidebar Repeater Field Groups
   ---------------------------------------*/
   h2.cmb-group-name {
 	padding: 6px 0 10px 0;
 	border-bottom: 1px solid #e9e9e9;
   }
-  #gmb_markers_group_repeat {
+
+  .cmb-repeatable-group {
 	.cmb-group-title {
 	  margin: 0;
 	  padding: 6px 8px 6px 30px;
@@ -184,6 +185,10 @@ Sidebar
 	  margin: 15px 0 10px;
 	}
 
+  }
+
+  .drop-marker {
+	margin-bottom: 15px;
   }
 
 }

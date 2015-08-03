@@ -1472,7 +1472,14 @@ Magnific Builder
   margin: 5px 12px 10px;
   display: block;
   text-align: center; }
+  #map-builder span.dashicons {
+    position: relative;
+    top: 2px;
+    margin-right: 3px; }
 
+/*-------------------------------------
+Modal within Modal
+---------------------------------------*/
 .magnific-builder #poststuff .white-popup {
   position: absolute;
   max-width: none;
@@ -2096,7 +2103,7 @@ Sidebar
 ---------------------------------------*/
 #poststuff .inner-sidebar, #poststuff #side-sortables {
   /*-------------------------------------
-  Sidebar Repeater
+  Sidebar Repeater Field Groups
   ---------------------------------------*/ }
   #poststuff .inner-sidebar .inside, #poststuff #side-sortables .inside {
     margin-top: 0;
@@ -2125,24 +2132,26 @@ Sidebar
   #poststuff .inner-sidebar h2.cmb-group-name, #poststuff #side-sortables h2.cmb-group-name {
     padding: 6px 0 10px 0;
     border-bottom: 1px solid #e9e9e9; }
-  #poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-group-title, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-group-title {
+  #poststuff .inner-sidebar .cmb-repeatable-group .cmb-group-title, #poststuff #side-sortables .cmb-repeatable-group .cmb-group-title {
     margin: 0;
     padding: 6px 8px 6px 30px;
     font-weight: normal;
     cursor: pointer; }
-  #poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-field-list, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-field-list {
+  #poststuff .inner-sidebar .cmb-repeatable-group .cmb-field-list, #poststuff #side-sortables .cmb-repeatable-group .cmb-field-list {
     border-left: 1px solid #EEE;
     border-right: 1px solid #EEE; }
-  #poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-remove-row, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-remove-row {
+  #poststuff .inner-sidebar .cmb-repeatable-group .cmb-remove-row, #poststuff #side-sortables .cmb-repeatable-group .cmb-remove-row {
     margin: 0;
     padding: 0; }
-  #poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-remove-group-row, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-remove-group-row {
+  #poststuff .inner-sidebar .cmb-repeatable-group .cmb-remove-group-row, #poststuff #side-sortables .cmb-repeatable-group .cmb-remove-group-row {
     top: 4px; }
-  #poststuff .inner-sidebar #gmb_markers_group_repeat .cmbhandle, #poststuff #side-sortables #gmb_markers_group_repeat .cmbhandle {
+  #poststuff .inner-sidebar .cmb-repeatable-group .cmbhandle, #poststuff #side-sortables .cmb-repeatable-group .cmbhandle {
     right: 0;
     top: -2px; }
-  #poststuff .inner-sidebar #gmb_markers_group_repeat .cmb-add-row, #poststuff #side-sortables #gmb_markers_group_repeat .cmb-add-row {
+  #poststuff .inner-sidebar .cmb-repeatable-group .cmb-add-row, #poststuff #side-sortables .cmb-repeatable-group .cmb-add-row {
     margin: 15px 0 10px; }
+  #poststuff .inner-sidebar .drop-marker, #poststuff #side-sortables .drop-marker {
+    margin-bottom: 15px; }
 
 #postbox-container-2 #cmb2-metabox-google_maps_markers .toggle-repeater-groups {
   float: right; }
