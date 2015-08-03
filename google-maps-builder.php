@@ -233,10 +233,9 @@ if ( ! class_exists( 'Google_Maps_Builder' ) ) : /**
 
 				//Admin
 				require_once GMB_PLUGIN_PATH . 'includes/admin/class-gmb-admin.php';
+				require_once GMB_PLUGIN_PATH . 'includes/admin/class-gmb-shortcode-generator.php';
 
 			}
-
-			//			require_once GIVE_PLUGIN_DIR . 'includes/install.php';
 
 		}
 
