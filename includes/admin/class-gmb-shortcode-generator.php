@@ -171,15 +171,10 @@ class GMB_Shortcode_Generator {
 				display: none;
 			}
 
-			.gmb-place-search-wrap > div.gmb-autocomplete {
+			.gmb-place-search-wrap > div.gmb-map-select {
 				width: 65%;
 				margin-right: 2%;
 				float: left;
-			}
-
-			.gmb-place-search-wrap > div.gmb-place-type > select {
-				height: 36px;
-				line-height: 36px;
 			}
 
 			div.updated {
@@ -188,7 +183,7 @@ class GMB_Shortcode_Generator {
 				box-sizing: border-box;
 			}
 
-			div.place-id-not-set {
+			div.gmb-edit-shortcode {
 				border-color: orange;
 			}
 		</style>
@@ -196,27 +191,19 @@ class GMB_Shortcode_Generator {
 			<form id="gmb_settings" style="float: left; width: 100%;">
 				<?php do_action( 'gmb_shortcode_iframe_before' ); ?>
 				<fieldset id="gmb_location_lookup_fields" class="gmb-place-search-wrap clear" style="margin:1em 0;">
-					<div class="gmb-autocomplete">
-						<label for="gmb_location_lookup"><strong><?php _e( 'Location Lookup:', 'google-maps-builder' ); ?></strong></label>
-						<input type="text" id="gmb_location_lookup" name="gmb_location_lookup" class="widefat gmb-autocomplete" />
+					<div class="gmb-map-select">
+						<label for="gmb_location_lookup"><strong><?php _e( 'Choose a Map', 'google-maps-builder' ); ?></strong></label>
+						<?php echo self::maps_dropdown(); ?>
 					</div>
-
-					<div class="updated place-id-not-set">
-						<p><?php _e( '<strong>Create a Shortcode</strong>: Start creating a Google Places Review shortcode by looking up your business or location using the lookup field above.', 'google-maps-builder' ); ?></p>
-					</div>
-					<div class="updated place-id-set" style="display: none;">
-						<p><?php esc_attr_e( 'The Google Place ID is set for this location.', 'google-maps-builder' ); ?></p>
-					</div>
-
 				</fieldset>
 
-
-				<div class="updated gmb-edit-shortcode" style="display: none;">
-					<p><?php _e( '<strong>Edit Active Shortcode:</strong> Customize the options for this Google Places Reviews shortcode by adjusting the options below.', 'google-maps-builder' ); ?></p>
+				<div class="updated new-shortcode">
+					<p><?php _e( '<strong>Insert Shortcode</strong>: Select your desired map from the dropdown above then click create shortcode below.', 'google-maps-builder' ); ?></p>
 				</div>
 
-				<a href="#" class="gmb-toggle-shortcode-fields" style="display: none;box-shadow: none;margin: 0 0 20px;">&raquo; <?php _e( '<strong>View Additional Shortcode Options</strong> (all optional)', 'google-maps-builder' ); ?>
-				</a>
+				<div class="updated gmb-edit-shortcode" style="display: none;">
+					<p><?php _e( '<strong>Edit Active Shortcode:</strong> Customize the map for this shortcode by modifying the map selection above.', 'google-maps-builder' ); ?></p>
+				</div>
 
 				<?php do_action( 'gmb_shortcode_iframe_after' ); ?>
 
@@ -232,6 +219,162 @@ class GMB_Shortcode_Generator {
 		<?php iframe_footer();
 		exit();
 	}
+
+
+	/**
+	 * Renders an HTML Dropdown of all the Give Forms
+	 *
+	 * @access public
+	 * @since  1.0
+	 *
+	 * @param array $args Arguments for the dropdown
+	 *
+	 * @return string $output Give forms dropdown
+	 */
+	public function maps_dropdown( $args = array() ) {
+
+		$defaults = array(
+			'name'        => 'gmb-maps',
+			'id'          => 'gmb-maps',
+			'class'       => '',
+			'multiple'    => false,
+			'selected'    => 0,
+			'chosen'      => false,
+			'number'      => 30,
+			'placeholder' => __( 'Select a Map', 'google-maps-builder' )
+		);
+
+		$args = wp_parse_args( $args, $defaults );
+
+		$maps = get_posts( array(
+			'post_type'      => 'google_maps',
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+			'posts_per_page' => $args['number']
+		) );
+
+		$options = array();
+
+		if ( $maps ) {
+			$options[0] = __( 'Select a Map', 'google-maps-builder' );
+			foreach ( $maps as $map ) {
+				$options[ absint( $map->ID ) ] = esc_html( $map->post_title );
+			}
+		} else {
+			$options[0] = __( 'No Maps Found', 'google-maps-builder' );
+		}
+
+		// This ensures that any selected maps are included in the drop down
+		if ( is_array( $args['selected'] ) ) {
+			foreach ( $args['selected'] as $item ) {
+				if ( ! in_array( $item, $options ) ) {
+					$options[ $item ] = get_the_title( $item );
+				}
+			}
+		} elseif ( is_numeric( $args['selected'] ) && $args['selected'] !== 0 ) {
+			if ( ! in_array( $args['selected'], $options ) ) {
+				$options[ $args['selected'] ] = get_the_title( $args['selected'] );
+			}
+		}
+
+		$output = self::select( array(
+			'name'             => $args['name'],
+			'selected'         => $args['selected'],
+			'id'               => $args['id'],
+			'class'            => $args['class'],
+			'options'          => $options,
+			'chosen'           => $args['chosen'],
+			'multiple'         => $args['multiple'],
+			'placeholder'      => $args['placeholder'],
+			'show_option_all'  => false,
+			'show_option_none' => false
+		) );
+
+		return $output;
+	}
+
+
+	/**
+	 * Renders an HTML Dropdown
+	 *
+	 * @since 1.0
+	 *
+	 * @param array $args
+	 *
+	 * @return string
+	 */
+	public function select( $args = array() ) {
+
+		$defaults = array(
+			'options'          => array(),
+			'name'             => null,
+			'class'            => '',
+			'id'               => '',
+			'selected'         => 0,
+			'chosen'           => false,
+			'placeholder'      => null,
+			'multiple'         => false,
+			'show_option_all'  => _x( 'All', 'all dropdown items', 'google-maps-builder' ),
+			'show_option_none' => _x( 'None', 'no dropdown items', 'google-maps-builder' )
+		);
+
+		$args = wp_parse_args( $args, $defaults );
+
+		if ( $args['multiple'] ) {
+			$multiple = ' MULTIPLE';
+		} else {
+			$multiple = '';
+		}
+
+		if ( $args['chosen'] ) {
+			$args['class'] .= 'gmb-select-chosen';
+		}
+
+		if ( $args['placeholder'] ) {
+			$placeholder = $args['placeholder'];
+		} else {
+			$placeholder = '';
+		}
+
+		$output = '<select name="' . esc_attr( $args['name'] ) . '" id="' . esc_attr( sanitize_key( str_replace( '-', '_', $args['id'] ) ) ) . '" class="gmb-select ' . esc_attr( $args['class'] ) . '"' . $multiple . ' data-placeholder="' . $placeholder . '">';
+
+		if ( $args['show_option_all'] ) {
+			if ( $args['multiple'] ) {
+				$selected = selected( true, in_array( 0, $args['selected'] ), false );
+			} else {
+				$selected = selected( $args['selected'], 0, false );
+			}
+			$output .= '<option value="all"' . $selected . '>' . esc_html( $args['show_option_all'] ) . '</option>';
+		}
+
+		if ( ! empty( $args['options'] ) ) {
+
+			if ( $args['show_option_none'] ) {
+				if ( $args['multiple'] ) {
+					$selected = selected( true, in_array( - 1, $args['selected'] ), false );
+				} else {
+					$selected = selected( $args['selected'], - 1, false );
+				}
+				$output .= '<option value="-1"' . $selected . '>' . esc_html( $args['show_option_none'] ) . '</option>';
+			}
+
+			foreach ( $args['options'] as $key => $option ) {
+
+				if ( $args['multiple'] && is_array( $args['selected'] ) ) {
+					$selected = selected( true, in_array( $key, $args['selected'] ), false );
+				} else {
+					$selected = selected( $args['selected'], $key, false );
+				}
+
+				$output .= '<option value="' . esc_attr( $key ) . '"' . $selected . '>' . esc_html( $option ) . '</option>';
+			}
+		}
+
+		$output .= '</select>';
+
+		return $output;
+	}
+
 }
 
 new GMB_Shortcode_Generator();
