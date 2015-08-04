@@ -260,7 +260,7 @@ var gmb_data;
 		var index = get_marker_index();
 
 		//add data to fields
-		$( '#gmb_markers_group_' + index + '_title' ).val( 'Point ' + index );
+		$( '#gmb_markers_group_' + index + '_title' ).val( 'Point ' + parseInt( index + 1 ) );
 		$( '#gmb_markers_group_' + index + '_lat' ).val( lat );
 		$( '#gmb_markers_group_' + index + '_lng' ).val( lng );
 

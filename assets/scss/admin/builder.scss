@@ -401,14 +401,26 @@ Save Info Window Toolbar
   }
 }
 
-a.marker-edit-link {
-  background: url('../img/marker-btn.png') no-repeat 0 0 transparent;
-  width: 20px;
-  height: 20px;
-  opacity: 0.5;
-  margin: 4px 0 0;
-  display: block;
-  float: right;
+#infobubble-content .marker-edit-link-wrap {
+  a {
+	opacity: 0.5;
+	box-shadow: none;
+	outline: none;
+	width: 20px;
+	height: 20px;
+
+	&.marker-edit-link {
+	  background: url('../img/marker-btn.png') no-repeat 0 0 transparent;
+	  margin: 4px 0 0;
+	  display: block;
+	  float: right;
+	}
+
+	&:hover {
+	  opacity: 1;
+	}
+
+  }
 }
 
 #save-toolbar > li .marker-edit-link {
