@@ -357,7 +357,6 @@ class Google_Maps_Builder_Scripts {
 		//Only enqueue scripts for CPT on post type screen
 		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
 
-			wp_enqueue_script( 'colorpicker' );
 			wp_enqueue_style( 'wp-color-picker' );
 
 			wp_register_script( $this->plugin_slug . '-admin-magnific-popup', $js_plugins . 'gmb-magnific' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
