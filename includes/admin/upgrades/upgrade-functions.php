@@ -27,12 +27,19 @@ function gmb_show_upgrade_notices() {
 		return;
 	}
 
+	//Check to see if we have any posts
+	$gmb_posts = get_posts( array( 'post_type' => 'google_maps', 'posts_per_page' => 10 ) );
+	if(empty($gmb_posts)){
+		return; //Don't run if there's no posts!
+	}
+
 	$gmb_version = get_option( 'gmb_version' );
 
 	if ( ! $gmb_version ) {
 		// 2.0 is the first version to use this option so we must add it
 		$gmb_version = '2.0';
 	}
+	update_option( 'gmb_version', GMB_VERSION );
 
 	$gmb_version = preg_replace( '/[^0-9.].*/', '', $gmb_version );
 
@@ -44,7 +51,6 @@ function gmb_show_upgrade_notices() {
 		);
 	}
 
-	update_option( 'gmb_version', GMB_VERSION );
 
 }
 
