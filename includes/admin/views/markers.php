@@ -36,24 +36,22 @@
 			</div>
 			<div class="marker-item" data-marker="default">
 				<div class="marker-svg">
-					<img src="<?php echo apply_filters('gmb_default_marker', GMB_PLUGIN_URL . 'assets/img/default-marker.png'); ?>" class="default-marker" />
+					<img src="<?php echo apply_filters( 'gmb_default_marker', GMB_PLUGIN_URL . 'assets/img/default-marker.png' ); ?>" class="default-marker" />
 				</div>
 				<div class="marker-description"><?php _e( 'Default', $this->plugin_slug ); ?></div>
 			</div>
 
 		</div>
 
-		<div class="marker-icon-color-wrap clear">
-
-			<div class="marker-color-picker-wrap">
-				<input type="text" name="color" id="color" value="#428BCA" class="color-picker marker-color" />
-			</div>
-			<p class="color-desc"><?php _e( 'Customize the marker color?', $this->plugin_slug ); ?></p>
-
-		</div>
-
-
 		<div class="marker-icon-row clear">
+
+			<div class="marker-icon-color-wrap clear">
+				<div class="marker-color-picker-wrap">
+					<input type="text" name="color" id="color" value="#428BCA" class="color-picker marker-color" />
+				</div>
+				<p class="color-desc"><?php _e( 'Customize the marker color?', $this->plugin_slug ); ?></p>
+			</div>
+
 			<h3><?php _e( 'Step 2: Select a Marker Icon', $this->plugin_slug ); ?></h3>
 
 			<div class="icon">
@@ -212,14 +210,16 @@
 					lodging
 				</div>
 			</div>
+
+			<div class="marker-label-color-wrap clear">
+				<div class="marker-color-picker-wrap">
+					<input type="text" name="color" id="color" class="color-picker label-color" value="#444444" /></div>
+				<p class="color-desc"><?php _e( 'Customize the icon color?', $this->plugin_slug ); ?></p>
+			</div>
+
 		</div>
 		<!--/.marker-icon-row -->
 
-		<div class="marker-label-color-wrap clear">
-			<div class="marker-color-picker-wrap">
-				<input type="text" name="color" id="color" class="color-picker label-color" value="#444444" /></div>
-			<p class="color-desc"><?php _e( 'Customize the icon color?', $this->plugin_slug ); ?></p>
-		</div>
 
 		<div class="save-marker-icon clear">
 			<p class="save-text"><?php _e( 'Marker is ready to be set.', $this->plugin_slug ); ?></p>
