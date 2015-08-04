@@ -30,6 +30,7 @@ function gmb_show_upgrade_notices() {
 	//Check to see if we have any posts
 	$gmb_posts = get_posts( array( 'post_type' => 'google_maps', 'posts_per_page' => 10 ) );
 	if(empty($gmb_posts)){
+		update_option( 'gmb_refid_upgraded', 'upgraded' );//mark as updated
 		return; //Don't run if there's no posts!
 	}
 
