@@ -27,14 +27,17 @@ class GMB_Shortcode_Generator {
 	 * Add a button for the GPR shortcode to the WP editor.
 	 */
 	public function add_shortcode_button() {
-		global $post;
+		global $post, $pagenow;
 
 		if ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
 			return;
 		}
-
 		//Be sure to not allow on out post type
-		if ( $post->post_type === 'google_maps' ) {
+		if ( ! isset( $post->post_type ) || $post->post_type === 'google_maps' ) {
+			return;
+		}
+
+		if ( ! in_array( $pagenow, array( 'post.php', 'post-new.php' ) ) ) {
 			return;
 		}
 
