@@ -1,4 +1,4 @@
-=== Google Maps Builder ===
+=== Maps Builder ===
 Contributors: wordimpress, dlocc, webdevmattcrom
 Donate link: http://wordimpress.com/
 Tags: google maps, google map, google map widget, google map shortcode, maps, map, wp map, wp google maps, google maps directions, google maps builder, google maps plugin, google places, google places api, google maps api, google places reviews
@@ -131,6 +131,7 @@ The main developer of this plugin is WordImpress. To find out more information a
 * New: Upgrade process for maps using Google's old reference ID in place for the new Place_ID @see: https://github.com/WordImpress/google-maps-builder/issues/18
 * New: Switch and Test all Google Places API calls to "Reference ID" or "ID" to Google's new "Places ID"
 * New: Gulp implemented for minifying scripts
+* New: Uber cool logo design and mascot (name coming soon for mascot!)
 * Improvement: Upgraded CMB1 to CMB2
 * Improvement: Class improvements and modernized structure organization
 * Improvement: Plugin structure significantly changed to better reflect our development preference. The current structure is similar to Give, EDD, and other reputable plugins.
@@ -142,6 +143,7 @@ The main developer of this plugin is WordImpress. To find out more information a
 * Fix: Found and resolved conflict with ACF plugin Google Maps field
 * Fix: Removed non-functional marker upload field (will be added to Pro version in a much enhanced format).
 * Fix: Maps icons fixed to no longer show first character incorrectly @see: https://github.com/scottdejonge/Map-Icons/issues/26
+* General: The plugin's official name has dropped the word "Google" for brand compliance. It's now called "Maps Builder"
 * General: Javascript cleanup and optimization
 
 = 1.0.3 =

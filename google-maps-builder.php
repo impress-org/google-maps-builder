@@ -1,8 +1,8 @@
 <?php
 /**
- * Google Maps Builder
+ * Maps Builder
  *
- * Plugin Name:       Google Maps Builder
+ * Plugin Name:       Maps Builder
  * Plugin URI:        http://wordimpress.com/
  * Description:       Create stylish and powerful Google Maps quickly and easily.
  * Version:           2.0
