@@ -121,7 +121,7 @@ var gmb_data;
 						} );
 
 						//Refresh Google Maps view
-						google.maps.event.trigger( map, 'resize' ); //refresh map to get exact center
+						google.maps.event.trigger( window.map, 'resize' ); //refresh map to get exact center
 					}
 				},//end callbacks
 				items    : {
