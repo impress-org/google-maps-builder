@@ -18,6 +18,7 @@
 
 	<?php global $current_user;
 	$user_id = $current_user->ID;
+	delete_user_meta($user_id, 'gmb_hide_welcome' );
 	// Check that the user hasn't already clicked to ignore the welcome message and that they have appropriate permissions
 	if ( ! get_user_meta( $user_id, 'gmb_hide_welcome' ) && current_user_can( 'install_plugins' ) ) {
 		?>
@@ -25,27 +26,28 @@
 			<div class="row">
 
 				<div class="col-md-9">
-					<h1 class="main-heading"><?php _e( 'Welcome to Google Maps Builder', $this->plugin_slug ); ?> <?php echo Google_Maps_Builder()->meta['Version']; ?></h1>
+					<h1 class="main-heading"><?php _e( 'Welcome to Maps Builder', $this->plugin_slug ); ?> <?php echo Google_Maps_Builder()->meta['Version']; ?></h1>
 
-					<p class="main-subheading"><?php _e( 'Thanks for using Google Maps Builder', $this->plugin_slug ); ?> <?php echo Google_Maps_Builder()->meta['Version']; ?>. <?php _e( 'To get started, read over the documentation, take a gander at the settings, and build yourself some maps! If you enjoy this plugin please consider telling a friend, following us or purchasing the Pro edition (coming soon!).', $this->plugin_slug ); ?></p>
+					<p class="main-subheading"><?php _e( 'Thanks for using Maps Builder', $this->plugin_slug ); ?> <?php echo Google_Maps_Builder()->meta['Version']; ?>. <?php echo sprintf(__( 'To get started, read over the %1$sdocumentation%2$s, take a gander at the settings, and build yourself some maps! If you enjoy this plugin please consider telling a friend, rating it %3$s5-stars%2$s, or purchasing the %4$sPro%2$s edition.', $this->plugin_slug ), '<a href="https://wordimpress.com/documentation/maps-builder/" target="_blank">', '</a>', '<a href="https://wordpress.org/support/view/plugin-reviews/google-maps-builder?filter=5#postform" target="_blank">', '<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&amp;utm_medium=BANNER&amp;utm_content=SETTINGS&amp;utm_campaign=MBF%20Settings" target="_blank">' ); ?></p>
 					<?php include( 'social-media.php' ); ?>
 
 				</div>
 
 				<div class="col-md-3">
 					<div class="logo-svg">
-						<?php include( 'logo-svg.php' ); ?>
+						<?php include( 'mascot-svg.php' ); ?>
 					</div>
 				</div>
 			</div>
 		</div>
 
-	<?php } ?>
+	<?php  } ?>
 
 	<div class="logo-svg logo-svg-small pull-right" <?php echo( ! get_user_meta( $user_id, 'gmb_hide_welcome' ) ?
 		'style="display:none;"' : '' ); ?>>
-		<div class="gmb-plugin-heading">Google Maps Builder</div>
-		<?php include( 'logo-svg-small.php' ); ?>
+		<div class="gmb-plugin-heading"><?php _e( 'Maps Builder - Free Edition', $this->plugin_slug ); ?></div>
+		<?php include( 'logo-svg.php' ); ?>
+		<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=SETTINGS&utm_campaign=MBF%20Settings" target="_blank" class="button button-primary gmb-orange-btn gmb-settings-header-btn"><?php _e( 'Upgrade to Pro', $this->plugin_slug ); ?></a>
 	</div>
 
 

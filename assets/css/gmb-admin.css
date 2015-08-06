@@ -2160,52 +2160,87 @@ a.wp-color-result {
   margin: 0 0 20px; }
 
 /*---------------------------
-Header
+Welcome Header
 -----------------------------*/
-.welcome-header .main-heading {
-  font-size: 36px;
-  font-weight: 400;
-  line-height: 1.1em;
-  margin: 10px 0 20px; }
-.welcome-header .main-subheading {
-  font-size: 20px;
-  line-height: 1.4em; }
-.welcome-header .logo-svg {
-  margin: 15px 0 0; }
-.welcome-header .logo-svg.logo-svg-small {
-  float: right;
-  margin: 0; }
-.welcome-header .new-window {
-  background: url('../img/new-window-icon.png') no-repeat right 5px transparent;
-  padding-right: 13px;
-  margin-right: 4px; }
+.welcome-header {
+  margin-bottom: 20px; }
+  .welcome-header .main-heading {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.1em;
+    margin: 10px 0 20px; }
+  .welcome-header .main-subheading {
+    font-size: 20px;
+    line-height: 1.4em;
+    margin: 0; }
+  .welcome-header .logo-svg {
+    margin: 15px 0 0; }
+    .welcome-header .logo-svg svg {
+      height: 185px; }
+  .welcome-header .logo-svg.logo-svg-small {
+    float: right;
+    margin: 0; }
+  .welcome-header .new-window {
+    background: url('../img/new-window-icon.png') no-repeat right 5px transparent;
+    padding-right: 13px;
+    margin-right: 4px; }
 
+/*------------------------------------------
+Welcome Closed heading
+--------------------------------------------*/
 .gmb-plugin-heading {
   display: none; }
+  .gmb-plugin-heading + #Layer_1 {
+    width: auto;
+    height: 37px;
+    margin: 0 10px 0 5px; }
 
-.gmb-plugin-heading + #Layer_1 {
-  margin: 0 10px 0 5px; }
+a.button.gmb-orange-btn, .gmb-orange-btn {
+  background: #FAA625;
+  border-color: #CE8617;
+  -webkit-box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15); }
+  a.button.gmb-orange-btn:hover, .gmb-orange-btn:hover {
+    background: #eb9e23;
+    border-color: #ba7915;
+    -webkit-box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15); }
 
-/* Social Media */
+#wpwrap .gmb-settings-header-btn {
+  margin: 5px 0 0; }
+
+/*------------------------------------------
+Social Media
+--------------------------------------------*/
 .social-items-wrap {
   float: left; }
   .social-items-wrap > div {
     display: inline-block; }
+  .social-items-wrap .fb-item-wrap {
+    width: 100px; }
+  .social-items-wrap .twitter-item-wrap {
+    width: 145px; }
   .social-items-wrap .google-plus {
     margin-left: 20px;
-    display: inline;
-    width: 190px; }
+    width: 200px; }
   .social-items-wrap .wordimpress-logo {
-    float: left;
-    margin: -7px 0 0; }
-  .social-items-wrap .logo-link {
-    background: url('../img/wordimpress-logo-small.png') no-repeat 0 0 transparent;
-    width: 100px;
-    height: 40px;
-    display: block; }
+    position: relative;
+    top: 10px;
+    left: -17px; }
+    .social-items-wrap .wordimpress-logo a {
+      display: block; }
+    .social-items-wrap .wordimpress-logo .logo-link {
+      background: url('../img/wordimpress-logo-small.png') no-repeat 0 0 transparent;
+      width: 100px;
+      height: 40px; }
+  .social-items-wrap .gmb-settings-header-btn {
+    margin-top: -6px !important; }
 
 .hide-welcome {
-  margin: 2px 0 0 30px; }
+  margin: 21px 0 0 30px;
+  display: inline-block; }
   .hide-welcome span {
     background: url('../img/arrows.png') no-repeat 0 -33px transparent;
     width: 15px;

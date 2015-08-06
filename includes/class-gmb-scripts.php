@@ -353,7 +353,6 @@ class Google_Maps_Builder_Scripts {
 		$js_dir     = GMB_PLUGIN_URL . 'assets/js/admin/';
 		$js_plugins = GMB_PLUGIN_URL . 'assets/js/plugins/';
 
-
 		//Only enqueue scripts for CPT on post type screen
 		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
 
@@ -385,9 +384,6 @@ class Google_Maps_Builder_Scripts {
 			), GMB_VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-admin-magnific-builder' );
 
-			//Settings
-			wp_register_script( $this->plugin_slug . '-admin-settings', $js_dir . 'admin-settings' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
-			wp_enqueue_script( $this->plugin_slug . '-admin-settings' );
 
 			//Map Controls
 			wp_register_script( $this->plugin_slug . '-admin-map-controls', $js_dir . 'admin-maps-controls' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
@@ -413,6 +409,15 @@ class Google_Maps_Builder_Scripts {
 				),
 			);
 			wp_localize_script( $this->plugin_slug . '-admin-map-builder', 'gmb_data', $maps_data );
+
+		}
+
+		//Setting Scripts
+		if ( $hook == 'google_maps_page_gmb_settings' ) {
+
+			//Settings
+			wp_register_script( $this->plugin_slug . '-admin-settings', $js_dir . 'admin-settings' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-settings' );
 
 		}
 

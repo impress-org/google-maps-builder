@@ -31,9 +31,10 @@
 }
 
 /*---------------------------
-Header
+Welcome Header
 -----------------------------*/
 .welcome-header {
+  margin-bottom: 20px;
 
   .main-heading {
 	font-size: 36px;
@@ -45,10 +46,14 @@ Header
   .main-subheading {
 	font-size: 20px;
 	line-height: 1.4em;
+	margin: 0;
   }
 
   .logo-svg {
 	margin: 15px 0 0;
+	svg {
+	  height: 185px;
+	}
   }
 
   .logo-svg.logo-svg-small {
@@ -64,43 +69,70 @@ Header
 
 }
 
+/*------------------------------------------
+Welcome Closed heading
+--------------------------------------------*/
 .gmb-plugin-heading {
   display: none;
+  + #Layer_1 {
+	width: auto;
+	height: 37px;
+	margin: 0 10px 0 5px;
+  }
 }
 
-.gmb-plugin-heading + #Layer_1 {
-  margin: 0 10px 0 5px;
+a.button.gmb-orange-btn, .gmb-orange-btn {
+  @include orange-button;
 }
 
-/* Social Media */
+#wpwrap .gmb-settings-header-btn {
+  margin: 5px 0 0;
+}
 
+/*------------------------------------------
+Social Media
+--------------------------------------------*/
 .social-items-wrap {
   float: left;
   > div {
 	display: inline-block;
   }
 
+  .fb-item-wrap {
+	width:100px;
+  }
+  .twitter-item-wrap {
+	width:145px;
+  }
   .google-plus {
 	margin-left: 20px;
-	display: inline;
-	width: 190px;
+	width: 200px;
   }
 
   .wordimpress-logo {
-	float: left;
-	margin: -7px 0 0;
+	position: relative;
+	top: 10px;
+	left: -17px;
+	a {
+	  display: block;
+	}
+	.logo-link {
+	  background: url('../img/wordimpress-logo-small.png') no-repeat 0 0 transparent;
+	  width: 100px;
+	  height: 40px;
+	}
   }
 
-  .logo-link {
-	background: url('../img/wordimpress-logo-small.png') no-repeat 0 0 transparent;
-	width: 100px;
-	height: 40px;
-	display: block;
+  .gmb-settings-header-btn {
+	margin-top: -6px !important;
   }
+
 }
 
 .hide-welcome {
-  margin: 2px 0 0 30px;
+  margin: 21px 0 0 30px;
+  display: inline-block;
+
   span {
 	background: url('../img/arrows.png') no-repeat 0 -33px rgba(0, 0, 0, 0);
 	width: 15px;

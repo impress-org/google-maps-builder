@@ -8,10 +8,25 @@
 }
 
 @mixin modal-label {
-
-  font-weight:bold;
-  font-size:14px;
+  font-weight: bold;
+  font-size: 14px;
   margin: 0 0 10px;
   display: block;
+}
 
+@mixin orange-button {
+  background: #FAA625;
+  border-color: #CE8617;
+  -webkit-box-shadow: inset 0 1px 0 rgb(249, 198, 121), 0 1px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 1px 0 rgb(249, 198, 121), 0 1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px 0 rgb(249, 198, 121), 0 1px 0 rgba(0, 0, 0, 0.15);
+
+  &:hover {
+
+	background: #eb9e23;
+	border-color: #ba7915;
+	-webkit-box-shadow: inset 0 1px 0 rgb(249, 198, 121), 0 1px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: inset 0 1px 0 rgb(249, 198, 121), 0 1px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: inset 0 1px 0 rgb(249, 198, 121), 0 1px 0 rgba(0, 0, 0, 0.15);
+  }
 }
