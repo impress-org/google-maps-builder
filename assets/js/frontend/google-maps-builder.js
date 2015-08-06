@@ -237,17 +237,21 @@ var gmb_data;
 		//Loop through repeatable field of markers
 		$( map_markers ).each( function ( index, marker_data ) {
 
+			var marker_label = '';
+
 			//check for custom marker and label data
 			var marker_icon = map_data.map_params.default_marker; //Default marker icon here
-			if ( typeof marker_data.marker !== 'undefined' && marker_data.marker.length > 0 ) {
-				marker_icon = eval( "(" + marker_data.marker + ")" );
-			}
 
-			//marker label
-			var marker_label = '';
-			if ( typeof marker_data.label !== 'undefined' && marker_data.label.length > 0 ) {
+			//Marker Image Icon
+			if ( marker_data.marker_img ) {
+				marker_icon = marker_data.marker_img;
+			}
+			//SVG Icon
+			else if ( (typeof marker_data.marker !== 'undefined' && marker_data.marker.length > 0) && (typeof marker_data.label !== 'undefined' && marker_data.label.length > 0) ) {
+				marker_icon = eval( "(" + marker_data.marker + ")" );
 				marker_label = marker_data.label
 			}
+
 
 			//Marker for map
 			var location_marker = new Marker( {

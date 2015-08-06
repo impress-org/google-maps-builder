@@ -57,8 +57,9 @@ Magnific Builder
 
   #postbox-container-1 {
 	margin-left: 0;
-	padding: 65px 0 50px;
+	padding: 90px 0 50px;
 	width: 300px !important;
+	background: url('../img/maps-builder-logo-small-non-pro.png') no-repeat 15px 15px transparent;
 
 	&:after {
 	  content: ' ';
@@ -151,7 +152,9 @@ Magnific Builder
 	text-align: center;
 	margin: 10px 0 0;
   }
-
+  button.edit-title {
+	display: inline-block;
+  }
 }
 
 /* No Dragging */
@@ -195,6 +198,7 @@ Modal within Modal
   position: absolute;
   max-width: none;
   margin: 0;
+  padding:0;
   width: 100%;
   height: 100%;
   top: 0;
@@ -206,20 +210,26 @@ Modal within Modal
   -moz-transition: all 0.3s;
   transition: all 0.3s;
   overflow-y: auto;
+  display: table;
 
-  .inner-modal {
-	max-width: 600px;
-	margin: 0 auto;
-	background: #FFF;
-	padding: 20px;
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
-	position: relative;
+  .inner-modal-wrap {
+	display: table-cell;
+	vertical-align: middle;
 
-	h3 {
-	  margin: 0 0 15px;
-	  font-size: 16px;
-	  padding: 0;
+	.inner-modal-container {
+	  overflow-y: auto;
+	  max-height: 100%;
 	}
+
+	.inner-modal {
+	  max-width: 600px;
+	  margin: 30px auto;
+	  background: #FFF;
+	  padding: 20px;
+	  box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
+	  position: relative;
+	}
+
   }
 
   .save-marker-icon {
@@ -241,4 +251,28 @@ button.gmb-modal-close {
   cursor: pointer;
   outline: none;
   padding: 0;
+}
+
+.map-modal-upsell {
+  display: none;
+}
+
+.mfp-container .map-modal-upsell {
+  display: block;
+  position: absolute;
+  top: 35px;
+  right: -261px;
+  text-align: center;
+
+  p {
+	font-size: 11px;
+	font-style: italic;
+	margin: 0 0 2px;
+	color: #AAA;
+  }
+
+  a.upsell-button {
+	width: 70px;
+  }
+
 }

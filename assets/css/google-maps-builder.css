@@ -41,7 +41,7 @@ div[id^='google-maps-builder'] img {
 */
 /* Loading */
 #infobubble-content.loading {
-  background: url('../img/loading.gif') no-repeat center center #FFF; }
+  background: url('../img/loading-large.gif') no-repeat center center #FFF; }
 
 #infobubble-content {
   padding: 0 0 0 0;
@@ -74,12 +74,9 @@ div[id^='google-maps-builder'] img {
   margin: 8px 0 4px;
   padding: 12px 12px 12px 12px;
   font-size: 13px; }
-
-/* Ratings */
 #infobubble-content .rating-wrap {
   overflow: hidden;
   margin: 4px 0 0; }
-
 #infobubble-content .numeric-rating {
   font-size: 16px;
   color: #DD4B39;
@@ -87,14 +84,12 @@ div[id^='google-maps-builder'] img {
   float: left;
   margin: 0 5px 0 0;
   line-height: 1; }
-
 #infobubble-content .star-rating-wrap {
   background: url('../img/review_stars.png') no-repeat 0 0 transparent;
   height: 13px;
   width: 67px;
   float: left;
   margin: 1px 0 0; }
-
 #infobubble-content .star-rating-size {
   background: url('../img/review_stars.png') no-repeat 0 -13px transparent;
   height: 13px; }

@@ -7,6 +7,7 @@
  * @copyright:   Copyright (c) 2015, WordImpress
  * @license:     http://opensource.org/licenses/gpl-2.0.php GNU Public License
 */
+/* Mixin */
 /* Magnific Popup CSS */
 .mfp-bg {
   top: 0;
@@ -1386,8 +1387,9 @@ Magnific Builder
 /* Magnific Builder Sidebar */
 .magnific-builder#post #postbox-container-1 {
   margin-left: 0;
-  padding: 65px 0 50px;
-  width: 300px !important; }
+  padding: 90px 0 50px;
+  width: 300px !important;
+  background: url('../img/maps-builder-logo-small-non-pro.png') no-repeat 15px 15px transparent; }
   .magnific-builder#post #postbox-container-1:after {
     content: ' ';
     position: absolute;
@@ -1450,6 +1452,8 @@ Magnific Builder
   width: 140px;
   text-align: center;
   margin: 10px 0 0; }
+.magnific-builder#post button.edit-title {
+  display: inline-block; }
 
 /* No Dragging */
 .magnific-builder .postbox .hndle {
@@ -1484,6 +1488,7 @@ Modal within Modal
   position: absolute;
   max-width: none;
   margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
   top: 0;
@@ -1494,18 +1499,21 @@ Modal within Modal
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
-  overflow-y: auto; }
-  .magnific-builder #poststuff .white-popup .inner-modal {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #FFF;
-    padding: 20px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
-    position: relative; }
-    .magnific-builder #poststuff .white-popup .inner-modal h3 {
-      margin: 0 0 15px;
-      font-size: 16px;
-      padding: 0; }
+  overflow-y: auto;
+  display: table; }
+  .magnific-builder #poststuff .white-popup .inner-modal-wrap {
+    display: table-cell;
+    vertical-align: middle; }
+    .magnific-builder #poststuff .white-popup .inner-modal-wrap .inner-modal-container {
+      overflow-y: auto;
+      max-height: 100%; }
+    .magnific-builder #poststuff .white-popup .inner-modal-wrap .inner-modal {
+      max-width: 600px;
+      margin: 30px auto;
+      background: #FFF;
+      padding: 20px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
+      position: relative; }
   .magnific-builder #poststuff .white-popup .save-marker-icon {
     position: relative;
     border: none;
@@ -1521,6 +1529,23 @@ button.gmb-modal-close {
   cursor: pointer;
   outline: none;
   padding: 0; }
+
+.map-modal-upsell {
+  display: none; }
+
+.mfp-container .map-modal-upsell {
+  display: block;
+  position: absolute;
+  top: 35px;
+  right: -261px;
+  text-align: center; }
+  .mfp-container .map-modal-upsell p {
+    font-size: 11px;
+    font-style: italic;
+    margin: 0 0 2px;
+    color: #AAA; }
+  .mfp-container .map-modal-upsell a.upsell-button {
+    width: 70px; }
 
 /**
  * Google Places Map CPT Styles TEST
@@ -1546,7 +1571,7 @@ button.gmb-modal-close {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box; }
 
-.cmb2-id-gmb-theme-json, #marker-icon-modal {
+.cmb2-id-gmb-theme-json, #marker-icon-modal, .gmb-hidden {
   display: none; }
 
 .marker-info-wrapper {
@@ -1734,7 +1759,7 @@ button.gmb-modal-close {
   overflow: hidden !important; }
 
 #infobubble-content.loading {
-  background: url('../img/loading.gif') no-repeat center center #FFF; }
+  background: url('../img/loading-large.gif') no-repeat center center #FFF; }
 
 #google-map-wrap div#infobubble-content > div {
   white-space: normal; }
@@ -1794,17 +1819,15 @@ Display Options
   float: left;
   margin: 0 0 10px;
   clear: none; }
+  .lat-lng-wrap > span, .lat-lng-wrap > input {
+    float: left; }
+  .lat-lng-wrap > span {
+    margin: 8px 5px 0 0;
+    width: 80px;
+    font-style: italic; }
 
 .lng-wrap {
   margin-bottom: 0; }
-
-.lat-lng-wrap > span, .lat-lng-wrap > input {
-  float: left; }
-
-.lat-lng-wrap > span {
-  margin: 8px 5px 0 0;
-  width: 80px;
-  font-style: italic; }
 
 /* Mini message */
 .lat-lng-change-message {
@@ -1812,9 +1835,8 @@ Display Options
   clear: both;
   margin: 10px 0 0;
   width: 100%; }
-
-.lat-lng-change-message > p {
-  float: left; }
+  .lat-lng-change-message > p {
+    float: left; }
 
 .lat-lng-update-btn {
   float: right;
@@ -1862,6 +1884,54 @@ Save Info Window Toolbar
   font-size: 12px;
   width: 100%;
   min-height: 100px; }
+
+/*-------------------------------------
+Map Edit Quick Toolbar
+---------------------------------------*/
+#map-toolbar {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  background: #FFF;
+  padding: 3px 1px;
+  border-top: 1px solid #DDD;
+  border-left: 1px solid #DDD;
+  border-right: 1px solid #DDD; }
+  #map-toolbar #title {
+    padding: 3px; }
+  #map-toolbar .drop-marker .dashicons {
+    margin: 6px 0px 0 0; }
+  #map-toolbar button {
+    margin: 0 2px; }
+    #map-toolbar button .dashicons {
+      font-size: 16px;
+      margin-left: -2px;
+      margin-top: 5px; }
+    #map-toolbar button.edit-title {
+      display: none; }
+
+/*-------------------------------------
+Modal styles
+---------------------------------------*/
+.map-autocomplete-wrap label, .map-title-wrap label {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0 0 10px;
+  display: block; }
+.map-autocomplete-wrap input, .map-title-wrap input {
+  width: 100%; }
+
+.map-autocomplete-wrap label {
+  position: relative; }
+  .map-autocomplete-wrap label:after {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 120px;
+    background: url('../img/powered-by-google-on-white.png') no-repeat 0 0 transparent;
+    width: 104px;
+    height: 16px; }
 
 /*-------------------------------------
 Google Style Buttons
@@ -2253,7 +2323,7 @@ Marker Icon Modal
 /*-------------------------------------
 Marker Types
 ---------------------------------------*/
-#poststuff .marker-row h3 {
+#poststuff .marker-row h3, #poststuff .marker-icon-row h3, .marker-icon-row h3 h3 {
   margin: 0 0 20px;
   font-size: 18px;
   padding: 0; }
@@ -2310,39 +2380,39 @@ Marker Icon Rows
   white-space: nowrap;
   line-height: 1; }
 
-/* Color */
+/*-------------------------------------
+Colors
+---------------------------------------*/
 .marker-row {
   margin-bottom: 20px; }
 
-#marker-icon-modal .color-desc {
+.marker-icon-modal .color-desc {
   display: block;
   clear: both;
   font-size: 12px;
   font-style: italic; }
-
-.marker-color-picker-wrap {
+.marker-icon-modal .marker-color-picker-wrap {
   float: left; }
 
-#TB_ajaxContent p.color-desc {
-  float: left;
-  margin: 0 0 0 10px;
-  padding-top: 3px;
-  font-style: italic; }
-
-/* Pins */
-.marker-row .marker-item {
-  float: left;
-  width: 31%; }
-  .marker-row .marker-item .marker-svg {
+/*-------------------------------------
+Marker Selections
+---------------------------------------*/
+.marker-row {
+  margin-bottom: 25px; }
+  .marker-row .marker-item {
     float: left;
-    margin-right: 12px;
-    height: 50px; }
-    .marker-row .marker-item .marker-svg .default-marker {
-      margin: 8px 0 0 10px; }
-  .marker-row .marker-item .marker-description {
-    line-height: 50px; }
+    width: 31%;
+    text-align: center;
+    padding: 10px;
+    height: 100px;
+    margin: 0 1% 1% 0; }
+    .marker-row .marker-item .marker-svg {
+      margin-top: 3px; }
+      .marker-row .marker-item .marker-svg.default-marker {
+        margin-top: 10px;
+        margin-bottom: 6px; }
 
-.marker-description-wrap h3 {
+.marker-description-wrap h3, .marker-icon-row h3 {
   margin-top: 0; }
 
 /*-------------------------------------

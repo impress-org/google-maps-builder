@@ -371,7 +371,7 @@ class Google_Maps_Builder_Scripts {
 			wp_register_script( $this->plugin_slug . '-admin-qtip', $js_plugins . 'jquery.qtip' . $suffix . '.js', array( 'jquery' ), GMB_VERSION, true );
 			wp_enqueue_script( $this->plugin_slug . '-admin-qtip' );
 
-			//Map controls
+			//Map base
 			wp_register_script( $this->plugin_slug . '-admin-map-builder', $js_dir . 'admin-google-map' . $suffix . '.js', array(
 				'jquery',
 				'wp-color-picker'
@@ -388,6 +388,10 @@ class Google_Maps_Builder_Scripts {
 			//Settings
 			wp_register_script( $this->plugin_slug . '-admin-settings', $js_dir . 'admin-settings' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-admin-settings' );
+
+			//Map Controls
+			wp_register_script( $this->plugin_slug . '-admin-map-controls', $js_dir . 'admin-maps-controls' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-map-controls' );
 
 			$api_key   = gmb_get_option( 'gmb_api_key' );
 			$geolocate = gmb_get_option( 'gmb_lat_lng' );

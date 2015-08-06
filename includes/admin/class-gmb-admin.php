@@ -207,13 +207,25 @@ class Google_Maps_Builder_Admin {
 			'type' => 'text',
 		) );
 		$marker_box->add_group_field( $group_field_id, array(
+			'name'    => __( 'Marker Image', $this->plugin_slug ),
+			'id'      => 'marker_img',
+			'type'    => 'file',
+			'row_classes' => 'gmb-hidden',
+			'options' => array(
+				'url'                  => false,
+				'add_upload_file_text' => __( 'Add Marker Image', $this->plugin_slug )
+			),
+		) );
+		$marker_box->add_group_field( $group_field_id, array(
 			'name' => __( 'Marker Data', $this->plugin_slug ),
 			'id'   => 'marker',
+			'row_classes' => 'gmb-hidden',
 			'type' => 'textarea_code',
 		) );
 		$marker_box->add_group_field( $group_field_id, array(
 			'name' => __( 'Marker Label Data', $this->plugin_slug ),
 			'id'   => 'label',
+			'row_classes' => 'gmb-hidden',
 			'type' => 'textarea_code',
 		) );
 
@@ -693,9 +705,33 @@ class Google_Maps_Builder_Admin {
 		$map_width     = isset( $wh_value['width'] ) ? $wh_value['width'] : $default_options['width'];
 		$map_width_val = isset( $wh_value['map_width_unit'] ) ? $wh_value['map_width_unit'] : $default_options['width_unit'];
 
-		$output = '<div class="places-loading wpgp-loading">Loading Places</div><div id="google-map-wrap">';
+		$output = '<div class="places-loading wpgp-loading">' . __( 'Loading Places', $this->plugin_slug ) . '</div><div id="google-map-wrap">';
 		$output .= '<div id="map" style="height:' . $map_height . 'px; width:' . $map_width . $map_width_val . '"></div>';
-		$output .= '</div>';
+
+		$output .= '<div class="map-modal-upsell"><p class="upsell-intro">' . __( 'Want more?', $this->plugin_slug ) . '</p><a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=MODAL&utm_campaign=MBF%20Modal" class="button button-small upsell-button" target="_blank">Go Pro!</a></div>';
+
+		//Toolbar
+		$output .= '<div id="map-toolbar"><button class="drop-marker button"><span class="dashicons dashicons-location"></span>' . __( 'Drop a Marker', $this->plugin_slug ) . '</button><button class="goto-location button gmb-magnific-inline" data-target="map-autocomplete-wrap"><span class="dashicons dashicons-admin-site"></span>' . __( 'Goto Location', $this->plugin_slug ) . '</button><button class="edit-title button gmb-magnific-inline" data-target="map-title-wrap"><span class="dashicons dashicons-edit"></span>' . __( 'Edit Map Title', $this->plugin_slug ) . '</button></div>';
+		$output .= '</div>'; //End #map
+
+
+		$output .= '<div class="white-popup mfp-hide map-title-wrap">
+					<div class="inner-modal-wrap">
+					<div class="inner-modal-container">
+					<div class="inner-modal">
+					<label for="post_title" class="map-title">' . __( 'Map Title', $this->plugin_slug ) . '</label>
+					<button type="button" class="gmb-modal-close">&times;</button><input type="text" name="post_title" size="30" value="' . get_the_title() . '" id="title" spellcheck="true" autocomplete="off" placeholder="' . __( 'Enter map title', $this->plugin_slug ) . '"></div></div></div></div>';
+
+		$output .= '<div class="white-popup mfp-hide map-autocomplete-wrap">
+				<div class="inner-modal-wrap">
+					<div class="inner-modal-container">
+					<div class="inner-modal">
+					<label for="map-location-autocomplete" class="map-title">' . __( 'Enter a Location', $this->plugin_slug ) . '</label>
+				<button type="button" class="gmb-modal-close">&times;</button>
+				<input type="text" name="" size="30" id="map-location-autocomplete">
+				</div></div></div></div>';
+
+
 		$output .= '<div class="warning-message wpgp-message"></div>';
 
 		echo $output;

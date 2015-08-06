@@ -21,7 +21,7 @@ Marker Icon Modal
 /*-------------------------------------
 Marker Types
 ---------------------------------------*/
-#poststuff .marker-row {
+#poststuff .marker-row, #poststuff .marker-icon-row, .marker-icon-row h3 {
   h3 {
 	margin: 0 0 20px;
 	font-size: 18px;
@@ -34,7 +34,6 @@ Marker Icon Rows
 ---------------------------------------*/
 .marker-icon-row {
   margin-bottom: 10px;
-
 }
 
 .marker-icon-row, .save-marker-icon {
@@ -91,52 +90,49 @@ Marker Icon Rows
   line-height: 1;
 }
 
-/* Color */
+/*-------------------------------------
+Colors
+---------------------------------------*/
 .marker-row {
   margin-bottom: 20px;
 }
 
-#marker-icon-modal .color-desc {
-  display: block;
-  clear: both;
-  font-size: 12px;
-  font-style: italic;
-}
-
-.marker-color-picker-wrap {
-  float: left;
-}
-
-#TB_ajaxContent p.color-desc {
-  float: left;
-  margin: 0 0 0 10px;
-  padding-top: 3px;
-  font-style: italic;
-}
-
-/* Pins */
-
-.marker-row .marker-item {
-  float: left;
-  width: 31%;
-
-  .marker-svg {
+.marker-icon-modal {
+  .color-desc {
+	display: block;
+	clear: both;
+	font-size: 12px;
+	font-style: italic;
+  }
+  .marker-color-picker-wrap {
 	float: left;
-	margin-right: 12px;
-	height: 50px;
-	.default-marker {
-	  margin: 8px 0 0 10px;
-	}
-
   }
-
-  .marker-description {
-	line-height: 50px;
-  }
-
 }
 
-.marker-description-wrap h3 {
+/*-------------------------------------
+Marker Selections
+---------------------------------------*/
+.marker-row {
+  margin-bottom: 25px;
+
+  .marker-item {
+	float: left;
+	width: 31%;
+	text-align: center;
+	padding: 10px;
+	height: 100px;
+	margin: 0 1% 1% 0;
+	.marker-svg {
+	  margin-top: 3px;
+	  &.default-marker {
+		margin-top: 10px;
+		margin-bottom: 6px;
+	  }
+	}
+  }
+}
+
+.marker-description-wrap h3, .marker-icon-row h3 {
   margin-top: 0;
 }
 

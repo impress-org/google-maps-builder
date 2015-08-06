@@ -29,7 +29,7 @@
   -webkit-box-sizing: border-box;
 }
 
-.cmb2-id-gmb-theme-json, #marker-icon-modal {
+.cmb2-id-gmb-theme-json, #marker-icon-modal, .gmb-hidden {
   display: none;
 }
 
@@ -347,20 +347,19 @@ Display Options
   float: left;
   margin: 0 0 10px;
   clear: none;
+
+  > span, > input {
+	float: left;
+  }
+  > span {
+	margin: 8px 5px 0 0;
+	width: 80px;
+	font-style: italic;
+  }
 }
 
 .lng-wrap {
   margin-bottom: 0;
-}
-
-.lat-lng-wrap > span, .lat-lng-wrap > input {
-  float: left;
-}
-
-.lat-lng-wrap > span {
-  margin: 8px 5px 0 0;
-  width: 80px;
-  font-style: italic;
 }
 
 /* Mini message */
@@ -370,10 +369,9 @@ Display Options
   clear: both;
   margin: 10px 0 0;
   width: 100%;
-}
-
-.lat-lng-change-message > p {
-  float: left;
+  > p {
+	float: left;
+  }
 }
 
 .lat-lng-update-btn {
@@ -437,6 +435,69 @@ Save Info Window Toolbar
   font-size: 12px;
   width: 100%;
   min-height: 100px;
+}
+
+/*-------------------------------------
+Map Edit Quick Toolbar
+---------------------------------------*/
+#map-toolbar {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  background: #FFF;
+  padding: 3px 1px;
+  border-top: 1px solid #DDD;
+  border-left: 1px solid #DDD;
+  border-right: 1px solid #DDD;
+
+  #title {
+	padding: 3px;
+  }
+
+  .drop-marker .dashicons {
+	margin: 6px 0px 0 0;
+
+  }
+
+  button {
+	margin: 0 2px;
+	.dashicons {
+	  font-size: 16px;
+	  margin-left: -2px;
+	  margin-top: 5px;
+	}
+	&.edit-title {
+	  display: none; //only show in modal
+	}
+  }
+
+}
+
+/*-------------------------------------
+Modal styles
+---------------------------------------*/
+.map-autocomplete-wrap,
+.map-title-wrap {
+  label {
+	@include modal-label;
+  }
+  input {
+	width: 100%;
+  }
+}
+
+.map-autocomplete-wrap label {
+  position: relative;
+  &:after {
+	content: ' ';
+	position: absolute;
+	bottom: 0;
+	left: 120px;
+	background: url('../img/powered-by-google-on-white.png') no-repeat 0 0 transparent;
+	width: 104px;
+	height: 16px;
+  }
 }
 
 /*-------------------------------------
