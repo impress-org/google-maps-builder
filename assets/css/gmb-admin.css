@@ -1593,9 +1593,19 @@ button.gmb-modal-close {
 .repeatable-grouping .cmb-nested-table td pre {
   margin: 0; }
 
-.new-window {
+.new-window, span.new-window {
   background: url('../img/new-window-icon.png') no-repeat right 3px transparent;
   padding-right: 16px; }
+
+span.new-window {
+  padding-right: 0;
+  background-position: 0 0;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 0 0 2px;
+  position: relative;
+  top: 1px; }
 
 .mfp-content #marker-icon-modal {
   display: block; }
@@ -2200,8 +2210,10 @@ a.button.gmb-orange-btn, .gmb-orange-btn {
   border-color: #CE8617;
   -webkit-box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15);
   -moz-box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15);
-  box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15); }
-  a.button.gmb-orange-btn:hover, .gmb-orange-btn:hover {
+  box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15);
+  color: #FFF; }
+  a.button.gmb-orange-btn:hover, a.button.gmb-orange-btn:disabled, .gmb-orange-btn:hover, .gmb-orange-btn:disabled {
+    color: #FFF;
     background: #eb9e23;
     border-color: #ba7915;
     -webkit-box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15);
@@ -2337,6 +2349,15 @@ Toggle Tips
 
 .gmb-tooltip-icon:hover:before {
   opacity: 1; }
+
+.gmb-widget-upgrade .powered-by {
+  float: right;
+  background: url('../img/powered-by-google-on-white.png') no-repeat 0 0 transparent;
+  width: 104px;
+  height: 16px;
+  margin: 3px 0 0; }
+.gmb-widget-upgrade .button {
+  margin-bottom: 8px; }
 
 /*-------------------------------------
 Marker Icon Modal

@@ -134,6 +134,11 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 		</p>
 		<!-- Give Form Field -->
 
+		<div class="gmb-widget-upgrade clear">
+			<span class="powered-by"></span>
+			<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=WIDGET&utm_campaign=MBF%20Widgets" target="_blank" class="button button-small"><?php _e( 'Upgrade to Pro', $this->plugin_slug ); ?> <span class="new-window"></span></a>
+		</div>
+
 		<?php
 	} //end form function
 

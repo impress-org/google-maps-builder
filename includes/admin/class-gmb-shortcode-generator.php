@@ -14,6 +14,8 @@ class GMB_Shortcode_Generator {
 	 */
 	public function __construct() {
 
+		$this->plugin_slug = Google_Maps_Builder()->get_plugin_slug();
+
 		add_action( 'admin_head', array( $this, 'add_shortcode_button' ), 20 );
 		add_filter( 'tiny_mce_version', array( $this, 'refresh_mce' ), 20 );
 		add_filter( 'mce_external_languages', array( $this, 'add_tinymce_lang' ), 20, 1 );
@@ -84,7 +86,7 @@ class GMB_Shortcode_Generator {
 	 */
 	public function add_shortcode_tinymce_plugin( $plugin_array ) {
 
-		$plugin_array['gmb_shortcode_button'] = GMB_PLUGIN_URL . '/assets/js/admin-shortcode.js';
+		$plugin_array['gmb_shortcode_button'] = GMB_PLUGIN_URL . 'assets/js/admin/admin-shortcode.js';
 
 		return $plugin_array;
 	}
@@ -110,7 +112,6 @@ class GMB_Shortcode_Generator {
 		<style>
 			i.mce-i-gmb {
 				font: 400 20px/1 dashicons;
-
 				padding: 0;
 				vertical-align: top;
 				speak: none;
@@ -134,12 +135,6 @@ class GMB_Shortcode_Generator {
 				border-top: 1px solid #DDD;
 			}
 
-			div.place-id-set {
-				clear: both;
-				float: left;
-				width: 100%;
-			}
-
 		</style>
 		<?php
 	}
@@ -157,7 +152,7 @@ class GMB_Shortcode_Generator {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		//Shortcode Generator Specific JS
-		wp_register_script( 'gmb-shortcode-generator', GMB_PLUGIN_URL . '/assets/js/admin/shortcode-iframe' . $suffix . '.js', array( 'jquery' ) );
+		wp_register_script( 'gmb-shortcode-generator', GMB_PLUGIN_URL . 'assets/js/admin/shortcode-iframe' . $suffix . '.js', array( 'jquery' ) );
 		wp_enqueue_script( 'gmb-shortcode-generator' );
 
 		iframe_header(); ?>
@@ -194,6 +189,23 @@ class GMB_Shortcode_Generator {
 			div.gmb-edit-shortcode {
 				border-color: orange;
 			}
+
+			.shortcode-upsell {
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+				padding: 5px 10px !important;
+				font-size: 13px !important;
+			}
+
+			.shortcode-upsell span.dashicons {
+				font-size: 12px;
+				height: 14px;
+				position: relative;
+				top: 3px;
+				opacity: 0.8;
+				width: 12px;
+			}
 		</style>
 		<div class="wrap" id="gmb-wrap">
 			<form id="gmb_settings" style="float: left; width: 100%;">
@@ -221,6 +233,8 @@ class GMB_Shortcode_Generator {
 				</fieldset>
 
 			</form>
+			<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=SHORTCODE&utm_campaign=MBF%20Shortcode" class="button button-small shortcode-upsell" target="_blank"><?php _e( 'Go Pro', 'google-maps-builder' ); ?>
+				<span class="dashicons dashicons-external"></span></a>
 		</div>
 
 

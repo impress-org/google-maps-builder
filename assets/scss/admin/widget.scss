@@ -21,3 +21,16 @@ Toggle Tips
 .gmb-tooltip-icon:hover:before {
 	opacity: 1;
 }
+
+.gmb-widget-upgrade {
+  .powered-by {
+    float:right;
+    background: url('../img/powered-by-google-on-white.png') no-repeat 0 0 transparent;
+	width: 104px;
+	height: 16px;
+	margin: 3px 0 0;
+  }
+  .button {
+	margin-bottom:8px;
+  }
+}

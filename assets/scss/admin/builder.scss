@@ -60,9 +60,20 @@
   }
 }
 
-.new-window {
+.new-window, span.new-window {
   background: url('../img/new-window-icon.png') no-repeat right 3px transparent;
   padding-right: 16px;
+}
+
+span.new-window {
+  padding-right: 0;
+  background-position: 0 0;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 0 0 2px;
+  position: relative;
+  top: 1px;
 }
 
 .mfp-content #marker-icon-modal {
