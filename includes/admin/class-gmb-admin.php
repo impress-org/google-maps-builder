@@ -720,7 +720,7 @@ class Google_Maps_Builder_Admin {
 					<div class="inner-modal-container">
 					<div class="inner-modal">
 					<label for="post_title" class="map-title">' . __( 'Map Title', $this->plugin_slug ) . '</label>
-					<button type="button" class="gmb-modal-close">&times;</button><input type="text" name="post_title" size="30" value="' . get_the_title() . '" id="title" spellcheck="true" autocomplete="off" placeholder="' . __( 'Enter map title', $this->plugin_slug ) . '"></div></div></div></div>';
+					<button type="button" class="gmb-modal-close">&times;</button></div></div></div></div>';
 
 		$output .= '<div class="white-popup mfp-hide map-autocomplete-wrap">
 				<div class="inner-modal-wrap">

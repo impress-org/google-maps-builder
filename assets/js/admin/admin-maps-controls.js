@@ -23,6 +23,7 @@ var placeSearchAutocomplete;
 	$( window ).on( 'load', function () {
 
 		set_map_goto_location_autocomplete();
+		set_map_edit_title();
 
 		//Initialize Magnific/Modal Functionality Too
 		$( 'body' ).on( 'click', '.gmb-magnific-inline', function ( e ) {
@@ -122,6 +123,35 @@ var placeSearchAutocomplete;
 			.addClass( 'mfp-hide' ) //ensure it's hidden
 			.appendTo( '.modal-placeholder' )  // Move it back to it's proper location
 			.unwrap(); // Remove the placeholder
+	}
+
+
+
+	/**
+	 * Set Map Edit Title within Modal
+	 *
+	 */
+	function set_map_edit_title() {
+
+		$( 'button.edit-title' ).on( 'click', function () {
+			// Move back out of container
+			$( 'input#title' ).before( '<div class="title-placeholder"></div>' ) // Save a DOM "bookmark"
+				.appendTo( '.map-title-wrap .inner-modal' ); // Move the element to container
+		} );
+
+		//Add close functionality to outside overlay
+		$( '.map-title-wrap' ).on( 'click', function ( e ) {
+			console.log($( e.target ));
+			console.log($( e.target ).hasClass( 'inner-modal-wrap' ));
+			//only on overlay
+			if ( $( e.target ).hasClass( 'inner-modal-wrap' ) || $( e.target ).hasClass( 'inner-modal-container' ) ) {
+				// Move back out of title container back to title space
+				$( this ).find( 'input#title' )
+					.appendTo( '.title-placeholder' )  // Move it back to it's proper location
+					.unwrap(); // Remove the placeholder
+			}
+		} );
+
 	}
 
 
