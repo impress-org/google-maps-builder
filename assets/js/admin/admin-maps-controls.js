@@ -127,15 +127,12 @@ var placeSearchAutocomplete;
 
 
 	/**
-	 * Set Map Edit Title within Modal
-	 *
+	 * Edit Title within Modal
 	 */
 	function set_map_edit_title() {
 
 		$( '#modal_title' ).on( 'blur', function () {
-
 			$( 'input#title' ).val( $( this ).val() );
-
 		} );
 
 	}

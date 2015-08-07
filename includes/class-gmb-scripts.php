@@ -403,7 +403,7 @@ class Google_Maps_Builder_Scripts {
 				'ajax_loader'       => set_url_scheme( apply_filters( 'gmb_ajax_preloader_img', GMB_PLUGIN_URL . 'assets/images/spinner.gif' ), 'relative' ),
 				'snazzy'            => GMB_PLUGIN_URL . 'assets/js/admin/snazzy.json',
 				'modal_default'     => gmb_get_option( 'gmb_open_builder' ),
-				'is_published'      => $post_status,
+				'post_status'      => $post_status,
 				'i18n'              => array(
 					'update_map'               => $post_status == 'publish' ? __( 'Update Map', $this->plugin_slug ) : __( 'Publish Map', $this->plugin_slug ),
 					'places_selection_changed' => __( 'Place selections have changed.', $this->plugin_slug ),
@@ -417,7 +417,6 @@ class Google_Maps_Builder_Scripts {
 		//Setting Scripts
 		if ( $hook == 'google_maps_page_gmb_settings' ) {
 
-			//Settings
 			wp_register_script( $this->plugin_slug . '-admin-settings', $js_dir . 'admin-settings' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-admin-settings' );
 
