@@ -45,12 +45,12 @@ var placeSearchAutocomplete;
 					//only on overlay
 					if ( $( e.target ).hasClass( 'inner-modal-wrap' ) || $( e.target ).hasClass( 'inner-modal-container' ) ) {
 						// Move back out of container
-						close_modal_within_modal(target);
+						close_modal_within_modal( target );
 					}
 				} );
 				//Close button
 				$( '.gmb-modal-close' ).on( 'click', function () {
-					close_modal_within_modal(target);
+					close_modal_within_modal( target );
 				} );
 
 			}
@@ -126,30 +126,16 @@ var placeSearchAutocomplete;
 	}
 
 
-
 	/**
 	 * Set Map Edit Title within Modal
 	 *
 	 */
 	function set_map_edit_title() {
 
-		$( 'button.edit-title' ).on( 'click', function () {
-			// Move back out of container
-			$( 'input#title' ).before( '<div class="title-placeholder"></div>' ) // Save a DOM "bookmark"
-				.appendTo( '.map-title-wrap .inner-modal' ); // Move the element to container
-		} );
+		$( '#modal_title' ).on( 'blur', function () {
 
-		//Add close functionality to outside overlay
-		$( '.map-title-wrap' ).on( 'click', function ( e ) {
-			console.log($( e.target ));
-			console.log($( e.target ).hasClass( 'inner-modal-wrap' ));
-			//only on overlay
-			if ( $( e.target ).hasClass( 'inner-modal-wrap' ) || $( e.target ).hasClass( 'inner-modal-container' ) ) {
-				// Move back out of title container back to title space
-				$( this ).find( 'input#title' )
-					.appendTo( '.title-placeholder' )  // Move it back to it's proper location
-					.unwrap(); // Remove the placeholder
-			}
+			$( 'input#title' ).val( $( this ).val() );
+
 		} );
 
 	}
