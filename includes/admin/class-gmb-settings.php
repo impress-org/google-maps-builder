@@ -43,6 +43,7 @@ class Google_Maps_Builder_Settings {
 		//Add links/information to plugin row meta
 		add_filter( 'plugin_row_meta', array( $this, 'add_plugin_meta_links' ), 10, 2 );
 		add_filter( 'plugin_action_links', array( $this, 'add_plugin_page_links' ), 10, 2 );
+		add_filter( 'cmb2_get_metabox_form_format', array( $this, 'gmb_modify_cmb2_form_output' ), 10, 3 );
 
 	}
 
@@ -178,6 +179,12 @@ class Google_Maps_Builder_Settings {
 			'show_names' => true,
 			'fields'     => array(
 				array(
+					'name' => __( 'Google Maps API Key', $this->plugin_slug ),
+					'desc' => sprintf( __( 'The Google Maps JavaScript API v3 does not require an API key to function correctly. However, Google strongly encourages you to load the Maps API using an APIs Console key which allows you to monitor your Maps API usage. %1$sLearn how to obtain an API key%2$s.', $this->plugin_slug ), '<a href="' . esc_url( 'https://developers.google.com/maps/documentation/javascript/tutorial#api_key' ). '" target="_blank" class="new-window">', '</a>'),
+					'id'   => $prefix . 'maps_api_key',
+					'type' => 'text',
+				),
+				array(
 					'name'           => __( 'Map Size', $this->plugin_slug ),
 					'id'             => $prefix . 'width_height',
 					'type'           => 'width_height',
@@ -195,12 +202,6 @@ class Google_Maps_Builder_Settings {
 					'lat_std' => '32.7153292',
 					'lng_std' => '-117.15725509',
 					'desc'    => '',
-				),
-				array(
-					'name' => __( 'Places API Key', $this->plugin_slug ),
-					'desc' => sprintf( __( 'API keys are manage through the <a href="%1$s" class="new-window" target="_blank" class="new-window">Google API Console</a>. For more information please see <a href="%2$s" target="_blank" class="new-window" title="Google Places API Introduction">this article</a>.', $this->plugin_slug ), esc_url( 'https://code.google.com/apis/console/?noredirect' ), esc_url( 'https://developers.google.com/places/documentation/#Authentication' ) ),
-					'id'   => $prefix . 'api_key',
-					'type' => 'text',
 				),
 			),
 		);
@@ -294,6 +295,32 @@ class Google_Maps_Builder_Settings {
 
 		return $meta;
 	}
+
+	/**
+	 * Modify CMB2 Default Form Output
+	 *
+	 * @param string @args
+	 *
+	 * @since 2.0
+	 *
+	 * @param $form_format
+	 * @param $object_id
+	 * @param $cmb
+	 *
+	 * @return string
+	 */
+	function gmb_modify_cmb2_form_output( $form_format, $object_id, $cmb ) {
+
+		//only modify the give settings form
+		if ( 'gmb_settings' == $object_id && 'plugin_options' == $cmb->cmb_id ) {
+
+			return '<form class="cmb-form" method="post" id="%1$s" enctype="multipart/form-data" encoding="multipart/form-data"><input type="hidden" name="object_id" value="%2$s">%3$s<div class="gmb-submit-wrap"><input type="submit" name="submit-cmb" value="' . __( 'Save Settings', 'give' ) . '" class="button-primary"></div></form>';
+		}
+
+		return $form_format;
+
+	}
+
 
 }
 

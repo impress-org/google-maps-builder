@@ -144,6 +144,8 @@ The main developer of this plugin is WordImpress. To find out more information a
 * Fix: Removed non-functional marker upload field (will be added to Pro version in a much enhanced format).
 * Fix: Maps icons fixed to no longer show first character incorrectly @see: https://github.com/scottdejonge/Map-Icons/issues/26
 * General: The plugin's official name has dropped the word "Google" for brand compliance. It's now called "Maps Builder"
+* General: Removed "Places API Key" field because Google Maps API doesn't require it to query the library
+* General: Added "Google Maps API Key" field to track API usage within Google's Developer Console @see: https://github.com/WordImpress/google-maps-builder/issues/48
 * General: Javascript cleanup and optimization
 
 = 1.0.3 =

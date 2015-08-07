@@ -2168,6 +2168,21 @@ a.wp-color-result {
   clear: both; }
 .google_maps_page_gmb_settings table.form-table {
   margin: 0 0 20px; }
+.google_maps_page_gmb_settings .gmb-submit-wrap {
+  clear: both;
+  background: #f5f5f5;
+  border-color: #dfdfdf;
+  overflow: auto;
+  margin: 20px 0 8px;
+  padding: 12px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 13px;
+  line-height: 2.1em; }
+.google_maps_page_gmb_settings .cmb-th {
+  width: 20%; }
+.google_maps_page_gmb_settings .cmb-td {
+  width: 80%; }
 
 /*---------------------------
 Welcome Header

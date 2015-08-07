@@ -353,6 +353,19 @@ class Google_Maps_Builder_Scripts {
 		$js_dir     = GMB_PLUGIN_URL . 'assets/js/admin/';
 		$js_plugins = GMB_PLUGIN_URL . 'assets/js/plugins/';
 
+
+		$google_maps_api_key = gmb_get_option('gmb_maps_api_key');
+
+		$google_maps_api_url_args =array(
+					'sensor'    => 'false',
+					'libraries' => 'places'
+				);
+		if(!empty($google_maps_api_key)) {
+			$google_maps_api_url_args['key'] = $google_maps_api_key;
+		}
+
+		$google_maps_api_url = add_query_arg( $google_maps_api_url_args, 'https://maps.googleapis.com/maps/api/js?v=3.exp' );
+
 		//Only enqueue scripts for CPT on post type screen
 		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
 
@@ -361,7 +374,7 @@ class Google_Maps_Builder_Scripts {
 			wp_register_script( $this->plugin_slug . '-admin-magnific-popup', $js_plugins . 'gmb-magnific' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-admin-magnific-popup' );
 
-			wp_register_script( $this->plugin_slug . '-admin-gmaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places', array( 'jquery' ) );
+			wp_register_script( $this->plugin_slug . '-admin-gmaps', $google_maps_api_url, array( 'jquery' ) );
 			wp_enqueue_script( $this->plugin_slug . '-admin-gmaps' );
 
 			wp_register_script( $this->plugin_slug . '-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/js/map-icons.js', array( 'jquery' ) );
@@ -389,7 +402,7 @@ class Google_Maps_Builder_Scripts {
 			wp_register_script( $this->plugin_slug . '-admin-map-controls', $js_dir . 'admin-maps-controls' . $suffix . '.js', array( 'jquery' ), GMB_VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-admin-map-controls' );
 
-			$api_key     = gmb_get_option( 'gmb_api_key' );
+			$api_key     = gmb_get_option( 'gmb_maps_api_key' );
 			$geolocate   = gmb_get_option( 'gmb_lat_lng' );
 			$post_status = get_post_status( $post->ID );
 
@@ -403,7 +416,7 @@ class Google_Maps_Builder_Scripts {
 				'ajax_loader'       => set_url_scheme( apply_filters( 'gmb_ajax_preloader_img', GMB_PLUGIN_URL . 'assets/images/spinner.gif' ), 'relative' ),
 				'snazzy'            => GMB_PLUGIN_URL . 'assets/js/admin/snazzy.json',
 				'modal_default'     => gmb_get_option( 'gmb_open_builder' ),
-				'post_status'      => $post_status,
+				'post_status'       => $post_status,
 				'i18n'              => array(
 					'update_map'               => $post_status == 'publish' ? __( 'Update Map', $this->plugin_slug ) : __( 'Publish Map', $this->plugin_slug ),
 					'places_selection_changed' => __( 'Place selections have changed.', $this->plugin_slug ),
