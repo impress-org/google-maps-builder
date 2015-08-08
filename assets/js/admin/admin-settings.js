@@ -1,5 +1,5 @@
 /**
- * Google Maps Builder Settings JS
+ * Maps Builder Settings JS
  */
 (function ( $ ) {
 	"use strict";

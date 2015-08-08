@@ -74,10 +74,11 @@ var gmb_data;
 		var info_window = new google.maps.InfoWindow( {
 			maxWidth: 315
 		} );
+
 		var map_id = $( map_canvas ).data( 'map-id' );
 		var map_data = gmb_data[map_id];
-		var latitude = ((map_data.map_params.latitude) ? map_data.map_params.latitude : '32.713240');
-		var longitude = ((map_data.map_params.longitude) ? map_data.map_params.longitude : '-117.159443');
+		var latitude = (map_data.map_params.latitude) ? map_data.map_params.latitude : '32.713240';
+		var longitude = (map_data.map_params.longitude) ? map_data.map_params.longitude : '-117.159443';
 		var map_options = {
 			center: new google.maps.LatLng( latitude, longitude ),
 			zoom  : parseInt( map_data.map_params.zoom ),

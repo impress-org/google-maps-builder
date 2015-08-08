@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Google Maps Builder Engine
+ * Maps Builder Engine
  *
  * The Google Maps engine class for WordPress Google Maps Builder
  *

@@ -8,11 +8,11 @@ Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-One Google Maps plugin to rule them all. Google Maps Builder is intuitive, sleek, powerful and easy to use. Forget the rest, use the best.
+One Google Maps plugin to rule them all. Maps Builder is intuitive, sleek, powerful and easy to use. Forget the rest, use the best.
 
 == Description ==
 
-Google Maps Builder isn't just another Google Maps plugin. It's built from the ground up to be the easiest, most intuitive and fastest Google Maps plugin for WordPress. Visually build powerful customized Google Maps to use on your WordPress site quickly and easily without ever having to touch a bit of code.
+Maps Builder isn't just another Google Maps plugin. It's built from the ground up to be the easiest, most intuitive and fastest Google Maps plugin for WordPress. Visually build powerful customized Google Maps to use on your WordPress site quickly and easily without ever having to touch a bit of code.
 
 = Plugin Highlights: =
 

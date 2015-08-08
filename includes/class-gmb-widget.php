@@ -136,7 +136,8 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 
 		<div class="gmb-widget-upgrade clear">
 			<span class="powered-by"></span>
-			<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=WIDGET&utm_campaign=MBF%20Widgets" target="_blank" class="button button-small"><?php _e( 'Upgrade to Pro', $this->plugin_slug ); ?> <span class="new-window"></span></a>
+			<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=WIDGET&utm_campaign=MBF%20Widgets" target="_blank" class="button button-small"><?php _e( 'Upgrade to Pro', $this->plugin_slug ); ?>
+				<span class="new-window"></span></a>
 		</div>
 
 		<?php
@@ -165,7 +166,11 @@ class Google_Maps_Builder_Widget extends WP_Widget {
 			'id' => $instance['id'],
 		);
 
-		echo Google_Maps_Builder()->engine->google_maps_shortcode( $atts );
+		//Ensure a map has been set
+		if ( $instance['id'] !== 'current' ) {
+			echo Google_Maps_Builder()->engine->google_maps_shortcode( $atts );
+		}
+
 
 		echo $args['after_widget'];
 

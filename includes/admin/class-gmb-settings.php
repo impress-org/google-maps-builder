@@ -278,8 +278,10 @@ class Google_Maps_Builder_Settings {
 
 			// Add Widget Page link to our plugin
 			$settings_link = '<a href="edit.php?post_type=google_maps&page=' . self::$key . '" title="' . __( 'Visit the Google Maps Builder plugin settings page', $this->plugin_slug ) . '">' . __( 'Settings', $this->plugin_slug ) . '</a>';
+			$go_pro_link = '<a href="
+https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=LISTING&utm_campaign=MBF%20LISTING" title="' . __( 'Upgrade to Maps Builder Pro', $this->plugin_slug ) . '" target="_blank">' . __( 'Upgrade to Pro', $this->plugin_slug ) . '</a>';
 			array_unshift( $links, $settings_link );
-
+			array_push( $links, $go_pro_link );
 		}
 
 		return $links;
@@ -290,7 +292,7 @@ class Google_Maps_Builder_Settings {
 		if ( $file == GMB_PLUGIN_BASE ) {
 			$meta[] = "<a href='http://wordpress.org/support/view/plugin-reviews/google-maps-builder' target='_blank' title='" . __( 'Rate Google Maps Builder on WordPress.org', $this->plugin_slug ) . "'>" . __( 'Rate Plugin', $this->plugin_slug ) . "</a>";
 			$meta[] = '<a href="http://wordpress.org/support/plugin/google-maps-builder/" target="_blank" title="' . __( 'Get plugin support via the WordPress community', $this->plugin_slug ) . '">' . __( 'Support', $this->plugin_slug ) . '</a>';
-			$meta[] = __( 'Thank You for using Google Maps Builder', $this->plugin_slug );
+			$meta[] = __( 'Thank You for using Maps Builder', $this->plugin_slug );
 		}
 
 		return $meta;
