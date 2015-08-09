@@ -70,13 +70,13 @@ This section describes how to install the plugin and get it working.
 
 = What sets this plugin apart from all the other Google Maps plugins for WordPress? =
 
-There are a number features and functionality that set Google Maps Builder apart from the many WordPress Google Maps plugins. For starters, we promise this plugin will always have a light footprint. No extra tables or unnecessary overhead. Furthermore, the plugin is built from the ground up to be both easy and fun to use.
+There are a number features and functionality that set Maps Builder apart from the many WordPress Google Maps plugins. For starters, we promise this plugin will always have a light footprint. No extra tables or unnecessary overhead. Furthermore, the plugin is built from the ground up to be both easy and fun to use.
 
-We have placed extra care and attention on the map creation process and are always looking to improve the UI with enhancements. It's our goal to integrate the plugin with the native WordPress admin UI without adding any distracting visuals. Finally, there are a number of additional features such as built in integration with Google Places API, Maps Icons and Snazzy Maps.
+We have placed extra care and attention on the map creation process and are always looking to improve the UI with enhancements. It's our goal to integrate the plugin with the native WordPress admin UI without adding any distracting visuals. Finally, there are a number of additional features such as built in integration with Google Places and Routes APIs, Snazzy Maps, many marker icon libraries, and more. We suggest you give it for a test drive.
 
 = Do I need a Google Places API Key to use this plugin? =
 
-No. You do not need a Google Places API plugin to use this plugin.
+No. You do not need a Google Maps API plugin to use this plugin but if you would like to track your usage you can enter it into the plugin settings screen.
 
 = Does this plugin create any new database tables? =
 
@@ -84,15 +84,15 @@ Unlike many other Google Maps plugins, Google Maps Builder does not create a sin
 
 = Where can I find the shortcodes for each map I create? =
 
-You can find the shortcodes for each map on the post listing screen, within the post itself in the shortcode metabox (coming soon). Also coming soon: Map widget and TinyMCE button to include shortcode.
+You can find the shortcodes for each map on the post listing screen, within the post itself in the TinyMCE Map Builder button.
 
 = What the heck is a shortcode and how do I use it? =
 
-Google Maps Builder works by creating a plugin specific [WordPress shortcode](http://codex.wordpress.org/Shortcode). Basically, you can copy the shortcode for a specific map and enter in into a widget or directly within content. As well, you can use the WordPress [do_shortcode()](http://codex.wordpress.org/Function_Reference/do_shortcode) function to use it within your theme template files and even plugins.
+Maps Builder works by creating a plugin specific [WordPress shortcode](http://codex.wordpress.org/Shortcode). You can easily add maps to your posts with the Map Builder button integrated within the TinyMCE WordPress editor. You may also copy the shortcode for a specific map and enter in into a widget or directly within a metafiend. As well, you can use the WordPress [do_shortcode()](http://codex.wordpress.org/Function_Reference/do_shortcode) function to use it within your theme template files or plugins for further customization.
 
 = Does this plugin include a widget for displaying maps? =
 
-Soon! For now, you can use the shortcode in the text widget. Soon there will be a Google Maps Builder Widget.
+Yes! In the free version there is a basic widget for adding maps to sidebars. Upgrade to Pro for more control.
 
 = How do I report a bug? =
 
@@ -101,13 +101,6 @@ We always welcome your feedback for improvements or if you have uncovered a bug.
 = Who is behind this plugin? =
 
 The main developer of this plugin is WordImpress. To find out more information about the company and the people behind it please visit [the WordImpress website.](http://wordimpress.com)
-
-= Known Issues =
-
-* Info Window - FOUC: Investigate why sometimes pointer tip of info window flashes before it opens (mainly Chrome)
-* Chrome - Look into while map tiles have strange lines in between
-* Firefox - Clicking on a marker to open the same info window creates content overflow
-* Bug: Fix issue where selecting "None" for map controls doesn't actually work on frontend
 
 == Screenshots ==
 
@@ -131,7 +124,7 @@ The main developer of this plugin is WordImpress. To find out more information a
 * New: Upgrade process for maps using Google's old reference ID in place for the new Place_ID @see: https://github.com/WordImpress/google-maps-builder/issues/18
 * New: Switch and Test all Google Places API calls to "Reference ID" or "ID" to Google's new "Places ID"
 * New: Gulp implemented for minifying scripts
-* New: Uber cool logo design and mascot (name coming soon for mascot!)
+* New: Uber cool new logo design and mascot (name coming soon for mascot!)
 * Improvement: Upgraded CMB1 to CMB2
 * Improvement: Class improvements and modernized structure organization
 * Improvement: Plugin structure significantly changed to better reflect our development preference. The current structure is similar to Give, EDD, and other reputable plugins.

@@ -292,7 +292,7 @@ https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNE
 		if ( $file == GMB_PLUGIN_BASE ) {
 			$meta[] = "<a href='http://wordpress.org/support/view/plugin-reviews/google-maps-builder' target='_blank' title='" . __( 'Rate Google Maps Builder on WordPress.org', $this->plugin_slug ) . "'>" . __( 'Rate Plugin', $this->plugin_slug ) . "</a>";
 			$meta[] = '<a href="http://wordpress.org/support/plugin/google-maps-builder/" target="_blank" title="' . __( 'Get plugin support via the WordPress community', $this->plugin_slug ) . '">' . __( 'Support', $this->plugin_slug ) . '</a>';
-			$meta[] = __( 'Thank You for using Maps Builder', $this->plugin_slug );
+			$meta[] = __( 'Thank you for using Maps Builder', $this->plugin_slug );
 		}
 
 		return $meta;

@@ -62,27 +62,35 @@ This section describes how to install the plugin and get it working.
 
 # Frequently Asked Questions
 
-1. **What sets this plugin apart from all the other Google Maps plugins for WordPress?**<br />
-There are a number features and functionality that set Google Maps Builder apart from the many WordPress Google Maps plugins. For starters, we promise this plugin will always have a light footprint. No extra tables or unnecessary overhead. Furthermore, the plugin is built from the ground up to be both easy and fun to use.<br /><br />
-We have placed extra care and attention on the map creation process and are always looking to improve the UI with enhancements. It's our goal to integrate the plugin with the native WordPress admin UI without adding any distracting visuals. Finally, there are a number of additional features such as built in integration with Google Places API, Maps Icons and Snazzy Maps.
+1. **What sets this plugin apart from all the other Google Maps plugins for WordPress?*
 
-2. **Do I need a Google Places API Key to use this plugin?**<br />
-No. You do not need a Google Places API plugin to use this plugin.
+There are a number features and functionality that set Maps Builder apart from the many WordPress Google Maps plugins. For starters, we promise this plugin will always have a light footprint. No extra tables or unnecessary overhead. Furthermore, the plugin is built from the ground up to be both easy and fun to use.
 
-3. **Does this plugin create any new database tables?**<br />
+We have placed extra care and attention on the map creation process and are always looking to improve the UI with enhancements. It's our goal to integrate the plugin with the native WordPress admin UI without adding any distracting visuals. Finally, there are a number of additional features such as built in integration with Google Places and Routes APIs, Snazzy Maps, many marker icon libraries, and more. We suggest you give it for a test drive.
+
+2. **Do I need a Google Maps API Key to use this plugin?*
+
+No. You do not need a Google Maps API plugin to use this plugin but if you would like to track your usage you can enter it into the plugin settings screen.
+
+3. **Does this plugin create any new database tables?*
+
 Unlike many other Google Maps plugins, Google Maps Builder does not create a single new table in your WordPress database. There is no added database overhead or foreign MySQL queries. It's our guarantee that this plugin will never leave an orphaned table in your WordPress database.
 
-4. **Where can I find the shortcodes for each map I create?**<br />
-You can find the shortcodes for each map on the post listing screen, within the post itself in the shortcode metabox (coming soon). Also coming soon: Map widget and TinyMCE button to include shortcode.
+4. **Where can I find the shortcodes for each map I create?*
 
-5. **What the heck is a shortcode and how do I use it?**<br />
-Google Maps Builder works by creating a plugin specific [WordPress shortcode](http://codex.wordpress.org/Shortcode). Basically, you can copy the shortcode for a specific map and enter in into a widget or directly within content. As well, you can use the WordPress [do_shortcode()](http://codex.wordpress.org/Function_Reference/do_shortcode) function to use it within your theme template files and even plugins.
+You can find the shortcodes for each map on the post listing screen, within the post itself in the TinyMCE Map Builder button.
 
-6. **Does this plugin include a widget for displaying maps?**<br />
-Soon! For now, you can use the shortcode in the text widget. Soon there will be a Google Maps Builder Widget.
+5. **What the heck is a shortcode and how do I use it?*
 
-7. **How do I report a bug?**<br />
-We always welcome your feedback for improvements or if you have uncovered a bug. To report a bug please use the WordPress.org support forum.
+Maps Builder works by creating a plugin specific [WordPress shortcode](http://codex.wordpress.org/Shortcode). You can easily add maps to your posts with the Map Builder button integrated within the TinyMCE WordPress editor. You may also copy the shortcode for a specific map and enter in into a widget or directly within a metafiend. As well, you can use the WordPress [do_shortcode()](http://codex.wordpress.org/Function_Reference/do_shortcode) function to use it within your theme template files or plugins for further customization.
 
-8. **Who is behind this plugin?**<br />
+6. **Does this plugin include a widget for displaying maps?*
+
+Yes! In the free version there is a basic widget for adding maps to sidebars. Upgrade to Pro for more control.
+
+7. **How do I report a bug?**
+
+We always welcome your feedback for improvements or if you have uncovered a bug. To report a bug please use the WordPress.org support forum or this GitHub repo issues trackers.
+
+8. **Who is behind this plugin?*
 WordImpress.com developed this and many more plugins. Check them all out at [WordImpress.com](https://wordimpress.com).
