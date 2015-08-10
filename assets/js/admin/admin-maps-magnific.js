@@ -4,7 +4,6 @@
  * @since 2.0
  */
 var gmb_data;
-console.log(gmb_data);
 (function ( $ ) {
 
 	"use strict";
@@ -14,7 +13,7 @@ console.log(gmb_data);
 		var poststuff = $( 'form#post' ),
 			postboxes = $( '.postbox' ).not( '.cmb-row, .cmb-repeatable-grouping' ),
 			map = $( '#map' ),
-			submit_btn = '<input type="submit" class="button button-primary button-large magnific-submit" id="publish" value=" ' + gmb_data.i18n.update_map + '">',
+			submit_btn = '<input type="submit" class="button button-primary button-large magnific-submit" id="gmb-publish" value="' + gmb_data.i18n.update_map + '" >',
 			placeholder_id,
 			placeholder_gid = 0,
 			viewport = $( window ).height() - 40;
@@ -144,8 +143,6 @@ console.log(gmb_data);
 			} else {
 				//Close all other GMB metaboxes by default
 				postbox.addClass( 'closed' );
-				//Ensure max height is applied to sidebar
-				//$( '.magnific-builder #side-sortables' ).height( $( window ).height() - 120 );
 			}
 		}
 
@@ -161,9 +158,11 @@ console.log(gmb_data);
 			$( '#postbox-container-1' ).outerHeight( viewport );
 		}
 
-		//Submit button
+		//Form Modal Submit button
 		$( 'body' ).on( 'click', '.magnific-submit', function ( e ) {
-			$( '#publish' ).trigger('click');
+			e.preventDefault();
+			$( '#post_status' ).val( 'Publish' );
+			jQuery( '#publish' ).click();
 		} );
 
 	} );

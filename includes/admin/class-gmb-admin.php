@@ -154,7 +154,7 @@ class Google_Maps_Builder_Admin {
 			'show_names'   => true, // Show field names on the left
 		) );
 		$marker_box->add_field( array(
-			'name' => 'Create Marker',
+			'name' => __( 'Create Marker', $this->plugin_slug ),
 			'id'   => $prefix . 'geocoder',
 			'type' => 'google_geocoder'
 		) );
@@ -207,26 +207,26 @@ class Google_Maps_Builder_Admin {
 			'type' => 'text',
 		) );
 		$marker_box->add_group_field( $group_field_id, array(
-			'name'    => __( 'Marker Image', $this->plugin_slug ),
-			'id'      => 'marker_img',
-			'type'    => 'file',
+			'name'        => __( 'Marker Image', $this->plugin_slug ),
+			'id'          => 'marker_img',
+			'type'        => 'file',
 			'row_classes' => 'gmb-hidden',
-			'options' => array(
+			'options'     => array(
 				'url'                  => false,
 				'add_upload_file_text' => __( 'Add Marker Image', $this->plugin_slug )
 			),
 		) );
 		$marker_box->add_group_field( $group_field_id, array(
-			'name' => __( 'Marker Data', $this->plugin_slug ),
-			'id'   => 'marker',
+			'name'        => __( 'Marker Data', $this->plugin_slug ),
+			'id'          => 'marker',
 			'row_classes' => 'gmb-hidden',
-			'type' => 'textarea_code',
+			'type'        => 'textarea_code',
 		) );
 		$marker_box->add_group_field( $group_field_id, array(
-			'name' => __( 'Marker Label Data', $this->plugin_slug ),
-			'id'   => 'label',
+			'name'        => __( 'Marker Label Data', $this->plugin_slug ),
+			'id'          => 'label',
 			'row_classes' => 'gmb-hidden',
-			'type' => 'textarea_code',
+			'type'        => 'textarea_code',
 		) );
 
 		// PREVIEW
