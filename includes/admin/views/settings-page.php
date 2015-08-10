@@ -64,6 +64,7 @@
 	<h2 class="nav-tab-wrapper">
 		<a href="?post_type=google_maps&page=<?php echo self::$key; ?>" class="nav-tab <?php echo $active_tab == 'map_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Map Options', $this->plugin_slug ); ?></a>
 		<a href="?post_type=google_maps&page=<?php echo self::$key; ?>&tab=general_settings" class="nav-tab <?php echo $active_tab == 'general_settings' ? 'nav-tab-active' : ''; ?>"><?php _e( 'General Options', $this->plugin_slug ); ?></a>
+		<a href="?post_type=google_maps&page=<?php echo self::$key; ?>&tab=system_info" class="nav-tab <?php echo $active_tab == 'system_info' ? 'nav-tab-active' : ''; ?>"><?php _e( 'System Info', $this->plugin_slug ); ?></a>
 	</h2>
 
 
@@ -77,6 +78,9 @@
 			break;
 		case 'general_settings':
 			include( 'tab-general-settings.php' );
+			break;
+		case 'system_info':
+			include( 'tab-system-info.php' );
 			break;
 		default :
 			include( 'tab-map-options.php' );
