@@ -1,9 +1,7 @@
 <?php
 
 /**
- * WordPress Google Maps.
- *
- * The core plugin class
+ * Plugin Activation
  *
  * @package   Google_Maps_Builder
  * @author    Devin Walker <devin@wordimpress.com>
@@ -21,14 +19,16 @@ class Google_Maps_Builder_Activate {
 	 * @since     1.0.0
 	 */
 	public function __construct() {
+		$this->plugin_slug = Google_Maps_Builder()->get_plugin_slug();
 
 		// Activate plugin when new blog is added
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
 
+		//Activation tooltips
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_pointer_script_style' ) );
+
+
 	}
-
-
-
 
 
 	/**
@@ -122,14 +122,59 @@ class Google_Maps_Builder_Activate {
 
 	}
 
+	/**
+	 * ADMIN: Activation Welcome Tooltip Scripts
+	 *
+	 * @param $hook
+	 */
+	function admin_enqueue_pointer_script_style( $hook ) {
+
+		global $post;
+
+		// Assume pointer shouldn't be shown
+		$enqueue_pointer_script_style = false;
+
+		//For testing ONLY!:
+		//delete_user_meta( get_current_user_id(), 'dismissed_wp_pointers' );
+
+		// Get array list of dismissed pointers for current user and convert it to array
+		$dismissed_pointers = explode( ',', get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
+		$key                = array_search( 'gmb_welcome_pointer', $dismissed_pointers ); // $key = 2;
+
+		// Check if our pointer is not among dismissed ones
+		if ( ! in_array( 'gmb_welcome_pointer', $dismissed_pointers ) ) {
+			$enqueue_pointer_script_style = true;
+
+			// Add footer scripts using callback function
+			add_action( 'admin_print_footer_scripts', array( $this, 'welcome_pointer_print_scripts' ) );
+		}
+
+		// Map Customizer Tooltip - Check if our pointer is not among dismissed ones
+		if ( ! in_array( 'gmb_customizer_pointer', $dismissed_pointers ) && isset($post->post_type) && $post->post_type === 'google_maps' ) {
+			$enqueue_pointer_script_style = true;
+
+			// Add footer scripts using callback function
+			add_action( 'admin_print_footer_scripts', array( $this, 'maps_customizer_tooltip' ) );
+		}
+
+		// Enqueue pointer CSS and JS files, if needed
+		if ( $enqueue_pointer_script_style ) {
+			wp_enqueue_style( 'wp-pointer' );
+			wp_enqueue_script( 'wp-pointer' );
+		}
+
+	}
 
 	/**
 	 * Print Activation Message
 	 */
 	function welcome_pointer_print_scripts() {
+		global $current_user;
+		get_currentuserinfo();
+
 		$pointer_content = '<h3>' . __( 'Welcome to the Maps Builder', $this->plugin_slug ) . '</h3>';
-		$pointer_content .= '<p>' . __( 'Thank you for activating Maps Builder for WordPress. To stay up to date on the latest plugin updates, enhancements, and news please sign up for our mailing list.', $this->plugin_slug ) . '</p>';
-		$pointer_content .= '<div id="mc_embed_signup" style="padding: 0 15px;"><form action="http://wordimpress.us3.list-manage2.com/subscribe/post?u=3ccb75d68bda4381e2f45794c&amp;id=83609e2883" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate><div class="mc-field-group" style="margin: 0 0 10px;"><input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" style="margin-right:5px;width:230px;" placeholder="my.email@wordpress.com"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div><div id="mce-responses" class="clear"><div class="response" id="mce-error-response" style="display:none"></div><div class="response" id="mce-success-response" style="display:none"></div></div><div style="position: absolute; left: -5000px;"><input type="text" name="b_3ccb75d68bda4381e2f45794c_83609e2883" value=""></div></form></div>';
+		$pointer_content .= '<p class="map-builder-welcome">' . __( 'Thank you for activating Maps Builder for WordPress. To stay up to date on the latest plugin updates, enhancements, and news please sign up for our newsletter.', $this->plugin_slug ) . '</p>';
+		$pointer_content .= '<div id="mc_embed_signup" style="padding: 0 15px;"><form action="http://wordimpress.us3.list-manage2.com/subscribe/post?u=3ccb75d68bda4381e2f45794c&amp;id=83609e2883" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate><div class="mc-field-group" style="margin: 0 0 10px;"><input type="email" value="' . $current_user->user_email . '" name="EMAIL" class="required email" id="mce-EMAIL" style="margin-right:5px;width:230px;"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div><div id="mce-responses" class="clear"><div class="response" id="mce-error-response" style="display:none"></div><div class="response" id="mce-success-response" style="display:none"></div></div><div style="position: absolute; left: -5000px;"><input type="text" name="b_3ccb75d68bda4381e2f45794c_83609e2883" value=""></div></form></div>';
 		?>
 
 		<script type="text/javascript">
@@ -145,6 +190,41 @@ class Google_Maps_Builder_Activate {
 					close       : function () {
 						$.post( ajaxurl, {
 							pointer: 'gmb_welcome_pointer', // pointer ID
+							action : 'dismiss-wp-pointer'
+						} );
+					}
+				} ).pointer( 'open' );
+			} );
+			//]]>
+		</script>
+
+		<?php
+	}
+
+	/**
+	 * Maps Builder Customizer Tooltio
+	 */
+	function maps_customizer_tooltip() {
+		global $current_user;
+		get_currentuserinfo();
+
+		$pointer_content = '<h3>' . __( 'Introducing the Map Customizer', $this->plugin_slug ) . '</h3>';
+		$pointer_content .= '<p>' . __( 'We have upgraded your map building experience! Click here to experience the new interface. All controls are within your reach and the map always stays in view. If you like it, you can enable the view by default within the plugin settings. We hope you enjoy it!', $this->plugin_slug ) . '</p>';
+		?>
+
+		<script type="text/javascript">
+			//<![CDATA[
+			jQuery( document ).ready( function ( $ ) {
+				$( '#map-builder' ).pointer( {
+					content     : '<?php echo $pointer_content; ?>',
+					position    : {
+						edge : 'right', // arrow direction
+						align: 'center' // vertical alignment
+					},
+					pointerWidth: 350,
+					close       : function () {
+						$.post( ajaxurl, {
+							pointer: 'gmb_customizer_pointer', // pointer ID
 							action : 'dismiss-wp-pointer'
 						} );
 					}
@@ -215,7 +295,6 @@ class Google_Maps_Builder_Activate {
 	private static function single_deactivate() {
 		// @TODO: Define deactivation functionality here
 	}
-
 
 
 }

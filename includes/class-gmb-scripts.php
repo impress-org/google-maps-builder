@@ -51,8 +51,6 @@ class Google_Maps_Builder_Scripts {
 
 		add_action( 'admin_notices', array( $this, 'multiple_maps_enqueued_warning' ) );
 
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_pointer_script_style' ) );
-
 		add_action( 'admin_head', array( $this, 'icon_style' ) );
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
@@ -236,70 +234,6 @@ class Google_Maps_Builder_Scripts {
 			echo '</div>';
 
 		}
-	}
-
-	/**
-	 * ADMIN: Activation Welcome Tooltip Scripts
-	 *
-	 * @param $hook_suffix
-	 */
-	function admin_enqueue_pointer_script_style( $hook_suffix ) {
-
-		// Assume pointer shouldn't be shown
-		$enqueue_pointer_script_style = false;
-
-		// Get array list of dismissed pointers for current user and convert it to array
-		$dismissed_pointers = explode( ',', get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
-		$key                = array_search( 'gmb_welcome_pointer', $dismissed_pointers ); // $key = 2;
-
-		// Check if our pointer is not among dismissed ones
-		if ( ! in_array( 'gmb_welcome_pointer', $dismissed_pointers ) ) {
-			$enqueue_pointer_script_style = true;
-
-			// Add footer scripts using callback function
-			add_action( 'admin_print_footer_scripts', array( $this, 'welcome_pointer_print_scripts' ) );
-		}
-
-		// Enqueue pointer CSS and JS files, if needed
-		if ( $enqueue_pointer_script_style ) {
-			wp_enqueue_style( 'wp-pointer' );
-			wp_enqueue_script( 'wp-pointer' );
-		}
-
-	}
-
-
-	/**
-	 * Print Activation Message
-	 */
-	function welcome_pointer_print_scripts() {
-		$pointer_content = '<h3>' . __( 'Welcome to Maps Builder', $this->plugin_slug ) . '</h3>';
-		$pointer_content .= '<p>' . __( 'Thank you for activating Maps Builder for WordPress. To stay up to date on the latest plugin updates, enhancements, and news please sign up for our mailing list.', $this->plugin_slug ) . '</p>';
-		$pointer_content .= '<div id="mc_embed_signup" style="padding: 0 15px;"><form action="http://wordimpress.us3.list-manage2.com/subscribe/post?u=3ccb75d68bda4381e2f45794c&amp;id=83609e2883" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate><div class="mc-field-group" style="margin: 0 0 10px;"><input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" style="margin-right:5px;width:230px;" placeholder="my.email@wordpress.com"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div><div id="mce-responses" class="clear"><div class="response" id="mce-error-response" style="display:none"></div><div class="response" id="mce-success-response" style="display:none"></div></div><div style="position: absolute; left: -5000px;"><input type="text" name="b_3ccb75d68bda4381e2f45794c_83609e2883" value=""></div></form></div>';
-		?>
-
-		<script type="text/javascript">
-			//<![CDATA[
-			jQuery( document ).ready( function ( $ ) {
-				$( '#menu-posts-google_maps' ).pointer( {
-					content     : '<?php echo $pointer_content; ?>',
-					position    : {
-						edge : 'left', // arrow direction
-						align: 'center' // vertical alignment
-					},
-					pointerWidth: 350,
-					close       : function () {
-						$.post( ajaxurl, {
-							pointer: 'gmb_welcome_pointer', // pointer ID
-							action : 'dismiss-wp-pointer'
-						} );
-					}
-				} ).pointer( 'open' );
-			} );
-			//]]>
-		</script>
-
-		<?php
 	}
 
 
