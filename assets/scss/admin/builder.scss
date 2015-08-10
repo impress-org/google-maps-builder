@@ -1,19 +1,14 @@
-/**
- * Google Places Map CPT Styles TEST
- */
-
+/*!
+ * Maps Builder Admin Settings Pages SCSS/CSS
+ *
+ * @description: The Main SCSS file for admin SETTINGS styles which is compiled and minified via Gulp taskrunner
+ * @package:     GMB
+ * @subpackage:  SCSS/Admin
+ * @copyright:   Copyright (c) 2015, WordImpress
+ * @license:     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+*/
 #google-map-wrap {
   position: relative;
-}
-
-.clear:before,
-.clear:after {
-  content: " ";
-  display: table;
-}
-
-.clear:after {
-  clear: both;
 }
 
 .hover-transition, .marker-icon-row .icon, .marker-row .marker-item {
@@ -190,35 +185,14 @@ span.new-window {
   display: inline-block;
 }
 
-.width_unit_label, .width_radio, .map-width, .map-height, .size-label {
-  float: left !important;
-}
 
 #width_wrap {
   margin: 0 0 10px;
 }
 
-#size_labels_wrap {
-  margin: 8px 0 0 10px;
-  padding: 0;
-  float: left;
-}
-
-#width_unit_percent {
-  margin: 0 3px 0 0;
-}
-
-#width_unit_px {
-  margin: 0 3px 0 8px;
-}
-
 .inner-sidebar table.cmb_metabox label.size-label, #side-sortables table.cmb_metabox label.size-label, label.size-label {
   font-weight: normal;
   font-style: italic;
-}
-
-.map-width, .map-height {
-  width: 55px !important
 }
 
 /*------------------------------------------
@@ -352,25 +326,6 @@ Display Options
 #side-sortables #lat-lng-wrap input[type=text].latitude, #side-sortables #lat-lng-wrap input[type=text].longitude {
   width: 100px;
   float: left;
-}
-
-.lat-lng-wrap {
-  float: left;
-  margin: 0 0 10px;
-  clear: none;
-
-  > span, > input {
-	float: left;
-  }
-  > span {
-	margin: 8px 5px 0 0;
-	width: 80px;
-	font-style: italic;
-  }
-}
-
-.lng-wrap {
-  margin-bottom: 0;
 }
 
 /* Mini message */

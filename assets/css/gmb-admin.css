@@ -1547,18 +1547,17 @@ button.gmb-modal-close {
   .mfp-container .map-modal-upsell a.upsell-button {
     width: 70px; }
 
-/**
- * Google Places Map CPT Styles TEST
- */
+/*!
+ * Maps Builder Admin Settings Pages SCSS/CSS
+ *
+ * @description: The Main SCSS file for admin SETTINGS styles which is compiled and minified via Gulp taskrunner
+ * @package:     GMB
+ * @subpackage:  SCSS/Admin
+ * @copyright:   Copyright (c) 2015, WordImpress
+ * @license:     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+*/
 #google-map-wrap {
   position: relative; }
-
-.clear:before, .clear:after {
-  content: " ";
-  display: table; }
-
-.clear:after {
-  clear: both; }
 
 .hover-transition, .marker-icon-row .icon, .marker-row .marker-item {
   -webkit-transition: 0.2s all linear;
@@ -1699,29 +1698,12 @@ span.new-window {
   font-style: normal;
   display: inline-block; }
 
-.width_unit_label, .width_radio, .map-width, .map-height, .size-label {
-  float: left !important; }
-
 #width_wrap {
   margin: 0 0 10px; }
-
-#size_labels_wrap {
-  margin: 8px 0 0 10px;
-  padding: 0;
-  float: left; }
-
-#width_unit_percent {
-  margin: 0 3px 0 0; }
-
-#width_unit_px {
-  margin: 0 3px 0 8px; }
 
 .inner-sidebar table.cmb_metabox label.size-label, #side-sortables table.cmb_metabox label.size-label, label.size-label {
   font-weight: normal;
   font-style: italic; }
-
-.map-width, .map-height {
-  width: 55px !important; }
 
 /*------------------------------------------
  Place Markers
@@ -1824,20 +1806,6 @@ Display Options
 #lat-lng-wrap input[type=text].latitude, #lat-lng-wrap input[type=text].longitude, #side-sortables #lat-lng-wrap input[type=text].latitude, #side-sortables #lat-lng-wrap input[type=text].longitude {
   width: 100px;
   float: left; }
-
-.lat-lng-wrap {
-  float: left;
-  margin: 0 0 10px;
-  clear: none; }
-  .lat-lng-wrap > span, .lat-lng-wrap > input {
-    float: left; }
-  .lat-lng-wrap > span {
-    margin: 8px 5px 0 0;
-    width: 80px;
-    font-style: italic; }
-
-.lng-wrap {
-  margin-bottom: 0; }
 
 /* Mini message */
 .lat-lng-change-message {
@@ -2159,13 +2127,15 @@ a.wp-color-result {
  * @copyright:   Copyright (c) 2015, WordImpress
  * @license:     http://opensource.org/licenses/gpl-2.0.php GNU Public License
 */
-.google_maps_page_gmb_settings .wrap {
-  margin-left: -5px; }
-.google_maps_page_gmb_settings .clear:before, .google_maps_page_gmb_settings .clear:after {
+.clear:before, .clear:after {
   content: " ";
   display: table; }
-.google_maps_page_gmb_settings .clear:after {
+
+.clear:after {
   clear: both; }
+
+.google_maps_page_gmb_settings .wrap {
+  margin-left: -5px; }
 .google_maps_page_gmb_settings table.form-table {
   margin: 0 0 20px; }
 .google_maps_page_gmb_settings .gmb-submit-wrap {
@@ -2294,30 +2264,31 @@ Map Options Tab
   font-style: italic;
   width: 50px; }
 
-/* Map Size */
 .width_unit_label, .width_radio, .map-width, .map-height, .size-label, .radio-left, .label-left {
   float: left !important; }
 
-#width_wrap {
-  margin: 0 0 10px; }
-
-#size_labels_wrap {
+/*---------------------------
+ Map Size
+ ----------------------------*/
+.size-labels-wrap {
   margin: 8px 0 0 10px;
   padding: 0;
   float: left; }
-
-#width_unit_percent {
-  margin: 0 3px 0 0; }
-
-#width_unit_px {
-  margin: 0 3px 0 8px; }
+  .size-labels-wrap input[type="radio"] {
+    margin-right: 0;
+    float: left; }
+  .size-labels-wrap label {
+    margin: 0 10px 0 0;
+    float: left; }
 
 .map-width, .map-height {
   width: 55px !important; }
 
-/* Lat Lng */
+/*---------------------------
+Lat/Lng
+ ----------------------------*/
 #geolocate-wrap {
-  margin: 0 0 15px; }
+  margin: 0 0 5px; }
 
 label.geocode-label {
   width: 130px;
@@ -2326,12 +2297,8 @@ label.geocode-label {
 label.yes-label {
   margin-right: 10px; }
 
-#lat-lng-wrap input[type=text].latitude, #lat-lng-wrap input[type=text].longitude {
-  width: 120px;
-  float: left; }
-
 .lat-lng-wrap {
-  margin: 0 20px 10px 0;
+  margin: 10px 20px 10px 0;
   clear: none; }
   .lat-lng-wrap > span, .lat-lng-wrap > input {
     float: left; }
@@ -2339,6 +2306,9 @@ label.yes-label {
     margin: 8px 5px 0 0;
     width: 80px;
     font-style: italic; }
+  .lat-lng-wrap input[type=text].latitude, .lat-lng-wrap input[type=text].longitude {
+    width: 120px;
+    float: left; }
 
 /*---------------------------
 General Options Tab

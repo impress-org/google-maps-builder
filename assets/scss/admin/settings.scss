@@ -8,20 +8,20 @@
  * @license:     http://opensource.org/licenses/gpl-2.0.php GNU Public License
 */
 
+.clear:before,
+.clear:after {
+  content: " ";
+  display: table;
+}
+
+.clear:after {
+  clear: both;
+}
+
 .google_maps_page_gmb_settings {
 
   .wrap {
 	margin-left: -5px;
-  }
-
-  .clear:before,
-  .clear:after {
-	content: " ";
-	display: table;
-  }
-
-  .clear:after {
-	clear: both;
   }
 
   table.form-table {
@@ -42,11 +42,11 @@
   }
 
   .cmb-th {
-	width:20%;
+	width: 20%;
   }
 
   .cmb-td {
-	width:80%;
+	width: 80%;
   }
 
 }
@@ -187,37 +187,38 @@ Map Options Tab
   width: 50px;
 }
 
-/* Map Size */
-
 .width_unit_label, .width_radio, .map-width, .map-height, .size-label, .radio-left, .label-left {
   float: left !important;
 }
 
-#width_wrap {
-  margin: 0 0 10px;
-}
-
-#size_labels_wrap {
+/*---------------------------
+ Map Size
+ ----------------------------*/
+.size-labels-wrap {
   margin: 8px 0 0 10px;
   padding: 0;
   float: left;
-}
 
-#width_unit_percent {
-  margin: 0 3px 0 0;
-}
+  input[type="radio"] {
+	margin-right: 0;
+	float: left;
+  }
+  label {
+	margin: 0 10px 0 0;
+	float: left;
+  }
 
-#width_unit_px {
-  margin: 0 3px 0 8px;
 }
 
 .map-width, .map-height {
   width: 55px !important
 }
 
-/* Lat Lng */
+/*---------------------------
+Lat/Lng
+ ----------------------------*/
 #geolocate-wrap {
-  margin: 0 0 15px;
+  margin: 0 0 5px;
 }
 
 label.geocode-label {
@@ -229,14 +230,10 @@ label.yes-label {
   margin-right: 10px;
 }
 
-#lat-lng-wrap input[type=text].latitude, #lat-lng-wrap input[type=text].longitude {
-  width: 120px;
-  float: left;
-}
-
 .lat-lng-wrap {
-  margin: 0 20px 10px 0;
+  margin: 10px 20px 10px 0;
   clear: none;
+
   > span, > input {
 	float: left;
   }
@@ -244,6 +241,11 @@ label.yes-label {
 	margin: 8px 5px 0 0;
 	width: 80px;
 	font-style: italic;
+  }
+
+  input[type=text].latitude, input[type=text].longitude {
+	width: 120px;
+	float: left;
   }
 }
 

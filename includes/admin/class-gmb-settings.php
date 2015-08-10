@@ -180,7 +180,7 @@ class Google_Maps_Builder_Settings {
 			'fields'     => array(
 				array(
 					'name' => __( 'Google Maps API Key', $this->plugin_slug ),
-					'desc' => sprintf( __( 'The Google Maps JavaScript API v3 does not require an API key to function correctly. However, Google strongly encourages you to load the Maps API using an APIs Console key which allows you to monitor your Maps API usage. %1$sLearn how to obtain an API key%2$s.', $this->plugin_slug ), '<a href="' . esc_url( 'https://developers.google.com/maps/documentation/javascript/tutorial#api_key' ). '" target="_blank" class="new-window">', '</a>'),
+					'desc' => sprintf( __( 'The Google Maps JavaScript API v3 does not require an API key to function correctly. However, Google strongly encourages you to load the Maps API using an APIs Console key which allows you to monitor your Maps API usage. %1$sLearn how to obtain an API key%2$s.', $this->plugin_slug ), '<a href="' . esc_url( 'https://developers.google.com/maps/documentation/javascript/tutorial#api_key' ) . '" target="_blank" class="new-window">', '</a>' ),
 					'id'   => $prefix . 'maps_api_key',
 					'type' => 'text',
 				),
@@ -231,7 +231,7 @@ class Google_Maps_Builder_Settings {
 		//Geolocate
 		$output = '<div id="geolocate-wrap" class="clear">';
 		$output .= '<label class="geocode-label size-label">' . __( 'Geolocate Position', $this->plugin_slug ) . ':</label>';
-		$output .= '<div id="size_labels_wrap" class="geolocate-radio-wrap">';
+		$output .= '<div class="geolocate-radio-wrap size-labels-wrap">';
 		$output .= '<label class="yes-label label-left"><input id="geolocate_map_yes" type="radio" name="' . $field->args['id'] . '[geolocate_map]" class="geolocate_map_radio radio-left" value="yes" ' . ( $meta['geolocate_map'] === 'yes' ? 'checked="checked"' : '' ) . '>' . __( 'Yes', $this->plugin_slug ) . '</label>';
 
 		$output .= '<label class="no-label label-left"><input id="geolocate_map_no" type="radio" name="' . $field->args['id'] . '[geolocate_map]" class="geolocate_map_radio radio-left" value="no" ' . ( $meta['geolocate_map'] === 'no' ? 'checked="checked"' : '' ) . ' >' . __( 'No', $this->plugin_slug ) . '</label>';
@@ -245,8 +245,10 @@ class Google_Maps_Builder_Settings {
 								<input type="text" class="regular-text longitude" name="' . $field->args['id'] . '[longitude]" id="' . $field->args['id'] . '-longitude" value="' . ( $meta['longitude'] ? $meta['longitude'] : $field->args['lng_std'] ) . '" />
 								</div>';
 		$output .= '<p class="small-desc">' . sprintf( __( 'For quick lat/lng lookup use <a href="%s" class="new-window"  target="_blank">this service</a>', $this->plugin_slug ), esc_url( 'http://www.latlong.net/' ) ) . '</p>';
-		$output .= '</div><!-- /.search-coordinates-wrap -->
-			</div>';
+		$output .= '</div><!-- /.search-coordinates-wrap -->';
+
+		$output .= '</div>'; //end #geolocate-wrap
+		$output .= '<p class="cmb2-metabox-description">' . __( 'When creating a new map the plugin will use your current longitude and latitude for the base location. If you see a blank space instead of the map, this is probably because you have denied permission for location sharing. You may also specify a default longitude and latitude by turning off this option.', $this->plugin_slug ) . '</p>';
 
 
 		echo $output;
@@ -278,7 +280,7 @@ class Google_Maps_Builder_Settings {
 
 			// Add Widget Page link to our plugin
 			$settings_link = '<a href="edit.php?post_type=google_maps&page=' . self::$key . '" title="' . __( 'Visit the Google Maps Builder plugin settings page', $this->plugin_slug ) . '">' . __( 'Settings', $this->plugin_slug ) . '</a>';
-			$go_pro_link = '<a href="
+			$go_pro_link   = '<a href="
 https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=LISTING&utm_campaign=MBF%20LISTING" title="' . __( 'Upgrade to Maps Builder Pro', $this->plugin_slug ) . '" target="_blank">' . __( 'Upgrade to Pro', $this->plugin_slug ) . '</a>';
 			array_unshift( $links, $settings_link );
 			array_push( $links, $go_pro_link );
