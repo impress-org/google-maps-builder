@@ -12,6 +12,7 @@
   font-size: 14px;
   margin: 0 0 10px;
   display: block;
+  position: relative;
 }
 
 @mixin orange-button {
@@ -20,14 +21,24 @@
   -webkit-box-shadow: inset 0 1px 0 rgb(249, 198, 121), 0 1px 0 rgba(0, 0, 0, 0.15);
   -moz-box-shadow: inset 0 1px 0 rgb(249, 198, 121), 0 1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 1px 0 rgb(249, 198, 121), 0 1px 0 rgba(0, 0, 0, 0.15);
-  color:#FFF;
+  color: #FFF;
 
   &:hover, &:disabled {
-	color:#FFF;
+	color: #FFF;
 	background: #eb9e23;
 	border-color: #ba7915;
 	-webkit-box-shadow: inset 0 1px 0 rgb(249, 198, 121), 0 1px 0 rgba(0, 0, 0, 0.15);
 	-moz-box-shadow: inset 0 1px 0 rgb(249, 198, 121), 0 1px 0 rgba(0, 0, 0, 0.15);
 	box-shadow: inset 0 1px 0 rgb(249, 198, 121), 0 1px 0 rgba(0, 0, 0, 0.15);
   }
+}
+
+@mixin clearfix {
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
 }

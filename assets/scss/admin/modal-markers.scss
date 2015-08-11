@@ -180,3 +180,37 @@ Map Icons
   top: 35px;
   color: #7dbee8;
 }
+
+/*-------------------------------------
+Modal: Create a Marker
+---------------------------------------*/
+.cmb2-id-gmb-geocoder.white-popup {
+
+  p.autocomplete-description {
+	display: none;
+  }
+
+  label{
+	margin:0;
+	padding:0;
+
+	&:after {
+		content: ' ';
+		position: absolute;
+		bottom: 0;
+		left: 105px;
+		background: url('../img/powered-by-google-on-white.png') no-repeat 0 0 transparent;
+		width: 104px;
+		height: 16px;
+	  }
+  }
+
+  .cmb-td {
+	padding: 0;
+
+	input {
+	  width: 100%;
+	}
+
+  }
+}

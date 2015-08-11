@@ -38,10 +38,10 @@ var gmb_data;
 		$( '.drop-marker' ).on( 'click', function ( e ) {
 			e.preventDefault();
 			if ( $( this ).hasClass( 'active' ) ) {
-				$( this ).text( 'Drop a Marker' ).removeClass( 'active' );
+				$( this ).html( gmb_data.i18n.btn_drop_marker ).removeClass( 'active' );
 				map.setOptions( {draggableCursor: null} ); //reset cursor
 			} else {
-				$( this ).text( 'Click on the Map' ).addClass( 'active' );
+				$( this ).html( gmb_data.i18n.btn_drop_marker_click ).addClass( 'active' );
 				map.setOptions( {draggableCursor: 'crosshair'} );
 				var dropped_marker_event = google.maps.event.addListener( map, 'click', function ( event ) {
 					drop_marker( event.latLng, dropped_marker_event );
@@ -374,9 +374,14 @@ var gmb_data;
 					autocomplete_el.val( '' );
 				}, 10 );
 
+				//Remove any other tentative markers
 				if ( typeof tentative_location_marker !== 'undefined' ) {
 					tentative_location_marker.setVisible( false );
 				}
+
+				//Close a modal if applicable
+				$( '.cmb2-id-gmb-geocoder' ).find( '.gmb-modal-close' ).trigger( 'click' );
+				$( '.cmb2-id-gmb-geocoder' ).find( '.mfp-close' ).trigger( 'click' );
 
 				//get place information
 				place = autocomplete.getPlace();

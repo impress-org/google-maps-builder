@@ -690,12 +690,6 @@ class Google_Maps_Builder_Admin {
 		     sprintf( __( 'Enter the name of a place or an address above to create a map marker or %1$sDrop a Marker%2$s', $this->plugin_slug ), '<a href="#" class="drop-marker button button-small"><span class="dashicons dashicons-location"></span>', '</a>' ) .
 		     '</p></div>';
 
-		//'desc'    => sprintf( __( 'Set optional preconfigured styles. <a href="%s" class="snazzy-link new-window"  target="_blank">Snazzy Maps</a>', $this->plugin_slug ), esc_url( 'http://snazzymaps.com' ) ),
-
-
-		//Markers Modal
-		include( 'views/markers.php' );
-
 	}
 
 	/**
@@ -716,8 +710,9 @@ class Google_Maps_Builder_Admin {
 
 		//Toolbar
 		$output .= '<div id="map-toolbar">';
-		$output .= '<button class="drop-marker button  button-small"><span class="dashicons dashicons-location"></span>' . __( 'Drop a Marker', $this->plugin_slug ) . '</button>';
-		$output .= '<button class="goto-location button  button-small gmb-magnific-inline" data-target="map-autocomplete-wrap"><span class="dashicons dashicons-admin-site"></span>' . __( 'Goto Location', $this->plugin_slug ) . '</button>';
+		$output .= '<button class="add-location button button-small gmb-magnific-inline" data-target="cmb2-id-gmb-geocoder"><span class="dashicons dashicons-pressthis"></span>' . __( 'Add Location', $this->plugin_slug ) . '</button>';
+		$output .= '<button class="drop-marker button button-small"><span class="dashicons dashicons-location"></span>' . __( 'Drop a Marker', $this->plugin_slug ) . '</button>';
+		$output .= '<button class="goto-location button button-small gmb-magnific-inline" data-target="map-autocomplete-wrap"><span class="dashicons dashicons-admin-site"></span>' . __( 'Goto Location', $this->plugin_slug ) . '</button>';
 		$output .= '<button class="edit-title button  button-small gmb-magnific-inline" data-target="map-title-wrap"><span class="dashicons dashicons-edit"></span>' . __( 'Edit Map Title', $this->plugin_slug ) . '</button>';
 
 		$output .= '<div class="live-lat-lng-wrap clearfix">';
@@ -725,23 +720,21 @@ class Google_Maps_Builder_Admin {
 		$output .= '<div class="live-latitude-wrap"><span class="live-latitude-label">' . __( 'Lat:', $this->plugin_slug ) . '</span><span class="live-latitude">' . ( isset( $lat_lng['latitude'] ) ? $lat_lng['latitude'] : '' ) . '</span></div>';
 		$output .= '<div class="live-longitude-wrap"><span class="live-longitude-label">' . __( 'Lng:', $this->plugin_slug ) . '</span><span class="live-longitude">' . ( isset( $lat_lng['longitude'] ) ? $lat_lng['longitude'] : '' ) . '</span></div>';
 		$output .= '</div>'; //End .live-lat-lng-wrap
-
 		$output .= '</div>'; //End #map-toolbar
-
 		$output .= '</div>'; //End #map
 
 
 		$output .= '<div class="white-popup mfp-hide map-title-wrap">
 					<div class="inner-modal-wrap">
 					<div class="inner-modal-container">
-					<div class="inner-modal">
+					<div class="inner-modal clearfix">
 					<label for="post_title" class="map-title">' . __( 'Map Title', $this->plugin_slug ) . '</label>
 					<button type="button" class="gmb-modal-close">&times;</button><input type="text" name="model_post_title" size="30" value="' . get_the_title() . '" id="modal_title" spellcheck="true" autocomplete="off" placeholder="' . __( 'Enter map title', $this->plugin_slug ) . '"></div></div></div></div>';
 
 		$output .= '<div class="white-popup mfp-hide map-autocomplete-wrap">
-				<div class="inner-modal-wrap">
+				    <div class="inner-modal-wrap">
 					<div class="inner-modal-container">
-					<div class="inner-modal">
+					<div class="inner-modal clearfix">
 					<label for="map-location-autocomplete" class="map-title">' . __( 'Enter a Location', $this->plugin_slug ) . '</label>
 				<button type="button" class="gmb-modal-close">&times;</button>
 				<input type="text" name="" size="30" id="map-location-autocomplete">
@@ -749,6 +742,9 @@ class Google_Maps_Builder_Admin {
 
 
 		$output .= '<div class="warning-message wpgp-message"></div>';
+
+		//Markers Modal
+		include( 'views/markers.php' );
 
 		echo $output;
 

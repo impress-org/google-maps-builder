@@ -222,3 +222,22 @@ p.cmb2-metabox-description {
 a.wp-color-result {
   height: 24px;
 }
+
+/*-------------------------------------
+CMB2 within Magnific
+---------------------------------------*/
+
+div.white-popup {
+  .cmb-th {
+	width: 100%;
+	padding: 0;
+	label {
+	  @include modal-label;
+	}
+  }
+  .cmb-td {
+	width: 100%;
+	padding: 15px 0;
+  }
+
+}

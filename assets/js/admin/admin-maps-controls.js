@@ -24,6 +24,7 @@ var placeSearchAutocomplete;
 
 		set_map_goto_location_autocomplete();
 		set_map_edit_title();
+		set_map_marker_creation_modal();
 
 		//Set lng and lat when map dragging
 		google.maps.event.addListener( map, 'drag', function () {
@@ -55,6 +56,19 @@ var placeSearchAutocomplete;
 					.removeClass( 'mfp-hide' ) //ensure it's visible
 					.appendTo( '.magnific-builder #poststuff' ); // Move the element to container
 
+				//Check if wrapped properly
+				var inner_wrap = $( target ).find( '.inner-modal-wrap' );
+				var inner_wrap_container = $( target ).find( '.inner-modal-container' );
+
+				//Not wrapped, wrap it
+				if ( inner_wrap.length == 0 && inner_wrap_container.length == 0 ) {
+
+					$( target ).addClass( 'white-popup' ).wrapInner( '<div class="inner-modal-wrap"><div class="inner-modal-container"><div class="inner-modal clearfix"></div></div></div>' );
+					$( '<button type="button" class="gmb-modal-close">&times;</button>' ).prependTo( $( target ).find( '.inner-modal' ) );
+
+				}
+
+
 				//Add close functionality to outside overlay
 				$( target ).on( 'click', function ( e ) {
 					//only on overlay
@@ -72,11 +86,16 @@ var placeSearchAutocomplete;
 			//Normal modal open
 			else {
 				$.magnificPopup.open( {
-					items   : {
+					callbacks: {
+						beforeOpen: function () {
+							$( target ).addClass( 'white-popup' );
+						}
+					},
+					items    : {
 						src : $( target ),
 						type: 'inline'
 					},
-					midClick: true
+					midClick : true
 				} );
 			}
 		} );
@@ -87,7 +106,6 @@ var placeSearchAutocomplete;
 
 	/**
 	 * Goto Location Autocomplete
-	 *
 	 */
 	function set_map_goto_location_autocomplete() {
 		var modal = $( '.map-autocomplete-wrap' );
@@ -114,7 +132,6 @@ var placeSearchAutocomplete;
 			//Close modal
 			$( modal ).find( '.mfp-close' ).trigger( 'click' );
 			close_modal_within_modal( modal );
-
 
 		} );
 
@@ -180,6 +197,12 @@ var placeSearchAutocomplete;
 
 		lat_lng_sidebar_btn.removeAttr( 'disabled' );
 		lat_lng_toolbar_btn.removeAttr( 'disabled' );
+
+	}
+
+
+	function set_map_marker_creation_modal() {
+
 
 	}
 

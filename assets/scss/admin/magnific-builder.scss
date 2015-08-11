@@ -7,6 +7,22 @@
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
 */
 
+//Display none things
+.magnific-builder #titlediv, .magnific-builder #submitdiv, .magnific-builder #google_maps_preview_metabox .handlediv, .magnific-builder #google_maps_preview_metabox .ui-sortable-handle, .magnific-builder #post-body-content, .magnific-builder #marker-icon-modal {
+  display: none;
+}
+
+//Border none things
+.magnific-builder #google_maps_preview_metabox {
+  border: none;
+}
+
+//No margin or padding things
+.magnific-builder #google_maps_preview_metabox .inside {
+  margin: 0;
+  padding: 0;
+}
+
 /*-------------------------------------
 Magnific Builder
 ---------------------------------------*/
@@ -37,25 +53,15 @@ Magnific Builder
 	bottom: 15px;
 	left: auto;
   }
+
+  #map-toolbar {
+	min-width: 678px;
+  }
 }
 
-//Display none things
-.magnific-builder #titlediv, .magnific-builder #submitdiv, .magnific-builder #google_maps_preview_metabox .handlediv, .magnific-builder #google_maps_preview_metabox .ui-sortable-handle, .magnific-builder #post-body-content, .magnific-builder #marker-icon-modal {
-  display: none;
-}
-
-//Border none things
-.magnific-builder #google_maps_preview_metabox {
-  border: none;
-}
-
-//No margin or padding things
-.magnific-builder #google_maps_preview_metabox .inside {
-  margin: 0;
-  padding: 0;
-}
-
-/* Magnific Builder Sidebar */
+/*-------------------------------------
+Magnific Builder Sidebar
+---------------------------------------*/
 
 .magnific-builder#post {
 
@@ -215,6 +221,7 @@ Modal within Modal
   transition: all 0.3s;
   overflow-y: auto;
   display: table;
+  @include clearfix;
 
   .inner-modal-wrap {
 	display: table-cell;
@@ -255,6 +262,7 @@ button.gmb-modal-close {
   cursor: pointer;
   outline: none;
   padding: 0;
+  z-index: 9999;
 }
 
 .map-modal-upsell {

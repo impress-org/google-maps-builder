@@ -405,10 +405,17 @@ img.mfp-img {
 .white-popup {
   position: relative;
   background: #FFF;
-  padding: 20px 20px 50px;
+  padding: 20px;
   width: auto;
   max-width: 600px;
   margin: 20px auto; }
+  .white-popup:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.white-popup.marker-icon-modal {
+  padding-bottom: 50px; }
 
 * {
   -webkit-box-sizing: border-box;
@@ -1354,6 +1361,16 @@ x:-o-prefocus, .qtip .qtip-tip {
  * @copyright   Copyright (c) 2015, WordImpress
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
 */
+.magnific-builder #titlediv, .magnific-builder #submitdiv, .magnific-builder #google_maps_preview_metabox .handlediv, .magnific-builder #google_maps_preview_metabox .ui-sortable-handle, .magnific-builder #post-body-content, .magnific-builder #marker-icon-modal {
+  display: none; }
+
+.magnific-builder #google_maps_preview_metabox {
+  border: none; }
+
+.magnific-builder #google_maps_preview_metabox .inside {
+  margin: 0;
+  padding: 0; }
+
 /*-------------------------------------
 Magnific Builder
 ---------------------------------------*/
@@ -1375,18 +1392,12 @@ Magnific Builder
     right: -175px;
     bottom: 15px;
     left: auto; }
+  .magnific-builder#post #map-toolbar {
+    min-width: 678px; }
 
-.magnific-builder #titlediv, .magnific-builder #submitdiv, .magnific-builder #google_maps_preview_metabox .handlediv, .magnific-builder #google_maps_preview_metabox .ui-sortable-handle, .magnific-builder #post-body-content, .magnific-builder #marker-icon-modal {
-  display: none; }
-
-.magnific-builder #google_maps_preview_metabox {
-  border: none; }
-
-.magnific-builder #google_maps_preview_metabox .inside {
-  margin: 0;
-  padding: 0; }
-
-/* Magnific Builder Sidebar */
+/*-------------------------------------
+Magnific Builder Sidebar
+---------------------------------------*/
 .magnific-builder#post #postbox-container-1 {
   margin-left: 0;
   padding: 90px 0 50px;
@@ -1503,6 +1514,10 @@ Modal within Modal
   transition: all 0.3s;
   overflow-y: auto;
   display: table; }
+  .magnific-builder #poststuff .white-popup:after {
+    content: "";
+    display: table;
+    clear: both; }
   .magnific-builder #poststuff .white-popup .inner-modal-wrap {
     display: table-cell;
     vertical-align: middle; }
@@ -1530,7 +1545,8 @@ button.gmb-modal-close {
   color: #333;
   cursor: pointer;
   outline: none;
-  padding: 0; }
+  padding: 0;
+  z-index: 9999; }
 
 .map-modal-upsell {
   display: none; }
@@ -1878,7 +1894,8 @@ Map Edit Quick Toolbar
   padding: 3px 1px 0;
   border-top: 1px solid #DDD;
   border-left: 1px solid #DDD;
-  border-right: 1px solid #DDD; }
+  border-right: 1px solid #DDD;
+  min-width: 575px; }
   #map-toolbar #title {
     padding: 3px; }
   #map-toolbar .drop-marker .dashicons {
@@ -1941,7 +1958,8 @@ Modal styles
   font-weight: bold;
   font-size: 14px;
   margin: 0 0 10px;
-  display: block; }
+  display: block;
+  position: relative; }
 .map-autocomplete-wrap input, .map-title-wrap input {
   width: 100%; }
 
@@ -2166,6 +2184,22 @@ p.cmb2-metabox-description {
 
 a.wp-color-result {
   height: 24px; }
+
+/*-------------------------------------
+CMB2 within Magnific
+---------------------------------------*/
+div.white-popup .cmb-th {
+  width: 100%;
+  padding: 0; }
+  div.white-popup .cmb-th label {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 0 10px;
+    display: block;
+    position: relative; }
+div.white-popup .cmb-td {
+  width: 100%;
+  padding: 15px 0; }
 
 /*!
  * Maps Builder Admin Settings Pages SCSS/CSS
@@ -2548,6 +2582,27 @@ Map Icons
   position: relative;
   top: 35px;
   color: #7dbee8; }
+
+/*-------------------------------------
+Modal: Create a Marker
+---------------------------------------*/
+.cmb2-id-gmb-geocoder.white-popup p.autocomplete-description {
+  display: none; }
+.cmb2-id-gmb-geocoder.white-popup label {
+  margin: 0;
+  padding: 0; }
+  .cmb2-id-gmb-geocoder.white-popup label:after {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 105px;
+    background: url('../img/powered-by-google-on-white.png') no-repeat 0 0 transparent;
+    width: 104px;
+    height: 16px; }
+.cmb2-id-gmb-geocoder.white-popup .cmb-td {
+  padding: 0; }
+  .cmb2-id-gmb-geocoder.white-popup .cmb-td input {
+    width: 100%; }
 
 
 /*# sourceMappingURL=gmb-admin.css.map */
