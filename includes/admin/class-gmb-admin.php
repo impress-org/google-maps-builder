@@ -712,7 +712,7 @@ class Google_Maps_Builder_Admin {
 		$output = '<div class="places-loading wpgp-loading">' . __( 'Loading Places', $this->plugin_slug ) . '</div><div id="google-map-wrap">';
 		$output .= '<div id="map" style="height:600px; width:100%;"></div>';
 
-		$output .= '<div class="map-modal-upsell"><p class="upsell-intro">' . __( 'Want more?', $this->plugin_slug ) . '</p><a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=MODAL&utm_campaign=MBF%20Modal" class="button button-small upsell-button" target="_blank">Go Pro!</a></div>';
+		$output .= '<div class="map-modal-upsell"><p class="upsell-intro">' . __( 'Want more?', $this->plugin_slug ) . '</p><a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=MODAL&utm_campaign=MBF%20Modal" class="button button-small upsell-button" target="_blank">' . __( 'Go Pro!', $this->plugin_slug ) . '</a></div>';
 
 		//Toolbar
 		$output .= '<div id="map-toolbar"><button class="drop-marker button"><span class="dashicons dashicons-location"></span>' . __( 'Drop a Marker', $this->plugin_slug ) . '</button><button class="goto-location button gmb-magnific-inline" data-target="map-autocomplete-wrap"><span class="dashicons dashicons-admin-site"></span>' . __( 'Goto Location', $this->plugin_slug ) . '</button><button class="edit-title button gmb-magnific-inline" data-target="map-title-wrap"><span class="dashicons dashicons-edit"></span>' . __( 'Edit Map Title', $this->plugin_slug ) . '</button></div>';
