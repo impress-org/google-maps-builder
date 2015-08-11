@@ -364,10 +364,11 @@ class Google_Maps_Builder_Scripts {
 				'post_status'       => $post_status,
 				'i18n'              => array(
 					'update_map'               => $post_status == 'publish' ? __( 'Update Map', $this->plugin_slug ) : __( 'Publish Map', $this->plugin_slug ),
+					'set_place_types'          => __( 'Update Map', $this->plugin_slug ),
 					'places_selection_changed' => __( 'Place selections have changed.', $this->plugin_slug ),
 					'multiple_places'          => __( 'Hmm, it looks like there are multiple places in this area. Please confirm which place you would like this marker to display:', $this->plugin_slug ),
 					'btn_drop_marker'          => '<span class="dashicons dashicons-location"></span>' . __( 'Drop a Marker', $this->plugin_slug ),
-					'btn_drop_marker_click'          =>  __( 'Click on the Map', $this->plugin_slug )
+					'btn_drop_marker_click'    => __( 'Click on the Map', $this->plugin_slug )
 				),
 			);
 			wp_localize_script( $this->plugin_slug . '-admin-map-builder', 'gmb_data', $maps_data );

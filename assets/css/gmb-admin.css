@@ -1443,7 +1443,7 @@ Magnific Builder Sidebar
   .magnific-builder#post #postbox-container-1 a.drop-marker {
     margin-top: 10px;
     display: block;
-    width: 100px;
+    width: 110px;
     text-align: center; }
   .magnific-builder#post #postbox-container-1 .white-popup {
     display: none; }
@@ -1888,7 +1888,7 @@ Map Edit Quick Toolbar
 #map-toolbar {
   position: absolute;
   left: 50%;
-  bottom: 0;
+  bottom: -1px;
   transform: translateX(-50%);
   background: #FFF;
   padding: 3px 1px 0;
@@ -2128,7 +2128,7 @@ Sidebar
     margin-top: 0;
     padding-top: 12px; }
   #poststuff .inner-sidebar p.cmb2-metabox-description, #poststuff #side-sortables p.cmb2-metabox-description {
-    padding: 0;
+    padding: 5px 0;
     font-weight: normal; }
   #poststuff .inner-sidebar .cmb-row, #poststuff #side-sortables .cmb-row {
     margin: 0;

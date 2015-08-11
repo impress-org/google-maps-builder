@@ -71,7 +71,7 @@ var gmb_data;
 
 			//Show message if not already displayed
 			if ( $( '.places-change-message' ).length === 0 ) {
-				$( '.cmb2-id-gmb-places-search-multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>' + gmb_data.i18n.places_selection_changed + '</p><a href="#" class="button update-places-map">' + gmb_data.i18n.update_map + '</a></div>' );
+				$( '.cmb2-id-gmb-places-search-multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>' + gmb_data.i18n.places_selection_changed + '</p><a href="#" class="button update-places-map">' + gmb_data.i18n.set_place_types + '</a></div>' );
 				$( '.places-change-message' ).slideDown();
 			}
 
@@ -79,7 +79,7 @@ var gmb_data;
 
 		$( '.cmb-multicheck-toggle' ).on( 'click', function () {
 			if ( $( '.places-change-message' ).length === 0 ) {
-				$( '.cmb2-id-gmb-places-search-multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>' + gmb_data.i18n.places_selection_changed + '</p><a href="#" class="button update-places-map">' + gmb_data.i18n.update_map + '</a></div>' );
+				$( '.cmb2-id-gmb-places-search-multicheckbox ul' ).prepend( '<div class="wpgp-message places-change-message clear"><p>' + gmb_data.i18n.places_selection_changed + '</p><a href="#" class="button update-places-map">' + gmb_data.i18n.set_place_types + '</a></div>' );
 				$( '.places-change-message' ).slideDown();
 			}
 		} );
@@ -284,8 +284,11 @@ var gmb_data;
 
 		lat_field = $( '#gmb_lat_lng-latitude' );
 		lng_field = $( '#gmb_lat_lng-longitude' );
-		var latitude = ((lat_field.val()) ? lat_field.val() : '');
-		var longitude = ((lng_field.val()) ? lng_field.val() : '');
+		var lat_toolbar = $( '.live-latitude' );
+		var lng_toolbar = $( '.live-longitude' );
+		var latitude = (lat_field.val()) ? lat_field.val() : '';
+		var longitude = (lng_field.val()) ? lng_field.val() : '';
+
 		zoom = parseInt( $( '#gmb_zoom' ).val() );
 		lat_lng = new google.maps.LatLng( latitude, longitude );
 
@@ -317,6 +320,9 @@ var gmb_data;
 				map.setCenter( initial_location ); //set map with location
 				lat_field.val( position.coords.latitude ); //set lat field
 				lng_field.val( position.coords.longitude ); //set lng field
+				lat_toolbar.text(position.coords.latitude); //update toolbar
+				lng_toolbar.text(position.coords.longitude); //update toolbar
+
 			} );
 		}
 		// Presaved longitude and latitude is in place
@@ -330,6 +336,8 @@ var gmb_data;
 			initial_location = new google.maps.LatLng( gmb_data.default_lat, gmb_data.default_lng );
 			lat_field.val( gmb_data.default_lat ); //set lat field
 			lng_field.val( gmb_data.default_lng ); //set lng field
+			lat_toolbar.text(gmb_data.default_lat); //update toolbar
+			lng_toolbar.text(gmb_data.default_lng); //update toolbar
 			map.setCenter( initial_location );
 		}
 

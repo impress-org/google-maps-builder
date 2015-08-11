@@ -657,13 +657,13 @@ class Google_Maps_Builder_Admin {
 		//lat lng
 		$output = '<div id="lat-lng-wrap">
 					<div class="coordinates-wrap clear">
-							<div class="lat-lng-wrap lat-wrap clear"><span>Latitude: </span>
+							<div class="lat-lng-wrap lat-wrap clear"><span>' . __( 'Latitude:', $this->plugin_slug ) . '</span>
 							<input type="text" class="regular-text latitude" name="' . $field->args( 'id' ) . '[latitude]" id="' . $field->args( 'id' ) . '-latitude" value="' . ( $meta['latitude'] ? $meta['latitude'] : $field->args( 'lat_std' ) ) . '" />
 							</div>
-							<div class="lat-lng-wrap lng-wrap clear"><span>Longitude: </span>
+							<div class="lat-lng-wrap lng-wrap clear"><span>' . __( 'Longitude:', $this->plugin_slug ) . '</span>
 							<input type="text" class="regular-text longitude" name="' . $field->args( 'id' ) . '[longitude]" id="' . $field->args( 'id' ) . '-longitude" value="' . ( $meta['longitude'] ? $meta['longitude'] : $field->args( 'lng_std' ) ) . '" />
 							</div>';
-		$output .= '<div class="wpgp-message lat-lng-change-message clear"><p>Lat/lng changed</p><a href="#" class="button lat-lng-update-btn button-small" data-lat="" data-lng="">Update</a></div>';
+		$output .= '<div class="wpgp-message lat-lng-change-message clear"><p>' . __( 'Lat/lng changed', $this->plugin_slug ) . '</p><a href="#" class="button lat-lng-update-btn button-small" data-lat="" data-lng="">' . __( 'Update', $this->plugin_slug ) . '</a></div>';
 		$output .= '</div><!-- /.coordinates-wrap -->
 						</div>';
 
@@ -700,8 +700,13 @@ class Google_Maps_Builder_Admin {
 		global $post;
 		$meta            = wp_parse_args( $meta, array() );
 		$wh_value        = get_post_meta( $post->ID, 'gmb_width_height', true );
-		$lat_lng         = get_post_meta( $post->ID, 'gmb_lat_lng', true );
+		$global_lat_lng  = gmb_get_option( 'gmb_lat_lng' );
+		$post_lat_lng    = get_post_meta( $post->ID, 'gmb_lat_lng', true );
 		$default_options = $this->get_default_map_options();
+
+
+		$latitude = isset( $post_lat_lng['latitude'] ) ? $post_lat_lng['latitude'] : $global_lat_lng['latitude'];
+
 
 		$output = '<div class="places-loading wpgp-loading">' . __( 'Loading Places', $this->plugin_slug ) . '</div><div id="google-map-wrap">';
 		$output .= '<div id="map" style="height:600px; width:100%;"></div>';

@@ -409,7 +409,7 @@ Map Edit Quick Toolbar
 #map-toolbar {
   position: absolute;
   left: 50%;
-  bottom: 0;
+  bottom: -1px;
   transform: translateX(-50%);
   background: #FFF;
   padding: 3px 1px 0;

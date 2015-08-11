@@ -24,7 +24,6 @@ var placeSearchAutocomplete;
 
 		set_map_goto_location_autocomplete();
 		set_map_edit_title();
-		set_map_marker_creation_modal();
 
 		//Set lng and lat when map dragging
 		google.maps.event.addListener( map, 'drag', function () {
@@ -39,7 +38,6 @@ var placeSearchAutocomplete;
 		google.maps.event.addListener( map, 'zoom_changed', function () {
 			set_toolbar_lat_lng();
 		} );
-
 
 		//Initialize Magnific/Modal Functionality Too
 		$( 'body' ).on( 'click', '.gmb-magnific-inline', function ( e ) {
@@ -65,9 +63,7 @@ var placeSearchAutocomplete;
 
 					$( target ).addClass( 'white-popup' ).wrapInner( '<div class="inner-modal-wrap"><div class="inner-modal-container"><div class="inner-modal clearfix"></div></div></div>' );
 					$( '<button type="button" class="gmb-modal-close">&times;</button>' ).prependTo( $( target ).find( '.inner-modal' ) );
-
 				}
-
 
 				//Add close functionality to outside overlay
 				$( target ).on( 'click', function ( e ) {
@@ -179,7 +175,6 @@ var placeSearchAutocomplete;
 	/**
 	 * Update Toolbar Lat/Lng
 	 */
-
 	function set_toolbar_lat_lng() {
 
 		var lat_lng_sidebar_btn = $( '.lat-lng-update-btn' );
@@ -200,10 +195,5 @@ var placeSearchAutocomplete;
 
 	}
 
-
-	function set_map_marker_creation_modal() {
-
-
-	}
 
 }( jQuery ));
