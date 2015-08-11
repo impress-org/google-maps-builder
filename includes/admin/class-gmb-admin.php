@@ -687,7 +687,7 @@ class Google_Maps_Builder_Admin {
 		);
 
 		echo '<div class="autocomplete-wrap"><input type="text" name="' . $field->args( 'id' ) . '[geocode]" id="' . $field->args( 'id' ) . '" value="" class="search-autocomplete" /><p class="autocomplete-description">' .
-		     sprintf( __( 'Enter the name of a place or an address above to create a map marker or %s', $this->plugin_slug ), '<a href="#" class="drop-marker button button-small">Drop a Marker</a>' ) .
+		     sprintf( __( 'Enter the name of a place or an address above to create a map marker or %1$sDrop a Marker%2$s', $this->plugin_slug ), '<a href="#" class="drop-marker button button-small"><span class="dashicons dashicons-location"></span>', '</a>' ) .
 		     '</p></div>';
 
 		//'desc'    => sprintf( __( 'Set optional preconfigured styles. <a href="%s" class="snazzy-link new-window"  target="_blank">Snazzy Maps</a>', $this->plugin_slug ), esc_url( 'http://snazzymaps.com' ) ),
@@ -706,8 +706,8 @@ class Google_Maps_Builder_Admin {
 		global $post;
 		$meta            = wp_parse_args( $meta, array() );
 		$wh_value        = get_post_meta( $post->ID, 'gmb_width_height', true );
+		$lat_lng         = get_post_meta( $post->ID, 'gmb_lat_lng', true );
 		$default_options = $this->get_default_map_options();
-
 
 		$output = '<div class="places-loading wpgp-loading">' . __( 'Loading Places', $this->plugin_slug ) . '</div><div id="google-map-wrap">';
 		$output .= '<div id="map" style="height:600px; width:100%;"></div>';
@@ -715,7 +715,19 @@ class Google_Maps_Builder_Admin {
 		$output .= '<div class="map-modal-upsell"><p class="upsell-intro">' . __( 'Want more?', $this->plugin_slug ) . '</p><a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=MODAL&utm_campaign=MBF%20Modal" class="button button-small upsell-button" target="_blank">' . __( 'Go Pro!', $this->plugin_slug ) . '</a></div>';
 
 		//Toolbar
-		$output .= '<div id="map-toolbar"><button class="drop-marker button"><span class="dashicons dashicons-location"></span>' . __( 'Drop a Marker', $this->plugin_slug ) . '</button><button class="goto-location button gmb-magnific-inline" data-target="map-autocomplete-wrap"><span class="dashicons dashicons-admin-site"></span>' . __( 'Goto Location', $this->plugin_slug ) . '</button><button class="edit-title button gmb-magnific-inline" data-target="map-title-wrap"><span class="dashicons dashicons-edit"></span>' . __( 'Edit Map Title', $this->plugin_slug ) . '</button></div>';
+		$output .= '<div id="map-toolbar">';
+		$output .= '<button class="drop-marker button  button-small"><span class="dashicons dashicons-location"></span>' . __( 'Drop a Marker', $this->plugin_slug ) . '</button>';
+		$output .= '<button class="goto-location button  button-small gmb-magnific-inline" data-target="map-autocomplete-wrap"><span class="dashicons dashicons-admin-site"></span>' . __( 'Goto Location', $this->plugin_slug ) . '</button>';
+		$output .= '<button class="edit-title button  button-small gmb-magnific-inline" data-target="map-title-wrap"><span class="dashicons dashicons-edit"></span>' . __( 'Edit Map Title', $this->plugin_slug ) . '</button>';
+
+		$output .= '<div class="live-lat-lng-wrap clearfix">';
+		$output .= '<button disabled class="update-lat-lng button button-small">' . __( 'Set Lat/Lng', $this->plugin_slug ) . '</button>';
+		$output .= '<div class="live-latitude-wrap"><span class="live-latitude-label">' . __( 'Lat:', $this->plugin_slug ) . '</span><span class="live-latitude">' . ( isset( $lat_lng['latitude'] ) ? $lat_lng['latitude'] : '' ) . '</span></div>';
+		$output .= '<div class="live-longitude-wrap"><span class="live-longitude-label">' . __( 'Lng:', $this->plugin_slug ) . '</span><span class="live-longitude">' . ( isset( $lat_lng['longitude'] ) ? $lat_lng['longitude'] : '' ) . '</span></div>';
+		$output .= '</div>'; //End .live-lat-lng-wrap
+
+		$output .= '</div>'; //End #map-toolbar
+
 		$output .= '</div>'; //End #map
 
 

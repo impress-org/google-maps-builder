@@ -95,8 +95,9 @@ var gmb_data;
 		} );
 
 		//Update lat lng message
-		$( '.lat-lng-update-btn' ).on( 'click', function ( e ) {
+		$( '.lat-lng-update-btn, .update-lat-lng' ).on( 'click', function ( e ) {
 			e.preventDefault();
+			$( this ).attr( 'disabled', 'disabled' );
 			$( '.lat-lng-change-message' ).slideUp();
 			$( '#gmb_lat_lng-latitude' ).val( $( this ).attr( 'data-lat' ) );
 			$( '#gmb_lat_lng-longitude' ).val( $( this ).attr( 'data-lng' ) );
@@ -419,14 +420,6 @@ var gmb_data;
 		//map Zoom Changed
 		google.maps.event.addListener( map, 'zoom_changed', function () {
 			handle_map_zoom( map );
-		} );
-
-		//Update lng and lat on map drag
-		google.maps.event.addListener( map, 'dragend', function () {
-			var map_center = map.getCenter();
-			$( '.lat-lng-change-message' ).slideDown();
-			$( '.lat-lng-update-btn' ).attr( 'data-lat', map_center.lat() );
-			$( '.lat-lng-update-btn' ).attr( 'data-lng', map_center.lng() );
 		} );
 
 
@@ -1222,7 +1215,6 @@ var gmb_data;
 	 * Clears Main Markers
 	 *
 	 * Used to clear out main location marker to prevent from displaying multiple
-	 *
 	 */
 	function clear_main_markers() {
 
@@ -1255,67 +1247,6 @@ var gmb_data;
 
 	}
 
-
-	/**
-	 * Geocode new marker position
-	 *
-	 * Perform nearby search request to see if the marker landed on a place
-	 *
-	 * @see: http://stackoverflow.com/questions/5688745/google-maps-v3-draggable-marker
-	 * @param pos
-	 */
-	function geocode_position( pos ) {
-
-		var request = {
-			key     : gmb_data.api_key,
-			location: pos,
-			radius  : 10
-		};
-		places_service.nearbySearch( request, function ( results, status ) {
-
-			if ( status == google.maps.places.PlacesServiceStatus.OK ) {
-
-				var info_bubble_content = '';
-				info_bubble.close();
-
-				//if more than one result ask the user which one?
-				if ( results.length > 1 ) {
-
-					info_bubble_content = '<div id="infobubble-content"><p>' + gmb_data.i18n.multiple_places + '</p>';
-
-					for ( var i = 0; i < results.length; i++ ) {
-						info_bubble_content += '<a class="marker-confirm-place"  data-place_id="' + results[i].place_id + '" data-name-address="' + results[i].name + ', ' + results[i].vicinity + '">' + results[i].name + '</a>';
-					}
-
-					info_bubble_content += '</div>';
-
-					//setup click event for links
-					google.maps.event.addDomListener( info_bubble, 'domready', function () {
-						$( '.marker-confirm-place' ).on( 'click', function ( e ) {
-							e.preventDefault();
-							$( '#gmb_geocoder' ).val( $( this ).data( 'name-address' ) );
-							$( '#gmb_place_id' ).val( $( this ).data( 'place_id' ) );
-							info_bubble.close();
-							get_info_window_content( $( this ).data( 'place_id' ) );
-							//info_bubble.open( location_marker );
-						} );
-					} );
-
-
-				}
-
-				info_bubble.setContent( info_bubble_content );
-
-				info_bubble.open( map, location_marker );
-
-
-			}
-
-		} );
-
-	}
-
-
 	/**
 	 * Scroll to Selector
 	 *
@@ -1326,26 +1257,6 @@ var gmb_data;
 		$( 'html, body' ).animate( {
 			scrollTop: parseInt( $( selector ).offset().top )
 		}, 600 );
-	}
-
-	/**
-	 * Marker Drag End
-	 *
-	 * Executes after a user drags the initial marker
-	 *
-	 * @param marker
-	 */
-	function marker_drag_end( marker ) {
-
-		var map_center = marker.getPosition();
-		geocode_position( map_center );
-		//update with new map coordinates
-		$( lat_field ).val( map_center.lat() );
-		$( lng_field ).val( map_center.lng() );
-
-		//Map centered on this location
-		map.panTo( map_center );
-
 	}
 
 	/**

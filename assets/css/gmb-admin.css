@@ -1364,6 +1364,8 @@ Magnific Builder
   background: #EEE;
   width: auto;
   overflow: hidden; }
+  .magnific-builder#post #google-map-wrap {
+    border: none; }
   .magnific-builder#post #poststuff {
     padding-top: 0; }
   .magnific-builder#post #cmb2-metabox-google_maps_preview_metabox > div {
@@ -1557,7 +1559,8 @@ button.gmb-modal-close {
  * @license:     http://opensource.org/licenses/gpl-2.0.php GNU Public License
 */
 #google-map-wrap {
-  position: relative; }
+  position: relative;
+  border: 1px solid #DDD; }
 
 .hover-transition, .marker-icon-row .icon, .marker-row .marker-item {
   -webkit-transition: 0.2s all linear;
@@ -1872,22 +1875,64 @@ Map Edit Quick Toolbar
   bottom: 0;
   transform: translateX(-50%);
   background: #FFF;
-  padding: 3px 1px;
+  padding: 3px 1px 0;
   border-top: 1px solid #DDD;
   border-left: 1px solid #DDD;
   border-right: 1px solid #DDD; }
   #map-toolbar #title {
     padding: 3px; }
   #map-toolbar .drop-marker .dashicons {
-    margin: 6px 0px 0 0; }
+    margin: 5px 0 0; }
   #map-toolbar button {
     margin: 0 2px; }
     #map-toolbar button .dashicons {
-      font-size: 16px;
-      margin-left: -2px;
-      margin-top: 5px; }
+      font-size: 12px;
+      width: 12px;
+      margin: 5px 2px 0 -2px; }
     #map-toolbar button.edit-title {
       display: none; }
+  #map-toolbar .live-lat-lng-wrap {
+    border: 1px solid #DDD;
+    padding: 0;
+    margin: 0 2px;
+    display: inline-block;
+    width: 250px;
+    background-color: #FAFAFA;
+    height: 24px;
+    overflow: hidden;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08); }
+    #map-toolbar .live-lat-lng-wrap .live-latitude-wrap, #map-toolbar .live-lat-lng-wrap .live-longitude-wrap {
+      float: left;
+      margin-left: 6px; }
+      #map-toolbar .live-lat-lng-wrap .live-latitude-wrap span, #map-toolbar .live-lat-lng-wrap .live-longitude-wrap span {
+        line-height: 22px;
+        float: left; }
+    #map-toolbar .live-lat-lng-wrap .live-longitude, #map-toolbar .live-lat-lng-wrap .live-latitude {
+      font-size: 11px;
+      margin: 0;
+      padding: 0;
+      width: 60px;
+      white-space: nowrap;
+      overflow: hidden; }
+    #map-toolbar .live-lat-lng-wrap .live-longitude-label, #map-toolbar .live-lat-lng-wrap .live-latitude-label {
+      font-size: 10px;
+      color: #AAA;
+      font-style: italic;
+      display: block;
+      padding: 0 2px 0 0; }
+    #map-toolbar .live-lat-lng-wrap button {
+      float: left;
+      margin: -2px 0 -2px -2px;
+      border-radius: 0;
+      height: 26px;
+      box-shadow: none; }
+      #map-toolbar .live-lat-lng-wrap button:hover {
+        box-shadow: none;
+        border-color: #cccccc; }
+
+@media (max-width: 900px) {
+  #map-toolbar {
+    display: none; } }
 
 /*-------------------------------------
 Modal styles
@@ -2029,6 +2074,10 @@ Autocomplete Metabox
   color: #aaaaaa; }
 #cmb2-metabox-google_maps_markers a.drop-marker {
   font-style: normal; }
+  #cmb2-metabox-google_maps_markers a.drop-marker .dashicons {
+    font-size: 14px;
+    margin: 4px 0 0;
+    width: 16px; }
 
 /*-------------------------------------
 Map Markers

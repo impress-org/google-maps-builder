@@ -9,6 +9,7 @@
 */
 #google-map-wrap {
   position: relative;
+  border: 1px solid #DDD;
 }
 
 .hover-transition, .marker-icon-row .icon, .marker-row .marker-item {
@@ -184,7 +185,6 @@ span.new-window {
   font-style: normal;
   display: inline-block;
 }
-
 
 #width_wrap {
   margin: 0 0 10px;
@@ -412,7 +412,7 @@ Map Edit Quick Toolbar
   bottom: 0;
   transform: translateX(-50%);
   background: #FFF;
-  padding: 3px 1px;
+  padding: 3px 1px 0;
   border-top: 1px solid #DDD;
   border-left: 1px solid #DDD;
   border-right: 1px solid #DDD;
@@ -422,22 +422,81 @@ Map Edit Quick Toolbar
   }
 
   .drop-marker .dashicons {
-	margin: 6px 0px 0 0;
-
+	margin: 5px 0 0;
   }
 
   button {
 	margin: 0 2px;
 	.dashicons {
-	  font-size: 16px;
-	  margin-left: -2px;
-	  margin-top: 5px;
+	  font-size: 12px;
+	  width:12px;
+	  margin: 5px 2px 0 -2px;
 	}
 	&.edit-title {
 	  display: none; //only show in modal
 	}
   }
 
+  //Lat Lng Update
+  .live-lat-lng-wrap {
+	border: 1px solid #DDD;
+	padding: 0;
+	margin: 0 2px;
+	display: inline-block;
+	width: 250px;
+	background-color: #FAFAFA;
+	height: 24px;
+	overflow: hidden;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+
+	.live-latitude-wrap, .live-longitude-wrap {
+	  float: left;
+	  margin-left: 6px;
+
+	  span {
+		line-height: 22px;
+ 		float: left;
+	  }
+	}
+
+	.live-longitude, .live-latitude {
+	  font-size: 11px;
+	  margin: 0;
+	  padding: 0;
+	  width: 60px;
+	  white-space: nowrap;
+	  overflow: hidden;
+	}
+	.live-longitude-label, .live-latitude-label {
+	  font-size: 10px;
+	  color: #AAA;
+	  font-style: italic;
+	  display: block;
+	  padding: 0 2px 0 0;
+	}
+
+	button {
+	  float: left;
+	  margin: -2px 0 -2px -2px;
+	  border-radius: 0;
+	  height: 26px;
+	  box-shadow: none;
+	  &:hover {
+		box-shadow: none;
+		border-color: #cccccc;
+	  }
+
+	}
+
+  }
+
+}
+
+//Hide on super small resolutions
+@media(max-width: 900px) {
+  #map-toolbar {
+	display: none;
+  }
 }
 
 /*-------------------------------------

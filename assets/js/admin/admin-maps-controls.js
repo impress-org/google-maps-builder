@@ -25,6 +25,21 @@ var placeSearchAutocomplete;
 		set_map_goto_location_autocomplete();
 		set_map_edit_title();
 
+		//Set lng and lat when map dragging
+		google.maps.event.addListener( map, 'drag', function () {
+			set_toolbar_lat_lng();
+		} );
+		//Set lng and lat when map dragging
+		google.maps.event.addListener( map, 'dragend', function () {
+			set_toolbar_lat_lng();
+		} );
+
+		//Set lng and lat when map dragging
+		google.maps.event.addListener( map, 'zoom_changed', function () {
+			set_toolbar_lat_lng();
+		} );
+
+
 		//Initialize Magnific/Modal Functionality Too
 		$( 'body' ).on( 'click', '.gmb-magnific-inline', function ( e ) {
 
@@ -131,11 +146,41 @@ var placeSearchAutocomplete;
 	 */
 	function set_map_edit_title() {
 
+		//When edit title button is clicked insert title into feax input
+		$( '.edit-title' ).on( 'click', function () {
+			$( '#modal_title' ).val( $( 'input#title' ).val() );
+		} );
+
+		//when feax title input is changed update default title field
 		$( '#modal_title' ).on( 'blur', function () {
 			$( 'input#title' ).val( $( this ).val() );
 		} );
 
 	}
 
+
+	/**
+	 * Update Toolbar Lat/Lng
+	 */
+
+	function set_toolbar_lat_lng() {
+
+		var lat_lng_sidebar_btn = $( '.lat-lng-update-btn' );
+		var lat_lng_toolbar_btn = $( '.update-lat-lng' );
+
+		var map_center = map.getCenter();
+		$( '.live-latitude' ).text( map_center.lat() );
+		$( '.live-longitude' ).text( map_center.lng() );
+		lat_lng_toolbar_btn.attr( 'data-lat', map_center.lat() );
+		$( '.lat-lng-change-message' ).slideDown();
+
+		lat_lng_toolbar_btn.attr( 'data-lng', map_center.lng() );
+		lat_lng_sidebar_btn.attr( 'data-lat', map_center.lat() );
+		lat_lng_sidebar_btn.attr( 'data-lng', map_center.lng() );
+
+		lat_lng_sidebar_btn.removeAttr( 'disabled' );
+		lat_lng_toolbar_btn.removeAttr( 'disabled' );
+
+	}
 
 }( jQuery ));
