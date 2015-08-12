@@ -119,14 +119,14 @@ class Google_Maps_Builder_Settings {
 			'fields'     => array(
 				array(
 					'name'    => __( 'Post Type Slug', $this->plugin_slug ),
-					'desc'    => sprintf( __( 'Customize the default slug for this post type. <a href="%s">Resave (flush) permalinks</a> after customizing.', $this->plugin_slug ), esc_url( '/wp-admin/options-permalink.php' ) ),
+					'desc'    => sprintf( __( 'Customize the default slug for the Maps Builder post type. %1$sResave (flush) permalinks%2$s after customizing.', $this->plugin_slug ), '<a href="' . esc_url( '/wp-admin/options-permalink.php' ) . '">"', '</a>' ),
 					'default' => 'google-maps',
 					'id'      => $prefix . 'custom_slug',
 					'type'    => 'text_small'
 				),
 				array(
 					'name'    => __( 'Menu Position', $this->plugin_slug ),
-					'desc'    => sprintf( __( 'Set the menu position for Google Maps Builder. See the <a href="%s" class="new-window">menu_position</a> arg.', $this->plugin_slug ), esc_url( 'http://codex.wordpress.org/Function_Reference/register_post_type#Arguments' ) ),
+					'desc'    => sprintf( __( 'Set the menu position for Google Maps Builder. See the %1$smenu_position arg%2$s.', $this->plugin_slug ), '<a href="' . esc_url( 'http://codex.wordpress.org/Function_Reference/register_post_type#menu_position' ) . '" class="new-window" target="_blank">', '</a>' ),
 					'default' => '21.3',
 					'id'      => $prefix . 'menu_position',
 					'type'    => 'text_small'
@@ -134,7 +134,7 @@ class Google_Maps_Builder_Settings {
 				array(
 					'name'    => __( 'Has Archive', $this->plugin_slug ),
 					'id'      => $prefix . 'has_archive',
-					'desc'    => sprintf( __( 'Controls the post type archive page. See <a href="%s">Resave (flush) permalinks</a> after customizing.', $this->plugin_slug ), esc_url( '/wp-admin/options-permalink.php' ) ),
+					'desc'    => sprintf( __( 'Controls the post type archive page. See %1s$Resave (flush) permalinks%2s$ after customizing.', $this->plugin_slug ), '<a href="' . esc_url( '/wp-admin/options-permalink.php' ) . '">"', '</a>' ),
 					'type'    => 'radio_inline',
 					'options' => array(
 						'true'  => __( 'Yes', 'cmb' ),
