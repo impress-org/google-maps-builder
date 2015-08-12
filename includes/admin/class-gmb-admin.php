@@ -700,13 +700,8 @@ class Google_Maps_Builder_Admin {
 		global $post;
 		$meta            = wp_parse_args( $meta, array() );
 		$wh_value        = get_post_meta( $post->ID, 'gmb_width_height', true );
-		$global_lat_lng  = gmb_get_option( 'gmb_lat_lng' );
-		$post_lat_lng    = get_post_meta( $post->ID, 'gmb_lat_lng', true );
+		$lat_lng         = get_post_meta( $post->ID, 'gmb_lat_lng', true );
 		$default_options = $this->get_default_map_options();
-
-
-		$latitude = isset( $post_lat_lng['latitude'] ) ? $post_lat_lng['latitude'] : $global_lat_lng['latitude'];
-
 
 		$output = '<div class="places-loading wpgp-loading">' . __( 'Loading Places', $this->plugin_slug ) . '</div><div id="google-map-wrap">';
 		$output .= '<div id="map" style="height:600px; width:100%;"></div>';
