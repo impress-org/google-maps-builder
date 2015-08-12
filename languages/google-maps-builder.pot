@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Maps Builder 2.0\n"
 "Report-Msgid-Bugs-To: https://wordimpress.com/\n"
-"POT-Creation-Date: 2015-08-11 20:16:16+00:00\n"
+"POT-Creation-Date: 2015-08-12 22:12:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -779,73 +779,89 @@ msgstr ""
 msgid "Configure the default map width and height."
 msgstr ""
 
+#: includes/admin/class-gmb-admin.php:660
+msgid "Latitude:"
+msgstr ""
+
+#: includes/admin/class-gmb-admin.php:663
+msgid "Longitude:"
+msgstr ""
+
+#: includes/admin/class-gmb-admin.php:666
+msgid "Lat/lng changed"
+msgstr ""
+
+#: includes/admin/class-gmb-admin.php:666
+msgid "Update"
+msgstr ""
+
 #: includes/admin/class-gmb-admin.php:690
 msgid ""
 "Enter the name of a place or an address above to create a map marker or "
 "%1$sDrop a Marker%2$s"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:706
+#: includes/admin/class-gmb-admin.php:711
 msgid "Loading Places"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:709
+#: includes/admin/class-gmb-admin.php:714
 msgid "Want more?"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:709
+#: includes/admin/class-gmb-admin.php:714
 msgid "Go Pro!"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:713
+#: includes/admin/class-gmb-admin.php:718
 msgid "Add Location"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:714 includes/class-gmb-scripts.php:369
+#: includes/admin/class-gmb-admin.php:719 includes/class-gmb-scripts.php:370
 msgid "Drop a Marker"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:715
+#: includes/admin/class-gmb-admin.php:720
 msgid "Goto Location"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:716
+#: includes/admin/class-gmb-admin.php:721
 msgid "Edit Map Title"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:719
+#: includes/admin/class-gmb-admin.php:724
 msgid "Set Lat/Lng"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:720
+#: includes/admin/class-gmb-admin.php:725
 msgid "Lat:"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:721
+#: includes/admin/class-gmb-admin.php:726
 msgid "Lng:"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:731
+#: includes/admin/class-gmb-admin.php:736
 msgid "Map Title"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:732
+#: includes/admin/class-gmb-admin.php:737
 msgid "Enter map title"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:738
+#: includes/admin/class-gmb-admin.php:743
 msgid "Enter a Location"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:763
+#: includes/admin/class-gmb-admin.php:768
 msgid "Google Map Title"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:764
+#: includes/admin/class-gmb-admin.php:769
 msgid "Shortcode"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:765
+#: includes/admin/class-gmb-admin.php:770
 msgid "Creation Date"
 msgstr ""
 
@@ -864,8 +880,8 @@ msgstr ""
 
 #: includes/admin/class-gmb-settings.php:122
 msgid ""
-"Customize the default slug for this post type. <a href=\"%s\">Resave "
-"(flush) permalinks</a> after customizing."
+"Customize the default slug for the Maps Builder post type. %1$sResave "
+"(flush) permalinks%2$s after customizing."
 msgstr ""
 
 #: includes/admin/class-gmb-settings.php:128
@@ -874,8 +890,8 @@ msgstr ""
 
 #: includes/admin/class-gmb-settings.php:129
 msgid ""
-"Set the menu position for Google Maps Builder. See the <a href=\"%s\" "
-"class=\"new-window\">menu_position</a> arg."
+"Set the menu position for Google Maps Builder. See the %1$smenu_position "
+"arg%2$s."
 msgstr ""
 
 #: includes/admin/class-gmb-settings.php:135
@@ -884,8 +900,8 @@ msgstr ""
 
 #: includes/admin/class-gmb-settings.php:137
 msgid ""
-"Controls the post type archive page. See <a href=\"%s\">Resave (flush) "
-"permalinks</a> after customizing."
+"Controls the post type archive page. See %1s$Resave (flush) permalinks%2s$ "
+"after customizing."
 msgstr ""
 
 #: includes/admin/class-gmb-settings.php:145
@@ -1184,7 +1200,7 @@ msgid ""
 msgstr ""
 
 #: includes/class-gmb-activate.php:211
-msgid "Introducing the Map Customizer"
+msgid "Introducing the Map Builder"
 msgstr ""
 
 #: includes/class-gmb-activate.php:212
@@ -1211,7 +1227,7 @@ msgid ""
 "style=\"display:inline-block; margin: 0 0 10px;\">Hide Warning</a>"
 msgstr ""
 
-#: includes/class-gmb-scripts.php:366
+#: includes/class-gmb-scripts.php:366 includes/class-gmb-scripts.php:367
 msgid "Update Map"
 msgstr ""
 
@@ -1219,17 +1235,17 @@ msgstr ""
 msgid "Publish Map"
 msgstr ""
 
-#: includes/class-gmb-scripts.php:367
+#: includes/class-gmb-scripts.php:368
 msgid "Place selections have changed."
 msgstr ""
 
-#: includes/class-gmb-scripts.php:368
+#: includes/class-gmb-scripts.php:369
 msgid ""
 "Hmm, it looks like there are multiple places in this area. Please confirm "
 "which place you would like this marker to display:"
 msgstr ""
 
-#: includes/class-gmb-scripts.php:370
+#: includes/class-gmb-scripts.php:371
 msgid "Click on the Map"
 msgstr ""
 

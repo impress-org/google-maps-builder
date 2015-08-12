@@ -208,7 +208,7 @@ class Google_Maps_Builder_Activate {
 		global $current_user;
 		get_currentuserinfo();
 
-		$pointer_content = '<h3>' . __( 'Introducing the Map Customizer', $this->plugin_slug ) . '</h3>';
+		$pointer_content = '<h3>' . __( 'Introducing the Map Builder', $this->plugin_slug ) . '</h3>';
 		$pointer_content .= '<p>' . __( 'We have upgraded your map building experience! Click here to experience the new interface. All controls are within your reach and the map always stays in view. If you like it, you can enable the view by default within the plugin settings. We hope you enjoy it!', $this->plugin_slug ) . '</p>';
 		?>
 
