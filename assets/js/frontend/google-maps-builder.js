@@ -303,7 +303,7 @@ var gmb_data;
 		}
 
 		//Does this marker have a place_id
-		if ( marker_data.place_id ) {
+		if ( marker_data.place_id && marker_data.hide_details !== 'on' ) {
 
 			var request = {
 				key    : gmb_data.api_key,

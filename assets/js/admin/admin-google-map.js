@@ -320,8 +320,8 @@ var gmb_data;
 				map.setCenter( initial_location ); //set map with location
 				lat_field.val( position.coords.latitude ); //set lat field
 				lng_field.val( position.coords.longitude ); //set lng field
-				lat_toolbar.text(position.coords.latitude); //update toolbar
-				lng_toolbar.text(position.coords.longitude); //update toolbar
+				lat_toolbar.text( position.coords.latitude ); //update toolbar
+				lng_toolbar.text( position.coords.longitude ); //update toolbar
 
 			} );
 		}
@@ -336,8 +336,8 @@ var gmb_data;
 			initial_location = new google.maps.LatLng( gmb_data.default_lat, gmb_data.default_lng );
 			lat_field.val( gmb_data.default_lat ); //set lat field
 			lng_field.val( gmb_data.default_lng ); //set lng field
-			lat_toolbar.text(gmb_data.default_lat); //update toolbar
-			lng_toolbar.text(gmb_data.default_lng); //update toolbar
+			lat_toolbar.text( gmb_data.default_lat ); //update toolbar
+			lng_toolbar.text( gmb_data.default_lng ); //update toolbar
 			map.setCenter( initial_location );
 		}
 
@@ -508,7 +508,6 @@ var gmb_data;
 				var info_window_content = '<p class="place-title">' + place.name + '</p>';
 
 				info_window_content += add_place_content_to_info_window( place );
-
 
 				info_window_content += '<div class="infowindow-toolbar clear"><a href="#" class="add-marker" data-title="' + place.name + '" data-place_id="' + place.place_id + '"  data-lat="' + lat + '" data-lng="' + lng + '">Add to Map</a></div>';
 
@@ -853,7 +852,7 @@ var gmb_data;
 
 	function get_info_window_saved_data( index ) {
 
-		var info_window_data = new Object();
+		var info_window_data = {};
 
 		info_window_data.title = $( '#gmb_markers_group_' + index + '_title' ).val();
 		info_window_data.desc = $( '#gmb_markers_group_' + index + '_description' ).val();
@@ -861,6 +860,7 @@ var gmb_data;
 		info_window_data.place_id = $( '#gmb_markers_group_' + index + '_place_id' ).val();
 		info_window_data.lat = $( '#gmb_markers_group_' + index + '_lat' ).val();
 		info_window_data.lng = $( '#gmb_markers_group_' + index + '_lng' ).val();
+		info_window_data.hide_place_info = $( '#gmb_markers_group_' + index + '_hide_details' ).prop( 'checked' );
 
 		return info_window_data;
 
@@ -886,9 +886,8 @@ var gmb_data;
 
 		var info_window_content;
 
-
 		//Show place information within info bubble
-		if ( info_window_data.place_id ) {
+		if ( info_window_data.place_id && info_window_data.hide_place_info === false ) {
 
 			var request = {
 				key    : gmb_data.api_key,
