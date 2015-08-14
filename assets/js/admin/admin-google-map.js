@@ -605,10 +605,8 @@ var gmb_data;
 		if ( info_window_data.desc ) {
 			info_window_content += '<textarea class="edit-place-description" data-field="#gmb_markers_group_' + index + '_description">' + info_window_data.desc + '</textarea>';
 		} else {
-			info_window_content += '<textarea class="edit-place-description" data-field="#gmb_markers_group_' + index + '_description" placeholder="Point Description"></textarea>';
+			info_window_content += '<textarea class="edit-place-description" data-field="#gmb_markers_group_' + index + '_description"></textarea>';
 		}
-
-		//info_window_content += add_place_content_to_info_window( place );
 
 		//toolbar
 		info_window_content += '<div class="infowindow-toolbar clear"><ul id="save-toolbar">' +
@@ -884,9 +882,12 @@ var gmb_data;
 
 		var info_window_data = get_info_window_saved_data( index );
 
-		var info_window_content;
+		//Start building infowindow content
+		var info_window_content = '<p class="place-title">' + info_window_data.title + '</p>';
 
-		//Show place information within info bubble
+		info_window_content += '<div class="place-description">' + info_window_data.desc + '</div>';
+
+		//Show place information within this infowindow?
 		if ( info_window_data.place_id && info_window_data.hide_place_info === false ) {
 
 			var request = {
@@ -896,19 +897,9 @@ var gmb_data;
 			places_service.getDetails( request, function ( place, status ) {
 
 				if ( status == google.maps.places.PlacesServiceStatus.OK ) {
-					//place name
-					info_window_content = '<p class="place-title">' + info_window_data.title + '</p>';
-
-					info_window_content += '<div class="place-description">' + info_window_data.desc + '</div>';
 
 					info_window_content += add_place_content_to_info_window( place );
-					//toolbar
-					info_window_content += '<div class="infowindow-toolbar"><ul id="edit-toolbar">' +
-						'<li class="edit-info" data-index="' + index + '" data-tooltip="Edit Marker"></li>' +
-						'<li class="trash-marker" data-index="' + index + '" data-tooltip="Delete Marker"></li>' +
-						'</ul>' +
-						'</div>';
-
+					info_window_content += set_marker_edit_icons( index );
 					add_edit_events( info_window_content, marker );
 
 				}
@@ -916,22 +907,8 @@ var gmb_data;
 
 
 		} else {
-			//Only show saved data (no place lookup)
-
-			//place name
-			info_window_content = '<p class="place-title">' + info_window_data.title + '</p>';
-
-			info_window_content += '<div class="place-description">' + info_window_data.desc + '</div>';
-			//toolbar
-			info_window_content += '<div class="infowindow-toolbar"><ul id="edit-toolbar">' +
-				'<li class="edit-info" data-index="' + index + '" data-tooltip="Edit Marker"></li>' +
-				'<li class="trash-marker" data-index="' + index + '" data-tooltip="Delete Marker"></li>' +
-				'</ul>' +
-				'</div>';
-
+			info_window_content += set_marker_edit_icons(index);
 			add_edit_events( info_window_content, marker );
-
-
 		}
 
 
@@ -1026,6 +1003,7 @@ var gmb_data;
 				info_window_content = '<p class="place-title">' + place.name + '</p>';
 
 				info_window_content += add_place_content_to_info_window( place );
+				info_window_content += add_mar( place );
 
 				info_window_content = set_info_window_wrapper( info_window_content ); //wraps the content in div and returns
 
@@ -1618,6 +1596,21 @@ var gmb_data;
 		$( '.color-picker' ).wpColorPicker( color_picker_options );
 
 
+	}
+
+	/**
+	 * Set Marker Edit Icons
+	 *
+	 * @since 2.0
+	 * @param marker_index This markers index
+	 * @returns {string}
+	 */
+	function set_marker_edit_icons( marker_index ) {
+		return '<div class="infowindow-toolbar"><ul id="edit-toolbar">' +
+			'<li class="edit-info" data-index="' + marker_index + '" data-tooltip="' + gmb_data.i18n.btn_edit_marker + '"></li>' +
+			'<li class="trash-marker" data-index="' + marker_index + '" data-tooltip="' + gmb_data.i18n.btn_delete_marker + '"></li>' +
+			'</ul>' +
+			'</div>';
 	}
 
 	/**
