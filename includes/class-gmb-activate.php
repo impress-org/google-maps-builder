@@ -202,7 +202,7 @@ class Google_Maps_Builder_Activate {
 	}
 
 	/**
-	 * Maps Builder Customizer Tooltio
+	 * Maps Builder Customizer Tooltip
 	 */
 	function maps_customizer_tooltip() {
 		global $current_user;
