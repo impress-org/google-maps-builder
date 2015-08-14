@@ -126,6 +126,7 @@ The main developer of this plugin is WordImpress. To find out more information a
 * New: Gulp implemented for minifying scripts
 * New: Uber cool new logo design and mascot (name coming soon for mascot!)
 * New: Control the map height with a new control to select percentage or pixel height values @see: https://github.com/WordImpress/google-maps-builder/issues/13
+* New: You can now choose whether or not you want to see the place info within your infowindows @see: https://github.com/WordImpress/google-maps-builder/issues/62
 * Improvement: Upgraded CMB1 to CMB2
 * Improvement: Class improvements and modernized structure organization
 * Improvement: Plugin structure significantly changed to better reflect our development preference. The current structure is similar to Give, EDD, and other reputable plugins.
