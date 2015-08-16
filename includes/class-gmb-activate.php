@@ -205,7 +205,7 @@ class Google_Maps_Builder_Activate {
 	 * Maps Builder Customizer Tooltip
 	 */
 	function maps_customizer_tooltip() {
-		global $current_user;
+
 		get_currentuserinfo();
 
 		$pointer_content = '<h3>' . __( 'Introducing the Map Builder', $this->plugin_slug ) . '</h3>';
