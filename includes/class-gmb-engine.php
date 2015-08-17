@@ -118,7 +118,7 @@ class Google_Maps_Builder_Engine {
 			}
 		}
 
-		//send data for AJAX usage
+		//Send data for AJAX usage
 		//Add params to AJAX for Shortcode Usage
 		//@see: http://benjaminrojas.net/using-wp_localize_script-dynamically/
 		$localized_data = apply_filters( 'gmb_localized_data', array(

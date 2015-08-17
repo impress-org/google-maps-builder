@@ -137,15 +137,6 @@ class Google_Maps_Builder_Admin {
 		$default_options = $this->get_default_map_options();
 
 		// MARKER WITH AUTOCOMPLETE
-		//		$meta_boxes = cmb2_get_metabox( array(
-		//			'id'           => 'google_maps_metabox',
-		//			'title'        => __( 'Add Marker', $this->plugin_slug ),
-		//			'object_types' => array( 'google_maps' ),
-		//			'context'      => 'normal',
-		//			'priority'     => 'high',
-		//			'show_names'   => true,
-		//		) );
-		// MARKERS
 		$marker_box = cmb2_get_metabox( array(
 			'id'           => 'google_maps_markers',
 			'title'        => __( 'Map Markers', $this->plugin_slug ),
