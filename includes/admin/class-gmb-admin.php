@@ -699,10 +699,10 @@ class Google_Maps_Builder_Admin {
 
 		//Toolbar
 		$output .= '<div id="map-toolbar">';
-		$output .= '<button class="add-location button button-small gmb-magnific-inline" data-target="cmb2-id-gmb-geocoder"><span class="dashicons dashicons-pressthis"></span>' . __( 'Add Location', $this->plugin_slug ) . '</button>';
+		$output .= '<button class="add-location button button-small gmb-magnific-inline" data-target="cmb2-id-gmb-geocoder" data-auto-focus="true"><span class="dashicons dashicons-pressthis"></span>' . __( 'Add Location', $this->plugin_slug ) . '</button>';
 		$output .= '<button class="drop-marker button button-small"><span class="dashicons dashicons-location"></span>' . __( 'Drop a Marker', $this->plugin_slug ) . '</button>';
-		$output .= '<button class="goto-location button button-small gmb-magnific-inline" data-target="map-autocomplete-wrap"><span class="dashicons dashicons-admin-site"></span>' . __( 'Goto Location', $this->plugin_slug ) . '</button>';
-		$output .= '<button class="edit-title button  button-small gmb-magnific-inline" data-target="map-title-wrap"><span class="dashicons dashicons-edit"></span>' . __( 'Edit Map Title', $this->plugin_slug ) . '</button>';
+		$output .= '<button class="goto-location button button-small gmb-magnific-inline" data-target="map-autocomplete-wrap" data-auto-focus="true"><span class="dashicons dashicons-admin-site"></span>' . __( 'Goto Location', $this->plugin_slug ) . '</button>';
+		$output .= '<button class="edit-title button  button-small gmb-magnific-inline" data-target="map-title-wrap" data-auto-focus="true"><span class="dashicons dashicons-edit"></span>' . __( 'Edit Map Title', $this->plugin_slug ) . '</button>';
 
 		$output .= '<div class="live-lat-lng-wrap clearfix">';
 		$output .= '<button disabled class="update-lat-lng button button-small">' . __( 'Set Lat/Lng', $this->plugin_slug ) . '</button>';
@@ -735,7 +735,7 @@ class Google_Maps_Builder_Admin {
 		//Markers Modal
 		include( 'views/markers.php' );
 
-		echo $output;
+		echo apply_filters( 'google_maps_preview', $output );
 
 	}
 

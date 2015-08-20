@@ -226,7 +226,7 @@ class Google_Maps_Builder_Scripts {
 
 			echo '<div class="updated error clearfix"><p>';
 			parse_str( $_SERVER['QUERY_STRING'], $params );
-			printf( __( '<strong>Google Maps Conflict Detected:</strong> It appears that a plugin or theme that you are using is including also Google Maps API JavaScript on your website. This means there will be a conflict with the Google Maps Builder plugin. Please <a href="%1$s" target="_blank">dequeue</a> the additional Google Maps JavaScript call to return the plugin to a working state. ' ), 'http://codex.wordpress.org/Function_Reference/wp_dequeue_script' );
+			printf( __( '<strong>Google Maps Conflict Detected:</strong> It appears that a plugin or theme that you are using is including also Google Maps API JavaScript on your website. This means there may be a conflict with the Google Maps Builder plugin. Please <a href="%1$s" target="_blank">dequeue</a> the additional Google Maps JavaScript call to return the plugin to a working state if you notice a problem. ' ), 'http://codex.wordpress.org/Function_Reference/wp_dequeue_script' );
 			echo '</p>';
 
 			printf( __( '<a href="%1$s" rel="nofollow" class="button" style="display:inline-block; margin: 0 0 10px;">Hide Warning</a>' ), '?' . http_build_query( array_merge( $params, array( 'gmb_ignore_maps_notice' => '0' ) ) ) );

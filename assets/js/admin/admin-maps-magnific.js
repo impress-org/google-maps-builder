@@ -88,7 +88,7 @@ var gmb_data;
 
 					},
 					open      : function () {
-						google.maps.event.trigger( window.map, 'resize' );
+						google.maps.event.trigger( window.map, 'resize' ); //Refresh Google Map
 					},
 					resize    : function () {
 						if ( $.magnificPopup.instance.isOpen === true ) {
