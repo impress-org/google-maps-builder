@@ -713,23 +713,30 @@ class Google_Maps_Builder_Admin {
 		$output .= '</div>'; //End #map
 
 
-		$output .= '<div class="white-popup mfp-hide map-title-wrap">
-					<div class="inner-modal-wrap">
-					<div class="inner-modal-container">
-					<div class="inner-modal clearfix">
-					<label for="post_title" class="map-title">' . __( 'Map Title', $this->plugin_slug ) . '</label>
-					<button type="button" class="gmb-modal-close">&times;</button><input type="text" name="model_post_title" size="30" value="' . get_the_title() . '" id="modal_title" spellcheck="true" autocomplete="off" placeholder="' . __( 'Enter map title', $this->plugin_slug ) . '"></div></div></div></div>';
+		//@TODO: Obviously Need Wrapper function
+		$output .= '<div class="white-popup mfp-hide map-title-wrap">';
+		$output .= '<div class="inner-modal-wrap">';
+		$output .= '<div class="inner-modal-container">';
+		$output .= '<div class="inner-modal clearfix">';
+		$output .= '<label for="post_title" class="map-title">' . __( 'Map Title', $this->plugin_slug ) . '</label>';
+		$output .= '<button type="button" class="gmb-modal-close">&times;</button><input type="text" name="model_post_title" size="30" value="' . get_the_title() . '" id="modal_title" spellcheck="true" autocomplete="off" placeholder="' . __( 'Enter map title', $this->plugin_slug ) . '">';
+		$output .= '</div>';
+		$output .= '</div>';
+		$output .= '</div>';
+		$output .= '</div>';
 
-		$output .= '<div class="white-popup mfp-hide map-autocomplete-wrap">
-				    <div class="inner-modal-wrap">
-					<div class="inner-modal-container">
-					<div class="inner-modal clearfix">
-					<label for="map-location-autocomplete" class="map-title">' . __( 'Enter a Location', $this->plugin_slug ) . '</label>
-				<button type="button" class="gmb-modal-close">&times;</button>
-				<input type="text" name="" size="30" id="map-location-autocomplete">
-				</div></div></div></div>';
-
-
+		$output .= '<div class="white-popup mfp-hide map-autocomplete-wrap">';
+		$output .= '<div class="inner-modal-wrap">';
+		$output .= '<div class="inner-modal-container">';
+		$output .= '<div class="inner-modal clearfix">';
+		$output .= '<label for="map-location-autocomplete" class="map-title">' . __( 'Enter a Location', $this->plugin_slug ) . '</label>';
+		$output .= '<button type="button" class="gmb-modal-close">&times;</button>';
+		$output .= '<input type="text" name="" size="30" id="map-location-autocomplete">';
+		$output .= '</div>';
+		$output .= '</div>';
+		$output .= '</div>';
+		$output .= '</div>';
+		
 		$output .= '<div class="warning-message wpgp-message"></div>';
 
 		//Markers Modal
