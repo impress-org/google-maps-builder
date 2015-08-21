@@ -186,13 +186,17 @@ span.new-window {
   display: inline-block;
 }
 
-#width_wrap {
+#width_height_wrap > div {
   margin: 0 0 10px;
 }
 
 .inner-sidebar table.cmb_metabox label.size-label, #side-sortables table.cmb_metabox label.size-label, label.size-label {
   font-weight: normal;
   font-style: italic;
+}
+
+#poststuff h2.cmb-group-name {
+  @include modal-label;
 }
 
 /*------------------------------------------
@@ -430,7 +434,7 @@ Map Edit Quick Toolbar
 	margin: 0 2px;
 	.dashicons {
 	  font-size: 12px;
-	  width:12px;
+	  width: 12px;
 	  margin: 5px 2px 0 -2px;
 	}
 	&.edit-title {
@@ -456,7 +460,7 @@ Map Edit Quick Toolbar
 
 	  span {
 		line-height: 22px;
- 		float: left;
+		float: left;
 	  }
 	}
 

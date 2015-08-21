@@ -736,7 +736,7 @@ class Google_Maps_Builder_Admin {
 		$output .= '</div>';
 		$output .= '</div>';
 		$output .= '</div>';
-		
+
 		$output .= '<div class="warning-message wpgp-message"></div>';
 
 		//Markers Modal

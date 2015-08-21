@@ -454,7 +454,7 @@ var gmb_data;
 			title    : 'Map Icons',
 			animation: google.maps.Animation.DROP,
 			position : new google.maps.LatLng( map_center.lat(), map_center.lng() ),
-			icon     : new google.maps.MarkerImage( gmb_data.plugin_url + "assets/img/temp-marker.png" ),
+			icon     : new google.maps.MarkerImage( gmb_data.plugin_url + "assets/img/default-icon-green-no-dot.png" ),
 			zIndex   : google.maps.Marker.MAX_ZINDEX + 1,
 			optimized: false
 		} );

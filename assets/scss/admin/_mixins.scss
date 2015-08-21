@@ -10,9 +10,19 @@
 @mixin modal-label {
   font-weight: bold;
   font-size: 14px;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
+  padding: 0;
   display: block;
   position: relative;
+}
+
+@mixin field-description {
+  font-size: 13px;
+  padding: 5px 0 0;
+  margin: 0;
+  line-height: 18px;
+  font-style: italic;
+  color: #aaaaaa;
 }
 
 @mixin orange-button {
@@ -36,9 +46,12 @@
 @mixin clearfix {
 
   &:after {
-    content: "";
-    display: table;
-    clear: both;
+	content: "";
+	display: table;
+	clear: both;
   }
 
 }
+
+$blue: #42A4F5;
+$orange: #FAA627;
