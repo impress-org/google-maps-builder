@@ -37,7 +37,7 @@
 					</div>
 					<div class="marker-item" data-marker="default" data-toggle="default-icons-row">
 						<div class="marker-svg default-marker">
-							<img src="<?php echo apply_filters( 'gmb_default_marker', GMB_PLUGIN_URL . 'assets/img/default-marker.png' ); ?>" class="default-marker" />
+							<img src="<?php echo apply_filters( 'gmb_default_marker', GMB_PLUGIN_URL . 'assets/img/spotlight-poi.png' ); ?>" class="default-marker" />
 						</div>
 						<div class="marker-description"><?php _e( 'Default', $this->plugin_slug ); ?></div>
 					</div>

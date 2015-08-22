@@ -27,11 +27,11 @@
 
 //Hide/Show some borders
 #cmb2-metabox-google_maps_search_options .cmb2-id-gmb-show-places {
-  border-bottom: none;
-  margin-bottom: 0;
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
 }
 
-#post-body-content #cmb2-metabox-google_maps_search_options .cmb2-id-gmb-search-radius {
+#post-body-content #cmb2-metabox-google_maps_search_options .cmb2-id-gmb-search-radius, #post-body .cmb2-id-gmb-search-radius {
   border-top: 1px solid #e9e9e9;
 }
 
@@ -130,7 +130,6 @@ Sidebar
   /*-------------------------------------
   Sidebar Fields
   ---------------------------------------*/
-
   select {
 	width: 100%;
   }

@@ -80,7 +80,9 @@ Magnific Builder Sidebar
 	  width: 104px;
 	  height: 16px;
 	}
-
+	/*-------------------------------------
+	  Sidebar
+	---------------------------------------*/
 	#side-sortables {
 	  border-left: 1px solid #DDD;
 	  border-bottom: 1px solid #DDD;
@@ -91,18 +93,17 @@ Magnific Builder Sidebar
 	  min-height: 100%;
 	  position: relative;
 
-
 	  //Blue sections
 	  .ui-sortable-handle {
-		background:$blue;
-		color:#FFF;
+		background: $blue;
+		color: #FFF;
 
-		&:hover{
-			background: darken($blue, 10%);
+		&:hover {
+		  background: darken($blue, 10%);
 		}
 	  }
 	  .handlediv {
-		color:#FFF;
+		color: #FFF;
 	  }
 
 	}
@@ -114,24 +115,37 @@ Magnific Builder Sidebar
 	  display: block;
 	}
 
+	/*-------------------------------------
+	Google Places
+	---------------------------------------*/
+	#google_maps_search_options {
 
-	.cmb2-id-gmb-places-search-multicheckbox {
-	  ul li {
-		width: 50%;
-		position: relative;
-		.cmb2-option {
-		  position: absolute;
-		  top: 0;
-		  left: 0;
-		}
-		label {
-		  padding-left: 25px;
-		  display: block;
-		  padding-right: 3px;
+	  .cmb2-id-gmb-search-radius {
+		margin-top:15px;
+		border-top:none;
+	  }
+
+	  .cmb2-id-gmb-places-search-multicheckbox {
+		ul li {
+		  width: 50%;
+		  position: relative;
+		  .cmb2-option {
+			position: absolute;
+			top: 0;
+			left: 0;
+		  }
+		  label {
+			padding-left: 25px;
+			display: block;
+			padding-right: 3px;
+		  }
 		}
 	  }
-	}
+	} //#google_maps_search_options
 
+	/*-------------------------------------
+	Map Markers
+	---------------------------------------*/
 	a.drop-marker {
 	  margin-top: 10px;
 	  display: block;
@@ -180,11 +194,10 @@ Magnific Builder Sidebar
 /* No Dragging */
 .magnific-builder .postbox .hndle {
   cursor: pointer;
-}
-
-.magnific-builder .postbox .hndle:hover {
-  color: #23282d;
-  background: #f5f5f5;
+  &:hover {
+	color: #23282d;
+	background: #f5f5f5;
+  }
 }
 
 .magnific-builder#post .places-loading {
@@ -198,6 +211,9 @@ Magnific Builder Sidebar
   display: none;
 }
 
+/*-------------------------------------
+Editor Button
+---------------------------------------*/
 #map-builder {
   margin: 5px 12px 10px;
   display: block;
@@ -279,6 +295,7 @@ button.gmb-modal-close {
   display: none;
 }
 
+//Upsell
 .mfp-container .map-modal-upsell {
   display: block;
   position: absolute;
