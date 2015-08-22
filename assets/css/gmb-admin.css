@@ -2250,6 +2250,33 @@ div.white-popup .cmb-td {
   width: 100%;
   padding: 15px 0; }
 
+/*-------------------------------------
+Tooltips
+---------------------------------------*/
+.gmb-tooltip-field > div.cmb-th {
+  overflow: hidden; }
+  .gmb-tooltip-field > div.cmb-th label {
+    float: left; }
+  .gmb-tooltip-field > div.cmb-th .gmb-help-icon {
+    content: ' ';
+    background: url('../img/help.png') no-repeat 0 0 transparent;
+    background-size: 15px;
+    display: inline-block;
+    margin: 0 0 -2px 8px;
+    width: 16px;
+    height: 16px;
+    opacity: 0.4;
+    cursor: pointer;
+    -webkit-transition: 0.2s all linear;
+    -moz-transition: 0.2s all linear;
+    -o-transition: 0.2s all linear;
+    transition: 0.2s all linear; }
+  .gmb-tooltip-field > div.cmb-th .gmb-help-icon:hover {
+    opacity: 1; }
+
+.gmb-tooltip-text {
+  display: none; }
+
 /*!
  * Maps Builder Admin Settings Pages SCSS/CSS
  *

@@ -150,7 +150,7 @@ class Google_Maps_Builder_Activate {
 		}
 
 		// Map Customizer Tooltip - Check if our pointer is not among dismissed ones
-		if ( ! in_array( 'gmb_customizer_pointer', $dismissed_pointers ) && isset($post->post_type) && $post->post_type === 'google_maps' ) {
+		if ( ! in_array( 'gmb_customizer_pointer', $dismissed_pointers ) && isset( $post->post_type ) && $post->post_type === 'google_maps' ) {
 			$enqueue_pointer_script_style = true;
 
 			// Add footer scripts using callback function
@@ -209,7 +209,7 @@ class Google_Maps_Builder_Activate {
 		get_currentuserinfo();
 
 		$pointer_content = '<h3>' . __( 'Introducing the Map Builder', $this->plugin_slug ) . '</h3>';
-		$pointer_content .= '<p>' . __( 'We have upgraded your map building experience! Click here to experience the new interface. All controls are within your reach and the map always stays in view. If you like it, you can enable the view by default within the plugin settings. We hope you enjoy it!', $this->plugin_slug ) . '</p>';
+		$pointer_content .= '<p>' . sprintf( __( '%1$sWe have upgraded your map building experience!%2$s Click here to experience the new interface. All controls are within your reach and the map always stays in view. If you like it, you can enable the view by default within the %3$splugin settings%4$s. We hope you enjoy it!', $this->plugin_slug ), '<strong>', '</strong>', '<a href="' . admin_url( 'edit.php?post_type=google_maps&page=gmb_settings&tab=general_settings' ) . '">', '</a>' ) . '</p>';
 		?>
 
 		<script type="text/javascript">

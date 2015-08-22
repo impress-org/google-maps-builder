@@ -498,11 +498,13 @@ class Google_Maps_Builder_Admin {
 		) );
 
 		$control_options->add_field( array(
-			'name'    => __( 'Zoom Control', $this->plugin_slug ),
-			'id'      => $prefix . 'zoom_control',
-			'type'    => 'select',
-			'default' => 'default',
-			'options' => array(
+			'name'        => __( 'Zoom Control', $this->plugin_slug ),
+			'before'      => '<span class="gmb-tooltip-text">' . __( 'Test test 123', $this->plugin_slug ) . '</span>',
+			'row_classes' => 'gmb-tooltip-field',
+			'id'          => $prefix . 'zoom_control',
+			'type'        => 'select',
+			'default'     => 'default',
+			'options'     => array(
 				'none'    => __( 'None', $this->plugin_slug ),
 				'small'   => __( 'Small', $this->plugin_slug ),
 				'large'   => __( 'Large', $this->plugin_slug ),

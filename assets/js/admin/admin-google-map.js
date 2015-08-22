@@ -907,7 +907,7 @@ var gmb_data;
 
 
 		} else {
-			info_window_content += set_marker_edit_icons(index);
+			info_window_content += set_marker_edit_icons( index );
 			add_edit_events( info_window_content, marker );
 		}
 
@@ -1643,6 +1643,39 @@ var gmb_data;
 				}
 			}
 		} );
+
+		//CMB2 Tooltips
+		$( '.gmb-tooltip-field' ).each( function () {
+			$( this ).find( 'label' ).append( '<span class="gmb-help-icon"></span>' );
+			$( this ).find( '.cmb-group-name' ).append( '<span class="gmb-help-icon"></span>' );
+
+			$( this ).find( '.gmb-help-icon' ).qtip( { // Grab all elements with a non-blank data-tooltip attr.
+				content : {
+					text: $( this ).find( '.gmb-tooltip-text' ).text()
+				},
+				hide    : {
+					fixed: true,
+					delay: 100
+				},
+				position: {
+					my: 'bottom center',
+					at: 'top center'
+				},
+				style   : {
+					classes: 'qtip-tipsy'
+				},
+				show    : {
+					when  : {
+						event: 'focus'
+					},
+					effect: function () {
+						$( this ).fadeIn( 200 );
+					}
+				}
+			} );
+
+		} );
+
 
 	}
 

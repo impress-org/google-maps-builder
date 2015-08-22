@@ -17,7 +17,7 @@
 
 			<h3><?php _e( 'General Settings', $this->plugin_slug ); ?></h3>
 
-			<p><?php _e( 'The following settings allow you to customize how Google Maps Builder functions within WordPress.', $this->plugin_slug ); ?></p>
+			<p><?php _e( 'Customize how Google Maps Builder functions within WordPress.', $this->plugin_slug ); ?></p>
 
 			<?php cmb2_metabox_form( $this->general_option_fields(), self::$key ); ?>
 		</div>

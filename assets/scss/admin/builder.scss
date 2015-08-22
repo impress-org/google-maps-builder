@@ -13,10 +13,7 @@
 }
 
 .hover-transition, .marker-icon-row .icon, .marker-row .marker-item {
-  -webkit-transition: 0.2s all linear;
-  -moz-transition: 0.2s all linear;
-  -o-transition: 0.2s all linear;
-  transition: 0.2s all linear;
+  @include easing-transition;
 }
 
 .box-sizing {

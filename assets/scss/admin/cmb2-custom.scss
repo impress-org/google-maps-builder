@@ -248,3 +248,39 @@ div.white-popup {
   }
 
 }
+
+/*-------------------------------------
+Tooltips
+---------------------------------------*/
+.gmb-tooltip-field {
+  > div.cmb-th {
+	overflow: hidden;
+
+	label {
+	  float: left;
+
+	}
+
+	.gmb-help-icon {
+	  content: ' ';
+	  background: url('../img/help.png') no-repeat 0 0 transparent;
+	  background-size: 15px;
+	  display: inline-block;
+	  margin: 0 0 -2px 8px;
+	  width: 16px;
+	  height: 16px;
+	  opacity: 0.4;
+	  cursor: pointer;
+	  @include easing-transition;
+	}
+
+	.gmb-help-icon:hover {
+	  opacity: 1;
+	}
+
+  }
+}
+
+.gmb-tooltip-text {
+  display: none;
+}
