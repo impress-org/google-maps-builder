@@ -640,6 +640,15 @@ var gmb_data;
 
 		} );
 
+		//Remove row button/icon also removes icon (CMB2 buttons)
+		$( '#gmb_markers_group_' + index + '_title' ).parents( '.cmb-repeatable-grouping' ).find( '.cmb-remove-group-row' ).each( function () {
+			google.maps.event.addDomListener( $( this )[0], 'click', function () {
+				var index = $( this ).parents( '.cmb-repeatable-grouping' ).data( 'index' );
+				//close info window and remove marker
+				info_bubble.close();
+				marker.setVisible( false );
+			} );
+		} );
 
 		//Close Click
 		google.maps.event.addDomListener( info_bubble, 'closeclick', function () {
@@ -660,7 +669,6 @@ var gmb_data;
 		var edit_marker_icon_button_click = google.maps.event.addDomListener( $( '.marker-edit-link-wrap' )[0], 'click', function () {
 			$( '.save-marker-button' ).attr( 'data-marker-index', $( this ).data( 'index' ) ); //Set the index for this marker
 		} );
-
 
 		//Marker Modal Update Icon
 		var save_icon_listener = google.maps.event.addDomListener( $( '.save-marker-button' )[0], 'click', function ( e ) {
@@ -843,6 +851,16 @@ var gmb_data;
 				get_info_window_content( index, location_marker );
 			} );
 
+			//Remove row button/icon also removes icon (CMB2 buttons)
+			$( '#gmb_markers_group_' + index + '_title' ).parents( '.cmb-repeatable-grouping' ).find( '.cmb-remove-group-row' ).each( function () {
+				google.maps.event.addDomListener( $( this )[0], 'click', function () {
+					var index = $( this ).parents( '.cmb-repeatable-grouping' ).data( 'index' );
+					//close info window and remove marker
+					info_bubble.close();
+					location_marker.setVisible( false );
+				} );
+			} );
+
 		} ); //end $.each()
 
 	}
@@ -937,18 +955,15 @@ var gmb_data;
 		//trash button event
 		google.maps.event.addDomListener( $( '.trash-marker' )[0], 'click', function () {
 			var index = $( this ).data( 'index' );
-
 			//if first item clear out all input values
-			if ( index === 0 ) {
-				$( 'div[data-iterator="' + index + '"] ' ).find( 'input,textarea' ).val( '' );
-			}
-
+			$( 'div[data-iterator="' + index + '"] ' ).find( 'input,textarea' ).val( '' );
 			//trigger remove row button click for this specific markers row
-			$( 'div[data-iterator="' + index + '"] .remove-group-row' ).trigger( 'click' );
+			$( 'div[data-iterator="' + index + '"]' ).find( '.cmb-remove-group-row' ).trigger( 'click' );
 			//close info window and remove marker
 			info_bubble.close();
 			marker.setVisible( false );
 		} );
+
 
 	}
 
