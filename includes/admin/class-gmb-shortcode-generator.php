@@ -247,13 +247,13 @@ class GMB_Shortcode_Generator {
 	 * Renders an HTML Dropdown of all the Give Forms
 	 *
 	 * @access public
-	 * @since  1.0
+	 * @since  2.0
 	 *
 	 * @param array $args Arguments for the dropdown
 	 *
 	 * @return string $output Give forms dropdown
 	 */
-	public function maps_dropdown( $args = array() ) {
+	public static function maps_dropdown( $args = array() ) {
 
 		$defaults = array(
 			'name'        => 'gmb-maps',
@@ -319,13 +319,13 @@ class GMB_Shortcode_Generator {
 	/**
 	 * Renders an HTML Dropdown
 	 *
-	 * @since 1.0
+	 * @since 2.0
 	 *
 	 * @param array $args
 	 *
 	 * @return string
 	 */
-	public function select( $args = array() ) {
+	public static function select( $args = array() ) {
 
 		$defaults = array(
 			'options'          => array(),

@@ -11,6 +11,7 @@ var gmb_data;
 
 	"use strict";
 
+
 	/**
 	 * Window Load functions
 	 */
@@ -1018,7 +1019,6 @@ var gmb_data;
 				info_window_content = '<p class="place-title">' + place.name + '</p>';
 
 				info_window_content += add_place_content_to_info_window( place );
-				info_window_content += add_mar( place );
 
 				info_window_content = set_info_window_wrapper( info_window_content ); //wraps the content in div and returns
 
@@ -1661,7 +1661,13 @@ var gmb_data;
 
 		//CMB2 Tooltips
 		$( '.gmb-tooltip-field' ).each( function () {
-			$( this ).find( 'label' ).append( '<span class="gmb-help-icon"></span>' );
+
+			var tooltip_label = $( this ).find( 'label' );
+			//prevent multiple help icons
+			if ( $( tooltip_label ).find( '.gmb-help-icon' ).length == 0 ) {
+				tooltip_label.append( '<span class="gmb-help-icon"></span>' );
+			}
+
 			$( this ).find( '.cmb-group-name' ).append( '<span class="gmb-help-icon"></span>' );
 
 			$( this ).find( '.gmb-help-icon' ).qtip( { // Grab all elements with a non-blank data-tooltip attr.
@@ -1690,7 +1696,6 @@ var gmb_data;
 			} );
 
 		} );
-
 
 	}
 

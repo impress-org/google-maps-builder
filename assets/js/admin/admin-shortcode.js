@@ -10,7 +10,6 @@
 		var ed = tinymce.activeEditor;
 		var sh_tag = 'google_maps';
 
-
 		/**
 		 * Open Shortcode Generator Modal
 		 *
@@ -70,7 +69,6 @@
 			n = new RegExp( n + '=\"([^\"]+)\"', 'g' ).exec( s );
 			return n ? window.decodeURIComponent( n[1] ) : '';
 		}
-
 
 		/**
 		 * Maps Replace Shortcode
