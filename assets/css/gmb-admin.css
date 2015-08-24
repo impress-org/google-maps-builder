@@ -1985,7 +1985,10 @@ Modal styles
   margin: 0 0 8px;
   padding: 0;
   display: block;
-  position: relative; }
+  position: relative;
+  margin-bottom: 0; }
+.map-autocomplete-wrap p.cmb2-metabox-description, .map-title-wrap p.cmb2-metabox-description {
+  padding: 8px 0; }
 .map-autocomplete-wrap input, .map-title-wrap input {
   width: 100%; }
 

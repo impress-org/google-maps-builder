@@ -508,6 +508,10 @@ Modal styles
 .map-title-wrap {
   label {
 	@include modal-label;
+	margin-bottom: 0;
+  }
+  p.cmb2-metabox-description {
+	padding: 8px 0;
   }
   input {
 	width: 100%;

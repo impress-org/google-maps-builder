@@ -721,6 +721,7 @@ class Google_Maps_Builder_Admin {
 		$output .= '<div class="inner-modal-container">';
 		$output .= '<div class="inner-modal clearfix">';
 		$output .= '<label for="post_title" class="map-title">' . __( 'Map Title', $this->plugin_slug ) . '</label>';
+		$output .= '<p class="cmb2-metabox-description">'.__('Give your Map a descriptive title', $this->plugin_slug).'</p>';
 		$output .= '<button type="button" class="gmb-modal-close">&times;</button><input type="text" name="model_post_title" size="30" value="' . get_the_title() . '" id="modal_title" spellcheck="true" autocomplete="off" placeholder="' . __( 'Enter map title', $this->plugin_slug ) . '">';
 		$output .= '</div>';
 		$output .= '</div>';
@@ -732,6 +733,7 @@ class Google_Maps_Builder_Admin {
 		$output .= '<div class="inner-modal-container">';
 		$output .= '<div class="inner-modal clearfix">';
 		$output .= '<label for="map-location-autocomplete" class="map-title">' . __( 'Enter a Location', $this->plugin_slug ) . '</label>';
+		$output .= '<p class="cmb2-metabox-description">'.__('Type your point of interest below and the map will be re-centered over that location', $this->plugin_slug).'</p>';
 		$output .= '<button type="button" class="gmb-modal-close">&times;</button>';
 		$output .= '<input type="text" name="" size="30" id="map-location-autocomplete">';
 		$output .= '</div>';
