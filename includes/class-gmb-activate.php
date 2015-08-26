@@ -27,6 +27,8 @@ class Google_Maps_Builder_Activate {
 		//Activation tooltips
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_pointer_script_style' ) );
 
+		//Init CPT (after CMB2 -> hence the 10000 priority)
+		add_action( 'init', array( $this, 'setup_post_type' ), 10000 );
 
 	}
 
@@ -296,5 +298,71 @@ class Google_Maps_Builder_Activate {
 		// @TODO: Define deactivation functionality here
 	}
 
+	/**
+	 * Flush Rewrite Rules
+	 *
+	 * @description Ensures single post type views don't 404 and more
+	 * @since       2.0
+	 */
+	public function activation_flush_rewrites() {
+
+		// call CPT registration function here (it should also be hooked into 'init')
+		$this->setup_post_type();
+		flush_rewrite_rules( false );
+
+	}
+
+	/**
+	 * Register Post Type
+	 *
+	 * @description Registers and sets up the Maps Builder custom post type
+	 *
+	 * @since       1.0
+	 * @return void
+	 */
+	public function setup_post_type() {
+
+		$settings      = get_option( 'gmb_settings' );
+		$post_slug     = isset( $settings['gmb_custom_slug'] ) ? $settings['gmb_custom_slug'] : '';
+		$menu_position = isset( $settings['gmb_menu_position'] ) ? $settings['gmb_menu_position'] : '';
+		$has_archive   = isset( $settings['gmb_has_archive'] ) ? filter_var( $settings['gmb_has_archive'], FILTER_VALIDATE_BOOLEAN ) : '';
+
+		$labels = array(
+			'name'               => _x( 'Google Maps', 'post type general name', $this->plugin_slug ),
+			'singular_name'      => _x( 'Map', 'post type singular name', $this->plugin_slug ),
+			'menu_name'          => _x( 'Google Maps', 'admin menu', $this->plugin_slug ),
+			'name_admin_bar'     => _x( 'Google Maps', 'add new on admin bar', $this->plugin_slug ),
+			'add_new'            => _x( 'Add New', 'map', $this->plugin_slug ),
+			'add_new_item'       => __( 'Add New Map', $this->plugin_slug ),
+			'new_item'           => __( 'New Map', $this->plugin_slug ),
+			'edit_item'          => __( 'Edit Map', $this->plugin_slug ),
+			'view_item'          => __( 'View Map', $this->plugin_slug ),
+			'all_items'          => __( 'All Maps', $this->plugin_slug ),
+			'search_items'       => __( 'Search Maps', $this->plugin_slug ),
+			'parent_item_colon'  => __( 'Parent Maps:', $this->plugin_slug ),
+			'not_found'          => __( 'No Maps found.', $this->plugin_slug ),
+			'not_found_in_trash' => __( 'No Maps found in Trash.', $this->plugin_slug ),
+		);
+
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array(
+				'slug' => isset( $post_slug ) ? sanitize_title( $post_slug ) : 'google-maps'
+			),
+			'capability_type'    => 'post',
+			'has_archive'        => isset( $has_archive ) ? $has_archive : true,
+			'hierarchical'       => false,
+			'menu_position'      => ! empty( $menu_position ) ? intval( $menu_position ) : '23.1',
+			'supports'           => array( 'title' )
+		);
+
+		register_post_type( 'google_maps', $args );
+
+	}
 
 }

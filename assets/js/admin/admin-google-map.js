@@ -1657,42 +1657,43 @@ var gmb_data;
 		} );
 
 		//CMB2 Tooltips
-		$( '.gmb-tooltip-field' ).each( function () {
-
-			var tooltip_label = $( this ).find( 'label' );
-			//prevent multiple help icons
-			if ( $( tooltip_label ).find( '.gmb-help-icon' ).length == 0 ) {
-				tooltip_label.append( '<span class="gmb-help-icon"></span>' );
-			}
-
-			$( this ).find( '.cmb-group-name' ).append( '<span class="gmb-help-icon"></span>' );
-
-			$( this ).find( '.gmb-help-icon' ).qtip( { // Grab all elements with a non-blank data-tooltip attr.
-				content : {
-					text: $( this ).find( '.gmb-tooltip-text' ).text()
-				},
-				hide    : {
-					fixed: true,
-					delay: 100
-				},
-				position: {
-					my: 'bottom center',
-					at: 'top center'
-				},
-				style   : {
-					classes: 'qtip-tipsy'
-				},
-				show    : {
-					when  : {
-						event: 'focus'
-					},
-					effect: function () {
-						$( this ).fadeIn( 200 );
-					}
-				}
-			} );
-
-		} );
+		//@TODO: Coming soon!
+		//$( '.gmb-tooltip-field' ).each( function () {
+		//
+		//	var tooltip_label = $( this ).find( 'label' );
+		//	//prevent multiple help icons
+		//	if ( $( tooltip_label ).find( '.gmb-help-icon' ).length == 0 ) {
+		//		tooltip_label.append( '<span class="gmb-help-icon"></span>' );
+		//	}
+		//
+		//	$( this ).find( '.cmb-group-name' ).append( '<span class="gmb-help-icon"></span>' );
+		//
+		//	$( this ).find( '.gmb-help-icon' ).qtip( { // Grab all elements with a non-blank data-tooltip attr.
+		//		content : {
+		//			text: $( this ).find( '.gmb-tooltip-text' ).text()
+		//		},
+		//		hide    : {
+		//			fixed: true,
+		//			delay: 100
+		//		},
+		//		position: {
+		//			my: 'bottom center',
+		//			at: 'top center'
+		//		},
+		//		style   : {
+		//			classes: 'qtip-tipsy'
+		//		},
+		//		show    : {
+		//			when  : {
+		//				event: 'focus'
+		//			},
+		//			effect: function () {
+		//				$( this ).fadeIn( 200 );
+		//			}
+		//		}
+		//	} );
+		//
+		//} );
 
 	}
 
