@@ -1510,7 +1510,6 @@ var gmb_data;
 		//AJAX to get JSON data for Snazzy
 		$.getJSON( gmb_data.snazzy, function ( data ) {
 
-
 			if ( preset_theme.val() === 'none' ) {
 				set_map_type();
 			}
