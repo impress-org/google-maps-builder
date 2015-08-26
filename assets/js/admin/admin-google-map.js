@@ -1505,9 +1505,6 @@ var gmb_data;
 
 			if ( $( '#gmb_theme' ).val() === 'none' ) {
 				set_map_type();
-				$( '.cmb2-id-gmb-theme-json' ).hide();
-			} else {
-				$( '.cmb2-id-gmb-theme-json' ).show();
 			}
 
 			$.each( data, function ( index ) {

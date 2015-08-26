@@ -420,7 +420,7 @@ class Google_Maps_Builder_Admin {
 
 		$display_options->add_field( array(
 			'name'    => 'Map Theme',
-			'desc'    => sprintf( __( 'Set optional preconfigured styles. <a href="%s" class="snazzy-link new-window"  target="_blank">Snazzy Maps</a>', $this->plugin_slug ), esc_url( 'http://snazzymaps.com' ) ),
+			'desc'    => sprintf( __( 'Set optional preconfigured %1$sSnazzy Maps%2$s styles. %3$sUpgrade to Pro%2$s for more styles and to set your own.', $this->plugin_slug ), '<a href="' . esc_url( 'http://snazzymaps.com' ) . '" class="snazzy-link new-window"  target="_blank">', '</a>', '<a href="' . esc_url( 'https://wordimpress.com/plugins/maps-builder-pro/?utm_source=MBF&utm_medium=BANNER&utm_term=MAP_OPTIONS&utm_campaign=MBF' ) . '" class="new-window"  target="_blank">' ),
 			'id'      => $prefix . 'theme',
 			'type'    => 'select',
 			'default' => 'none',
@@ -444,14 +444,14 @@ class Google_Maps_Builder_Admin {
 				'50'   => __( 'The Endless Atlas', $this->plugin_slug ),
 			)
 		) );
-
-		//		$display_options->add_field( array(
-		//			'name'    => __('Map Theme JSON', $this->plugin_slug),
-		//			'desc'    => 'Contains the map theme JSON',
-		//			'default' => 'none',
-		//			'id'      => $prefix . 'theme_json',
-		//			'type'    => 'textarea_code'
-		//		) );
+		$display_options->add_field( array(
+			'name'        => __( 'Map Theme JSON', $this->plugin_slug ),
+			'desc'        => 'Contains the map theme JSON',
+			'row_classes' => 'hidden',
+			'default'     => 'none',
+			'id'          => $prefix . 'theme_json',
+			'type'        => 'textarea_code'
+		) );
 
 		$display_options->add_field( array(
 			'name'    => 'Zoom',
@@ -721,7 +721,7 @@ class Google_Maps_Builder_Admin {
 		$output .= '<div class="inner-modal-container">';
 		$output .= '<div class="inner-modal clearfix">';
 		$output .= '<label for="post_title" class="map-title">' . __( 'Map Title', $this->plugin_slug ) . '</label>';
-		$output .= '<p class="cmb2-metabox-description">'.__('Give your Map a descriptive title', $this->plugin_slug).'</p>';
+		$output .= '<p class="cmb2-metabox-description">' . __( 'Give your Map a descriptive title', $this->plugin_slug ) . '</p>';
 		$output .= '<button type="button" class="gmb-modal-close">&times;</button><input type="text" name="model_post_title" size="30" value="' . get_the_title() . '" id="modal_title" spellcheck="true" autocomplete="off" placeholder="' . __( 'Enter map title', $this->plugin_slug ) . '">';
 		$output .= '</div>';
 		$output .= '</div>';
@@ -733,7 +733,7 @@ class Google_Maps_Builder_Admin {
 		$output .= '<div class="inner-modal-container">';
 		$output .= '<div class="inner-modal clearfix">';
 		$output .= '<label for="map-location-autocomplete" class="map-title">' . __( 'Enter a Location', $this->plugin_slug ) . '</label>';
-		$output .= '<p class="cmb2-metabox-description">'.__('Type your point of interest below and the map will be re-centered over that location', $this->plugin_slug).'</p>';
+		$output .= '<p class="cmb2-metabox-description">' . __( 'Type your point of interest below and the map will be re-centered over that location', $this->plugin_slug ) . '</p>';
 		$output .= '<button type="button" class="gmb-modal-close">&times;</button>';
 		$output .= '<input type="text" name="" size="30" id="map-location-autocomplete">';
 		$output .= '</div>';
