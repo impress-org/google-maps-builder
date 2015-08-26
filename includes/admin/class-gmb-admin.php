@@ -574,7 +574,7 @@ class Google_Maps_Builder_Admin {
 			'type'    => 'select',
 			'default' => 'true',
 			'options' => array(
-				'none' => __( 'None', $this->plugin_slug ),
+				'none' => __( 'Disabled', $this->plugin_slug ),
 				'true' => __( 'Standard', $this->plugin_slug ),
 			),
 		) );
