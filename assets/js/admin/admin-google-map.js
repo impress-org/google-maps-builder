@@ -1350,9 +1350,9 @@ var gmb_data;
 	 */
 	function set_map_zoom_control() {
 
-		var zoom_control = $( '#gmb_zoom_control' ).val().toUpperCase();
+		var zoom_control = $( '#gmb_zoom_control' ).val().toLowerCase();
 
-		if ( zoom_control == 'NONE' ) {
+		if ( zoom_control == 'none' ) {
 			map.setOptions( {
 				zoomControl: false
 			} );
@@ -1371,8 +1371,8 @@ var gmb_data;
 	 * Set Map Type Control
 	 */
 	function set_map_type_control() {
-		var map_type_control = $( '#gmb_map_type_control' ).val().toUpperCase();
-		if ( map_type_control == 'NONE' ) {
+		var map_type_control = $( '#gmb_map_type_control' ).val().toLowerCase();
+		if ( map_type_control == 'none' ) {
 			map.setOptions( {
 				mapTypeControl: false
 			} );
