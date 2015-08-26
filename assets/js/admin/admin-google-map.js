@@ -153,7 +153,7 @@ var gmb_data;
 		} );
 		//Map Theme
 		$( '#gmb_theme' ).change( function () {
-			set_map_theme( true );
+			set_map_theme();
 		} );
 		//street view
 		$( '#gmb_street_view' ).change( function () {
@@ -346,7 +346,7 @@ var gmb_data;
 		//Set various map view options
 		set_map_type( false );
 		if ( $( '#gmb_theme' ).val() !== 'none' ) {
-			set_map_theme( false );
+			set_map_theme();
 		}
 		set_street_view();
 		set_pan_control();
@@ -1492,18 +1492,26 @@ var gmb_data;
 	 * Uses Snazzy Maps JSON arrow to set the colors for the map
 	 *
 	 */
-	function set_map_theme( reset ) {
-		if ( reset === true ) {
-			$( '#gmb_type' ).val( 'RoadMap' );
-			$( '#gmb_theme_json' ).val( 'none' );
-			$( '.cmb2-id-gmb-theme-json' ).hide();
+	function set_map_theme() {
+
+		var preset_theme = $( '#gmb_theme' );
+		var custom_theme_json = $( '#gmb_theme_json' );
+		var map_type_select_field = $( '#gmb_type' );
+		var map_theme_input_val = parseInt( preset_theme.val() );
+
+		if ( preset_theme.val() !== 'none' ) {
+			map_type_select_field.val( 'RoadMap' ); //change Map Type view back to roadmap
 		}
+		//User set Snazzy theme to none
+		else {
+			custom_theme_json.val( '' ); //clear JSON field
+		}
+
 		//AJAX to get JSON data for Snazzy
 		$.getJSON( gmb_data.snazzy, function ( data ) {
 
-			var map_theme_input_val = parseInt( $( '#gmb_theme' ).val() );
 
-			if ( $( '#gmb_theme' ).val() === 'none' ) {
+			if ( preset_theme.val() === 'none' ) {
 				set_map_type();
 			}
 
@@ -1511,7 +1519,7 @@ var gmb_data;
 
 				if ( data[index].id === map_theme_input_val ) {
 					map_theme_input_val = eval( data[index].json );
-					$( '#gmb_theme_json' ).val( data[index].json );
+					custom_theme_json.val( data[index].json );
 				}
 
 			} );
