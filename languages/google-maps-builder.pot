@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Maps Builder 2.0\n"
 "Report-Msgid-Bugs-To: https://wordimpress.com/\n"
-"POT-Creation-Date: 2015-08-12 22:12:57+00:00\n"
+"POT-Creation-Date: 2015-08-27 17:20:54+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,44 +24,8 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: google-maps-builder.php:162 google-maps-builder.php:174
+#: google-maps-builder.php:161 google-maps-builder.php:173
 msgid "Cheatin&#8217; huh?"
-msgstr ""
-
-#: google-maps-builder.php:305
-msgid "Add New Map"
-msgstr ""
-
-#: google-maps-builder.php:306
-msgid "New Map"
-msgstr ""
-
-#: google-maps-builder.php:307
-msgid "Edit Map"
-msgstr ""
-
-#: google-maps-builder.php:308
-msgid "View Map"
-msgstr ""
-
-#: google-maps-builder.php:309
-msgid "All Maps"
-msgstr ""
-
-#: google-maps-builder.php:310
-msgid "Search Maps"
-msgstr ""
-
-#: google-maps-builder.php:311
-msgid "Parent Maps:"
-msgstr ""
-
-#: google-maps-builder.php:312
-msgid "No Maps found."
-msgstr ""
-
-#: google-maps-builder.php:313
-msgid "No Maps found in Trash."
 msgstr ""
 
 #: includes/admin/class-gmb-admin.php:87
@@ -72,796 +36,821 @@ msgstr ""
 msgid "Map Shortcode:"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:151
+#: includes/admin/class-gmb-admin.php:140
 msgid "Map Markers"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:158
+#: includes/admin/class-gmb-admin.php:147
 msgid "Create Marker"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:163
+#: includes/admin/class-gmb-admin.php:152
 msgid "Existing Markers"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:166
+#: includes/admin/class-gmb-admin.php:155
 msgid ""
 "Map marker data is contained within the repeatable fields below. You may "
 "add or update marker data here or directly on the map."
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:166
+#: includes/admin/class-gmb-admin.php:155
 msgid "Toggle Marker Groups"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:168
+#: includes/admin/class-gmb-admin.php:157
 msgid "Marker: {#}"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:169
+#: includes/admin/class-gmb-admin.php:158
 msgid "Add Another Marker"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:170
+#: includes/admin/class-gmb-admin.php:159
 msgid "Remove Marker"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:175
+#: includes/admin/class-gmb-admin.php:164
 msgid "Marker Title"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:180
+#: includes/admin/class-gmb-admin.php:169
 msgid "Marker Description"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:186
+#: includes/admin/class-gmb-admin.php:170
+msgid "Write a short description for this marker"
+msgstr ""
+
+#: includes/admin/class-gmb-admin.php:175
 msgid "Marker Reference"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:191
+#: includes/admin/class-gmb-admin.php:180
 msgid "Marker Place ID"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:196
+#: includes/admin/class-gmb-admin.php:185
 msgid "Hide Place Details"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:201
+#: includes/admin/class-gmb-admin.php:190
 msgid "Marker Latitude"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:206
+#: includes/admin/class-gmb-admin.php:195
 msgid "Marker Longitude"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:211
+#: includes/admin/class-gmb-admin.php:200
 msgid "Marker Image"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:217
+#: includes/admin/class-gmb-admin.php:206
 msgid "Add Marker Image"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:221
+#: includes/admin/class-gmb-admin.php:210
 msgid "Marker Data"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:227
+#: includes/admin/class-gmb-admin.php:216
 msgid "Marker Label Data"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:236
+#: includes/admin/class-gmb-admin.php:225
 msgid "Google Map Preview"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:244
+#: includes/admin/class-gmb-admin.php:233
 msgid "Map Preview"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:253
+#: includes/admin/class-gmb-admin.php:242
 msgid "Google Places"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:262
+#: includes/admin/class-gmb-admin.php:251
 msgid "Show Places?"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:263
+#: includes/admin/class-gmb-admin.php:252
 msgid ""
 "Display establishments, prominent points of interest, geographic locations, "
 "and more."
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:267
+#: includes/admin/class-gmb-admin.php:256
 #: includes/admin/class-gmb-settings.php:140
 #: includes/admin/class-gmb-settings.php:150
 #: includes/admin/class-gmb-settings.php:235
 msgid "Yes"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:268
+#: includes/admin/class-gmb-admin.php:257
 #: includes/admin/class-gmb-settings.php:141
 #: includes/admin/class-gmb-settings.php:151
 #: includes/admin/class-gmb-settings.php:237
 msgid "No"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:275
+#: includes/admin/class-gmb-admin.php:264
 msgid "Search Radius"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:276
+#: includes/admin/class-gmb-admin.php:265
 msgid ""
 "Defines the distance (in meters) within which to return Place results. The "
 "maximum allowed radius is 50,000 meters."
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:285
+#: includes/admin/class-gmb-admin.php:274
 msgid "Place Types"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:286
+#: includes/admin/class-gmb-admin.php:275
 msgid "Select which type of places you would like to display on this map."
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:290
+#: includes/admin/class-gmb-admin.php:279
 msgid "Accounting"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:291
+#: includes/admin/class-gmb-admin.php:280
 msgid "Airport"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:292
+#: includes/admin/class-gmb-admin.php:281
 msgid "Amusement Park"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:293
+#: includes/admin/class-gmb-admin.php:282
 msgid "Aquarium"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:294
+#: includes/admin/class-gmb-admin.php:283
 msgid "Art Gallery"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:295
+#: includes/admin/class-gmb-admin.php:284
 msgid "ATM"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:296
+#: includes/admin/class-gmb-admin.php:285
 msgid "Bakery"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:297
+#: includes/admin/class-gmb-admin.php:286
 msgid "Bank"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:298
+#: includes/admin/class-gmb-admin.php:287
 msgid "Bar"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:299
+#: includes/admin/class-gmb-admin.php:288
 msgid "Beauty Salon"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:300
+#: includes/admin/class-gmb-admin.php:289
 msgid "Bicycle Store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:301
+#: includes/admin/class-gmb-admin.php:290
 msgid "Book Store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:302
+#: includes/admin/class-gmb-admin.php:291
 msgid "Bowling Alley"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:303
+#: includes/admin/class-gmb-admin.php:292
 msgid "Bus Station"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:304
+#: includes/admin/class-gmb-admin.php:293
 msgid "Cafe"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:305
+#: includes/admin/class-gmb-admin.php:294
 msgid "Campground"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:306
+#: includes/admin/class-gmb-admin.php:295
 msgid "Car Dealer"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:307
+#: includes/admin/class-gmb-admin.php:296
 msgid "Car Rental"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:308
+#: includes/admin/class-gmb-admin.php:297
 msgid "Car Repair"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:309
+#: includes/admin/class-gmb-admin.php:298
 msgid "Car Wash"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:310
+#: includes/admin/class-gmb-admin.php:299
 msgid "Casino"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:311
+#: includes/admin/class-gmb-admin.php:300
 msgid "Cemetery"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:312
+#: includes/admin/class-gmb-admin.php:301
 msgid "Church"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:313
+#: includes/admin/class-gmb-admin.php:302
 msgid "City Hall"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:314
+#: includes/admin/class-gmb-admin.php:303
 msgid "Clothing Store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:315
+#: includes/admin/class-gmb-admin.php:304
 msgid "Convenience Store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:316
+#: includes/admin/class-gmb-admin.php:305
 msgid "Courthouse"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:317
+#: includes/admin/class-gmb-admin.php:306
 msgid "Dentist"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:318
+#: includes/admin/class-gmb-admin.php:307
 msgid "Department Store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:319
+#: includes/admin/class-gmb-admin.php:308
 msgid "Doctor"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:320
+#: includes/admin/class-gmb-admin.php:309
 msgid "Electrician"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:321
+#: includes/admin/class-gmb-admin.php:310
 msgid "Electronics Store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:322
+#: includes/admin/class-gmb-admin.php:311
 msgid "Embassy"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:323
+#: includes/admin/class-gmb-admin.php:312
 msgid "Establishment"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:324
+#: includes/admin/class-gmb-admin.php:313
 msgid "Finance"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:325
+#: includes/admin/class-gmb-admin.php:314
 msgid "Fire Station"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:326
+#: includes/admin/class-gmb-admin.php:315
 msgid "Florist"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:327
+#: includes/admin/class-gmb-admin.php:316
 msgid "Food"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:328
+#: includes/admin/class-gmb-admin.php:317
 msgid "Funeral Home"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:329
+#: includes/admin/class-gmb-admin.php:318
 msgid "Furniture_store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:330
+#: includes/admin/class-gmb-admin.php:319
 msgid "Gas Station"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:331
+#: includes/admin/class-gmb-admin.php:320
 msgid "General Contractor"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:332
+#: includes/admin/class-gmb-admin.php:321
 msgid "Grocery or Supermarket"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:333
+#: includes/admin/class-gmb-admin.php:322
 msgid "Gym"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:334
+#: includes/admin/class-gmb-admin.php:323
 msgid "Hair Care"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:335
+#: includes/admin/class-gmb-admin.php:324
 msgid "Hardware Store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:336
+#: includes/admin/class-gmb-admin.php:325
 msgid "Health"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:337
+#: includes/admin/class-gmb-admin.php:326
 msgid "Hindu Temple"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:338
+#: includes/admin/class-gmb-admin.php:327
 msgid "Home Goods Store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:339
+#: includes/admin/class-gmb-admin.php:328
 msgid "Hospital"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:340
+#: includes/admin/class-gmb-admin.php:329
 msgid "Insurance Agency"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:341
+#: includes/admin/class-gmb-admin.php:330
 msgid "Jewelry Store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:342
+#: includes/admin/class-gmb-admin.php:331
 msgid "Laundry"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:343
+#: includes/admin/class-gmb-admin.php:332
 msgid "Lawyer"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:344
+#: includes/admin/class-gmb-admin.php:333
 msgid "Library"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:345
+#: includes/admin/class-gmb-admin.php:334
 msgid "Liquor Store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:346
+#: includes/admin/class-gmb-admin.php:335
 msgid "Local Government Office"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:347
+#: includes/admin/class-gmb-admin.php:336
 msgid "Locksmith"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:348
+#: includes/admin/class-gmb-admin.php:337
 msgid "Lodging"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:349
+#: includes/admin/class-gmb-admin.php:338
 msgid "Meal Delivery"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:350
+#: includes/admin/class-gmb-admin.php:339
 msgid "Meal Takeaway"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:351
+#: includes/admin/class-gmb-admin.php:340
 msgid "Mosque"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:352
+#: includes/admin/class-gmb-admin.php:341
 msgid "Movie Rental"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:353
+#: includes/admin/class-gmb-admin.php:342
 msgid "Movie Theater"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:354
+#: includes/admin/class-gmb-admin.php:343
 msgid "Moving Company"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:355
+#: includes/admin/class-gmb-admin.php:344
 msgid "Museum"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:356
+#: includes/admin/class-gmb-admin.php:345
 msgid "Night Club"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:357
+#: includes/admin/class-gmb-admin.php:346
 msgid "Painter"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:358
+#: includes/admin/class-gmb-admin.php:347
 msgid "Park"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:359
+#: includes/admin/class-gmb-admin.php:348
 msgid "Parking"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:360
+#: includes/admin/class-gmb-admin.php:349
 msgid "Pet Store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:361
+#: includes/admin/class-gmb-admin.php:350
 msgid "Pharmacy"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:362
+#: includes/admin/class-gmb-admin.php:351
 msgid "Physiotherapist"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:363
+#: includes/admin/class-gmb-admin.php:352
 msgid "Place of Worship"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:364
+#: includes/admin/class-gmb-admin.php:353
 msgid "Plumber"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:365
+#: includes/admin/class-gmb-admin.php:354
 msgid "Police"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:366
+#: includes/admin/class-gmb-admin.php:355
 msgid "Post Office"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:367
+#: includes/admin/class-gmb-admin.php:356
 msgid "Real Estate Agency"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:368
+#: includes/admin/class-gmb-admin.php:357
 msgid "Restaurant"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:369
+#: includes/admin/class-gmb-admin.php:358
 msgid "Roofing Contractor"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:370
+#: includes/admin/class-gmb-admin.php:359
 msgid "RV Park"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:371
+#: includes/admin/class-gmb-admin.php:360
 msgid "School"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:372
+#: includes/admin/class-gmb-admin.php:361
 msgid "Shoe Store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:373
+#: includes/admin/class-gmb-admin.php:362
 msgid "Shopping Mall"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:374
+#: includes/admin/class-gmb-admin.php:363
 msgid "Spa"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:375
+#: includes/admin/class-gmb-admin.php:364
 msgid "Stadium"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:376
+#: includes/admin/class-gmb-admin.php:365
 msgid "Storage"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:377
+#: includes/admin/class-gmb-admin.php:366
 msgid "Store"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:378
+#: includes/admin/class-gmb-admin.php:367
 msgid "Subway Station"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:379
+#: includes/admin/class-gmb-admin.php:368
 msgid "Synagogue"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:380
+#: includes/admin/class-gmb-admin.php:369
 msgid "Taxi Stand"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:381
+#: includes/admin/class-gmb-admin.php:370
 msgid "Train Station"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:382
+#: includes/admin/class-gmb-admin.php:371
 msgid "Travel Agency"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:383
+#: includes/admin/class-gmb-admin.php:372
 msgid "University"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:384
+#: includes/admin/class-gmb-admin.php:373
 msgid "Veterinary Care"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:385
+#: includes/admin/class-gmb-admin.php:374
 msgid "Zoo"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:395
+#: includes/admin/class-gmb-admin.php:384
 msgid "Display Options"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:403
+#: includes/admin/class-gmb-admin.php:392
 #: includes/admin/class-gmb-settings.php:188
 msgid "Map Size"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:412
+#: includes/admin/class-gmb-admin.php:401
 #: includes/admin/class-gmb-settings.php:199
 msgid "Map Location"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:420
+#: includes/admin/class-gmb-admin.php:409
 msgid "Map Type"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:425
+#: includes/admin/class-gmb-admin.php:414
 msgid "Road Map"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:426
+#: includes/admin/class-gmb-admin.php:415
 msgid "Satellite"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:427
+#: includes/admin/class-gmb-admin.php:416
 msgid "Hybrid"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:428
+#: includes/admin/class-gmb-admin.php:417
 msgid "Terrain"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:434
+#: includes/admin/class-gmb-admin.php:423
 msgid ""
-"Set optional preconfigured styles. <a href=\"%s\" class=\"snazzy-link "
-"new-window\"  target=\"_blank\">Snazzy Maps</a>"
+"Set optional preconfigured %1$sSnazzy Maps%2$s styles. %3$sUpgrade to "
+"Pro%2$s for more styles and to set your own."
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:439
-#: includes/admin/class-gmb-admin.php:517
-#: includes/admin/class-gmb-admin.php:530
-#: includes/admin/class-gmb-admin.php:541
-#: includes/admin/class-gmb-admin.php:552
-#: includes/admin/class-gmb-admin.php:564
-#: includes/admin/class-gmb-admin.php:575
-#: includes/admin/class-gmb-admin.php:586
+#: includes/admin/class-gmb-admin.php:428
+#: includes/admin/class-gmb-admin.php:508
+#: includes/admin/class-gmb-admin.php:521
+#: includes/admin/class-gmb-admin.php:532
+#: includes/admin/class-gmb-admin.php:543
+#: includes/admin/class-gmb-admin.php:555
+#: includes/admin/class-gmb-admin.php:566
 msgid "None"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:440
+#: includes/admin/class-gmb-admin.php:429
 msgid "Aqua"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:441
+#: includes/admin/class-gmb-admin.php:430
 msgid "A Dark World"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:442
+#: includes/admin/class-gmb-admin.php:431
 msgid "Bluish"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:443
+#: includes/admin/class-gmb-admin.php:432
 msgid "Cool Grey"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:444
+#: includes/admin/class-gmb-admin.php:433
 msgid "Clean Cut"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:445
+#: includes/admin/class-gmb-admin.php:434
 msgid "Flat Green"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:446
+#: includes/admin/class-gmb-admin.php:435
 msgid "MapBox"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:447
+#: includes/admin/class-gmb-admin.php:436
 msgid "Muted Blue"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:448
+#: includes/admin/class-gmb-admin.php:437
 msgid "Old Timey"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:449
+#: includes/admin/class-gmb-admin.php:438
 msgid "Pale Dawn"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:450
+#: includes/admin/class-gmb-admin.php:439
 msgid "Paper"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:451
+#: includes/admin/class-gmb-admin.php:440
 msgid "Lunar Landscape"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:452
+#: includes/admin/class-gmb-admin.php:441
 msgid "Shade of Green"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:453
+#: includes/admin/class-gmb-admin.php:442
 msgid "Shift Worker"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:454
+#: includes/admin/class-gmb-admin.php:443
 msgid "Subtle Grayscale"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:455
+#: includes/admin/class-gmb-admin.php:444
 msgid "The Endless Atlas"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:469
+#: includes/admin/class-gmb-admin.php:448
+msgid "Map Theme JSON"
+msgstr ""
+
+#: includes/admin/class-gmb-admin.php:458
 msgid "Adjust the map zoom (0-21)"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:504
+#: includes/admin/class-gmb-admin.php:493
 msgid "Map Controls"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:512
+#: includes/admin/class-gmb-admin.php:501
 msgid "Zoom Control"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:518
+#: includes/admin/class-gmb-admin.php:502
+msgid "Test test 123"
+msgstr ""
+
+#: includes/admin/class-gmb-admin.php:509
 msgid "Small"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:519
+#: includes/admin/class-gmb-admin.php:510
 msgid "Large"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:520 includes/admin/views/markers.php:42
+#: includes/admin/class-gmb-admin.php:511 includes/admin/views/markers.php:42
 msgid "Default"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:525
+#: includes/admin/class-gmb-admin.php:516
 msgid "Street View"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:531
-#: includes/admin/class-gmb-admin.php:542
-#: includes/admin/class-gmb-admin.php:565
-#: includes/admin/class-gmb-admin.php:576
-#: includes/admin/class-gmb-admin.php:587
+#: includes/admin/class-gmb-admin.php:522
+#: includes/admin/class-gmb-admin.php:533
+#: includes/admin/class-gmb-admin.php:556
+#: includes/admin/class-gmb-admin.php:567
+#: includes/admin/class-gmb-admin.php:578
 msgid "Standard"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:536
+#: includes/admin/class-gmb-admin.php:527
 msgid "Pan Control"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:547
+#: includes/admin/class-gmb-admin.php:538
 msgid "Map Type Control"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:553
+#: includes/admin/class-gmb-admin.php:544
 msgid "Dropdown Menu"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:554
+#: includes/admin/class-gmb-admin.php:545
 msgid "Horizontal Bar"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:559
+#: includes/admin/class-gmb-admin.php:550
 msgid "Draggable Map"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:570
+#: includes/admin/class-gmb-admin.php:561
 msgid "Double Click to Zoom"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:581
+#: includes/admin/class-gmb-admin.php:572
 msgid "Mouse Wheel to Zoom"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:615
+#: includes/admin/class-gmb-admin.php:577
+msgid "Disabled"
+msgstr ""
+
+#: includes/admin/class-gmb-admin.php:606
 msgid "Width"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:624
+#: includes/admin/class-gmb-admin.php:615
 msgid "Height"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:632
+#: includes/admin/class-gmb-admin.php:623
 msgid "Configure the default map width and height."
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:660
+#: includes/admin/class-gmb-admin.php:651
 msgid "Latitude:"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:663
+#: includes/admin/class-gmb-admin.php:654
 msgid "Longitude:"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:666
+#: includes/admin/class-gmb-admin.php:657
 msgid "Lat/lng changed"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:666
+#: includes/admin/class-gmb-admin.php:657
 msgid "Update"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:690
+#: includes/admin/class-gmb-admin.php:681
 msgid ""
 "Enter the name of a place or an address above to create a map marker or "
 "%1$sDrop a Marker%2$s"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:711
+#: includes/admin/class-gmb-admin.php:697
 msgid "Loading Places"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:714
+#: includes/admin/class-gmb-admin.php:700
 msgid "Want more?"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:714
+#: includes/admin/class-gmb-admin.php:700
 msgid "Go Pro!"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:718
+#: includes/admin/class-gmb-admin.php:704
 msgid "Add Location"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:719 includes/class-gmb-scripts.php:370
+#: includes/admin/class-gmb-admin.php:705 includes/class-gmb-scripts.php:370
 msgid "Drop a Marker"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:720
+#: includes/admin/class-gmb-admin.php:706
 msgid "Goto Location"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:721
+#: includes/admin/class-gmb-admin.php:707
 msgid "Edit Map Title"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:724
+#: includes/admin/class-gmb-admin.php:710
 msgid "Set Lat/Lng"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:725
+#: includes/admin/class-gmb-admin.php:711
 msgid "Lat:"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:726
+#: includes/admin/class-gmb-admin.php:712
 msgid "Lng:"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:736
+#: includes/admin/class-gmb-admin.php:723
 msgid "Map Title"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:737
+#: includes/admin/class-gmb-admin.php:724
+msgid "Give your Map a descriptive title"
+msgstr ""
+
+#: includes/admin/class-gmb-admin.php:725
 msgid "Enter map title"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:743
+#: includes/admin/class-gmb-admin.php:735
 msgid "Enter a Location"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:768
+#: includes/admin/class-gmb-admin.php:736
+msgid ""
+"Type your point of interest below and the map will be re-centered over that "
+"location"
+msgstr ""
+
+#: includes/admin/class-gmb-admin.php:763
 msgid "Google Map Title"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:769
+#: includes/admin/class-gmb-admin.php:764
 msgid "Shortcode"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:770
+#: includes/admin/class-gmb-admin.php:765
 msgid "Creation Date"
 msgstr ""
 
@@ -946,7 +935,7 @@ msgstr ""
 msgid ""
 "When creating a new map the plugin will use your current longitude and "
 "latitude for the base location. If you see a blank space instead of the "
-"map, this is probably because you have denied permission for location "
+"map, this is most likely because you have denied permission for location "
 "sharing. You may also specify a default longitude and latitude by turning "
 "off this option."
 msgstr ""
@@ -1118,6 +1107,7 @@ msgid "Marker is ready to be set."
 msgstr ""
 
 #: includes/admin/views/settings-page.php:29
+#: includes/class-gmb-activate.php:177
 msgid "Welcome to Maps Builder"
 msgstr ""
 
@@ -1167,9 +1157,7 @@ msgid "General Settings"
 msgstr ""
 
 #: includes/admin/views/tab-general-settings.php:20
-msgid ""
-"The following settings allow you to customize how Google Maps Builder "
-"functions within WordPress."
+msgid "Customize how Google Maps Builder functions within WordPress."
 msgstr ""
 
 #: includes/admin/views/tab-map-options.php:19
@@ -1178,8 +1166,8 @@ msgstr ""
 
 #: includes/admin/views/tab-map-options.php:20
 msgid ""
-"The following settings change the default map options that display when "
-"created a new map."
+"The following settings allow you to customize how Google Maps Builder "
+"functions within WordPress."
 msgstr ""
 
 #: includes/admin/views/tab-system-info.php:20
@@ -1188,37 +1176,69 @@ msgid ""
 "requested from you for support reasons."
 msgstr ""
 
-#: includes/class-gmb-activate.php:175
-msgid "Welcome to the Maps Builder"
-msgstr ""
-
-#: includes/class-gmb-activate.php:176
+#: includes/class-gmb-activate.php:178
 msgid ""
 "Thank you for activating Maps Builder for WordPress. To stay up to date on "
 "the latest plugin updates, enhancements, and news please sign up for our "
 "newsletter."
 msgstr ""
 
-#: includes/class-gmb-activate.php:211
+#: includes/class-gmb-activate.php:213
 msgid "Introducing the Map Builder"
 msgstr ""
 
-#: includes/class-gmb-activate.php:212
+#: includes/class-gmb-activate.php:214
 msgid ""
-"We have upgraded your map building experience! Click here to experience the "
-"new interface. All controls are within your reach and the map always stays "
-"in view. If you like it, you can enable the view by default within the "
-"plugin settings. We hope you enjoy it!"
+"%1$sWe have upgraded your map building experience!%2$s Click here to "
+"experience the new interface. All controls are within your reach and the "
+"map always stays in view. If you like it, you can enable the view by "
+"default within the %3$splugin settings%4$s. We hope you enjoy it!"
+msgstr ""
+
+#: includes/class-gmb-activate.php:336
+msgid "Add New Map"
+msgstr ""
+
+#: includes/class-gmb-activate.php:337
+msgid "New Map"
+msgstr ""
+
+#: includes/class-gmb-activate.php:338
+msgid "Edit Map"
+msgstr ""
+
+#: includes/class-gmb-activate.php:339
+msgid "View Map"
+msgstr ""
+
+#: includes/class-gmb-activate.php:340
+msgid "All Maps"
+msgstr ""
+
+#: includes/class-gmb-activate.php:341
+msgid "Search Maps"
+msgstr ""
+
+#: includes/class-gmb-activate.php:342
+msgid "Parent Maps:"
+msgstr ""
+
+#: includes/class-gmb-activate.php:343
+msgid "No Maps found."
+msgstr ""
+
+#: includes/class-gmb-activate.php:344
+msgid "No Maps found in Trash."
 msgstr ""
 
 #: includes/class-gmb-scripts.php:229
 msgid ""
 "<strong>Google Maps Conflict Detected:</strong> It appears that a plugin or "
 "theme that you are using is including also Google Maps API JavaScript on "
-"your website. This means there will be a conflict with the Google Maps "
+"your website. This means there may be a conflict with the Google Maps "
 "Builder plugin. Please <a href=\"%1$s\" target=\"_blank\">dequeue</a> the "
 "additional Google Maps JavaScript call to return the plugin to a working "
-"state. "
+"state if you notice a problem. "
 msgstr ""
 
 #: includes/class-gmb-scripts.php:232
@@ -1249,6 +1269,14 @@ msgstr ""
 msgid "Click on the Map"
 msgstr ""
 
+#: includes/class-gmb-scripts.php:372
+msgid "Edit Marker"
+msgstr ""
+
+#: includes/class-gmb-scripts.php:373
+msgid "Delete Marker"
+msgstr ""
+
 #: includes/class-gmb-widget.php:59
 msgid "Maps Builder Widget"
 msgstr ""
@@ -1277,31 +1305,6 @@ msgstr ""
 msgid "Create stylish and powerful Google Maps quickly and easily."
 msgstr ""
 
-#: google-maps-builder.php:300
-msgctxt "post type general name"
-msgid "Google Maps"
-msgstr ""
-
-#: google-maps-builder.php:301
-msgctxt "post type singular name"
-msgid "Map"
-msgstr ""
-
-#: google-maps-builder.php:302
-msgctxt "admin menu"
-msgid "Google Maps"
-msgstr ""
-
-#: google-maps-builder.php:303
-msgctxt "add new on admin bar"
-msgid "Google Maps"
-msgstr ""
-
-#: google-maps-builder.php:304
-msgctxt "map"
-msgid "Add New"
-msgstr ""
-
 #: includes/admin/class-gmb-shortcode-generator.php:339
 msgctxt "all dropdown items"
 msgid "All"
@@ -1310,4 +1313,29 @@ msgstr ""
 #: includes/admin/class-gmb-shortcode-generator.php:340
 msgctxt "no dropdown items"
 msgid "None"
+msgstr ""
+
+#: includes/class-gmb-activate.php:331
+msgctxt "post type general name"
+msgid "Google Maps"
+msgstr ""
+
+#: includes/class-gmb-activate.php:332
+msgctxt "post type singular name"
+msgid "Map"
+msgstr ""
+
+#: includes/class-gmb-activate.php:333
+msgctxt "admin menu"
+msgid "Google Maps"
+msgstr ""
+
+#: includes/class-gmb-activate.php:334
+msgctxt "add new on admin bar"
+msgid "Google Maps"
+msgstr ""
+
+#: includes/class-gmb-activate.php:335
+msgctxt "map"
+msgid "Add New"
 msgstr ""
