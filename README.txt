@@ -8,14 +8,14 @@ Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-One Google Maps plugin to rule them all. Maps Builder is intuitive, sleek, powerful and easy to use. Forget the rest, use the best.
+The most flexible, robust, and easy to use WordPress plugin for creating powerful Google Maps directly on your website.
 
 == Description ==
 
 Maps Builder isn't just another Google Maps plugin. It's built from the ground up to be the easiest, most intuitive and fastest Google Maps plugin for WordPress. Visually build powerful customized Google Maps to use on your WordPress site quickly and easily without ever having to touch a bit of code.
 
 = Plugin Highlights: =
-
+* **Fullscreen Live Map Builder** - The Map Builder let's you edit fullscreen in a Customizer-like environment so you can see your map come to life right before your eyes.
 * **Google Places API integration** - Display nearby business locations and points of interest complete with ratings, custom marker icon
 * **Snazzy Maps integration** - Create truly unique Google Map themes that look great with any design powered by [Snazzy Maps](http://snazzymaps.com/).
 * **Unique Marker Icons** - The only plugin with [Map Icons](map-icons.com) integration; set icon and marker colors for truly unique markers
@@ -39,6 +39,19 @@ Fine tune your Google Maps with full control over settings for street view, zoom
 = Actively Developed and Supported =
 
 This plugin is actively developed and supported. This means you can expect an answer in the forums and consistent improvements and enhancements to the plugin itself. As well, we won't shy away from bug fixes or code refactoring and optimization.
+
+= You'll Love Maps Builder Pro =
+
+Maps Builder Pro gives you all that you love about Maps Builder Basic, plus lots of new and advanced features. Here's the highlights:
+
+* **Post Mashup** - Automatically populate markers on a map based on your own posts, pages, or custom post types [See Demo](http://mapsbuilder.wordimpress.com/demo/mashups/).
+* **Marker Clustering** - When zoomed out, show one "cluster" marker with a number to indicate how many markers are in close proximity [See Demo](http://mapsbuilder.wordimpress.com/demo/marker-clustering/).
+* **Layers** - Show Bicycle, Transit, and/or Traffic layers with one click on any map [See Demo](http://mapsbuilder.wordimpress.com/demo/transit-layer/).
+* **Custom Marker** - Upload your own custom marker for any marker in your map [See Demo](http://mapsbuilder.wordimpress.com/demo/marker-icons-flexibility/).
+* **Import/Export** - Import and Export all your maps or markers anywhere you like.
+* **Priority Support** - Maps Builder Pro users benefit from our Priority Support Forum. We go the extra mile for you and your website needs.
+
+[Upgrade to Maps Builder Pro Today!](https://wordimpress.com/plugins/maps-builder-pro/)
 
 == Installation ==
 
@@ -100,19 +113,23 @@ We always welcome your feedback for improvements or if you have uncovered a bug.
 
 = Who is behind this plugin? =
 
-The main developer of this plugin is WordImpress. To find out more information about the company and the people behind it please visit [the WordImpress website.](http://wordimpress.com)
+Maps Builder is developed and supported by [WordImpress](https://wordimpress.com). We build impressive Plugins and Themes for your WordPress website. Find out more about us and read more great tutorials at [https://wordimpress.com](https://wordimpress.com).
 
 == Screenshots ==
 
-1. **Google Map Builder** - A view of the single map view in the WordPress admin panel. Notice the autocomplete search field and "Drop a Marker" button.
+1. **Fullscreen Map Builder** - Build your map in an immersive fullscreen Customizer-like environment with live refresh and see your map built right in front of your eyes.
 
-2. **Editable Marker** - Customize the content of the map markers directly in the builder. Built to mock Google's own Maps Engine.
+2. **Add a new Marker with just a click** - Use the "Drop a Marker" function to add new markers with one click.
 
-3. **Custom Markers** - Configure a marker to fit your location. Easily adjust the marker, icon and color.
+3. **Customized Marker Images** - Configure a marker to fit your location. Easily adjust the marker, icon and color.
 
-4. **Frontend View** - A view the a map on the frontend of a WordPress site using the TwentyTwelve theme. This map displays various Google Places.
+4. **Frontend View** - A view the a map on the frontend of a WordPress site. This map shows the 45&deg; angle view with labels.
 
-5. **Settings Panel** - Adjust the various plugin settings using a UI that is built using WordPress' own styles.
+5. **Settings Panel** - The Maps Builder Pro Settings page. Maps Builder Basic includes these options, but not the "License" tab.
+
+== Upgrade Notice == 
+
+Maps Builder 2.0 is a significant upgrade. After you update, you'll see a notice to update your maps. Make sure to click that.
 
 == Changelog ==
 
@@ -124,7 +141,7 @@ The main developer of this plugin is WordImpress. To find out more information a
 * New: Upgrade process for maps using Google's old reference ID in place for the new Place_ID @see: https://github.com/WordImpress/google-maps-builder/issues/18
 * New: Switch and Test all Google Places API calls to "Reference ID" or "ID" to Google's new "Places ID"
 * New: Gulp implemented for minifying scripts
-* New: Uber cool new logo design and mascot (name coming soon for mascot!)
+* New: Uber cool new logo design and mascot: "Marko the Map Builder"
 * New: Control the map height with a new control to select percentage or pixel height values @see: https://github.com/WordImpress/google-maps-builder/issues/13
 * New: You can now choose whether or not you want to see the place info within your infowindows @see: https://github.com/WordImpress/google-maps-builder/issues/62
 * Improvement: Upgraded CMB1 to CMB2
