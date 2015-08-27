@@ -16,7 +16,8 @@
 */
 .google-maps-builder {
   width: 100%;
-  height: 500px; }
+  height: 500px;
+  min-height: 275px; }
 
 div[id^='google-maps-builder'] div#infobubble-content > div {
   white-space: normal; }
