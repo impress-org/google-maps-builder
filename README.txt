@@ -138,7 +138,7 @@ Maps Builder 2.0 is a significant upgrade. After you update, you'll see a notice
 == Changelog ==
 
 = 2.0.1 =
-* Fix: capitalization differences between images fixed
+* Fix: capitalization differences between images and html references fixed for default marker images
 
 = 2.0 =
 * General: This update focused on fixing a lot of pre-existing bugs commonly submitted to WordPress.org as well as improving the plugin base for future code enhancements.
