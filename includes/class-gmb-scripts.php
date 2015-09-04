@@ -21,10 +21,7 @@ class Google_Maps_Builder_Scripts {
 	 * Var for loading google maps api
 	 * Var for dependency
 	 */
-	protected $load_maps_api = true;
-
-	protected $load_maps_api_dep = 'jquery';
-
+	protected $google_maps_conflict = false;
 
 	/**
 	 * Constructor
@@ -39,11 +36,7 @@ class Google_Maps_Builder_Scripts {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
 
-		add_action( 'init', array( $this, 'register_gmap_scripts' ) );
-
-		add_action( 'wp_footer', array( $this, 'print_gmap_footer' ), 100 );
-
-		add_action( 'wp_head', array( $this, 'check_for_multiple_google_maps_api_calls' ) );
+		add_action( 'wp_print_scripts', array( $this, 'check_for_multiple_google_maps_api_calls' ) );
 
 
 		//Admin
@@ -75,6 +68,23 @@ class Google_Maps_Builder_Scripts {
 	 */
 	function load_frontend_scripts() {
 
+		//Google Maps API
+		$google_maps_settings     = get_option( 'gmb_settings' );
+		$google_maps_api_url_args = array(
+			'sensor'    => 'false',
+			'libraries' => 'places'
+		);
+		//Google Maps API key present?
+		if ( ! empty( $google_maps_settings['gmb_maps_api_key'] ) ) {
+			$google_maps_api_url_args['key'] = $google_maps_settings['gmb_maps_api_key'];
+		}
+
+		$google_maps_api_url = add_query_arg( $google_maps_api_url_args, 'https://maps.googleapis.com/maps/api/js?v=3.exp' );
+
+		wp_register_script( 'google-maps-builder-gmaps', $google_maps_api_url, array( 'jquery' ), false, true );
+		wp_enqueue_script( 'google-maps-builder-gmaps' );
+
+
 		$js_dir     = GMB_PLUGIN_URL . 'assets/js/frontend/';
 		$js_plugins = GMB_PLUGIN_URL . 'assets/js/plugins/';
 		$suffix     = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
@@ -82,6 +92,11 @@ class Google_Maps_Builder_Scripts {
 		// Use minified libraries if SCRIPT_DEBUG is turned off
 		wp_register_script( $this->plugin_slug . '-plugin-script', $js_dir . 'google-maps-builder' . $suffix . '.js', array( 'jquery' ), GMB_VERSION, true );
 		wp_register_script( 'google-maps-builder-maps-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/js/map-icons.js', array( 'jquery' ), GMB_VERSION, true );
+
+		wp_enqueue_script( 'google-maps-builder-gmaps' );
+		wp_enqueue_script( 'google-maps-builder-plugin-script' );
+		wp_enqueue_script( 'google-maps-builder-maps-icons' );
+
 		wp_localize_script( $this->plugin_slug . '-plugin-script', 'gmb_data', array() );
 
 
@@ -95,6 +110,7 @@ class Google_Maps_Builder_Scripts {
 	 */
 	function enqueue_frontend_styles() {
 
+		//Plugin Frontend Styles
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_register_style( 'google-maps-builder-plugin-styles', GMB_PLUGIN_URL . 'assets/css/google-maps-builder' . $suffix . '.css', array(), GMB_VERSION );
@@ -103,43 +119,9 @@ class Google_Maps_Builder_Scripts {
 		wp_register_style( 'google-maps-builder-map-icons', GMB_PLUGIN_URL . 'includes/libraries/map-icons/css/map-icons.css', array(), GMB_VERSION );
 		wp_enqueue_style( 'google-maps-builder-map-icons' );
 
-	}
-
-
-	/**
-	 * Register Gmaps Scripts
-	 *
-	 * @description We separate loading from Google's API for compatibility with other themes and plugins
-	 *
-	 */
-	function register_gmap_scripts() {
-
-		$google_maps_settings     = get_option( 'gmb_settings' );
-		$google_maps_api_url_args = array(
-			'sensor'    => 'false',
-			'libraries' => 'places'
-		);
-		//Google Maps API key present?
-		if ( ! empty( $google_maps_settings['gmb_maps_api_key'] ) ) {
-			$google_maps_api_url_args['key'] = $google_maps_settings['gmb_maps_api_key'];
-		}
-
-		$google_maps_api_url = add_query_arg( $google_maps_api_url_args, 'https://maps.googleapis.com/maps/api/js?v=3.exp' );
-
-		wp_register_script( 'google-maps-builder-gmaps', $google_maps_api_url, array( 'jquery' ) );
 
 	}
 
-	/**
-	 * Print Gmap Footer
-	 */
-	function print_gmap_footer() {
-		if ( $this->load_maps_api ) {
-			wp_print_scripts( 'google-maps-builder-gmaps' );
-		}
-		wp_print_scripts( 'google-maps-builder-plugin-script' );
-		wp_print_scripts( 'google-maps-builder-maps-icons' );
-	}
 
 	/**
 	 * Load Google Maps API
@@ -164,14 +146,12 @@ class Google_Maps_Builder_Scripts {
 				strpos( $registered_script->handle, 'google-maps-builder' ) === false
 			) {
 
-				if ( strpos( $registered_script->src, 'places' ) == false ) {
+				//Remove this script from loading
+				wp_deregister_script( $registered_script->handle );
+				wp_dequeue_script( $registered_script->handle );
 
-					$registered_script->src = $registered_script->src . '&libraries=places';
 
-				}
-
-				$this->load_maps_api     = false;
-				$this->load_maps_api_dep = $registered_script->handle;
+				$this->google_maps_conflict = true;
 				//ensure we can detect scripts on the frontend from backend; we'll use an option to do this
 				if ( ! is_admin() ) {
 					update_option( 'gmb_google_maps_conflict', true );
@@ -182,7 +162,7 @@ class Google_Maps_Builder_Scripts {
 		}
 
 		//Ensure that if user resolved conflict on frontend we remove the option flag
-		if ( $this->load_maps_api === false && ! is_admin() ) {
+		if ( $this->google_maps_conflict === false && ! is_admin() ) {
 			update_option( 'gmb_google_maps_conflict', false );
 		}
 
@@ -222,11 +202,11 @@ class Google_Maps_Builder_Scripts {
 
 		// Check that the user hasn't already clicked to ignore the message and that they have appropriate permissions
 		// And, most importantly, that Google Maps are actually being enqueued twice
-		if ( ! get_user_meta( $user_id, 'gmb_ignore_maps_notice' ) && current_user_can( 'install_plugins' ) && $this->load_maps_api === false || ! get_user_meta( $user_id, 'gmb_ignore_maps_notice' ) && current_user_can( 'install_plugins' ) && $gmb_google_maps_conflict === '1' ) {
+		if ( ! get_user_meta( $user_id, 'gmb_ignore_maps_notice' ) && current_user_can( 'install_plugins' ) && $this->google_maps_conflict === true || ! get_user_meta( $user_id, 'gmb_ignore_maps_notice' ) && current_user_can( 'install_plugins' ) && $gmb_google_maps_conflict === '1' ) {
 
 			echo '<div class="updated error clearfix"><p>';
 			parse_str( $_SERVER['QUERY_STRING'], $params );
-			printf( __( '<strong>Google Maps Conflict Detected:</strong> It appears that a plugin or theme that you are using is including also Google Maps API JavaScript on your website. This means there may be a conflict with the Google Maps Builder plugin. Please <a href="%1$s" target="_blank">dequeue</a> the additional Google Maps JavaScript call to return the plugin to a working state if you notice a problem. ' ), 'http://codex.wordpress.org/Function_Reference/wp_dequeue_script' );
+			_e( '<strong>Google Maps API Conflict Detected:</strong> It appears that a plugin or theme that you are using is also including the Google Maps API JavaScript on your website. This means there may be a conflict with the Maps Builder plugin. Please verify your maps are functioning properly prior to dismissing this notice.' );
 			echo '</p>';
 
 			printf( __( '<a href="%1$s" rel="nofollow" class="button" style="display:inline-block; margin: 0 0 10px;">Hide Warning</a>' ), '?' . http_build_query( array_merge( $params, array( 'gmb_ignore_maps_notice' => '0' ) ) ) );
@@ -387,9 +367,6 @@ class Google_Maps_Builder_Scripts {
 
 		wp_enqueue_style( 'dashicons' );
 
-
 	}
 
 }//end class
-
-
