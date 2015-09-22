@@ -2296,6 +2296,8 @@ Tooltips
 .clear:after {
   clear: both; }
 
+.google_maps_page_gmb_settings .nav-tab-wrapper {
+  clear: both; }
 .google_maps_page_gmb_settings .wrap {
   margin-left: -5px; }
 .google_maps_page_gmb_settings table.form-table {

@@ -18,11 +18,11 @@
 
 	<?php global $current_user;
 	$user_id = $current_user->ID;
-	//	delete_user_meta($user_id, 'gmb_hide_welcome' ); //ONLY FOR TESTING
+		delete_user_meta($user_id, 'gmb_hide_welcome' ); //ONLY FOR TESTING
 	// Check that the user hasn't already clicked to ignore the welcome message and that they have appropriate permissions
 	if ( ! get_user_meta( $user_id, 'gmb_hide_welcome' ) && current_user_can( 'install_plugins' ) ) {
 		?>
-		<div class="container welcome-header">
+		<div class="container welcome-header clear">
 			<div class="row">
 
 				<div class="col-md-9">

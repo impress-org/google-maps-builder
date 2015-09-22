@@ -23,10 +23,6 @@ div[id^='google-maps-builder'] div#infobubble-content > div {
   white-space: normal; }
 div[id^='google-maps-builder'] .gm-style-iw, div[id^='google-maps-builder'] .gm-style-iw > div, div[id^='google-maps-builder'] .gm-style-iw > div > div {
   overflow: visible !important; }
-div[id^='google-maps-builder'] .wf-loading *, div[id^='google-maps-builder'] .wf-inactive * {
-  visibility: hidden; }
-div[id^='google-maps-builder'] .wf-active * {
-  visibility: visible; }
 
 /* This fixes issues some themes have with embedded Google Maps (like Twenty Twelve) */
 div[id^='google-maps-builder'] img {
