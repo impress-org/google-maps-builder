@@ -3,7 +3,7 @@ Contributors: wordimpress, dlocc, webdevmattcrom
 Donate link: http://wordimpress.com/
 Tags: google maps, google map, google map widget, google map shortcode, maps, map, wp map, wp google maps, google maps directions, google maps builder, google maps plugin, google places, google places api, google maps api, google places reviews
 Requires at least: 4.0
-Tested up to: 4.3
+Tested up to: 4.3.1
 Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -136,6 +136,9 @@ Maps Builder is developed and supported by [WordImpress](https://wordimpress.com
 Maps Builder 2.0 is a significant upgrade. After you update, you'll see a notice to update your maps. Make sure to click that.
 
 == Changelog ==
+
+= 2.1 =
+* Fix: Improved Google Maps API Conditional Script Loading - https://github.com/WordImpress/google-maps-builder/issues/118
 
 = 2.0.1 =
 * Fix: capitalization differences between images and html references fixed for default marker images
