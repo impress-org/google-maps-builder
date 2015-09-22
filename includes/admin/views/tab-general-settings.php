@@ -11,9 +11,9 @@
 
 ?>
 
-<div class="container">
+<div class="gmb-container">
 	<div class="row">
-		<div class="col-md-10">
+		<div class="gmb-col-md-10">
 
 			<h3><?php _e( 'General Settings', $this->plugin_slug ); ?></h3>
 
@@ -21,7 +21,7 @@
 
 			<?php cmb2_metabox_form( $this->general_option_fields(), self::$key ); ?>
 		</div>
-		<div class="col-md-2">
+		<div class="gmb-col-md-2">
 
 				</div>
 	</div>

@@ -11,9 +11,9 @@
 
 ?>
 
-<div class="container">
+<div class="gmb-container">
 	<div class="row">
-		<div class="col-md-10">
+		<div class="gmb-col-md-10">
 
 			<h3><?php _e( 'System Info', $this->plugin_slug ); ?></h3>
 
@@ -24,7 +24,7 @@
 			</form>
 
 		</div>
-		<div class="col-md-2">
+		<div class="gmb-col-md-2">
 
 		</div>
 	</div>

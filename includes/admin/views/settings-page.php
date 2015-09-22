@@ -22,10 +22,10 @@
 	// Check that the user hasn't already clicked to ignore the welcome message and that they have appropriate permissions
 	if ( ! get_user_meta( $user_id, 'gmb_hide_welcome' ) && current_user_can( 'install_plugins' ) ) {
 		?>
-		<div class="container welcome-header clear">
+		<div class="gmb-container welcome-header clear">
 			<div class="row">
 
-				<div class="col-md-9">
+				<div class="gmb-col-md-9">
 					<h1 class="main-heading"><?php _e( 'Welcome to Maps Builder', $this->plugin_slug ); ?><?php echo Google_Maps_Builder()->meta['Version']; ?></h1>
 
 					<p class="main-subheading"><?php _e( 'Thanks for using Maps Builder', $this->plugin_slug ); ?> <?php echo Google_Maps_Builder()->meta['Version']; ?>. <?php echo sprintf( __( 'To get started, read over the %1$sdocumentation%2$s, take a gander at the settings, and build yourself some maps! If you enjoy this plugin please consider telling a friend, rating it %3$s5-stars%2$s, or purchasing the %4$sPro%2$s edition.', $this->plugin_slug ), '<a href="https://wordimpress.com/documentation/maps-builder-pro/" target="_blank">', '</a>', '<a href="https://wordpress.org/support/view/plugin-reviews/google-maps-builder?filter=5#postform" target="_blank">', '<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&amp;utm_medium=BANNER&amp;utm_content=SETTINGS&amp;utm_campaign=MBF%20Settings" target="_blank">' ); ?></p>
@@ -33,7 +33,7 @@
 
 				</div>
 
-				<div class="col-md-3">
+				<div class="gmb-col-md-3">
 					<div class="logo-svg">
 						<?php include( 'mascot-svg.php' ); ?>
 					</div>
