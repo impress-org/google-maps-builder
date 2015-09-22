@@ -139,6 +139,7 @@ Maps Builder 2.0 is a significant upgrade. After you update, you'll see a notice
 
 = 2.1 =
 * Fix: Improved Google Maps API Conditional Script Loading - https://github.com/WordImpress/google-maps-builder/issues/118
+* Fix: Updated Google logo to the latest version - https://github.com/WordImpress/google-maps-builder/issues/126
 
 = 2.0.1 =
 * Fix: capitalization differences between images and html references fixed for default marker images
