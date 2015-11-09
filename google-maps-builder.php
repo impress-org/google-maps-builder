@@ -216,7 +216,21 @@ if ( ! class_exists( 'Google_Maps_Builder' ) ) : /**
 		private function includes() {
 
 			require_once GMB_PLUGIN_PATH . 'includes/class-gmb-activate.php';
-			require_once GMB_PLUGIN_PATH . 'includes/libraries/metabox/init.php';
+
+			/**
+			 * Get the CMB2 bootstrap!
+			 *
+			 * @description: Checks to see if CMB2 plugin is installed first the uses included CMB2; we can still use it even it it's not active. This prevents fatal error conflicts with other themes and users of the CMB2 WP.org plugin
+			 *
+			 */
+			if ( file_exists( WP_PLUGIN_DIR . '/cmb2/init.php' ) && ! defined( 'CMB2_LOADED' ) ) {
+				require_once WP_PLUGIN_DIR . '/cmb2/init.php';
+			} elseif ( file_exists( GMB_PLUGIN_PATH . '/includes/libraries/metabox/init.php' ) && ! defined( 'CMB2_LOADED' ) ) {
+				require_once GMB_PLUGIN_PATH . '/includes/libraries/metabox/init.php';
+			} elseif ( file_exists( GMB_PLUGIN_PATH . '/includes/libraries/CMB2/init.php' ) && ! defined( 'CMB2_LOADED' ) ) {
+				require_once GMB_PLUGIN_PATH . '/includes/libraries/CMB2/init.php';
+			}
+
 			require_once GMB_PLUGIN_PATH . 'includes/class-gmb-scripts.php';
 			require_once GMB_PLUGIN_PATH . 'includes/class-gmb-widget.php';
 			require_once GMB_PLUGIN_PATH . 'includes/class-gmb-engine.php';
@@ -282,8 +296,6 @@ if ( ! class_exists( 'Google_Maps_Builder' ) ) : /**
 		public function get_plugin_slug() {
 			return $this->plugin_slug;
 		}
-
-
 
 
 	}

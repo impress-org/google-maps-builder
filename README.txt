@@ -137,6 +137,9 @@ Maps Builder 2.0 is a significant upgrade. After you update, you'll see a notice
 
 == Changelog ==
 
+= 2.1 =
+* Fix: Better way to include CMB2 so there's less conflicts
+
 = 2.0.2 =
 * Fix: Improved Google Maps API Conditional Script Loading - https://github.com/WordImpress/google-maps-builder/issues/118
 * Fix: Updated Google logo to the latest version - https://github.com/WordImpress/google-maps-builder/issues/126
