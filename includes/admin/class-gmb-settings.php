@@ -34,6 +34,10 @@ class Google_Maps_Builder_Settings extends Google_Maps_Builder_Core_Settings {
 
 		$this->plugin_slug = Google_Maps_Builder()->get_plugin_slug();
 		add_action( 'cmb2_render_lat_lng_default', array( $this, 'cmb2_render_lat_lng_default' ), 10, 2 );
+
+		//upsell markup
+		add_action( 'gmb_settings_page_after_logo', array( $this, 'settings_upsell' ) );
+		add_action( 'gmb_social_media_after_logo', array( $this, 'gmb_social_media_after_logo' ) );
 	}
 
 
@@ -115,6 +119,35 @@ https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNE
 		return $meta;
 	}
 
+	/**
+	 * Add upsell in settings page
+	 *
+	 * @since 2.1.0
+	 *
+	 * @uses "gmb_settings_page_after_logo" action
+	 */
+	public function  settings_upsell(){ ?>
+		<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=SETTINGS&utm_campaign=MBF%20Settings" target="_blank" class="button button-primary gmb-orange-btn gmb-settings-header-btn">
+			<?php _e( 'Upgrade to Pro', $this->plugin_slug ); ?>
+		</a>
+	<?php
+	}
+
+	/**
+	 * Add upsell in social media section
+	 *
+	 * @since 2.1.0
+	 *
+	 * @uses "gmb_social_media_after_logo" action
+	 */
+	public function settings_social_media_upsell(){?>
+		<div class="go-pro">
+			<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&amp;utm_medium=BANNER&amp;utm_content=SETTINGS&amp;utm_campaign=MBF%20Settings" target="_blank" class="button button-primary button-small gmb-orange-btn gmb-settings-header-btn">
+				<?php esc_html_e( 'Upgrade to Pro', 'google-maps-builder' ); ?>
+			</a>
+		</div>
+	<?php
+	}
 
 }
 
