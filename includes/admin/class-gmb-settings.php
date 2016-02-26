@@ -151,7 +151,7 @@ https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNE
 			'welcome' => sprintf( '%1s Maps Builder %s', __( 'Welcome to', 'maps-builder-pro' ), Google_Maps_Builder()->meta['Version']  ),
 			'sub_heading' => $this->sub_heading()
 		);
-		return $this->view_data( $data );
+		return $this->view_data( $data, true );
 	}
 
 	/**
