@@ -11,75 +11,14 @@
  * @link      http://wordimpress.com
  * @copyright 2015 WordImpress, Devin Walker
  */
-class Google_Maps_Builder_Engine {
+class Google_Maps_Builder_Engine extends  Google_Maps_Builder_Core_Engine {
 
 
-	/**
-	 * Google Maps Builder Engine
-	 *
-	 * Hooks and actions start here.
-	 *
-	 * @since     1.0.0
-	 */
-	public function __construct() {
-
-		$this->plugin_slug = Google_Maps_Builder()->get_plugin_slug();
-
-		// Filter to automatically add maps to post type content
-		add_filter( 'the_content', array( $this, 'the_content' ), 2 );
-
-		//add shortcode support
-		add_shortcode( 'google_maps', array( $this, 'google_maps_shortcode' ) );
-
+	public function __construct(){
+		parent::__construct();
+		add_action( 'gmb_public_view_bottom', array( $this, 'public_bottom' ), 10, 3 );
 	}
 
-	/**
-	 * Google Map display on Single Posts.
-	 *
-	 * the [google_maps] shortcode will be prepended/appended to the post body, once for each map
-	 * The shortcode is used so it can be filtered - for example WordPress will remove it in excerpts by default.
-	 *
-	 * @param $content
-	 *
-	 * @return mixed
-	 */
-	function the_content( $content ) {
-
-		global $post;
-
-		if ( is_main_query() && is_singular('google_maps') || is_post_type_archive('google_maps') ) {
-
-			$shortcode = '[google_maps ';
-			$shortcode .= 'id="' . $post->ID . '"';
-			$shortcode .= ']';
-
-			//Output shortcode
-			return $shortcode;
-
-		}
-
-		return $content;
-
-	}
-
-
-	/**
-	 * Single Template Function
-	 *
-	 * @param $single_template
-	 *
-	 * @return string
-	 */
-	public function get_google_maps_template( $single_template ) {
-
-		if ( file_exists( get_stylesheet_directory() . '/google-maps/' . $single_template ) ) {
-			$output = get_stylesheet_directory() . '/google-maps/' . $single_template;
-		} else {
-			$output = dirname( __FILE__ ) . '/views/' . $single_template;
-		}
-
-		return $output;
-	}
 
 
 	/**
@@ -168,37 +107,30 @@ class Google_Maps_Builder_Engine {
 	}
 
 	/**
-	 * Localize Scripts
+	 * Add addtional markup to the bottom of the public view
 	 *
-	 * @description: Add params to AJAX for Shortcode Usage
-	 * @see        : http://benjaminrojas.net/using-wp_localize_script-dynamically/
+	 * @since 2.1.0
 	 *
-	 * @param $localized_data
+	 * @uses "gmb_public_view_bottom" action
+	 *
+	 * @param $atts
+	 * @param $text_directions
+	 * @param $post
 	 */
-	function array_push_localized_script( $localized_data ) {
-		global $wp_scripts;
-		$data = $wp_scripts->get_data( $this->plugin_slug . '-plugin-script', 'data' );
+	public function public_bottom( $atts, $text_directions, $post ){ ?>
+		<div id="directions-panel-<?php echo $atts['id']; ?>" class="gmb-directions-panel panel-<?php echo $text_directions; ?>">
+			<div class="gmb-directions-toggle"><span class="gmb-directions-icon"><span class="gmb-hide-text"><?php _e( 'Toggle Directions', $this->plugin_slug ); ?></span></span></div>
+			<div class="gmb-directions-panel-inner"></div>
+		</div>
 
-		if ( empty( $data ) ) {
-			wp_localize_script( $this->plugin_slug . '-plugin-script', 'gmb_data', $localized_data );
-		} else {
-
-			if ( ! is_array( $data ) ) {
-
-				$data = json_decode( str_replace( 'var gmb_data = ', '', substr( $data, 0, - 1 ) ), true );
-
-			}
-
-			foreach ( $data as $key => $value ) {
-				$localized_data[ $key ] = $value;
-			}
-
-			$wp_scripts->add_data( $this->plugin_slug . '-plugin-script', 'data', '' );
-			wp_localize_script( $this->plugin_slug . '-plugin-script', 'gmb_data', $localized_data );
-
+		<?php
+		if ( isset( $localized_data[ $post->ID ]['places_search'][0] ) && $localized_data[ $post->ID ]['places_search'][0] === 'yes' ) {
+			include $this->get_google_maps_template( 'places-search.php' );
 		}
 
 	}
+
+
 
 
 }
