@@ -121,7 +121,6 @@ if ( ! class_exists( 'Google_Maps_Builder' ) ) :
 					self::$instance->scripts  = new Google_Maps_Builder_Scripts();
 					self::$instance->settings = new Google_Maps_Builder_Settings();
 					self::$instance->engine   = new Google_Maps_Builder_Engine();
-					self::$instance->html     = new Google_Maps_Builder_HTML_Elements();
 
 					register_activation_hook( __FILE__, array(
 						self::$instance->activate,
@@ -155,11 +154,6 @@ if ( ! class_exists( 'Google_Maps_Builder' ) ) :
 				$this->cmb2_load();
 				$this->load_files();
 				require_once GMB_PLUGIN_PATH . 'includes/class-gmb-scripts.php';
-
-				require_once GMB_PLUGIN_PATH . 'includes/class-gmb-license-handler.php';
-				require_once GMB_PLUGIN_PATH . 'includes/class-gmb-html-elements.php';
-
-				require_once GMB_PLUGIN_PATH . 'includes/admin/mashups/class-gmb-mashups-builder.php';
 
 				if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
 

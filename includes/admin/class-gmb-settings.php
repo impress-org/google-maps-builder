@@ -6,17 +6,6 @@
  */
 class Google_Maps_Builder_Settings extends Google_Maps_Builder_Core_Settings {
 
-
-	/**
-	 * Array of metaboxes/fields
-	 * @var array
-	 */
-	protected static $plugin_options = array();
-
-	public $plugin_slug;
-
-	public $options_page;
-
 	/**
 	 * Option key, and option page slug
 	 * @var string
