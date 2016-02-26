@@ -92,7 +92,7 @@ if ( ! class_exists( 'Google_Maps_Builder' ) ) :
 			 *
 			 * @var string
 			 */
-			protected $hide_welcome_key = 'gmb_hide_pro_welcome';
+			protected $hide_welcome_key = 'gmb_hide_welcome';
 
 			/**
 			 * Main Google_Maps_Builder Instance
