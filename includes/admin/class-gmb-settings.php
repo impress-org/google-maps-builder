@@ -138,5 +138,37 @@ https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNE
 	<?php
 	}
 
+	/**
+	 * Handle main data for the settings page
+	 *
+	 * @since 2.1.0
+	 *
+	 * @return array
+	 */
+	protected function settings_page_data(){
+		//place holder
+		$data = array(
+			'welcome' => sprintf( '%1s Maps Builder %s', __( 'Welcome to', 'maps-builder-pro' ), Google_Maps_Builder()->meta['Version']  ),
+			'sub_heading' => $this->sub_heading()
+		);
+		return $this->view_data( $data );
+	}
+
+	/**
+	 * Sub heading markup for settings page
+	 *
+	 * @since 2.1.0
+	 *
+	 * @return string
+	 */
+	protected function sub_heading(){
+		$out = __( 'Thanks for using Maps Builder', 'google-maps-pro' );
+		$out .=  sprintf( __( 'To get started, read over the %1$sdocumentation%2$s, take a gander at the settings, and build yourself some maps! If you enjoy this plugin please consider telling a friend, rating it %3$s5-stars%2$s, or purchasing the %4$sPro%2$s edition.', $this->plugin_slug ), '<a href="https://wordimpress.com/documentation/maps-builder-pro/" target="_blank">', '</a>', '<a href="https://wordpress.org/support/view/plugin-reviews/google-maps-builder?filter=5#postform" target="_blank">', '<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&amp;utm_medium=BANNER&amp;utm_content=SETTINGS&amp;utm_campaign=MBF%20Settings" target="_blank">' );
+
+		return $out;
+
+	}
+
+
 }
 
