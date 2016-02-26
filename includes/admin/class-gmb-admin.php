@@ -32,6 +32,7 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 
 		parent::__construct();
 		add_action( 'cmb2_render_google_maps_preview', array( $this, 'cmb2_render_google_maps_preview' ), 10, 2 );
+		add_action( 'gmb_after_widget_form', array( $this, 'widget_upsell' ) );
 
 	}
 
@@ -99,6 +100,25 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 		include( 'views/markers.php' );
 
 		echo apply_filters( 'google_maps_preview', $output );
+
+	}
+
+	/**
+	 * Add upsell to the widget form
+	 *
+	 * @since 2.1.0
+	 *
+	 * @uses "gmb_after_widget_form" action
+	 */
+	public function widget_upsell(){?>
+		<div class="gmb-widget-upgrade clear">
+			<span class="powered-by"></span>
+			<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=WIDGET&utm_campaign=MBF%20Widgets" target="_blank" class="button button-small">
+				<?php _e( 'Upgrade to Pro', $this->plugin_slug ); ?>
+				<span class="new-window"></span>
+			</a>
+		</div>
+		<?php
 
 	}
 
