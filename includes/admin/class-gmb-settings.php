@@ -26,7 +26,7 @@ class Google_Maps_Builder_Settings extends Google_Maps_Builder_Core_Settings {
 
 		//upsell markup
 		add_action( 'gmb_settings_page_after_logo', array( $this, 'settings_upsell' ) );
-		add_action( 'gmb_social_media_after_logo', array( $this, 'gmb_social_media_after_logo' ) );
+		add_action( 'gmb_social_media_after_logo', array( $this, 'settings_social_media_upsell' ) );
 	}
 
 

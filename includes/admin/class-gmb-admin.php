@@ -32,6 +32,15 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 
 		parent::__construct();
 		add_action( 'cmb2_render_google_maps_preview', array( $this, 'cmb2_render_google_maps_preview' ), 10, 2 );
+		// Load admin style sheet and JavaScript.
+		add_action( 'wp_ajax_hide_welcome', array( $this, 'hide_welcome_callback' ) );
+		add_action( 'cmb2_render_lat_lng_default', array( $this, 'cmb2_render_lat_lng_default' ), 10, 2 );
+
+		//Add links/information to plugin row meta
+		add_filter( 'plugin_row_meta', array( $this, 'add_plugin_meta_links' ), 10, 2 );
+		add_filter( 'plugin_action_links', array( $this, 'add_plugin_page_links' ), 10, 2 );
+		add_filter( 'cmb2_get_metabox_form_format', array( $this, 'gmb_modify_cmb2_form_output' ), 10, 3 );
+
 		add_action( 'gmb_after_widget_form', array( $this, 'widget_upsell' ) );
 
 	}
@@ -97,11 +106,37 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 		$output .= '<div class="warning-message wpgp-message"></div>';
 
 		//Markers Modal
-		include( 'views/markers.php' );
+		gmb_include_view( 'views/markers.php', false, $this->view_data() );
 
 		echo apply_filters( 'google_maps_preview', $output );
 
 	}
+
+	/**
+	 * Modify CMB2 Default Form Output
+	 *
+	 * @param string @args
+	 *
+	 * @since 2.0
+	 *
+	 * @param $form_format
+	 * @param $object_id
+	 * @param $cmb
+	 *
+	 * @return string
+	 */
+	function gmb_modify_cmb2_form_output( $form_format, $object_id, $cmb ) {
+
+		//only modify the give settings form
+		if ( 'gmb_settings' == $object_id && 'plugin_options' == $cmb->cmb_id ) {
+
+			return '<form class="cmb-form" method="post" id="%1$s" enctype="multipart/form-data" encoding="multipart/form-data"><input type="hidden" name="object_id" value="%2$s">%3$s<div class="gmb-submit-wrap"><input type="submit" name="submit-cmb" value="' . __( 'Save Settings', 'give' ) . '" class="button-primary"></div></form>';
+		}
+
+		return $form_format;
+
+	}
+
 
 	/**
 	 * Add upsell to the widget form
