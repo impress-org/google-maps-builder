@@ -171,7 +171,10 @@ module.exports = function ( grunt ) {
                     force: true
                 },
                 files: {
-                    src: [ 'releases/<%= pkg.name %>-<%= pkg.version %>.zip' ]
+                    src: [
+                        'releases/<%= pkg.name %>-<%= pkg.version %>.zip',
+                        'languages/<%= pkg.name %>.pot'
+                    ]
                 }
             }
         },

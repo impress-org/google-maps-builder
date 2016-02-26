@@ -19,6 +19,7 @@
     * Change version number in package.json
     * `grunt release`
     * This makes new zip, git tag and updates version number.
+    * NOTE: ZIP will only be committed to branch you are on, so you probably want to merge to master first.
 * Make a build with out a release
     * `grunt just_build`
     * This makes zip, but does not tag.
