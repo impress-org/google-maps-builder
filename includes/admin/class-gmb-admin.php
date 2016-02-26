@@ -34,7 +34,7 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 		add_action( 'cmb2_render_google_maps_preview', array( $this, 'cmb2_render_google_maps_preview' ), 10, 2 );
 		// Load admin style sheet and JavaScript.
 		add_action( 'wp_ajax_hide_welcome', array( $this, 'hide_welcome_callback' ) );
-		add_action( 'cmb2_render_lat_lng_default', array( $this, 'cmb2_render_lat_lng_default' ), 10, 2 );
+
 
 		//Add links/information to plugin row meta
 		add_filter( 'plugin_row_meta', array( $this, 'add_plugin_meta_links' ), 10, 2 );
@@ -136,6 +136,8 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 		return $form_format;
 
 	}
+
+
 
 
 	/**
