@@ -33,14 +33,22 @@ var old_source_paths = {
 /* Paths
  ------------------------------------- */
 var source_paths = {
-	admin_styles    : ['./assets/scss/**/gmb-admin.scss'],
-	plugin_styles    : ['./assets/scss/**/*.scss'],
-	frontend_styles : ['./assets/scss/frontend/maps-builder.scss'],
-	scripts         : ['./assets/js/**/*.js', '!./assets/js/**/*.min.js'],
-	frontend_scripts: [
-		'./assets/js/plugins/give-magnific.min.js',
-		'./assets/js/frontend/*.min.js' //Frontend scripts need to be loaded last
-	]
+	admin_styles    : ['./vendor/wordimpress/maps-builder-core/assets/scss/**/gmb-admin.scss'],
+	plugin_styles    : ['./vendor/wordimpress/maps-builder-core/assets/scss/**/*.scss'],
+	frontend_styles : ['./vendor/wordimpress/maps-builder-core/assets/scss/frontend/maps-builder.scss'],
+	scripts         : [
+        './assets/js/**/*.js',
+        '!./assets/js/**/*.min.js',
+        './vendor/wordimpress/maps-builder-core/assets/js/**/*.js',
+        '!./vendor/wordimpress/maps-builder-core/assets/js/**/*.min.js'
+    ],
+    frontend_scripts: [
+        './vendor/wordimpress/maps-builder-core/assets/assets/js/plugins/gmb-magnific.min.js',
+        '.js/frontend/*.min.js',
+        './vendor/wordimpress/maps-builder-core/assets/js/frontend/*.min.js'
+
+    ]
+
 };
 
 
@@ -150,6 +158,11 @@ var onError = function ( err ) {
 /* Default Gulp task
  ------------------------------------- */
 gulp.task( 'default', function () {
-	gulp.start( 'admin_styles', 'frontend_styles', 'scripts', 'watch' );
-	notify( {message: 'Default task complete'} )
+	gulp.start(
+        'admin_styles',
+        'frontend_styles',
+        'scripts',
+        'watch'
+    );
+	notify( {message: 'Default task complete for Google Maps Builder'} )
 } );
