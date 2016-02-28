@@ -28,8 +28,7 @@ class Google_Maps_Builder_Scripts extends Google_Maps_Builder_Core_Scripts_Init 
 	public function admin_hooks( $hook ){
 		global $post;
 		$js_dir = GMB_PLUGIN_URL . 'assets/js/admin/';
-		$js_plugins = GMB_PLUGIN_URL . 'assets/js/plugins/';
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		$suffix = $this->paths->suffix();
 
 		if ( ( $hook == 'post-new.php' || $hook == 'post.php' ) && 'google_maps' === $post->post_type ) {
 			//pro only
