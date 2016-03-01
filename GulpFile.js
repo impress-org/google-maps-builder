@@ -63,7 +63,7 @@ gulp.task( 'admin_styles', function () {
 		} ) )
 		.pipe( rename( 'gmb-admin.css' ) )
 		.pipe( sourcemaps.write( '.' ) )
-		.pipe( gulp.dest( './assets/css' ) )
+		.pipe( gulp.dest( './vendor/wordimpress/maps-builder-core/assets/css' ) )
 		.pipe( rename( 'gmb-admin.min.css' ) )
 		.pipe( minifyCSS() )
 		.pipe( sourcemaps.write() )
@@ -87,7 +87,7 @@ gulp.task( 'frontend_styles', function () {
 		} ) ) //compile SASS; ensure any errors don't stop gulp watch
 		.pipe( rename( 'google-maps-builder.css' ) ) //rename for our main un-minified file
 		.pipe( sourcemaps.write( '.' ) ) //write SCSS source maps to the appropriate plugin dir
-		.pipe( gulp.dest( './assets/css' ) ) //place compiled file in appropriate directory
+		.pipe( gulp.dest( './vendor/wordimpress/maps-builder-core/assets/css' ) ) //place compiled file in appropriate directory
 		.pipe( rename( 'google-maps-builder.min.css' ) ) //rename for our minified version
 		.pipe( minifyCSS() ) //actually minify the file
 		.pipe( sourcemaps.write( '' ) ) //write SCSS source maps to the appropriate plugin dir
@@ -108,7 +108,9 @@ gulp.task( 'scripts', function () {
 			preserveComments: 'false'
 		} ) )
 		.pipe( rename( {suffix: ".min"} ) )
-		.pipe( gulp.dest( 'assets/js' ) )
+        .pipe(gulp.dest(function(file) {
+            return file.base;
+        }))
 		.pipe( notify( {
 			message: 'Scripts task complete!',
 			onLast : true //only notify on completion of task (prevents multiple notifications per file)
@@ -125,7 +127,7 @@ gulp.task( 'watch', function () {
 	livereload.listen();
 
 	//Add watching on Admin SCSS-files
-	gulp.watch( 'assets/scss/admin/*.scss', function () {
+	gulp.watch( './vendor/wordimpress/maps-builder-core/assets/assets/scss/admin/*.scss', function () {
 		gulp.start( 'admin_styles' );
 	} );
 
@@ -166,3 +168,4 @@ gulp.task( 'default', function () {
     );
 	notify( {message: 'Default task complete for Google Maps Builder'} )
 } );
+
