@@ -12,8 +12,8 @@
     "minimum-stability": "dev",
     "repositories": [
       {
-        "type": "git",
-        "url": "https://github.com/WordImpress/maps-builder-core/"
+        "type": "vcs",
+        "url": "git@github.com:WordImpress/maps-builder-core.git"
       }
     ],
     "require": {
