@@ -16,9 +16,9 @@
 
 <div class="wrap">
 
-	<?php global $current_user;
+	<?php
+	global $current_user;
 	$user_id = $current_user->ID;
-		delete_user_meta($user_id, 'gmb_hide_welcome' ); //ONLY FOR TESTING
 	// Check that the user hasn't already clicked to ignore the welcome message and that they have appropriate permissions
 	if ( ! get_user_meta( $user_id, 'gmb_hide_welcome' ) && current_user_can( 'install_plugins' ) ) {
 		?>
@@ -61,11 +61,11 @@
 	 */
 	$active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'map_options';
 	?>
-	<h2 class="nav-tab-wrapper">
+	<h1 class="nav-tab-wrapper">
 		<a href="?post_type=google_maps&page=<?php echo self::$key; ?>" class="nav-tab <?php echo $active_tab == 'map_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Map Options', $this->plugin_slug ); ?></a>
 		<a href="?post_type=google_maps&page=<?php echo self::$key; ?>&tab=general_settings" class="nav-tab <?php echo $active_tab == 'general_settings' ? 'nav-tab-active' : ''; ?>"><?php _e( 'General Options', $this->plugin_slug ); ?></a>
 		<a href="?post_type=google_maps&page=<?php echo self::$key; ?>&tab=system_info" class="nav-tab <?php echo $active_tab == 'system_info' ? 'nav-tab-active' : ''; ?>"><?php _e( 'System Info', $this->plugin_slug ); ?></a>
-	</h2>
+	</h1>
 
 
 	<?php
