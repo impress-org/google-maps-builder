@@ -2296,8 +2296,6 @@ Tooltips
 .clear:after {
   clear: both; }
 
-.google_maps_page_gmb_settings .nav-tab-wrapper {
-  clear: both; }
 .google_maps_page_gmb_settings .wrap {
   margin-left: -5px; }
 .google_maps_page_gmb_settings table.form-table {
@@ -2360,6 +2358,7 @@ a.button.gmb-orange-btn, .gmb-orange-btn {
   -webkit-box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15);
   -moz-box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 1px 0 #f9c679, 0 1px 0 rgba(0, 0, 0, 0.15);
+  text-shadow:none;
   color: #FFF; }
   a.button.gmb-orange-btn:hover, a.button.gmb-orange-btn:disabled, .gmb-orange-btn:hover, .gmb-orange-btn:disabled {
     color: #FFF;
