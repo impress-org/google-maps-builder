@@ -131,20 +131,17 @@ Maps Builder is developed and supported by [WordImpress](https://wordimpress.com
 
 5. **Settings Panel** - The Maps Builder Pro Settings page. Maps Builder Basic includes these options, but not the "License" tab.
 
-== Upgrade Notice == 
-
-Maps Builder 2.0 is a significant upgrade. After you update, you'll see a notice to update your maps. Make sure to click that.
-
 == Changelog ==
 
-= 2.1 =
-* Fix: Better way to include CMB2 so there's less conflicts
-
 = 2.0.2 =
+* Fix: When the "Map Control Type" was set to none the controls would still appear on the map
+* Fix: Cluster markers changed from Google to Github so the URLs for the images are now updated
+* Fix: Better way to include CMB2 so there's fewer conflicts with other plugins that are using the same library
 * Fix: Improved Google Maps API Conditional Script Loading - https://github.com/WordImpress/google-maps-builder/issues/118
 * Fix: Updated Google logo to the latest version - https://github.com/WordImpress/google-maps-builder/issues/126
-* Fix: Settings Tabs are janked - https://github.com/WordImpress/google-maps-builder/issues/120
+* Fix: Settings Tabs are formatted incorrectly - https://github.com/WordImpress/google-maps-builder/issues/120
 * Fix: Admin Grid Styles Mess up Widgets Customizer Screen - https://github.com/WordImpress/google-maps-builder/issues/119
+* Tweak: Removed 'sensor' arguments to prevent Google's console "Google Maps API warning sensor is not required"
 
 = 2.0.1 =
 * Fix: capitalization differences between images and html references fixed for default marker images
