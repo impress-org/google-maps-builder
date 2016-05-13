@@ -71,7 +71,6 @@ class Google_Maps_Builder_Scripts {
 		//Google Maps API
 		$google_maps_settings     = get_option( 'gmb_settings' );
 		$google_maps_api_url_args = array(
-			'sensor'    => 'false',
 			'libraries' => 'places'
 		);
 		//Google Maps API key present?
@@ -282,7 +281,6 @@ class Google_Maps_Builder_Scripts {
 		//Builder Google Maps API URL
 		$google_maps_api_key      = gmb_get_option( 'gmb_maps_api_key' );
 		$google_maps_api_url_args = array(
-			'sensor'    => 'false',
 			'libraries' => 'places'
 		);
 		//Google Maps API key present?
