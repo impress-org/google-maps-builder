@@ -315,7 +315,7 @@ var gmb_data;
 		places_service = new google.maps.places.PlacesService( map );
 
 		//Handle Map Geolocation
-		if ( navigator.geolocation && gmb_data.geolocate_setting === 'yes' && longitude == '' && latitude == '' ) {
+		if ( navigator.geolocation && gmb_data.geolocate_setting === 'yes' && longitude == '' && latitude == '' && location.protocol === 'https:' ) {
 			navigator.geolocation.getCurrentPosition( function ( position ) {
 				initial_location = new google.maps.LatLng( position.coords.latitude, position.coords.longitude );
 				map.setCenter( initial_location ); //set map with location
