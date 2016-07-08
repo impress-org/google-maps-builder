@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Google Maps Admin
  *
@@ -9,7 +8,11 @@
  * @author    Devin Walker <devin@wordimpress.com>
  * @license   GPL-2.0+
  * @link      http://wordimpress.com
- * @copyright 2015 WordImpress, Devin Walker
+ * @copyright 2016 WordImpress, Devin Walker
+ */
+
+/**
+ * Class Google_Maps_Builder_Admin
  */
 class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 
@@ -31,14 +34,12 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 	public function __construct() {
 
 		parent::__construct();
+
 		add_action( 'cmb2_render_google_maps_preview', array( $this, 'cmb2_render_google_maps_preview' ), 10, 2 );
 		// Load admin style sheet and JavaScript.
 		add_action( 'wp_ajax_hide_welcome', array( $this, 'hide_welcome_callback' ) );
 
-
 		//Add links/information to plugin row meta
-		add_filter( 'plugin_row_meta', array( $this, 'add_plugin_meta_links' ), 10, 2 );
-		add_filter( 'plugin_action_links', array( $this, 'add_plugin_page_links' ), 10, 2 );
 		add_filter( 'cmb2_get_metabox_form_format', array( $this, 'gmb_modify_cmb2_form_output' ), 10, 3 );
 
 		add_action( 'gmb_after_widget_form', array( $this, 'widget_upsell' ) );
@@ -47,10 +48,14 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 
 	/**
 	 *  Custom Google Geocoder field
+	 *
 	 * @since  1.0.0
 	 */
 	function cmb2_render_google_maps_preview( $field, $meta ) {
+
+		/* @var $post */
 		global $post;
+
 		$meta            = wp_parse_args( $meta, array() );
 		$wh_value        = get_post_meta( $post->ID, 'gmb_width_height', true );
 		$lat_lng         = get_post_meta( $post->ID, 'gmb_lat_lng', true );
@@ -138,8 +143,6 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 	}
 
 
-
-
 	/**
 	 * Add upsell to the widget form
 	 *
@@ -147,7 +150,8 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 	 *
 	 * @uses "gmb_after_widget_form" action
 	 */
-	public function widget_upsell(){?>
+	public function widget_upsell() {
+		?>
 		<div class="gmb-widget-upgrade clear">
 			<span class="powered-by"></span>
 			<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=WIDGET&utm_campaign=MBF%20Widgets" target="_blank" class="button button-small">

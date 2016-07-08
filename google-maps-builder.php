@@ -44,13 +44,12 @@ if ( ! defined( 'GMB_PLUGIN_FILE' ) ) {
 }
 
 
-
 if ( ! class_exists( 'Google_Maps_Builder' ) ) :
 
 	/**
 	 * Load plugin if core lib is present
 	 */
-	if( ! file_exists( GMB_PLUGIN_PATH . 'vendor/wordimpress/maps-builder-core/core.php' ) ) {
+	if ( ! file_exists( GMB_PLUGIN_PATH . 'vendor/wordimpress/maps-builder-core/core.php' ) ) {
 		add_action( 'admin_notices', 'gmb_no_core_lib' );
 
 		/**
@@ -58,10 +57,10 @@ if ( ! class_exists( 'Google_Maps_Builder' ) ) :
 		 *
 		 * @uses "admin_notice" hook
 		 */
-		function gmb_no_core_lib(){
+		function gmb_no_core_lib() {
 			printf( '<div class="notice notice-error"><p>%s</p></div>', esc_html__( 'Your install of Maps Builder is missing its Composer dependencies and can not load.', 'maps-builder-pro' ) );
 		}
-	}else {
+	} else {
 		require_once GMB_PLUGIN_PATH . 'vendor/wordimpress/maps-builder-core/core.php';
 
 		/**
