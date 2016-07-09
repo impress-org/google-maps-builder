@@ -31,51 +31,6 @@ class Google_Maps_Builder_Settings extends Google_Maps_Builder_Core_Settings {
 
 
 	/**
-	 * CMB Lat Lng
-	 *
-	 * Custom CMB field for Gmap latitude and longitude
-	 *
-	 * @param $field
-	 * @param $meta
-	 */
-	function cmb2_render_lat_lng_default( $field, $meta ) {
-
-		$meta = wp_parse_args(
-			$meta, array(
-				'geolocate_map' => 'yes',
-				'latitude'      => '',
-				'longitude'     => '',
-			)
-		);
-
-		//Geolocate
-		$output = '<div id="geolocate-wrap" class="clear">';
-		$output .= '<label class="geocode-label size-label">' . __( 'Geolocate Position', $this->plugin_slug ) . ':</label>';
-		$output .= '<div class="geolocate-radio-wrap size-labels-wrap">';
-		$output .= '<label class="yes-label label-left"><input id="geolocate_map_yes" type="radio" name="' . $field->args['id'] . '[geolocate_map]" class="geolocate_map_radio radio-left" value="yes" ' . ( $meta['geolocate_map'] === 'yes' ? 'checked="checked"' : '' ) . '>' . __( 'Yes', $this->plugin_slug ) . '</label>';
-
-		$output .= '<label class="no-label label-left"><input id="geolocate_map_no" type="radio" name="' . $field->args['id'] . '[geolocate_map]" class="geolocate_map_radio radio-left" value="no" ' . ( $meta['geolocate_map'] === 'no' ? 'checked="checked"' : '' ) . ' >' . __( 'No', $this->plugin_slug ) . '</label>';
-		$output .= '</div>';
-		$output .= '</div>';
-
-		//lat_lng
-		$output .= '<div id="lat-lng-wrap"><div class="coordinates-wrap clear">';
-		$output .= '<div class="lat-lng-wrap lat-wrap clear"><span>' . __( 'Latitude', $this->plugin_slug ) . ': </span>
-						<input type="text" class="regular-text latitude" name="' . $field->args['id'] . '[latitude]" id="' . $field->args['id'] . '-latitude" value="' . ( $meta['latitude'] ? $meta['latitude'] : $field->args['lat_std'] ) . '" /></div><div class="lat-lng-wrap lng-wrap clear"><span>' . __( 'Longitude', $this->plugin_slug ) . ': </span>
-								<input type="text" class="regular-text longitude" name="' . $field->args['id'] . '[longitude]" id="' . $field->args['id'] . '-longitude" value="' . ( $meta['longitude'] ? $meta['longitude'] : $field->args['lng_std'] ) . '" />
-								</div>';
-		$output .= '<p class="small-desc">' . sprintf( __( 'For quick lat/lng lookup use <a href="%s" class="new-window"  target="_blank">this service</a>', $this->plugin_slug ), esc_url( 'http://www.latlong.net/' ) ) . '</p>';
-		$output .= '</div><!-- /.search-coordinates-wrap -->';
-		$output .= '</div>'; //end #geolocate-wrap
-		$output .= '<p class="cmb2-metabox-description">' . __( 'When creating a new map the plugin will use your current longitude and latitude for the base location. If you see a blank space instead of the map, this is probably because you have denied permission for location sharing. You may also specify a default longitude and latitude by turning off this option.', $this->plugin_slug ) . '</p>';
-
-
-		echo $output;
-
-
-	}
-
-	/**
 	 * Add links to Plugin listings view
 	 *
 	 * @param $links
