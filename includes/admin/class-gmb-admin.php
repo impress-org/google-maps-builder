@@ -42,7 +42,11 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 		//Add links/information to plugin row meta
 		add_filter( 'cmb2_get_metabox_form_format', array( $this, 'gmb_modify_cmb2_form_output' ), 10, 3 );
 
+		//Widget upsell
 		add_action( 'gmb_after_widget_form', array( $this, 'widget_upsell' ) );
+
+		//Useful class for free-only styling
+		add_filter( 'admin_body_class', array( $this, 'admin_body_classes' ) );
 
 	}
 
@@ -160,6 +164,26 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 			</a>
 		</div>
 		<?php
+
+	}
+
+
+	/**
+	 * Adds a Free
+	 *
+	 * @param  String $classes Current body classes.
+	 *
+	 * @return String          Altered body classes.
+	 */
+	function admin_body_classes( $classes ) {
+
+		global $post;
+
+		if ( isset( $post->post_type ) && $post->post_type == 'google_maps' ) {
+			$classes .= 'maps-builder-free';
+		}
+
+		return $classes;
 
 	}
 
