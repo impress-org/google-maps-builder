@@ -115,7 +115,7 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 		$output .= '<div class="warning-message wpgp-message"></div>';
 
 		//Markers Modal
-		gmb_include_view( 'views/markers.php', false, $this->view_data() );
+		gmb_include_view( 'admin/views/markers.php', false, $this->view_data() );
 
 		echo apply_filters( 'google_maps_preview', $output );
 
