@@ -49,6 +49,10 @@ class Google_Maps_Builder_Settings extends Google_Maps_Builder_Core_Settings {
 	}
 
 	/**
+	 * Add Plugin Meta Links
+	 *
+	 * @description: Adds links to the plugin listing page in wp-admin
+	 *
 	 * @param $meta
 	 * @param $file
 	 *
@@ -58,6 +62,7 @@ class Google_Maps_Builder_Settings extends Google_Maps_Builder_Core_Settings {
 
 		if ( $file == GMB_PLUGIN_BASE ) {
 			$meta[] = "<a href='http://wordpress.org/support/view/plugin-reviews/google-maps-builder' target='_blank' title='" . __( 'Rate Google Maps Builder on WordPress.org', $this->plugin_slug ) . "'>" . __( 'Rate Plugin', $this->plugin_slug ) . "</a>";
+			$meta[] = "<a href='https://wordimpress.com/documentation/maps-builder-pro/' target='_blank' title='" . __( 'View the plugin documentation', $this->plugin_slug ) . "'>" . __( 'Documentation', $this->plugin_slug ) . "</a>";
 			$meta[] = '<a href="http://wordpress.org/support/plugin/google-maps-builder/" target="_blank" title="' . __( 'Get plugin support via the WordPress community', $this->plugin_slug ) . '">' . __( 'Support', $this->plugin_slug ) . '</a>';
 			$meta[] = '<a href="
 https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=LISTING&utm_campaign=MBF%20LISTING" title="' . __( 'Upgrade to Maps Builder Pro', $this->plugin_slug ) . '" target="_blank">' . __( 'Upgrade to Pro', $this->plugin_slug ) . ' &raquo;</a>';
@@ -73,11 +78,11 @@ https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNE
 	 *
 	 * @uses "gmb_settings_page_after_logo" action
 	 */
-	public function  settings_upsell(){ ?>
+	public function settings_upsell() { ?>
 		<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNER&utm_content=SETTINGS&utm_campaign=MBF%20Settings" target="_blank" class="button button-primary gmb-orange-btn gmb-settings-header-btn">
 			<?php _e( 'Upgrade to Pro', $this->plugin_slug ); ?>
 		</a>
-	<?php
+		<?php
 	}
 
 	/**
@@ -87,13 +92,14 @@ https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNE
 	 *
 	 * @uses "gmb_social_media_after_logo" action
 	 */
-	public function settings_social_media_upsell(){?>
+	public function settings_social_media_upsell() {
+		?>
 		<div class="go-pro">
 			<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&amp;utm_medium=BANNER&amp;utm_content=SETTINGS&amp;utm_campaign=MBF%20Settings" target="_blank" class="button button-primary button-small gmb-orange-btn gmb-settings-header-btn">
 				<?php esc_html_e( 'Upgrade to Pro', 'google-maps-builder' ); ?>
 			</a>
 		</div>
-	<?php
+		<?php
 	}
 
 	/**
@@ -103,12 +109,13 @@ https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNE
 	 *
 	 * @return array
 	 */
-	protected function settings_page_data(){
+	protected function settings_page_data() {
 		//place holder
 		$data = array(
-			'welcome' => sprintf( '%1s Maps Builder %s', __( 'Welcome to', 'maps-builder-pro' ), Google_Maps_Builder()->meta['Version']  ),
+			'welcome'     => sprintf( '%1s Maps Builder %s', __( 'Welcome to', 'maps-builder-pro' ), Google_Maps_Builder()->meta['Version'] ),
 			'sub_heading' => $this->sub_heading()
 		);
+
 		return $this->view_data( $data, true );
 	}
 
@@ -119,9 +126,9 @@ https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNE
 	 *
 	 * @return string
 	 */
-	protected function sub_heading(){
+	protected function sub_heading() {
 		$out = __( 'Thanks for using Maps Builder', 'google-maps-pro' );
-		$out .=  sprintf( __( 'To get started, read over the %1$sdocumentation%2$s, take a gander at the settings, and build yourself some maps! If you enjoy this plugin please consider telling a friend, rating it %3$s5-stars%2$s, or purchasing the %4$sPro%2$s edition.', $this->plugin_slug ), '<a href="https://wordimpress.com/documentation/maps-builder-pro/" target="_blank">', '</a>', '<a href="https://wordpress.org/support/view/plugin-reviews/google-maps-builder?filter=5#postform" target="_blank">', '<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&amp;utm_medium=BANNER&amp;utm_content=SETTINGS&amp;utm_campaign=MBF%20Settings" target="_blank">' );
+		$out .= sprintf( __( 'To get started, read over the %1$sdocumentation%2$s, take a gander at the settings, and build yourself some maps! If you enjoy this plugin please consider telling a friend, rating it %3$s5-stars%2$s, or purchasing the %4$sPro%2$s edition.', $this->plugin_slug ), '<a href="https://wordimpress.com/documentation/maps-builder-pro/" target="_blank">', '</a>', '<a href="https://wordpress.org/support/view/plugin-reviews/google-maps-builder?filter=5#postform" target="_blank">', '<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&amp;utm_medium=BANNER&amp;utm_content=SETTINGS&amp;utm_campaign=MBF%20Settings" target="_blank">' );
 
 		return $out;
 
