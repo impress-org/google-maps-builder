@@ -11,14 +11,21 @@
  * @link      http://wordimpress.com
  * @copyright 2015 WordImpress, Devin Walker
  */
-class Google_Maps_Builder_Engine extends  Google_Maps_Builder_Core_Engine {
+
+/**
+ * Class Google_Maps_Builder_Engine
+ */
+class Google_Maps_Builder_Engine extends Google_Maps_Builder_Core_Engine {
 
 
-	public function __construct(){
+	/**
+	 * Google_Maps_Builder_Engine constructor.
+	 */
+	public function __construct() {
+
 		parent::__construct();
-		add_action( 'gmb_public_view_bottom', array( $this, 'public_bottom' ), 10, 3 );
-	}
 
+	}
 
 
 	/**
@@ -87,7 +94,7 @@ class Google_Maps_Builder_Engine extends  Google_Maps_Builder_Core_Engine {
 
 				),
 				'map_markers'      => $map_marker_array,
-				'plugin_url'          => GMB_PLUGIN_URL,
+				'plugin_url'       => GMB_PLUGIN_URL,
 				'places_api'       => array(
 					'show_places'   => ! empty( $all_meta['gmb_show_places'][0] ) ? $all_meta['gmb_show_places'][0] : 'no',
 					'search_radius' => ! empty( $all_meta['gmb_search_radius'][0] ) ? $all_meta['gmb_search_radius'][0] : '3000',
@@ -106,32 +113,6 @@ class Google_Maps_Builder_Engine extends  Google_Maps_Builder_Core_Engine {
 		return apply_filters( 'gmb_shortcode_output', ob_get_clean() );
 
 	}
-
-	/**
-	 * Add additional markup to the bottom of the public view
-	 *
-	 * @since 2.1.0
-	 *
-	 * @uses "gmb_public_view_bottom" action
-	 *
-	 * @param $atts
-	 * @param $text_directions
-	 * @param $post
-	 */
-	public function public_bottom( $atts, $text_directions, $post ){ ?>
-		<div id="directions-panel-<?php echo $atts['id']; ?>" class="gmb-directions-panel panel-<?php echo $text_directions; ?>">
-			<div class="gmb-directions-toggle"><span class="gmb-directions-icon"><span class="gmb-hide-text"><?php _e( 'Toggle Directions', $this->plugin_slug ); ?></span></span></div>
-			<div class="gmb-directions-panel-inner"></div>
-		</div>
-
-		<?php
-		if ( isset( $localized_data[ $post->ID ]['places_search'][0] ) && $localized_data[ $post->ID ]['places_search'][0] === 'yes' ) {
-			include $this->get_google_maps_template( 'places-search.php' );
-		}
-
-	}
-
-
 
 
 }
