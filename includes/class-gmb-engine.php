@@ -108,7 +108,7 @@ class Google_Maps_Builder_Engine extends  Google_Maps_Builder_Core_Engine {
 	}
 
 	/**
-	 * Add addtional markup to the bottom of the public view
+	 * Add additional markup to the bottom of the public view
 	 *
 	 * @since 2.1.0
 	 *
