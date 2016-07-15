@@ -87,6 +87,7 @@ class Google_Maps_Builder_Engine extends  Google_Maps_Builder_Core_Engine {
 
 				),
 				'map_markers'      => $map_marker_array,
+				'plugin_url'          => GMB_PLUGIN_URL,
 				'places_api'       => array(
 					'show_places'   => ! empty( $all_meta['gmb_show_places'][0] ) ? $all_meta['gmb_show_places'][0] : 'no',
 					'search_radius' => ! empty( $all_meta['gmb_search_radius'][0] ) ? $all_meta['gmb_search_radius'][0] : '3000',
