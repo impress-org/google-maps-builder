@@ -9,7 +9,7 @@ module.exports = function ( grunt ) {
 
 		checktextdomain: {
 			options: {
-				text_domain       : 'give',
+				text_domain       : 'google-maps-builder',
 				create_report_file: true,
 				keywords          : [
 					'__:1,2d',
@@ -87,7 +87,13 @@ module.exports = function ( grunt ) {
 			},
 			txpush_s: { // Push pot to Transifex - grunt exec:txpush_s
 				cmd: 'tx push -s'
-			}
+			},
+            composer_release_update: {
+                cmd: 'composer update --no-dev --optimize-autoloader --prefer-dist'
+            },
+            composer_update: {
+                cmd: 'composer update'
+            }
 		},
 
 		dirs: {
@@ -108,7 +114,115 @@ module.exports = function ( grunt ) {
 					nonull: true
 				}]
 			}
-		}
+		},
+
+        clean: {
+            post_build: [
+                'build/'
+            ],
+            pre_compress: [
+                'build/google-maps-builder/build/'
+            ]
+        },
+
+        compress: {
+            main: {
+                options: {
+                    mode: 'zip',
+                    archive: 'releases/<%= pkg.name %>-<%= pkg.version %>.zip'
+                },
+                expand: true,
+                cwd: 'build/',
+                src: [
+                    '**/*',
+                    '!build/*'
+                ]
+            }
+        },
+
+        copy: {
+            build: {
+                options: {
+                    mode: true
+                },
+                src: [
+                    '**',
+                    '!node_modules/**',
+                    '!releases',
+                    '!releases/**',
+                    '!.git/**',
+                    '!Gruntfile.js',
+                    '!GulpFile.js',
+                    '!package.json',
+                    '!.gitignore',
+                    '!.gitmodules',
+                    '!.gitattributes',
+                    '!composer.lock',
+                    '!.scrutinizer.yml',
+                    '!grunt-instructions.md'
+                ],
+                dest: 'build/<%= pkg.name %>/'
+            }
+        },
+
+        gitadd: {
+            add_zip: {
+                options: {
+                    force: true
+                },
+                files: {
+                    src: [
+                        'releases/<%= pkg.name %>-<%= pkg.version %>.zip',
+                        'languages/<%= pkg.name %>.pot'
+                    ]
+                }
+            }
+        },
+        gittag: {
+            addtag: {
+                options: {
+                    tag: '<%= pkg.version %>',
+                    message: 'Version <%= pkg.version %>'
+                }
+            }
+        },
+        gitcommit: {
+            commit: {
+                options: {
+                    message: 'Version <%= pkg.version %>',
+                    noVerify: true,
+                    noStatus: false,
+                    allowEmpty: true
+                },
+                files: {
+                    src: [ 'package.json', 'ingot.php', 'releases/<%= pkg.name %>-<%= pkg.version %>.zip' ]
+                }
+            }
+        },
+        gitpush: {
+            push: {
+                options: {
+                    tags: true,
+                    remote: 'origin',
+                    branch: 'master'
+                }
+            }
+        },
+        replace: {
+            core_file: {
+                src: [ 'google-maps-builder.php' ],
+                overwrite: true,
+                replacements: [{
+                    from: /Version:\s*(.*)/,
+                    to: "Version: <%= pkg.version %>"
+                }, {
+                    from: /define\(\s*'GMB_VERSION',\s*'(.*)'\s*\);/,
+                    to: "define( 'GMB_VERSION', '<%= pkg.version %>' );"
+                }]
+            }
+        }
+
+
 
 
 	} );
@@ -122,4 +236,16 @@ module.exports = function ( grunt ) {
 // Pull from Transifex and create .mo task(s).
 	grunt.registerTask( 'tx-pull', ['exec:txpull', 'potomo'] );
 
+// Setup dev environment, not doing much now, but when we add bower and such it will.
+    grunt.registerTask( 'setup-dev', [ 'exec:composer_update' ] );
+
+
+//release tasks
+    grunt.registerTask( 'version_number', [ 'replace:core_file' ] );
+    grunt.registerTask( 'pre_vcs', [ 'exec:composer_release_update', 'tx-push', 'version_number', 'copy', 'clean:pre_compress', 'compress' ] );
+    grunt.registerTask( 'do_git', [ 'gitadd', 'gitcommit', 'gittag', 'gitpush' ] );
+    grunt.registerTask( 'just_build', [  'exec:composer_release_update', 'copy', 'clean:pre_compress', 'compress', 'clean:post_build' ] );
+    grunt.registerTask( 'install', [ 'shell:activate' ] );
+
+    grunt.registerTask( 'release', [ 'pre_vcs', 'do_git', 'clean:post_build' ] );
 };

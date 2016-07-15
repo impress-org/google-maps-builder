@@ -1,0 +1,22 @@
+{
+  "name": "wordimpress/google-maps-builder",
+  "description": " Create stylish and powerful Google Maps quickly and easily.",
+  "type": "wordpress-plugin",
+  "license": "GLPv2+",
+  "authors": [
+    {
+      "name": "Devin Walker",
+      "email": "devin@wordimpress.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:WordImpress/maps-builder-core.git"
+    }
+  ],
+  "require": {
+    "wordimpress/maps-builder-core": "dev-master"
+  }
+}

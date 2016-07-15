@@ -1,0 +1,52 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "4149e68b5c5d88867be013dcb01d04a7",
+    "content-hash": "187fd3a3371f55c7362c42da9efbb78e",
+    "packages": [
+        {
+            "name": "wordimpress/maps-builder-core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:WordImpress/maps-builder-core.git",
+                "reference": "11a7977828fc302a6c04431736a6e1fea029d21c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WordImpress/maps-builder-core/zipball/11a7977828fc302a6c04431736a6e1fea029d21c",
+                "reference": "11a7977828fc302a6c04431736a6e1fea029d21c",
+                "shasum": ""
+            },
+            "type": "library",
+            "license": [
+                "GLPv2+"
+            ],
+            "authors": [
+                {
+                    "name": "Devin Walker",
+                    "email": "Devin@WordImpress.com"
+                }
+            ],
+            "description": "Shared code between Maps Builder Pro and free.",
+            "support": {
+                "source": "https://github.com/WordImpress/maps-builder-core/tree/master",
+                "issues": "https://github.com/WordImpress/maps-builder-core/issues"
+            },
+            "time": "2016-07-07 23:40:12"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "wordimpress/maps-builder-core": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

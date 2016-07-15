@@ -14,24 +14,31 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     autoprefixer = require('gulp-autoprefixer'),
     livereload = require('gulp-livereload'),
+    cssmin = require('gulp-cssmin'),
     del = require('del'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
-    minifyCSS = require('gulp-minify-css');
+    notify = require('gulp-notify');
 
 
 /* Paths
  ------------------------------------- */
 var source_paths = {
-    admin_styles: ['./assets/scss/**/gmb-admin.scss'],
-    plugin_styles: ['./assets/scss/**/*.scss'],
-    frontend_styles: ['./assets/scss/**/maps-builder.scss'],
-    scripts: ['./assets/js/**/*.js', '!./assets/js/**/*.min.js'],
+    admin_styles: ['./vendor/wordimpress/maps-builder-core/assets/scss/**/gmb-admin.scss'],
+    plugin_styles: ['./vendor/wordimpress/maps-builder-core/assets/scss/**/*.scss'],
+    frontend_styles: ['./vendor/wordimpress/maps-builder-core/assets/scss/frontend/maps-builder.scss'],
+    scripts: [
+        './assets/js/**/*.js',
+        '!./assets/js/**/*.min.js',
+        './vendor/wordimpress/maps-builder-core/assets/js/**/*.js',
+        '!./vendor/wordimpress/maps-builder-core/assets/js/**/*.min.js'
+    ],
     frontend_scripts: [
-        './assets/js/plugins/give-magnific.min.js',
-        './assets/js/frontend/*.min.js' //Frontend scripts need to be loaded last
+        './vendor/wordimpress/maps-builder-core/assets/assets/js/plugins/gmb-magnific.min.js',
+        '.js/frontend/*.min.js',
+        './vendor/wordimpress/maps-builder-core/assets/js/frontend/*.min.js'
     ]
+
 };
 
 
@@ -46,10 +53,10 @@ gulp.task('admin_styles', function () {
         }))
         .pipe(rename('gmb-admin.css'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./assets/css'))
+        .pipe(gulp.dest('./vendor/wordimpress/maps-builder-core/assets/css'))
         .pipe(rename('gmb-admin.min.css'))
-        .pipe(minifyCSS())
-        .pipe(sourcemaps.write())
+        .pipe(cssmin())
+        .pipe(gulp.dest('./vendor/wordimpress/maps-builder-core/assets/css'))
         .pipe(gulp.dest('./assets/css'))
         .pipe(livereload())
         .pipe(notify({
@@ -70,10 +77,10 @@ gulp.task('frontend_styles', function () {
         })) //compile SASS; ensure any errors don't stop gulp watch
         .pipe(rename('google-maps-builder.css')) //rename for our main un-minified file
         .pipe(sourcemaps.write('.')) //write SCSS source maps to the appropriate plugin dir
-        .pipe(gulp.dest('./assets/css')) //place compiled file in appropriate directory
+        .pipe(gulp.dest('./vendor/wordimpress/maps-builder-core/assets/css')) //place compiled file in appropriate directory
         .pipe(rename('google-maps-builder.min.css')) //rename for our minified version
-        .pipe(minifyCSS()) //actually minify the file
-        .pipe(sourcemaps.write('')) //write SCSS source maps to the appropriate plugin dir
+        .pipe(cssmin())
+        .pipe(gulp.dest('./vendor/wordimpress/maps-builder-core/assets/css')) //place the minified compiled file
         .pipe(gulp.dest('./assets/css')) //place the minified compiled file
         .pipe(livereload()) //reload browser
         .pipe(notify({
@@ -91,7 +98,9 @@ gulp.task('scripts', function () {
             preserveComments: 'false'
         }))
         .pipe(rename({suffix: ".min"}))
-        .pipe(gulp.dest('assets/js'))
+        .pipe(gulp.dest(function (file) {
+            return file.base;
+        }))
         .pipe(notify({
             message: 'Scripts task complete!',
             onLast: true //only notify on completion of task (prevents multiple notifications per file)
@@ -108,14 +117,14 @@ gulp.task('watch', function () {
     livereload.listen();
 
     //Add watching on Admin SCSS-files
-    gulp.watch('assets/scss/admin/*.scss', function () {
+    gulp.watch('./vendor/wordimpress/maps-builder-core/assets/scss/admin/*.scss', function () {
         gulp.start('admin_styles');
     });
 
     //Add watching on Frontend SCSS-files
-    //gulp.watch( 'assets/scss/frontend/*.scss', function () {
-    //	gulp.start( 'frontend_styles' );
-    //} );
+    gulp.watch('./vendor/wordimpress/maps-builder-core/assets/scss/frontend/*.scss', function () {
+        gulp.start('frontend_styles');
+    });
 
     //Add watching on JS files
     gulp.watch(source_paths.scripts, ['scripts']);
@@ -140,6 +149,12 @@ var onError = function (err) {
 /* Default Gulp task
  ------------------------------------- */
 gulp.task('default', function () {
-    gulp.start('admin_styles', 'frontend_styles', 'scripts', 'watch');
-    notify({message: 'Default task complete'})
+    gulp.start(
+        'admin_styles',
+        'frontend_styles',
+        'scripts',
+        'watch'
+    );
+    notify({message: 'Default task complete for Google Maps Builder'})
 });
+

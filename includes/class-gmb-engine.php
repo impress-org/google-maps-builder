@@ -11,74 +11,20 @@
  * @link      http://wordimpress.com
  * @copyright 2015 WordImpress, Devin Walker
  */
-class Google_Maps_Builder_Engine {
+
+/**
+ * Class Google_Maps_Builder_Engine
+ */
+class Google_Maps_Builder_Engine extends Google_Maps_Builder_Core_Engine {
 
 
 	/**
-	 * Google Maps Builder Engine
-	 *
-	 * Hooks and actions start here.
-	 *
-	 * @since     1.0.0
+	 * Google_Maps_Builder_Engine constructor.
 	 */
 	public function __construct() {
 
-		$this->plugin_slug = Google_Maps_Builder()->get_plugin_slug();
+		parent::__construct();
 
-		// Filter to automatically add maps to post type content
-		add_filter( 'the_content', array( $this, 'the_content' ), 2 );
-
-		//add shortcode support
-		add_shortcode( 'google_maps', array( $this, 'google_maps_shortcode' ) );
-
-	}
-
-	/**
-	 * Google Map display on Single Posts.
-	 *
-	 * the [google_maps] shortcode will be prepended/appended to the post body, once for each map
-	 * The shortcode is used so it can be filtered - for example WordPress will remove it in excerpts by default.
-	 *
-	 * @param $content
-	 *
-	 * @return mixed
-	 */
-	function the_content( $content ) {
-
-		global $post;
-
-		if ( is_main_query() && is_singular('google_maps') || is_post_type_archive('google_maps') ) {
-
-			$shortcode = '[google_maps ';
-			$shortcode .= 'id="' . $post->ID . '"';
-			$shortcode .= ']';
-
-			//Output shortcode
-			return $shortcode;
-
-		}
-
-		return $content;
-
-	}
-
-
-	/**
-	 * Single Template Function
-	 *
-	 * @param $single_template
-	 *
-	 * @return string
-	 */
-	public function get_google_maps_template( $single_template ) {
-
-		if ( file_exists( get_stylesheet_directory() . '/google-maps/' . $single_template ) ) {
-			$output = get_stylesheet_directory() . '/google-maps/' . $single_template;
-		} else {
-			$output = dirname( __FILE__ ) . '/views/' . $single_template;
-		}
-
-		return $output;
 	}
 
 
@@ -148,6 +94,7 @@ class Google_Maps_Builder_Engine {
 
 				),
 				'map_markers'      => $map_marker_array,
+				'plugin_url'       => GMB_PLUGIN_URL,
 				'places_api'       => array(
 					'show_places'   => ! empty( $all_meta['gmb_show_places'][0] ) ? $all_meta['gmb_show_places'][0] : 'no',
 					'search_radius' => ! empty( $all_meta['gmb_search_radius'][0] ) ? $all_meta['gmb_search_radius'][0] : '3000',
@@ -164,39 +111,6 @@ class Google_Maps_Builder_Engine {
 		include $this->get_google_maps_template( 'public.php' );
 
 		return apply_filters( 'gmb_shortcode_output', ob_get_clean() );
-
-	}
-
-	/**
-	 * Localize Scripts
-	 *
-	 * @description: Add params to AJAX for Shortcode Usage
-	 * @see        : http://benjaminrojas.net/using-wp_localize_script-dynamically/
-	 *
-	 * @param $localized_data
-	 */
-	function array_push_localized_script( $localized_data ) {
-		global $wp_scripts;
-		$data = $wp_scripts->get_data( $this->plugin_slug . '-plugin-script', 'data' );
-
-		if ( empty( $data ) ) {
-			wp_localize_script( $this->plugin_slug . '-plugin-script', 'gmb_data', $localized_data );
-		} else {
-
-			if ( ! is_array( $data ) ) {
-
-				$data = json_decode( str_replace( 'var gmb_data = ', '', substr( $data, 0, - 1 ) ), true );
-
-			}
-
-			foreach ( $data as $key => $value ) {
-				$localized_data[ $key ] = $value;
-			}
-
-			$wp_scripts->add_data( $this->plugin_slug . '-plugin-script', 'data', '' );
-			wp_localize_script( $this->plugin_slug . '-plugin-script', 'gmb_data', $localized_data );
-
-		}
 
 	}
 

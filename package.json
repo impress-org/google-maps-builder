@@ -1,13 +1,26 @@
 {
   "name": "google-maps-builder",
-  "version": "1.0.0",
+  "version": "2.1.0-b-1",
   "description": "Contributors: dlocc, wordimpress Donate link: http://wordimpress.com/ Tags: google maps, google map, google map widget, google map shortcode, maps, map, wp map, wp google maps, google maps directions, google maps builder, google maps plugin, google places, google places api, google maps api, google places reviews Requires at least: 3.6 Tested up to: 3.9.1 Stable tag: 1.0.1 License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html",
   "main": "index.js",
   "dependencies": {
     "gulp-install": "^0.4.0"
   },
   "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-watch": "^4.2.4",
+    "gulp-autoprefixer": "^2.0.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.5.0",
     "del": "^1.2.0",
+    "gulp-concat": "~2.1.7",
+    "gulp-plumber": "~0.6.6",
+    "gulp-util": "^3.0.1",
+    "gulp-livereload": "^3.0.0",
     "grunt": "~0.4.5",
     "grunt-checktextdomain": "^0.1.1",
     "grunt-contrib-clean": "~0.5.0",
@@ -16,20 +29,9 @@
     "grunt-exec": "~0.4.5",
     "grunt-potomo": "~2.1.0",
     "grunt-wp-i18n": "~0.5.0",
-    "gulp": "^3.8.11",
-    "gulp-autoprefixer": "^2.0.0",
-    "gulp-concat": "~2.1.7",
-    "gulp-livereload": "^3.0.0",
-    "gulp-minify-css": "^1.1.1",
-    "gulp-notify": "^2.2.0",
-    "gulp-plumber": "~0.6.6",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.1",
-    "gulp-sourcemaps": "^1.5.0",
-    "gulp-uglify": "^1.2.0",
-    "gulp-util": "^3.0.1",
-    "gulp-watch": "^4.2.4",
-    "load-grunt-tasks": "~0.2.0"
+    "load-grunt-tasks": "~0.2.0",
+    "grunt-git": "^0.3.3",
+    "grunt-text-replace": "^0.4.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

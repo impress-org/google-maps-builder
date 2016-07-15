@@ -4,6 +4,8 @@
 
 One WordPress Google Maps plugin to rule them all. Maps Builder is intuitive, sleek, powerful and easy to use. Forget the rest, use the best.
 
+* IMPORTANT: You must follow [grunt instructions](https://github.com/WordImpress/Google-Maps-Builder/blob/master/grunt-instructions.md) to use this repo. You may also download the latest ZIP file from the [releases directory](https://github.com/WordImpress/Google-Maps-Builder/tree/master/releases).
+
 ## Description
 
 Maps Builder isn't just another Google Maps plugin. It's built from the ground up to be the easiest, most intuitive, and fastest Google Maps plugin for WordPress. Visually build powerful customized Google Maps to use on your WordPress site quickly and easily without ever having to touch a bit of code.

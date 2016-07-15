@@ -3,7 +3,7 @@ Contributors: wordimpress, dlocc, webdevmattcrom
 Donate link: http://wordimpress.com/
 Tags: google maps, google map, google map widget, google map shortcode, maps, map, wp map, wp google maps, google maps directions, google maps builder, google maps plugin, google places, google places api, google maps api, google places reviews
 Requires at least: 4.0
-Tested up to: 4.5.2
+Tested up to: 4.3.1
 Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,7 +24,7 @@ Maps Builder isn't just another Google Maps plugin. It's built from the ground u
 * **Optimized** - All scripts and styles are optimized and packaged with Grunt
 * **No notices or warnings** We developed this plugins in debug mode. This results in high quality plugins with no errors, warnings or notices.
 
-**[Check out the Plugin Demo](http://mapsbuilder.wordimpress.com/)**
+**[Check out the Plugin Demo](https://mapsbuilder.wordimpress.com/)**
 
 **Want more? [Upgrade to Maps Builder Pro Today!](https://wordimpress.com/plugins/maps-builder-pro/)**
 
@@ -131,17 +131,20 @@ Maps Builder is developed and supported by [WordImpress](https://wordimpress.com
 
 5. **Settings Panel** - The Maps Builder Pro Settings page. Maps Builder Basic includes these options, but not the "License" tab.
 
+== Upgrade Notice == 
+
+Maps Builder 2.0 is a significant upgrade. After you update, you'll see a notice to update your maps. Make sure to click that.
+
 == Changelog ==
 
+= 2.1 =
+* Fix: Better way to include CMB2 so there's less conflicts
+
 = 2.0.2 =
-* Fix: When the "Map Control Type" was set to none the controls would still appear on the map
-* Fix: Cluster markers changed from Google to Github so the URLs for the images are now updated
-* Fix: Better way to include CMB2 so there's fewer conflicts with other plugins that are using the same library
 * Fix: Improved Google Maps API Conditional Script Loading - https://github.com/WordImpress/google-maps-builder/issues/118
 * Fix: Updated Google logo to the latest version - https://github.com/WordImpress/google-maps-builder/issues/126
-* Fix: Settings Tabs are formatted incorrectly - https://github.com/WordImpress/google-maps-builder/issues/120
+* Fix: Settings Tabs are janked - https://github.com/WordImpress/google-maps-builder/issues/120
 * Fix: Admin Grid Styles Mess up Widgets Customizer Screen - https://github.com/WordImpress/google-maps-builder/issues/119
-* Tweak: Removed 'sensor' arguments to prevent Google's console "Google Maps API warning sensor is not required"
 
 = 2.0.1 =
 * Fix: capitalization differences between images and html references fixed for default marker images
