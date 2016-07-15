@@ -2,9 +2,9 @@
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Maps Builder 2.1.0-b-1\n"
+"Project-Id-Version: Maps Builder 2.1\n"
 "Report-Msgid-Bugs-To: https://wordimpress.com/\n"
-"POT-Creation-Date: 2016-02-26 21:15:16+00:00\n"
+"POT-Creation-Date: 2016-07-15 00:46:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,200 +24,157 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: google-maps-builder.php:62
+#: google-maps-builder.php:61
 msgid ""
 "Your install of Maps Builder is missing its Composer dependencies and can "
 "not load."
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:59
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:782
+#: includes/admin/class-gmb-admin.php:68
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:786
 msgid "Loading Places"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:62
+#: includes/admin/class-gmb-admin.php:71
 msgid "Want more?"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:62
+#: includes/admin/class-gmb-admin.php:71
 msgid "Go Pro!"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:66
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:788
+#: includes/admin/class-gmb-admin.php:75
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:792
 msgid "Add Location"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:67
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:789
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:168
+#: includes/admin/class-gmb-admin.php:76
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:793
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:169
 msgid "Drop a Marker"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:68
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:790
+#: includes/admin/class-gmb-admin.php:77
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:794
 msgid "Goto Location"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:69
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:791
+#: includes/admin/class-gmb-admin.php:78
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:795
 msgid "Edit Map Title"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:72
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:794
+#: includes/admin/class-gmb-admin.php:81
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:798
 msgid "Set Lat/Lng"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:73
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:795
+#: includes/admin/class-gmb-admin.php:82
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:799
 msgid "Lat:"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:74
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:796
+#: includes/admin/class-gmb-admin.php:83
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:800
 msgid "Lng:"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:85
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:805
+#: includes/admin/class-gmb-admin.php:94
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:809
 msgid "Map Title"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:86
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:806
+#: includes/admin/class-gmb-admin.php:95
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:810
 msgid "Give your Map a descriptive title"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:87
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:807
+#: includes/admin/class-gmb-admin.php:96
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:811
 msgid "Enter map title"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:97
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:818
+#: includes/admin/class-gmb-admin.php:106
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:822
 msgid "Enter a Location"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:98
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:819
+#: includes/admin/class-gmb-admin.php:107
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:823
 msgid ""
 "Type your point of interest below and the map will be re-centered over that "
 "location"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:133
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:365
+#: includes/admin/class-gmb-admin.php:142
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:371
 msgid "Save Settings"
 msgstr ""
 
-#: includes/admin/class-gmb-admin.php:154
-#: includes/admin/class-gmb-settings.php:92
-#: includes/admin/class-gmb-settings.php:120
-#: includes/admin/class-gmb-settings.php:135
+#: includes/admin/class-gmb-admin.php:162
+#: includes/admin/class-gmb-settings.php:68
+#: includes/admin/class-gmb-settings.php:83
+#: includes/admin/class-gmb-settings.php:99
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: includes/admin/class-gmb-settings.php:22
+#: includes/admin/class-gmb-settings.php:21
 msgid "Google Maps Builder Settings"
 msgstr ""
 
-#: includes/admin/class-gmb-settings.php:53
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:278
-msgid "Geolocate Position"
-msgstr ""
-
-#: includes/admin/class-gmb-settings.php:55
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:254
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:187
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:197
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:280
-msgid "Yes"
-msgstr ""
-
-#: includes/admin/class-gmb-settings.php:57
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:255
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:188
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:198
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:282
-msgid "No"
-msgstr ""
-
-#: includes/admin/class-gmb-settings.php:63
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:288
-msgid "Latitude"
-msgstr ""
-
-#: includes/admin/class-gmb-settings.php:64
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:289
-msgid "Longitude"
-msgstr ""
-
-#: includes/admin/class-gmb-settings.php:67
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:292
-msgid ""
-"For quick lat/lng lookup use <a href=\"%s\" class=\"new-window\"  "
-"target=\"_blank\">this service</a>"
-msgstr ""
-
-#: includes/admin/class-gmb-settings.php:70
-msgid ""
-"When creating a new map the plugin will use your current longitude and "
-"latitude for the base location. If you see a blank space instead of the "
-"map, this is probably because you have denied permission for location "
-"sharing. You may also specify a default longitude and latitude by turning "
-"off this option."
-msgstr ""
-
-#: includes/admin/class-gmb-settings.php:90
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:326
+#: includes/admin/class-gmb-settings.php:44
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:322
 msgid "Visit the Google Maps Builder plugin settings page"
 msgstr ""
 
-#: includes/admin/class-gmb-settings.php:90
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:83
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:326
+#: includes/admin/class-gmb-settings.php:44
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:78
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:322
 msgid "Settings"
 msgstr ""
 
-#: includes/admin/class-gmb-settings.php:92
-msgid "Upgrade to Maps Builder Pro"
-msgstr ""
-
-#: includes/admin/class-gmb-settings.php:103
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:338
+#: includes/admin/class-gmb-settings.php:64
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:344
 msgid "Rate Google Maps Builder on WordPress.org"
 msgstr ""
 
-#: includes/admin/class-gmb-settings.php:103
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:338
+#: includes/admin/class-gmb-settings.php:64
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:344
 msgid "Rate Plugin"
 msgstr ""
 
-#: includes/admin/class-gmb-settings.php:104
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:339
+#: includes/admin/class-gmb-settings.php:65
+msgid "View the plugin documentation"
+msgstr ""
+
+#: includes/admin/class-gmb-settings.php:65
+msgid "Documentation"
+msgstr ""
+
+#: includes/admin/class-gmb-settings.php:66
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:345
 msgid "Get plugin support via the WordPress community"
 msgstr ""
 
-#: includes/admin/class-gmb-settings.php:104
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:339
+#: includes/admin/class-gmb-settings.php:66
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:345
 msgid "Support"
 msgstr ""
 
-#: includes/admin/class-gmb-settings.php:105
-msgid "Thank you for using Maps Builder"
+#: includes/admin/class-gmb-settings.php:68
+msgid "Upgrade to Maps Builder Pro"
 msgstr ""
 
-#: includes/admin/class-gmb-settings.php:151
+#: includes/admin/class-gmb-settings.php:115
 #: vendor/wordimpress/maps-builder-core/includes/class-gmc-activate.php:184
 msgid "Welcome to"
 msgstr ""
 
-#: includes/admin/class-gmb-settings.php:165
+#: includes/admin/class-gmb-settings.php:130
 msgid "Thanks for using Maps Builder"
 msgstr ""
 
-#: includes/admin/class-gmb-settings.php:166
+#: includes/admin/class-gmb-settings.php:131
 msgid ""
 "To get started, read over the %1$sdocumentation%2$s, take a gander at the "
 "settings, and build yourself some maps! If you enjoy this plugin please "
@@ -240,7 +197,7 @@ msgid "Download System Info File"
 msgstr ""
 
 #: includes/admin/upgrades/upgrade-functions.php:49
-#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:50
+#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:47
 msgid ""
 "Google has updated their Maps API to use the new Google Places ID rather "
 "than previous Reference ID. The old method will soon be deprecated and "
@@ -254,56 +211,52 @@ msgid ""
 msgstr ""
 
 #: includes/admin/upgrades/upgrade-functions.php:70
-#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:71
+#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:74
 msgid "Maps Builder Upgrades"
 msgstr ""
 
 #: includes/admin/upgrades/upgrade-functions.php:87
-#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:88
+#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:157
 msgid "You do not have permission to do plugin upgrades"
 msgstr ""
 
 #: includes/admin/upgrades/upgrade-functions.php:87
-#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:88
+#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:157
 msgid "Error"
 msgstr ""
 
 #: includes/admin/upgrades/upgrades.php:46
-#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrades.php:46
+#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:214
 msgid "Maps Builder - Upgrade"
 msgstr ""
 
 #: includes/admin/upgrades/upgrades.php:51
-#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrades.php:51
+#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:219
 msgid ""
 "The upgrade process has started, please be patient. This could take several "
 "minutes. You will be automatically redirected when the upgrade is finished."
 msgstr ""
 
 #: includes/admin/upgrades/upgrades.php:55
-#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrades.php:55
+#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:223
 msgid "Step %d of approximately %d running"
 msgstr ""
 
 #: includes/admin/upgrades/upgrades.php:69
-#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrades.php:69
+#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:237
 msgid ""
 "The upgrade process has started, please do not close your browser or "
 "refresh. This could take several minutes. You will be automatically "
 "redirected when the upgrade has finished."
 msgstr ""
 
-#: includes/class-gmb-engine.php:122
-msgid "Toggle Directions"
-msgstr ""
-
-#: vendor/wordimpress/maps-builder-core/core.php:144
-#: vendor/wordimpress/maps-builder-core/core.php:153
+#: vendor/wordimpress/maps-builder-core/core.php:145
+#: vendor/wordimpress/maps-builder-core/core.php:154
 msgid "Must ovveride."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/core.php:168
-#: vendor/wordimpress/maps-builder-core/core.php:180
+#: vendor/wordimpress/maps-builder-core/core.php:169
+#: vendor/wordimpress/maps-builder-core/core.php:181
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
@@ -390,7 +343,7 @@ msgid "Marker Longitude"
 msgstr ""
 
 #: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:215
-msgid "Marker Image"
+msgid "Custom Marker Image"
 msgstr ""
 
 #: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:221
@@ -398,1030 +351,1065 @@ msgid "Add Marker Image"
 msgstr ""
 
 #: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:225
-msgid "Marker Data"
+msgid "Included Marker Icon"
 msgstr ""
 
 #: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:231
+msgid "Marker Data"
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:237
 msgid "Marker Label Data"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:240
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:246
 msgid "Google Places"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:249
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:255
 msgid "Show Places?"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:250
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:256
 msgid ""
 "Display establishments, prominent points of interest, geographic locations, "
 "and more."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:263
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:260
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:182
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:192
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:286
+msgid "Yes"
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:261
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:183
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:193
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:288
+msgid "No"
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:268
 msgid "Search Radius"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:264
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:269
 msgid ""
 "Defines the distance (in meters) within which to return Place markers. The "
 "maximum allowed radius is 50,000 meters."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:274
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:278
 msgid "Place Types"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:275
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:279
 msgid "Select which type of places you would like to display on this map."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:279
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:283
 msgid "Accounting"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:280
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:284
 msgid "Airport"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:281
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:285
 msgid "Amusement Park"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:282
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:286
 msgid "Aquarium"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:283
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:287
 msgid "Art Gallery"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:284
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:288
 msgid "ATM"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:285
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:289
 msgid "Bakery"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:286
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:290
 msgid "Bank"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:287
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:291
 msgid "Bar"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:288
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:292
 msgid "Beauty Salon"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:289
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:293
 msgid "Bicycle Store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:290
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:294
 msgid "Book Store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:291
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:295
 msgid "Bowling Alley"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:292
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:296
 msgid "Bus Station"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:293
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:297
 msgid "Cafe"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:294
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:298
 msgid "Campground"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:295
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:299
 msgid "Car Dealer"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:296
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:300
 msgid "Car Rental"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:297
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:301
 msgid "Car Repair"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:298
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:302
 msgid "Car Wash"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:299
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:303
 msgid "Casino"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:300
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:304
 msgid "Cemetery"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:301
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:305
 msgid "Church"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:302
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:306
 msgid "City Hall"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:303
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:307
 msgid "Clothing Store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:304
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:308
 msgid "Convenience Store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:305
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:309
 msgid "Courthouse"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:306
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:310
 msgid "Dentist"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:307
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:311
 msgid "Department Store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:308
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:312
 msgid "Doctor"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:309
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:313
 msgid "Electrician"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:310
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:314
 msgid "Electronics Store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:311
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:315
 msgid "Embassy"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:312
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:316
 msgid "Establishment"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:313
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:317
 msgid "Finance"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:314
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:318
 msgid "Fire Station"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:315
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:319
 msgid "Florist"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:316
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:320
 msgid "Food"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:317
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:321
 msgid "Funeral Home"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:318
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:322
 msgid "Furniture_store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:319
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:323
 msgid "Gas Station"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:320
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:324
 msgid "General Contractor"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:321
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:325
 msgid "Grocery or Supermarket"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:322
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:326
 msgid "Gym"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:323
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:327
 msgid "Hair Care"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:324
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:328
 msgid "Hardware Store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:325
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:329
 msgid "Health"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:326
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:330
 msgid "Hindu Temple"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:327
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:331
 msgid "Home Goods Store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:328
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:332
 msgid "Hospital"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:329
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:333
 msgid "Insurance Agency"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:330
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:334
 msgid "Jewelry Store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:331
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:335
 msgid "Laundry"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:332
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:336
 msgid "Lawyer"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:333
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:337
 msgid "Library"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:334
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:338
 msgid "Liquor Store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:335
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:339
 msgid "Local Government Office"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:336
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:340
 msgid "Locksmith"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:337
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:341
 msgid "Lodging"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:338
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:342
 msgid "Meal Delivery"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:339
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:343
 msgid "Meal Takeaway"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:340
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:344
 msgid "Mosque"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:341
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:345
 msgid "Movie Rental"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:342
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:346
 msgid "Movie Theater"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:343
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:347
 msgid "Moving Company"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:344
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:348
 msgid "Museum"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:345
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:349
 msgid "Night Club"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:346
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:350
 msgid "Painter"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:347
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:351
 msgid "Park"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:348
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:352
 msgid "Parking"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:349
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:353
 msgid "Pet Store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:350
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:354
 msgid "Pharmacy"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:351
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:355
 msgid "Physiotherapist"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:352
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:356
 msgid "Place of Worship"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:353
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:357
 msgid "Plumber"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:354
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:358
 msgid "Police"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:355
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:359
 msgid "Post Office"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:356
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:360
 msgid "Real Estate Agency"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:357
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:361
 msgid "Restaurant"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:358
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:362
 msgid "Roofing Contractor"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:359
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:363
 msgid "RV Park"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:360
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:364
 msgid "School"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:361
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:365
 msgid "Shoe Store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:362
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:366
 msgid "Shopping Mall"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:363
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:367
 msgid "Spa"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:364
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:368
 msgid "Stadium"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:365
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:369
 msgid "Storage"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:366
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:370
 msgid "Store"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:367
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:371
 msgid "Subway Station"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:368
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:372
 msgid "Synagogue"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:369
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:373
 msgid "Taxi Stand"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:370
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:374
 msgid "Train Station"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:371
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:375
 msgid "Travel Agency"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:372
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:376
 msgid "University"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:373
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:377
 msgid "Veterinary Care"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:374
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:378
 msgid "Zoo"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:384
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:388
 msgid "Display Options"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:392
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:231
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:396
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:226
 msgid "Map Size"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:401
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:242
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:405
 msgid "Map Location"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:409
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:413
 msgid "Map Type"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:414
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:418
 msgid "Road Map"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:415
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:419
 msgid "Satellite"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:416
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:420
 msgid "Hybrid"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:417
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:421
 msgid "Terrain"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:422
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:426
 msgid "Adjust the map zoom (0-21)"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:454
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:458
 msgid "Layers provide additional information overlayed on the map."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:459
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:463
 msgid "Traffic"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:460
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:464
 msgid "Transit"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:461
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:465
 msgid "Bicycle"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:467
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:471
 msgid "Map Theme"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:468
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:472
 msgid ""
 "Set optional preconfigured <a href=\"%1s\" class=\"snazzy-link new-window\" "
 " target=\"_blank\">Snazzy Maps</a> styles above or use your own style."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:468
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:472
 msgid "Set a Custom Snazzy Map"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:473
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:584
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:597
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:608
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:619
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:631
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:642
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:477
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:588
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:601
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:612
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:623
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:635
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:646
 #: vendor/wordimpress/maps-builder-core/includes/libraries/metabox/includes/CMB2_Field.php:933
 #: vendor/wordimpress/maps-builder-core/includes/libraries/metabox/includes/CMB2_Field.php:937
 #: vendor/wordimpress/maps-builder-core/includes/libraries/metabox/tests/test-cmb-field.php:200
 msgid "None"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:474
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:478
 msgid "Custom"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:475
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:479
 msgid "Aqua"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:476
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:480
 msgid "A Dark World"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:477
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:481
 msgid "Apple Maps-esque"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:478
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:482
 msgid "Avocado World"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:479
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:483
 msgid "Bates Green"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:480
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:484
 msgid "Bentley"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:481
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:485
 msgid "Becomeadinosaur"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:482
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:486
 msgid "Black and White"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:483
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:487
 msgid "Bluish"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:484
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:488
 msgid "Blue"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:485
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:489
 msgid "Blue Gray"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:486
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:490
 msgid "Blue Essence"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:487
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:491
 msgid "Blue water"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:488
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:492
 msgid "Blueprint"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:489
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:493
 msgid "Blueprint (No Labels)"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:490
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:494
 msgid "Bright & Bubbly"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:491
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:495
 msgid "Candy Colours"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:492
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:496
 msgid "Caribbean Mountain"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:493
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:497
 msgid "Clean Cut"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:494
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:498
 msgid "Cobalt"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:495
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:499
 msgid "Cool Grey"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:496
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:500
 msgid "Countries"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:497
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:501
 msgid "Chilled"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:498
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:502
 msgid "Deep Green"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:499
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:503
 msgid "Esperanto"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:500
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:504
 msgid "Flat Green"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:501
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:505
 msgid "Flat Map"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:502
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:506
 msgid "Grass is Greener"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:503
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:507
 msgid "Greyscale"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:504
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:508
 msgid "Gowalla"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:505
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:509
 msgid "Hard edges"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:506
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:510
 msgid "HashtagNineNineNine"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:507
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:511
 msgid "Hopper"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:508
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:512
 msgid "Holiday"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:509
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:513
 msgid "Homage to Toner"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:510
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:514
 msgid "Hot Pink"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:511
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:515
 msgid "Hints of Gold"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:512
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:516
 msgid "Ilustracao"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:513
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:517
 msgid "Icy Blue"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:514
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:518
 msgid "Jane Iredale"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:515
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:519
 msgid "Jazzygreen"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:516
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:520
 msgid "Just places"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:517
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:521
 msgid "Light Green"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:518
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:522
 msgid "Light Monochrome"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:519
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:523
 msgid "Lunar Landscape"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:520
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:524
 msgid "MapBox"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:521
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:525
 msgid "Midnight Commander"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:522
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:526
 msgid "Military Flat"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:523
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:527
 msgid "Mixed"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:524
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:528
 msgid "Muted Blue"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:525
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:529
 msgid "Nature"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:526
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:530
 msgid "Neon World"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:527
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:531
 msgid "Neutral Blue"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:528
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:532
 msgid "Night vision"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:529
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:533
 msgid "Old Dry Mud"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:530
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:534
 msgid "Old Timey"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:531
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:535
 msgid "Pale Dawn"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:532
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:536
 msgid "Paper"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:533
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:537
 msgid "Pink & Blue"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:534
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:538
 msgid "Red Alert"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:535
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:539
 msgid "Red Hues"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:536
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:540
 msgid "Retro"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:537
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:541
 msgid "Roadtrip At Night"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:538
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:542
 msgid "RouteXL"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:539
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:543
 msgid "Shade of Green"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:540
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:544
 msgid "Shades of Grey"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:541
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:545
 msgid "Shift Worker"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:542
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:546
 msgid "Simple Labels"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:543
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:547
 msgid "Souldisco"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:544
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:548
 msgid "Snazzy Maps"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:545
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:549
 msgid "Subtle"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:546
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:550
 msgid "Subtle Green"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:547
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:551
 msgid "Subtle Grayscale"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:548
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:552
 msgid "Subtle Grayscale Map"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:549
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:553
 msgid "The Endless Atlas"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:550
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:554
 msgid "Tripitty"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:551
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:555
 msgid "Transport for London"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:552
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:556
 msgid "Turquoise Water"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:553
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:557
 msgid "Unimposed Topography"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:554
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:558
 msgid "Unsaturated Browns"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:555
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:559
 msgid "Vintage"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:556
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:560
 msgid "Vintage Blue"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:557
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:561
 msgid "Vitamin C"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:561
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:565
 msgid "Custom Map Theme JSON"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:562
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:566
 msgid "Paste the Snazzy Map JSON code into the field above to set the theme."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:571
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:575
 msgid "Map Controls"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:579
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:583
 msgid "Zoom Control"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:585
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:589
 msgid "Small"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:586
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:590
 msgid "Large"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:587
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:591
 #: vendor/wordimpress/maps-builder-core/includes/libraries/metabox/includes/CMB2_JS.php:87
 msgid "Default"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:592
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:596
 msgid "Street View"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:598
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:609
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:632
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:643
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:654
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:602
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:613
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:636
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:647
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:658
 msgid "Standard"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:603
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:607
 msgid "Pan Control"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:614
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:618
 msgid "Map Type Control"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:620
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:624
 msgid "Dropdown Menu"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:621
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:625
 msgid "Horizontal Bar"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:626
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:630
 msgid "Draggable Map"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:637
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:641
 msgid "Double Click to Zoom"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:648
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:652
 msgid "Mouse Wheel to Zoom"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:653
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:657
 msgid "Disabled"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:684
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:688
 msgid "Width"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:693
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:697
 msgid "Height"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:701
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:705
 msgid "Configure the default map width and height."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:731
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:735
 msgid "Latitude:"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:734
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:738
 msgid "Longitude:"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:737
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:741
 msgid "Lat/lng changed"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:737
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:741
 msgid "Update"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:765
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:769
 msgid ""
 "Enter the name of a place or an address above to create a map marker or "
 "%1$sDrop a Marker%2$s"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:847
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:851
 msgid "Google Map Title"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:848
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:852
 msgid "Shortcode"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:849
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:853
 msgid "Creation Date"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:45
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:43
 msgid "Maps Builder Settings"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:126
-msgid "Must ovveride in plugin"
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:121
+msgid "Must override in plugin"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:168
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:163
 msgid "Post Type Slug"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:169
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:164
 msgid ""
 "Customize the default slug for the Maps Builder post type. %1$sResave "
 "(flush) permalinks%2$s after customizing."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:175
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:170
 msgid "Menu Position"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:176
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:171
 msgid ""
 "Set the menu position for Google Maps Builder. See the %1$smenu_position "
 "arg%2$s."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:182
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:177
 msgid "Has Archive"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:184
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:179
 msgid ""
 "Controls the post type archive page. See <a href=\"%s\">Resave (flush) "
 "permalinks</a> after customizing."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:192
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:187
 msgid "Opening Map Builder"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:194
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:189
 msgid "Do you want the Map Builder customizer to open by default when editing maps?"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:225
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:220
 msgid "Google Maps API Key"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:226
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:221
 msgid ""
-"The Google Maps JavaScript API v3 does not require an API key to function "
-"correctly. However, Google strongly encourages you to load the Maps API "
-"using an APIs Console key which allows you to monitor your Maps API usage. "
-"%1$sLearn how to obtain an API key%2$s."
+"The Google Maps JavaScript API requires a valid API key to function "
+"correctly. %1$sLearn how to obtain a Google Maps API key%2$s."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:295
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:237
+msgid "Default Location"
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:273
+msgid "Latitude"
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:274
+msgid "Longitude"
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:278
+msgid "For quick lat/lng lookup use %1$sthis service%2$s"
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:284
+msgid "Geolocate Position"
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-settings.php:290
 msgid ""
 "When creating a new map the plugin will use your current longitude and "
-"latitude for the base location. If you see a blank space instead of the "
-"map, this is most likely because you have denied permission for location "
-"sharing. You may also specify a default longitude and latitude by turning "
-"off this option."
+"latitude for the base location. Please note, Chrome 50+ %1$srequires a "
+"secure https connection%2$s (SSL certificate) to access geolocation "
+"features and other browsers may soon follow suit. Use this feature with "
+"caution."
 msgstr ""
 
 #: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-shortcode-generator.php:215
@@ -1448,59 +1436,68 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:18
+#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:47
+#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:53
+msgid "Maps Builder Update Required"
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:53
+msgid ""
+"An upgrade is required to your Google maps. We highly recommend performing "
+"a backup prior to upgrading. %sClick here to upgrade your maps%s"
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:257
+msgid "Upgrade Successful:"
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/admin/upgrades/upgrade-functions.php:257
+msgid ""
+"The upgrade process has completed successfully. Hooray! You will now be "
+"redirected back to your previous page."
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:15
 msgid "Customize Map Marker"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:20
+#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:17
 msgid ""
 "Customize your Google Maps markers by choosing from the options below. "
 "Integrations are made possible from the leading maps icons libraries. Plus, "
 "you can upload your own!"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:25
+#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:22
 msgid "Step 1: Select a Marker Type"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:32
+#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:29
 msgid "Map Pin"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:38
+#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:35
 msgid "Square Pin"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:44
+#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:41
 msgid "Default Icons"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:50
-msgid "Map Icons"
-msgstr ""
-
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:56
-msgid "Templatic Icons"
-msgstr ""
-
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:62
-msgid "Upload Marker"
-msgstr ""
-
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:73
+#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:54
 msgid "Customize the marker color?"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:76
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:249
+#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:57
+#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:241
 msgid "Step 2: Select a Marker Icon"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:240
+#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:232
 msgid "Customize the icon color?"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:760
+#: vendor/wordimpress/maps-builder-core/includes/admin/views/markers.php:763
 msgid "Marker is ready to be set."
 msgstr ""
 
@@ -1601,42 +1598,42 @@ msgstr ""
 msgid "No Maps found in Trash."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:164
 #: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:165
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:166
 msgid "Update Map"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:164
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:165
 msgid "Publish Map"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:166
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:167
 msgid "Place selections have changed."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:167
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:168
 msgid ""
 "Hmm, it looks like there are multiple places in this area. Please confirm "
 "which place you would like this marker to display:"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:169
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:170
 msgid "Click on the Map"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:170
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:171
 msgid "Edit Marker"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:171
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:172
 msgid "Delete Marker"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:172
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:173
 msgid "Visit Website"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:173
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:174
 msgid "Get Directions"
 msgstr ""
 
