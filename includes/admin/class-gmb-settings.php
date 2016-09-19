@@ -6,7 +6,7 @@
 class Google_Maps_Builder_Settings extends Google_Maps_Builder_Core_Settings {
 
 	/**
-	 * Option key, and option page slug
+	 * Option key, and option page slug.
 	 * @var string
 	 */
 	protected static $key = 'gmb_settings';
@@ -18,9 +18,8 @@ class Google_Maps_Builder_Settings extends Google_Maps_Builder_Core_Settings {
 	 */
 	public function __construct() {
 		parent::__construct();
-		$this->page_name = __( 'Google Maps Builder Settings', $this->plugin_slug );
+		$this->page_name = __( 'Google Maps Builder Settings', 'google-maps-builder' );
 
-		$this->plugin_slug = Google_Maps_Builder()->get_plugin_slug();
 		add_action( 'cmb2_render_lat_lng_default', array( $this, 'cmb2_render_lat_lng_default' ), 10, 2 );
 
 		//upsell markup
