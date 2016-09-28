@@ -126,7 +126,7 @@ https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&utm_medium=BANNE
 	 * @return string
 	 */
 	protected function sub_heading() {
-		$out = __( 'Thanks for using Maps Builder', 'google-maps-pro' );
+		$out = __( 'Thanks for using Maps Builder. ', 'google-maps-pro' );
 		$out .= sprintf( __( 'To get started, read over the %1$sdocumentation%2$s, take a gander at the settings, and build yourself some maps! If you enjoy this plugin please consider telling a friend, rating it %3$s5-stars%2$s, or purchasing the %4$sPro%2$s edition.', 'google-maps-builder' ), '<a href="https://wordimpress.com/documentation/maps-builder-pro/" target="_blank">', '</a>', '<a href="https://wordpress.org/support/view/plugin-reviews/google-maps-builder?filter=5#postform" target="_blank">', '<a href="https://wordimpress.com/plugins/maps-builder-pro?utm_source=MBF&amp;utm_medium=BANNER&amp;utm_content=SETTINGS&amp;utm_campaign=MBF%20Settings" target="_blank">' );
 
 		return $out;
