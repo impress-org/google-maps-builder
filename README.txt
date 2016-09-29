@@ -1,10 +1,10 @@
 === Maps Builder - Google Maps Plugin ===
 Contributors: wordimpress, dlocc, webdevmattcrom
-Donate link: http://wordimpress.com/
+Donate link: https://wordimpress.com/
 Tags: google maps, google map, google map widget, google map shortcode, maps, map, wp map, wp google maps, google maps directions, google maps builder, google maps plugin, google places, google places api, google maps api, google places reviews
 Requires at least: 4.0
-Tested up to: 4.3.1
-Stable tag: 2.0.2
+Tested up to: 4.6.1
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,7 +138,20 @@ Maps Builder 2.0 is a significant upgrade. After you update, you'll see a notice
 == Changelog ==
 
 = 2.1 =
-* Fix: Better way to include CMB2 so there's less conflicts
+* Enhancement: Support basic HTML like images and YouTube embeds in InfoBubbles - https://github.com/WordImpress/Google-Maps-Builder/issues/218
+* Enhancement: Greatly improved InfoBubble CSS and sizing - https://github.com/WordImpress/Google-Maps-Builder/issues/214
+* Fix: Show thumbnail properly in backend InfoBubbles - https://github.com/WordImpress/Google-Maps-Builder/issues/213
+* Fix: Google Places API error outputs badly - https://github.com/WordImpress/Google-Maps-Builder/issues/176
+* Fix: Properly support new requirements for Google Places API - https://github.com/WordImpress/Google-Maps-Builder/issues/174
+* Fix: Save Button doesn't appear when editing a Marker that was already edited once - https://github.com/WordImpress/Google-Maps-Builder/issues/210
+* Fix: "Save Changes" tool tip stays on screen after saving changes - https://github.com/WordImpress/Google-Maps-Builder/issues/205
+* Fix: Map Type Control doesn't affect map properly - https://github.com/WordImpress/Google-Maps-Builder/issues/162
+* Tweak: Settings screen CSS made tabs shift in bad ways - https://github.com/WordImpress/Google-Maps-Builder/issues/171
+* Tweak: Google Marker images were moved. Update routine for new location added. - https://github.com/WordImpress/Google-Maps-Builder/issues/175
+* Tweak: Removed sensor parameter to prevent console warning https://github.com/WordImpress/Maps-Builder-Pro/issues/19
+* Tweak: Changed default geocoding option and settings now that Google requires SSL to enable - https://github.com/WordImpress/Google-Maps-Builder/issues/164
+* Tweak: Updated Google logo to the newest version - https://github.com/WordImpress/Maps-Builder-Pro/issues/209
+* Fix: Better way to include CMB2 so there is less chance of conflicts
 
 = 2.0.2 =
 * Fix: Improved Google Maps API Conditional Script Loading - https://github.com/WordImpress/google-maps-builder/issues/118
