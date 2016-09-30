@@ -4,7 +4,7 @@ Donate link: https://wordimpress.com/
 Tags: google maps, google map, google map widget, google map shortcode, maps, map, wp map, wp google maps, google maps directions, google maps builder, google maps plugin, google places, google places api, google maps api, google places reviews
 Requires at least: 4.0
 Tested up to: 4.6.1
-Stable tag: 2.1
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -136,6 +136,9 @@ Maps Builder is developed and supported by [WordImpress](https://wordimpress.com
 Maps Builder 2.0 is a significant upgrade. After you update, you'll see a notice to update your maps. Make sure to click that.
 
 == Changelog ==
+
+= 2.1.1 =
+* Fix: Conflict with the Give donation plugin using the same function name throwing a fatal error upon activation. Fixed with custom prefix.
 
 = 2.1 =
 * Enhancement: Support basic HTML like images and YouTube embeds in InfoBubbles - https://github.com/WordImpress/Google-Maps-Builder/issues/218
