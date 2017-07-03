@@ -146,5 +146,3 @@ class GMB_Shortcode_Generator extends Google_Maps_Builder_Core_Shortcode_Generat
 	}
 
 }
-
-new GMB_Shortcode_Generator();
