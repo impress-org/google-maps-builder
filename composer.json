@@ -13,10 +13,10 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "git@github.com:WordImpress/maps-builder-core.git"
+      "url": "https://github.com/kevinwhoffman/maps-builder-core.git"
     }
   ],
   "require": {
-    "wordimpress/maps-builder-core": "dev-master"
+    "wordimpress/maps-builder-core": "dev-release/2.1.2"
   }
 }
