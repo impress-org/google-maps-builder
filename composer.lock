@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4149e68b5c5d88867be013dcb01d04a7",
-    "content-hash": "187fd3a3371f55c7362c42da9efbb78e",
+    "hash": "c7bd29a2addac36a021435ef59286ada",
+    "content-hash": "9e21bbeed0e1f311081ff78ca47b89b2",
     "packages": [
         {
             "name": "wordimpress/maps-builder-core",
-            "version": "dev-master",
+            "version": "dev-release/2.1.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:WordImpress/maps-builder-core.git",
-                "reference": "11a7977828fc302a6c04431736a6e1fea029d21c"
+                "url": "https://github.com/kevinwhoffman/maps-builder-core.git",
+                "reference": "0a9ef1547abe950eeb28115aff43722eaaceb147"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordImpress/maps-builder-core/zipball/11a7977828fc302a6c04431736a6e1fea029d21c",
-                "reference": "11a7977828fc302a6c04431736a6e1fea029d21c",
+                "url": "https://api.github.com/repos/kevinwhoffman/maps-builder-core/zipball/0a9ef1547abe950eeb28115aff43722eaaceb147",
+                "reference": "0a9ef1547abe950eeb28115aff43722eaaceb147",
                 "shasum": ""
             },
             "type": "library",
@@ -33,10 +33,9 @@
             ],
             "description": "Shared code between Maps Builder Pro and free.",
             "support": {
-                "source": "https://github.com/WordImpress/maps-builder-core/tree/master",
-                "issues": "https://github.com/WordImpress/maps-builder-core/issues"
+                "source": "https://github.com/kevinwhoffman/maps-builder-core/tree/release/2.1.2"
             },
-            "time": "2016-07-07 23:40:12"
+            "time": "2017-07-03 03:48:12"
         }
     ],
     "packages-dev": [],
