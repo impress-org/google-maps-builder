@@ -1,14 +1,14 @@
-# Copyright (C) 2016 WordImpress
+# Copyright (C) 2017 WordImpress
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Maps Builder 2.1.1\n"
+"Project-Id-Version: Maps Builder 2.1.2\n"
 "Report-Msgid-Bugs-To: https://wordimpress.com/\n"
-"POT-Creation-Date: 2016-09-30 04:29:33+00:00\n"
+"POT-Creation-Date: 2017-07-11 02:20:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: WP-Translations (http://wp-translations.org/)\n"
 "Language-Team: WP-Translations <wpt@wp-translations.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
@@ -50,7 +50,7 @@ msgstr ""
 
 #: includes/admin/class-gmb-admin.php:76
 #: vendor/wordimpress/maps-builder-core/includes/admin/class-gmc-admin.php:747
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:176
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:173
 msgid "Drop a Marker"
 msgstr ""
 
@@ -1408,54 +1408,63 @@ msgstr ""
 msgid "No Maps found in Trash."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:172
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:173
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:169
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:170
 msgid "Update Map"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:172
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:169
 msgid "Publish Map"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:174
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:171
 msgid "Place selections have changed."
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:175
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:172
 msgid ""
 "Hmm, it looks like there are multiple places in this area. Please confirm "
 "which place you would like this marker to display:"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:177
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:174
 msgid "Click on the Map"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:178
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:175
 msgid "Edit Marker"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:179
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:176
 msgid "Delete Marker"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:180
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-frontend-scripts.php:65
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:177
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-frontend-scripts.php:60
 msgid "Visit Website"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:181
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-frontend-scripts.php:64
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:178
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-frontend-scripts.php:59
 msgid "Get Directions"
 msgstr ""
 
-#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:182
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-admin-scripts.php:179
 msgid ""
 "%1$sGoogle API Error:%2$s Please include your Google Maps API key in the "
 "%3$splugin settings%5$s to start using the plugin. An valid API key with "
 "Google Maps and Places API access to your website is now required due to "
 "recent changes by Google. Getting an API key is free and easy. %4$sLearn "
 "how to obtain a Google Maps API key%5$s"
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-html-elements.php:45
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-html-elements.php:60
+msgid "Select a Map"
+msgstr ""
+
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-html-elements.php:65
+msgid "No Maps Found"
 msgstr ""
 
 #: vendor/wordimpress/maps-builder-core/includes/class-gmc-widget.php:41
@@ -2052,11 +2061,13 @@ msgid "Create stylish and powerful Google Maps quickly and easily."
 msgstr ""
 
 #: includes/admin/class-gmb-shortcode-generator.php:43
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-html-elements.php:118
 msgctxt "all dropdown items"
 msgid "All"
 msgstr ""
 
 #: includes/admin/class-gmb-shortcode-generator.php:44
+#: vendor/wordimpress/maps-builder-core/includes/class-gmc-html-elements.php:119
 msgctxt "no dropdown items"
 msgid "None"
 msgstr ""
