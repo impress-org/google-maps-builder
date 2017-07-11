@@ -1,6 +1,6 @@
 {
   "name": "google-maps-builder",
-  "version": "2.1.0-b-1",
+  "version": "2.1.2",
   "description": "Contributors: dlocc, wordimpress Donate link: http://wordimpress.com/ Tags: google maps, google map, google map widget, google map shortcode, maps, map, wp map, wp google maps, google maps directions, google maps builder, google maps plugin, google places, google places api, google maps api, google places reviews Requires at least: 3.6 Tested up to: 3.9.1 Stable tag: 1.0.1 License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html",
   "main": "index.js",
   "dependencies": {

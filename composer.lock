@@ -4,7 +4,6 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4149e68b5c5d88867be013dcb01d04a7",
     "content-hash": "187fd3a3371f55c7362c42da9efbb78e",
     "packages": [
         {
@@ -13,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordImpress/maps-builder-core.git",
-                "reference": "d39dd6278ad3cdaf5fee9e17c04c80027a392bcd"
+                "reference": "053caadc866fd49722bbd8f3a882000a3472073a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordImpress/maps-builder-core/zipball/d39dd6278ad3cdaf5fee9e17c04c80027a392bcd",
-                "reference": "d39dd6278ad3cdaf5fee9e17c04c80027a392bcd",
+                "url": "https://api.github.com/repos/WordImpress/maps-builder-core/zipball/053caadc866fd49722bbd8f3a882000a3472073a",
+                "reference": "053caadc866fd49722bbd8f3a882000a3472073a",
                 "shasum": ""
             },
             "type": "library",
@@ -36,7 +35,7 @@
                 "source": "https://github.com/WordImpress/maps-builder-core/tree/master",
                 "issues": "https://github.com/WordImpress/maps-builder-core/issues"
             },
-            "time": "2017-07-08 03:04:15"
+            "time": "2017-07-10 17:44:56"
         }
     ],
     "packages-dev": [],
