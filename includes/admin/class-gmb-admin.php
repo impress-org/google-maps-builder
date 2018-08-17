@@ -48,6 +48,10 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 		//Useful class for free-only styling
 		add_filter( 'admin_body_class', array( $this, 'admin_body_classes' ) );
 
+		// Remove quick edit link and added preview map link.
+		add_filter( 'post_row_actions', array( $this, 'remove_row_actions' ), 10, 2 );
+		add_action( 'wp_ajax_prview_map_action', array( $this, 'prview_map_action_callback' ) );
+
 	}
 
 	/**
@@ -185,6 +189,121 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 
 		return $classes;
 
+	}
+
+	/**
+	 * @param $actions contains actions for edit, quick edit etc...
+	 * @param $post contains global post value
+	 *
+	 * @return mixed
+	 */
+
+	function remove_row_actions( $actions, $post ) {
+		global $current_screen;
+		if ( $current_screen->post_type != 'google_maps' ) {
+			return $actions;
+		}
+		add_thickbox();
+
+
+		?>
+		<style>
+			div#TB_ajaxContent {
+				width: 100% !important;
+				box-sizing: border-box;
+				max-width: 100%;
+				height: calc(100% - 30px) !important;
+			}
+
+			div#TB_window {
+				width: 75% !important;
+				height: 65%;
+				margin: 0 auto !important;
+				left: 0;
+				right: 0;
+				max-width: 75% !important;
+				top: 10%;
+				box-sizing: border-box;
+				padding: 15px;
+				overflow: hidden;
+			}
+		</style>
+		<div id="gmb-preview-map"></div>
+		<?php
+
+		// Remove the Quick Edit link
+		if ( isset( $actions['inline hide-if-no-js'] ) ) {
+			unset( $actions['inline hide-if-no-js'] );
+			$actions['custom'] = '<a href="#TB_inline?width=1400px&height=600px&inlineId=gmb-preview-map" data-id="' . $post->ID . '" class="thickbox gmb-load-map">' . sprintf( __( 'Preview Map', 'google-maps-builder' ) ) . '</a>';
+		}
+
+		return $actions;
+	}
+
+	/**
+	 * Callback function for prview map.
+	 */
+	function prview_map_action_callback() {
+		$map_id = isset( $_POST['map_id'] ) ? $_POST['map_id'] : '';
+		//gather data for this shortcode
+		$post        = get_post( $map_id );
+		$all_meta    = get_post_custom( $map_id );
+		$visual_info = maybe_unserialize( $all_meta['gmb_width_height'][0] );
+		$lat_lng     = maybe_unserialize( $all_meta['gmb_lat_lng'][0] );
+		//Put markers into an array for JS usage
+		$map_marker_array   = array();
+		$markers_repeatable = isset( $all_meta['gmb_markers_group'][0] ) ? maybe_unserialize( $all_meta['gmb_markers_group'][0] ) : '';
+		if ( is_array( $markers_repeatable ) ) {
+			foreach ( $markers_repeatable as $marker ) {
+				array_push( $map_marker_array, $marker );
+			}
+		}
+		//Send data for AJAX usage
+		//Add params to AJAX for Shortcode Usage
+		//@see: http://benjaminrojas.net/using-wp_localize_script-dynamically/
+		$localized_data = apply_filters( 'gmb_localized_data', array(
+			$post->ID => array(
+				'id'               => $atts['id'],
+				'map_params'       => array(
+					'title'          => $post->post_title,
+					'width'          => $visual_info['width'],
+					'height'         => $visual_info['height'],
+					'latitude'       => $lat_lng['latitude'],
+					'longitude'      => $lat_lng['longitude'],
+					'zoom'           => ! empty( $all_meta['gmb_zoom'][0] ) ? $all_meta['gmb_zoom'][0] : '15',
+					'default_marker' => apply_filters( 'gmb_default_marker', GMB_PLUGIN_URL . 'assets/img/spotlight-poi.png' ),
+				),
+				'map_controls'     => array(
+					'zoom_control'      => ! empty( $all_meta['gmb_zoom_control'][0] ) ? strtoupper( $all_meta['gmb_zoom_control'][0] ) : 'STANDARD',
+					'pan_control'       => ! empty( $all_meta['gmb_pan'][0] ) ? $all_meta['gmb_pan'][0] : 'none',
+					'map_type_control'  => ! empty( $all_meta['gmb_map_type_control'][0] ) ? $all_meta['gmb_map_type_control'][0] : 'none',
+					'draggable'         => ! empty( $all_meta['gmb_draggable'][0] ) ? $all_meta['gmb_draggable'][0] : 'none',
+					'double_click_zoom' => ! empty( $all_meta['gmb_double_click'][0] ) ? $all_meta['gmb_double_click'][0] : 'none',
+					'wheel_zoom'        => ! empty( $all_meta['gmb_wheel_zoom'][0] ) ? $all_meta['gmb_wheel_zoom'][0] : 'none',
+					'street_view'       => ! empty( $all_meta['gmb_street_view'][0] ) ? $all_meta['gmb_street_view'][0] : 'none',
+				),
+				'map_theme'        => array(
+					'map_type'       => ! empty( $all_meta['gmb_type'][0] ) ? $all_meta['gmb_type'][0] : 'RoadMap',
+					'map_theme_json' => ! empty( $all_meta['gmb_theme_json'][0] ) ? $all_meta['gmb_theme_json'][0] : 'none',
+
+				),
+				'map_markers'      => $map_marker_array,
+				'plugin_url'       => GMB_PLUGIN_URL,
+				'places_api'       => array(
+					'show_places'   => ! empty( $all_meta['gmb_show_places'][0] ) ? $all_meta['gmb_show_places'][0] : 'no',
+					'search_radius' => ! empty( $all_meta['gmb_search_radius'][0] ) ? $all_meta['gmb_search_radius'][0] : '3000',
+					'search_places' => ! empty( $all_meta['gmb_places_search_multicheckbox'][0] ) ? maybe_unserialize( $all_meta['gmb_places_search_multicheckbox'][0] ) : '',
+				),
+				'map_markers_icon' => ! empty( $all_meta['gmb_map_marker'] ) ? $all_meta['gmb_map_marker'][0] : 'none',
+			),
+		) );
+
+		$maphtml                    = '<div class="google-maps-builder-wrap"> 	<div id="google-maps-builder-' . $map_id . '" class="google-maps-builder" data-map-id="' . $map_id . '" style="width: 1400px; height:600px;"></div></div>';
+		$responseArray              = array();
+		$responseArray['localized'] = $localized_data;
+		$responseArray['maphtml']   = $maphtml;
+		echo wp_send_json( $responseArray );
+		wp_die();
 	}
 
 
