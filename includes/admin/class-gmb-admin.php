@@ -213,6 +213,8 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 				box-sizing: border-box;
 				max-width: 100%;
 				height: calc(100% - 30px) !important;
+				overflow: hidden;
+				padding: 0;
 			}
 
 			div#TB_window {
