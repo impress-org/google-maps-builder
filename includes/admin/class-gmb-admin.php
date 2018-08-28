@@ -50,7 +50,7 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 
 		// Remove quick edit link and added preview map link.
 		add_filter( 'post_row_actions', array( $this, 'remove_row_actions' ), 10, 2 );
-		add_action( 'wp_ajax_prview_map_action', array( $this, 'prview_map_action_callback' ) );
+		add_action( 'wp_ajax_preview_map_action', array( $this, 'preview_map_action_callback' ) );
 
 	}
 
@@ -243,9 +243,9 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 	}
 
 	/**
-	 * Callback function for prview map.
+	 * Callback function for preview map.
 	 */
-	function prview_map_action_callback() {
+	function preview_map_action_callback() {
 		$map_id = isset( $_POST['map_id'] ) ? $_POST['map_id'] : '';
 		//gather data for this shortcode
 		$post        = get_post( $map_id );
@@ -265,7 +265,7 @@ class Google_Maps_Builder_Admin extends Google_Maps_Builder_Core_Admin {
 		//@see: http://benjaminrojas.net/using-wp_localize_script-dynamically/
 		$localized_data = apply_filters( 'gmb_localized_data', array(
 			$post->ID => array(
-				'id'               => $atts['id'],
+				'id'               => $post->ID,
 				'map_params'       => array(
 					'title'          => $post->post_title,
 					'width'          => $visual_info['width'],
