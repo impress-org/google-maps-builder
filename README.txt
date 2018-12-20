@@ -1,9 +1,9 @@
 === Maps Builder - Google Maps Plugin ===
-Contributors: wordimpress, dlocc, webdevmattcrom
-Donate link: https://wordimpress.com/
+Contributors: impressorg, dlocc, webdevmattcrom
+Donate link: https://impress.org/
 Tags: google maps, google map, google map widget, google map shortcode, maps, map, wp map, wp google maps, google maps directions, google maps builder, google maps plugin, google places, google places api, google maps api, google places reviews
 Requires at least: 4.2
-Tested up to: 4.8
+Tested up to: 5.0
 Stable tag: 2.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -25,8 +25,6 @@ Maps Builder isn't just another Google Maps plugin. It's built from the ground u
 * **No notices or warnings** We developed this plugins in debug mode. This results in high quality plugins with no errors, warnings or notices.
 
 **[Check out the Plugin Demo](https://mapsbuilder.wordimpress.com/)**
-
-**Want more? [Upgrade to Maps Builder Pro Today!](https://wordimpress.com/plugins/maps-builder-pro/)**
 
 = Marker Creation =
 
@@ -54,8 +52,6 @@ Maps Builder Pro gives you all that you love about Maps Builder Basic, plus lots
 * **Custom Marker** - Upload your own custom marker for any marker in your map [See Demo](http://mapsbuilder.wordimpress.com/demo/marker-icons-flexibility/).
 * **Import/Export** - Import and Export all your maps or markers anywhere you like.
 * **Priority Support** - Maps Builder Pro users benefit from our Priority Support Forum. We go the extra mile for you and your website needs.
-
-[Upgrade to Maps Builder Pro Today!](https://wordimpress.com/plugins/maps-builder-pro/)
 
 == Installation ==
 
@@ -138,42 +134,42 @@ Maps Builder 2.0 is a significant upgrade. After you update, you'll see a notice
 == Changelog ==
 
 = 2.1.2 =
-* Fix: Restore functionality to TinyMCE shortcode button that appears above the editor - https://github.com/WordImpress/Google-Maps-Builder/issues/234
-* Fix: Provide compatibility with IE11 because the browser does not support Maps Builders current usage of CustomEvent in JS - https://github.com/WordImpress/maps-builder-core/issues/47
-* Fix: Map permalinks no longer require manual refresh after installation - https://github.com/WordImpress/Google-Maps-Builder/issues/240
+* Fix: Restore functionality to TinyMCE shortcode button that appears above the editor - https://github.com/impress-org/google-maps-builder/issues/234
+* Fix: Provide compatibility with IE11 because the browser does not support Maps Builders current usage of CustomEvent in JS - https://github.com/impress-org/maps-builder-core/issues/47
+* Fix: Map permalinks no longer require manual refresh after installation - https://github.com/impress-org/google-maps-builder/issues/240
 * Fix: Correct default slug from google_maps to google-maps
-* Fix: Rename constructor to prevent PHP 7 notice - https://github.com/WordImpress/Google-Maps-Builder/issues/242
-* Fix: Prevent themes from affecting width of close button - https://github.com/WordImpress/Google-Maps-Builder/issues/250
-* Improvement: Refactor and improve performance for hidden maps upon reveal - https://github.com/WordImpress/Google-Maps-Builder/issues/251
+* Fix: Rename constructor to prevent PHP 7 notice - https://github.com/impress-org/google-maps-builder/issues/242
+* Fix: Prevent themes from affecting width of close button - https://github.com/impress-org/google-maps-builder/issues/250
+* Improvement: Refactor and improve performance for hidden maps upon reveal - https://github.com/impress-org/google-maps-builder/issues/251
 * Improvement: Support popular tab solutions including Tabby, Elementor, Divi, Bootsrap, Beaver Builder, and Visual Composer
-* Improvement: Add gmb.initialize_map JS trigger - https://github.com/WordImpress/Google-Maps-Builder/issues/249
-* General: Add featured image support to map posts - https://github.com/WordImpress/Google-Maps-Builder/issues/123
-* Deprecate: Google Maps has removed support for signed-in functionality - https://github.com/WordImpress/Google-Maps-Builder/issues/231
+* Improvement: Add gmb.initialize_map JS trigger - https://github.com/impress-org/google-maps-builder/issues/249
+* General: Add featured image support to map posts - https://github.com/impress-org/google-maps-builder/issues/123
+* Deprecate: Google Maps has removed support for signed-in functionality - https://github.com/impress-org/google-maps-builder/issues/231
 
 = 2.1.1 =
 * Fix: Conflict with the Give donation plugin using the same function name throwing a fatal error upon activation. Fixed with custom prefix.
 
 = 2.1 =
-* Enhancement: Support basic HTML like images and YouTube embeds in InfoBubbles - https://github.com/WordImpress/Google-Maps-Builder/issues/218
-* Enhancement: Greatly improved InfoBubble CSS and sizing - https://github.com/WordImpress/Google-Maps-Builder/issues/214
-* Fix: Show thumbnail properly in backend InfoBubbles - https://github.com/WordImpress/Google-Maps-Builder/issues/213
-* Fix: Google Places API error outputs badly - https://github.com/WordImpress/Google-Maps-Builder/issues/176
-* Fix: Properly support new requirements for Google Places API - https://github.com/WordImpress/Google-Maps-Builder/issues/174
-* Fix: Save Button doesn't appear when editing a Marker that was already edited once - https://github.com/WordImpress/Google-Maps-Builder/issues/210
-* Fix: "Save Changes" tool tip stays on screen after saving changes - https://github.com/WordImpress/Google-Maps-Builder/issues/205
-* Fix: Map Type Control doesn't affect map properly - https://github.com/WordImpress/Google-Maps-Builder/issues/162
-* Tweak: Settings screen CSS made tabs shift in bad ways - https://github.com/WordImpress/Google-Maps-Builder/issues/171
-* Tweak: Google Marker images were moved. Update routine for new location added. - https://github.com/WordImpress/Google-Maps-Builder/issues/175
-* Tweak: Removed sensor parameter to prevent console warning https://github.com/WordImpress/Maps-Builder-Pro/issues/19
-* Tweak: Changed default geocoding option and settings now that Google requires SSL to enable - https://github.com/WordImpress/Google-Maps-Builder/issues/164
-* Tweak: Updated Google logo to the newest version - https://github.com/WordImpress/Maps-Builder-Pro/issues/209
+* Enhancement: Support basic HTML like images and YouTube embeds in InfoBubbles - https://github.com/impress-org/google-maps-builder/issues/218
+* Enhancement: Greatly improved InfoBubble CSS and sizing - https://github.com/impress-org/google-maps-builder/issues/214
+* Fix: Show thumbnail properly in backend InfoBubbles - https://github.com/impress-org/google-maps-builder/issues/213
+* Fix: Google Places API error outputs badly - https://github.com/impress-org/google-maps-builder/issues/176
+* Fix: Properly support new requirements for Google Places API - https://github.com/impress-org/google-maps-builder/issues/174
+* Fix: Save Button doesn't appear when editing a Marker that was already edited once - https://github.com/impress-org/google-maps-builder/issues/210
+* Fix: "Save Changes" tool tip stays on screen after saving changes - https://github.com/impress-org/google-maps-builder/issues/205
+* Fix: Map Type Control doesn't affect map properly - https://github.com/impress-org/google-maps-builder/issues/162
+* Tweak: Settings screen CSS made tabs shift in bad ways - https://github.com/impress-org/google-maps-builder/issues/171
+* Tweak: Google Marker images were moved. Update routine for new location added. - https://github.com/impress-org/google-maps-builder/issues/175
+* Tweak: Removed sensor parameter to prevent console warning https://github.com/impress-org/maps-builder-pro/issues/19
+* Tweak: Changed default geocoding option and settings now that Google requires SSL to enable - https://github.com/impress-org/google-maps-builder/issues/164
+* Tweak: Updated Google logo to the newest version - https://github.com/impress-org/maps-builder-pro/issues/209
 * Fix: Better way to include CMB2 so there is less chance of conflicts
 
 = 2.0.2 =
-* Fix: Improved Google Maps API Conditional Script Loading - https://github.com/WordImpress/google-maps-builder/issues/118
-* Fix: Updated Google logo to the latest version - https://github.com/WordImpress/google-maps-builder/issues/126
-* Fix: Settings Tabs are janked - https://github.com/WordImpress/google-maps-builder/issues/120
-* Fix: Admin Grid Styles Mess up Widgets Customizer Screen - https://github.com/WordImpress/google-maps-builder/issues/119
+* Fix: Improved Google Maps API Conditional Script Loading - https://github.com/impress-org/google-maps-builder/issues/118
+* Fix: Updated Google logo to the latest version - https://github.com/impress-org/google-maps-builder/issues/126
+* Fix: Settings Tabs are janked - https://github.com/impress-org/google-maps-builder/issues/120
+* Fix: Admin Grid Styles Mess up Widgets Customizer Screen - https://github.com/impress-org/google-maps-builder/issues/119
 
 = 2.0.1 =
 * Fix: capitalization differences between images and html references fixed for default marker images
@@ -181,18 +177,18 @@ Maps Builder 2.0 is a significant upgrade. After you update, you'll see a notice
 = 2.0 =
 * General: This update focused on fixing a lot of pre-existing bugs commonly submitted to WordPress.org as well as improving the plugin base for future code enhancements.
 * New: Enhanced Full Screen Maps Builder mode that allows you to build maps in a customizer-like experience.
-* New: Widget for inserting maps into your theme's sidebars #39 @see: https://github.com/WordImpress/google-maps-builder/issues/39
-* New: Shortcode builder integrated into TinyMCE to make adding maps to your posts a breeze. @see: https://github.com/WordImpress/google-maps-builder/issues/24
-* New: Upgrade process for maps using Google's old reference ID in place for the new Place_ID @see: https://github.com/WordImpress/google-maps-builder/issues/18
+* New: Widget for inserting maps into your theme's sidebars #39 @see: https://github.com/impress-org/google-maps-builder/issues/39
+* New: Shortcode builder integrated into TinyMCE to make adding maps to your posts a breeze. @see: https://github.com/impress-org/google-maps-builder/issues/24
+* New: Upgrade process for maps using Google's old reference ID in place for the new Place_ID @see: https://github.com/impress-org/google-maps-builder/issues/18
 * New: Switch and Test all Google Places API calls to "Reference ID" or "ID" to Google's new "Places ID"
 * New: Gulp implemented for minifying scripts
 * New: Uber cool new logo design and mascot: "Marko the Map Builder"
-* New: Control the map height with a new control to select percentage or pixel height values @see: https://github.com/WordImpress/google-maps-builder/issues/13
-* New: You can now choose whether or not you want to see the place info within your infowindows @see: https://github.com/WordImpress/google-maps-builder/issues/62
+* New: Control the map height with a new control to select percentage or pixel height values @see: https://github.com/impress-org/google-maps-builder/issues/13
+* New: You can now choose whether or not you want to see the place info within your infowindows @see: https://github.com/impress-org/google-maps-builder/issues/62
 * Improvement: Upgraded CMB1 to CMB2
 * Improvement: Class improvements and modernized structure organization
 * Improvement: Plugin structure significantly changed to better reflect our development preference. The current structure is similar to Give, EDD, and other reputable plugins.
-* Improvement: Swapped out Thickbox for Magnific popup @see: https://github.com/WordImpress/google-maps-builder/issues/11
+* Improvement: Swapped out Thickbox for Magnific popup @see: https://github.com/impress-org/google-maps-builder/issues/11
 * Improvement: Register scripts and styles properly prior to enqueuing them for other plugins and themes
 * Improvement: Marker Creation Improvements - 1) Sometimes markers disappear in the post edit screen. 2) Sometimes markers don't get output on the front end correctly. 3)Sometimes markers don't get generated in the post edit screen at all.
 * Fix: Investigated + resolved several Google Maps API conflicts - Often when a user has a theme or plugin that registers Google Maps it breaks our plugin or ours breaks theirs. We now check for other Google Map enqueues, and if present the plugin attempts to dequeue them in favor for ours. So far this has fixed issues with Uber Menu 3, Contact Forms 7, as well as many additional plugins.
@@ -202,7 +198,7 @@ Maps Builder 2.0 is a significant upgrade. After you update, you'll see a notice
 * Fix: Maps icons fixed to no longer show first character incorrectly @see: https://github.com/scottdejonge/Map-Icons/issues/26
 * General: The plugin's official name has dropped the word "Google" for brand compliance. It's now called "Maps Builder"
 * General: Removed "Places API Key" field because Google Maps API doesn't require it to query the library
-* General: Added "Google Maps API Key" field to track API usage within Google's Developer Console @see: https://github.com/WordImpress/google-maps-builder/issues/48
+* General: Added "Google Maps API Key" field to track API usage within Google's Developer Console @see: https://github.com/impress-org/google-maps-builder/issues/48
 * General: Javascript cleanup and optimization
 
 = 1.0.3 =
@@ -213,7 +209,7 @@ Maps Builder 2.0 is a significant upgrade. After you update, you'll see a notice
 * Removed snazzy.php file since we are using the json file exclusively now
 
 = 1.0.2 =
-* Remove Maps Shortcode field from non-Google Maps post types. ie Posts and Pages (thanks [@kalenjohnson](https://github.com/WordImpress/google-maps-builder/pull/1) )
+* Remove Maps Shortcode field from non-Google Maps post types. ie Posts and Pages (thanks [@kalenjohnson](https://github.com/impress-org/google-maps-builder/pull/1) )
 * Fix: Default Menu position conflict with other plugins like WooCommerce and Contact Forms 7
 * Readme.txt - New FAQs, Roadmap content and several formatting and typo fixes
 * Fixed: Bug with Map shortcode field displaying on all single post types Publish metabox rather than just on the maps post type

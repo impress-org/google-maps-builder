@@ -6,8 +6,8 @@
  * Plugin URI:        http://mapsbuilder.wordimpress.com/
  * Description:       Create stylish and powerful Google Maps quickly and easily.
  * Version:           2.1.2
- * Author:            WordImpress
- * Author URI:        https://wordimpress.com/
+ * Author:            Impress.org
+ * Author URI:        https://impress.org/
  * Text Domain:       google-maps-builder
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
